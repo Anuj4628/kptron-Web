@@ -305,14 +305,14 @@
   margin-bottom: 14px;
 }
 
-.eyebrow-accent-line {
-  width: 32px;
+.contact-intro .eyebrow-red-bar {
+  width: 28px;
   height: 3px;
   background: var(--color-navy, #1F3862);
   border-radius: 2px;
 }
 
-.eyebrow-text {
+.contact-intro .eyebrow-text {
   font-family: var(--font-mono, 'Space Grotesk', monospace);
   font-size: 0.82rem;
   font-weight: 700;

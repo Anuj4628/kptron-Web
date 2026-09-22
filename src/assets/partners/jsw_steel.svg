@@ -1,8 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
-  <g transform="translate(10, 10)">
-    <path d="M 15 25 L 45 75 L 75 25" stroke="#E31837" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M 35 25 L 65 75" stroke="#003B73" stroke-width="14" fill="none" stroke-linecap="round"/>
-    <text x="105" y="52" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="34" fill="#003B73" letter-spacing="1">JSW STEEL</text>
-    <text x="105" y="76" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="14" fill="#E31837" letter-spacing="2">INFRASTRUCTURE STEEL</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 75" width="240" height="75">
+  <g transform="translate(6, 10)">
+    <!-- JSW dynamic red ribbon -->
+    <path d="M 0 0 L 20 54 L 40 54 L 20 0 Z" fill="#D62828"/>
+    <!-- JSW dynamic navy ribbon -->
+    <path d="M 32 0 L 52 54 L 72 54 L 90 12 L 72 12 L 59 40 L 45 0 Z" fill="#0B3C6D"/>
+    <!-- JSW clean corporate wordmark -->
+    <text x="100" y="44" font-family="'Montserrat', 'Arial Black', -apple-system, sans-serif" font-weight="900" font-size="44" fill="#0B3C6D" letter-spacing="1.5">JSW</text>
   </g>
 </svg>

@@ -140,7 +140,7 @@
   width: max-content;
   padding: 6px 16px;
   will-change: transform;
-  animation: marqueeSingleBanner 50s linear infinite;
+  animation: marqueeSingleBanner 95s linear infinite;
 }
 
 /* Interactive Pause on Hover */
@@ -380,7 +380,7 @@
 
   .materials-banner-track {
     gap: 14px;
-    animation-duration: 40s;
+    animation-duration: 75s;
   }
 
   .material-banner-card {

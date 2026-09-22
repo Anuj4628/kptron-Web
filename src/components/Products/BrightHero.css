@@ -34,14 +34,14 @@
   margin-bottom: 0.85rem;
 }
 
-.eyebrow-red-bar {
+.bright-hero-eyebrow .eyebrow-red-bar {
   width: 24px;
   height: 3px;
   background-color: var(--color-navy, #1F3862);
   border-radius: 2px;
 }
 
-.eyebrow-text {
+.bright-hero-eyebrow .eyebrow-text {
   font-family: var(--font-heading, 'Montserrat', sans-serif);
   font-size: 0.775rem;
   font-weight: 800;

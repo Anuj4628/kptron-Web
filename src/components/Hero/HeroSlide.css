@@ -96,7 +96,7 @@
   overflow: hidden;
 }
 
-/* Subtle KPTRON Deep Navy top accent line on frame */
+/* Subtle top accent line on frame */
 .hero-glass-card::before {
   content: '';
   position: absolute;
@@ -104,11 +104,11 @@
   left: 0;
   width: 60px;
   height: 3.5px;
-  background: var(--color-kptron-navy, #1F3862);
-  box-shadow: 0 0 12px rgba(92, 147, 232, 0.6);
+  background: #FFFFFF;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
 }
 
-/* Eyebrow - Industrial Brand Label */
+/* Eyebrow - Industrial Brand Label - Pure White */
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -116,22 +116,22 @@
   margin-bottom: 14px;
 }
 
-.eyebrow-accent-bar {
+.hero-eyebrow .eyebrow-accent-bar {
   display: block;
   width: 26px;
   height: 2.5px;
-  background-color: #5C93E8;
-  box-shadow: 0 0 8px rgba(92, 147, 232, 0.6);
+  background-color: #FFFFFF !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
 }
 
-.eyebrow-text {
+.hero-eyebrow .eyebrow-text {
   font-family: var(--font-family-base);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #F8FAFC;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
 }
 
 /* Headline with Overflow Mask & Bold Industrial Display Typography */

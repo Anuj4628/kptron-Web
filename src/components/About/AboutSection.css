@@ -113,7 +113,8 @@
 .about-hero-eyebrow-bar {
   width: 14px;
   height: 2px;
-  background: var(--color-electric-blue, #64A2FF);
+  background: #FFFFFF;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   border-radius: 1px;
 }
 
@@ -122,7 +123,7 @@
   font-size: 0.74rem;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: #F8FAFC;
+  color: #FFFFFF !important;
   text-transform: uppercase;
 }
 
@@ -130,13 +131,13 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .about-hero-eyebrow-spec {
   font-family: var(--font-mono, monospace);
   font-size: 0.68rem;
-  color: var(--color-electric-blue, #64A2FF);
+  color: #FFFFFF !important;
   letter-spacing: 0.08em;
 }
 
