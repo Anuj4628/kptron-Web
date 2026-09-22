@@ -288,13 +288,14 @@
 }
 
 /* ===================================================
-   COUNTRY CARDS GRID — VERTICAL CENTERED
-   Flag on top + Country Name below — WHITE CARDS
+   COUNTRY CARDS GRID — HORIZONTAL BADGE TILES
+   Clean, simple layout: Flag on Left + Country Name on Right
+   Same white & navy color combination
    =================================================== */
 .export-countries-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
   max-width: 1240px;
   margin: 0 auto;
   min-height: 120px;
@@ -302,33 +303,34 @@
   z-index: 2;
 }
 
-/* Individual Country Card — White */
+/* Individual Country Card — Sleek Horizontal Tile */
 .export-country-card {
   position: relative;
   background: #FFFFFF;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 12px;
-  padding: 16px 10px 14px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 10px;
+  padding: 10px 16px 10px 12px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 10px;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 12px;
   cursor: pointer;
   user-select: none;
   box-sizing: border-box;
-  box-shadow: 0 2px 8px -1px rgba(15, 23, 42, 0.04), 0 1px 4px -1px rgba(15, 23, 42, 0.02);
-  transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 2px 6px -2px rgba(15, 23, 42, 0.02);
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
 }
 
 .export-country-card:hover {
-  border-color: rgba(31, 56, 98, 0.35);
-  transform: translateY(-3px);
+  border-color: var(--color-navy, #1F3862);
+  transform: translateY(-2px);
+  background: #FFFFFF;
   box-shadow:
-    0 8px 24px -4px rgba(15, 23, 42, 0.08),
-    0 3px 8px rgba(31, 56, 98, 0.06);
+    0 6px 20px -2px rgba(31, 56, 98, 0.09),
+    0 2px 6px -1px rgba(15, 23, 42, 0.04);
 }
 
 .export-country-card:focus-visible {
@@ -338,18 +340,18 @@
 
 /* Circular Flag Container */
 .country-flag-box {
-  width: 42px;
-  height: 42px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   background: #F8FAFC;
   flex-shrink: 0;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .country-flag-img {
@@ -361,28 +363,30 @@
 }
 
 .country-flag-fallback {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1;
 }
 
 .export-country-card:hover .country-flag-box {
-  transform: scale(1.1);
+  transform: scale(1.12);
 }
 
 /* Country Name Text */
 .country-name-text {
-  font-family: var(--font-family-base);
-  font-size: 0.76rem;
+  font-family: var(--font-family-base, 'Sora', sans-serif);
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #0F172A;
   margin: 0;
-  line-height: 1.22;
-  transition: color 0.25s ease;
-  text-align: center;
-  max-width: 100%;
-  word-break: break-word;
+  line-height: 1.25;
+  transition: color 0.2s ease;
+  text-align: left;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .export-country-card:hover .country-name-text {
@@ -418,7 +422,7 @@
 }
 
 .reset-filters-btn:hover {
-  background: #B91C1C;
+  background: var(--color-navy-light, #2A4C84);
 }
 
 /* ===================================================
@@ -426,12 +430,12 @@
    =================================================== */
 @media (max-width: 1200px) {
   .export-countries-grid {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 9px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
   }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 991px) {
   .global-export-section {
     padding: 65px 0 55px;
   }
@@ -447,22 +451,21 @@
   }
 
   .export-countries-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
 
   .export-country-card {
-    padding: 14px 8px 12px;
-    border-radius: 10px;
+    padding: 9px 14px 9px 10px;
   }
 
   .country-flag-box {
-    width: 36px;
-    height: 36px;
+    width: 26px;
+    height: 26px;
   }
 
   .country-name-text {
-    font-size: 0.72rem;
+    font-size: 0.78rem;
   }
 }
 
@@ -489,17 +492,23 @@
     text-align: left;
     line-height: 1.3;
   }
+
+  .export-countries-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
 }
 
 @media (max-width: 620px) {
   .export-countries-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
 
   .export-country-card {
-    border-radius: 10px;
-    padding: 12px 8px 10px;
+    border-radius: 8px;
+    padding: 8px 12px 8px 10px;
+    gap: 10px;
   }
 
   .export-region-tabs {
@@ -533,11 +542,20 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 7px;
   }
+
+  .country-flag-box {
+    width: 24px;
+    height: 24px;
+  }
+
+  .country-name-text {
+    font-size: 0.72rem;
+  }
 }
 
 @media (max-width: 380px) {
   .export-countries-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 6px;
   }
 }
