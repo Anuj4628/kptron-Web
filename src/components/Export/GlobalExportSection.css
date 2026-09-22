@@ -1,0 +1,543 @@
+/* ===================================================
+   GLOBAL EXPORT SECTION — LIGHT THEME
+   White cards on light background
+   =================================================== */
+
+.global-export-section {
+  position: relative;
+  padding: 80px 0 70px;
+  background: linear-gradient(180deg, #FAFAFA 0%, #F1F5F9 50%, #FAFAFA 100%);
+  overflow: hidden;
+  color: #0F172A;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+/* Subtle dot pattern */
+.export-bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+}
+
+/* Ambient glow */
+.export-bg-glow {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(31, 56, 98, 0.06) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* ===================================================
+   SECTION HEADER & COMPACT METRIC PILL
+   =================================================== */
+.export-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.export-header .section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.export-header .eyebrow-accent-bar {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-navy, #1F3862);
+  box-shadow: 0 0 10px rgba(31, 56, 98, 0.4);
+}
+
+.export-header .eyebrow-text {
+  font-family: var(--font-family-base);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #64748B;
+}
+
+.export-header .section-display-heading {
+  font-family: var(--font-family-base);
+  font-size: clamp(1.8rem, 4.4vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #0F172A;
+  margin: 0 0 16px 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.export-header .text-highlight-blue {
+  color: var(--color-navy, #1F3862);
+  display: inline-block;
+}
+
+.export-header .section-description {
+  font-family: var(--font-family-base);
+  font-size: clamp(0.92rem, 1.15vw, 1.12rem);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: #475569;
+  max-width: 720px;
+  margin: 0 0 20px 0;
+  box-sizing: border-box;
+}
+
+/* Compact Supporting Metric Badge */
+.export-metric-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #0B1628;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 18px;
+  border-radius: 24px;
+  box-shadow: 0 3px 12px rgba(11, 22, 40, 0.18);
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.metric-pill-accent {
+  font-family: var(--font-family-base);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: var(--color-navy, #1F3862);
+  padding: 2px 7px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.metric-pill-label {
+  font-family: var(--font-family-base);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  letter-spacing: 0.02em;
+}
+
+
+/* ===================================================
+   INTERACTIVE REGION FILTERING & SEARCH CONTROLS
+   =================================================== */
+.export-controls-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
+  position: relative;
+  z-index: 2;
+}
+
+.export-region-tabs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.region-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-family: var(--font-family-base);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.region-tab-btn:hover {
+  background: #F1F5F9;
+  border-color: rgba(31, 56, 98, 0.2);
+  color: #0F172A;
+  transform: translateY(-1px);
+}
+
+.region-tab-btn.is-active {
+  background: var(--color-navy, #1F3862);
+  border-color: var(--color-navy, #1F3862);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(31, 56, 98, 0.28);
+}
+
+/* Live Search Bar */
+.export-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 250px;
+}
+
+.export-search-wrapper .search-icon {
+  position: absolute;
+  left: 12px;
+  color: #94A3B8;
+  pointer-events: none;
+}
+
+.country-search-input {
+  width: 100%;
+  padding: 9px 34px 9px 36px;
+  font-family: var(--font-family-base);
+  font-size: 0.86rem;
+  color: #0F172A;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.country-search-input::placeholder {
+  color: #94A3B8;
+}
+
+.country-search-input:focus {
+  background: #FFFFFF;
+  border-color: var(--color-navy, #1F3862);
+  box-shadow: 0 0 0 3px rgba(31, 56, 98, 0.1);
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.2s ease;
+}
+
+.search-clear-btn:hover {
+  color: #0F172A;
+}
+
+/* Status Count Bar */
+.export-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  font-family: var(--font-family-base);
+  font-size: 0.76rem;
+  color: #64748B;
+  padding: 0 4px;
+  position: relative;
+  z-index: 2;
+}
+
+.status-counter-wrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.status-globe-icon {
+  color: var(--color-navy, #1F3862);
+}
+
+.status-counter-text strong {
+  color: #0F172A;
+}
+
+.status-filter-tag {
+  color: var(--color-navy, #1F3862);
+  font-weight: 700;
+}
+
+/* ===================================================
+   COUNTRY CARDS GRID — VERTICAL CENTERED
+   Flag on top + Country Name below — WHITE CARDS
+   =================================================== */
+.export-countries-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  max-width: 1240px;
+  margin: 0 auto;
+  min-height: 120px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Individual Country Card — White */
+.export-country-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 12px;
+  padding: 16px 10px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px -1px rgba(15, 23, 42, 0.04), 0 1px 4px -1px rgba(15, 23, 42, 0.02);
+  transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.export-country-card:hover {
+  border-color: rgba(31, 56, 98, 0.35);
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 24px -4px rgba(15, 23, 42, 0.08),
+    0 3px 8px rgba(31, 56, 98, 0.06);
+}
+
+.export-country-card:focus-visible {
+  outline: 2px solid var(--color-navy, #1F3862);
+  outline-offset: 2px;
+}
+
+/* Circular Flag Container */
+.country-flag-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F8FAFC;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.country-flag-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.country-flag-fallback {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.export-country-card:hover .country-flag-box {
+  transform: scale(1.1);
+}
+
+/* Country Name Text */
+.country-name-text {
+  font-family: var(--font-family-base);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #0F172A;
+  margin: 0;
+  line-height: 1.22;
+  transition: color 0.25s ease;
+  text-align: center;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.export-country-card:hover .country-name-text {
+  color: var(--color-navy, #1F3862);
+}
+
+/* Empty Search State */
+.no-countries-state {
+  width: 100%;
+  grid-column: 1 / -1;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px 20px;
+  background: #FFFFFF;
+  border: 1px dashed #CBD5E1;
+  border-radius: 16px;
+  color: #64748B;
+  font-family: var(--font-family-base);
+}
+
+.reset-filters-btn {
+  margin-top: 12px;
+  background: var(--color-navy, #1F3862);
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.reset-filters-btn:hover {
+  background: #B91C1C;
+}
+
+/* ===================================================
+   RESPONSIVE BREAKPOINTS
+   =================================================== */
+@media (max-width: 1200px) {
+  .export-countries-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 9px;
+  }
+}
+
+@media (max-width: 920px) {
+  .global-export-section {
+    padding: 65px 0 55px;
+  }
+
+  .export-controls-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .export-search-wrapper {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .export-countries-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .export-country-card {
+    padding: 14px 8px 12px;
+    border-radius: 10px;
+  }
+
+  .country-flag-box {
+    width: 36px;
+    height: 36px;
+  }
+
+  .country-name-text {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .export-header .section-display-heading {
+    font-size: clamp(1.42rem, 5.8vw, 2.1rem);
+    line-height: 1.22;
+  }
+
+  .export-header .section-description {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .export-metric-pill-badge {
+    padding: 6px 12px;
+    max-width: 100%;
+  }
+
+  .metric-pill-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 620px) {
+  .export-countries-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .export-country-card {
+    border-radius: 10px;
+    padding: 12px 8px 10px;
+  }
+
+  .export-region-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .region-tab-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .export-header .section-display-heading {
+    font-size: clamp(1.25rem, 6.8vw, 1.7rem);
+    line-height: 1.25;
+  }
+
+  .export-metric-pill-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 14px;
+  }
+
+  .export-countries-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+  }
+}
+
+@media (max-width: 380px) {
+  .export-countries-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+}

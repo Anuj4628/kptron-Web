@@ -1,0 +1,315 @@
+/* ===================================================
+   HERO TELEMETRY PROGRESS & CONTROLS DOCK
+   High-Precision Modern Industrial Style
+   =================================================== */
+
+.hero-bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  padding: 0 40px 44px;
+  background: linear-gradient(
+    0deg,
+    rgba(8, 12, 18, 0.68) 0%,
+    rgba(8, 12, 18, 0.25) 55%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.hero-bottom-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  pointer-events: auto;
+}
+
+/* Telemetry Dock Container */
+.hero-telemetry-dock {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(11, 16, 24, 0.65);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-left: 3px solid var(--color-electric-blue, #64A2FF);
+  padding: 8px 18px 8px 14px;
+  border-radius: 4px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-telemetry-dock:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.45);
+}
+
+/* Industrial Counter Badge */
+.telemetry-counter-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.telemetry-status-pip {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-electric-blue, #64A2FF);
+  box-shadow: 0 0 10px rgba(100, 162, 255, 0.9);
+  animation: telemetryPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes telemetryPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+    box-shadow: 0 0 14px rgba(100, 162, 255, 1);
+  }
+}
+
+.telemetry-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+.telemetry-counter-numbers {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  font-family: var(--font-mono);
+  user-select: none;
+}
+
+.telemetry-current {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.telemetry-slash {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0 1px;
+}
+
+.telemetry-total {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Precision Segmented Indicators Track */
+.telemetry-progress-track {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.telemetry-segment-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 4px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s ease;
+}
+
+.segment-track-housing {
+  position: relative;
+  width: 52px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: height 0.2s ease, background-color 0.25s ease;
+}
+
+.segment-track-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #3B82F6, var(--color-electric-blue, #64A2FF));
+  border-radius: 2px;
+  transition: width 0.06s linear;
+}
+
+.segment-laser-head {
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 4px;
+  height: 8px;
+  background: #FFFFFF;
+  border-radius: 1px;
+  box-shadow: 0 0 10px #FFFFFF, 0 0 18px var(--color-electric-blue, #64A2FF);
+}
+
+.segment-step-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.42);
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover & Active States */
+.telemetry-segment-btn:hover .segment-track-housing {
+  background: rgba(255, 255, 255, 0.3);
+  height: 5px;
+}
+
+.telemetry-segment-btn:hover .segment-step-tag {
+  color: #FFFFFF;
+}
+
+.telemetry-segment-btn.is-active .segment-track-housing {
+  background: rgba(255, 255, 255, 0.22);
+  height: 4px;
+}
+
+.telemetry-segment-btn.is-active .segment-step-tag {
+  color: var(--color-electric-blue, #64A2FF);
+  font-weight: 700;
+}
+
+.telemetry-segment-btn.is-passed .segment-track-fill {
+  background: rgba(100, 162, 255, 0.55);
+}
+
+/* Nav Controls (Arrows) */
+.hero-nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: 76px; /* Clearance from floating action buttons */
+}
+
+.hero-nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-arrow-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 4px;
+  background: rgba(11, 16, 24, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-arrow-btn:hover {
+  background: var(--color-electric-blue, #64A2FF);
+  border-color: #64A2FF;
+  color: #0A0E17;
+  box-shadow: 0 8px 24px rgba(100, 162, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+.hero-arrow-btn:active {
+  transform: translateY(0);
+}
+
+/* ===================================================
+   RESPONSIVE DOCK CONTROLS
+   =================================================== */
+
+@media (max-width: 1024px) {
+  .hero-bottom-bar {
+    padding: 0 24px 24px;
+  }
+
+  .hero-bottom-container {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: nowrap;
+  }
+
+  .hero-nav-controls {
+    margin-right: 0;
+  }
+
+  .telemetry-progress-track {
+    display: none;
+  }
+
+  .hero-telemetry-dock {
+    padding: 8px 14px;
+    border-right: none;
+  }
+
+  .telemetry-counter-badge {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .hero-arrow-btn {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 540px) {
+  .hero-bottom-bar {
+    padding: 0 16px 18px;
+  }
+
+  .hero-bottom-container {
+    gap: 10px;
+  }
+
+  .hero-telemetry-dock {
+    padding: 6px 12px;
+  }
+
+  .telemetry-label {
+    display: none;
+  }
+
+  .telemetry-current {
+    font-size: 1.12rem;
+  }
+
+  .hero-arrow-btn {
+    width: 36px;
+    height: 36px;
+  }
+}

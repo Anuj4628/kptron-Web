@@ -1,0 +1,271 @@
+/* ===================================================
+   CLIENT NETWORK — LIGHT THEME LOGO-ONLY MARQUEE
+   Large, clearly visible logos sliding
+   =================================================== */
+
+.client-network-section {
+  position: relative;
+  padding: 70px 0 60px;
+  background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 50%, #F8FAFC 100%);
+  color: #0F172A;
+  overflow: hidden;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+/* Soft ambient orb */
+.cn-ambient-orb {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(31, 56, 98, 0.06) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* Subtle dot grid background */
+.client-network-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+/* Section Heading */
+.client-network-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.client-network-header .section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.client-network-header .eyebrow-accent-bar {
+  width: 26px;
+  height: 2px;
+  background-color: var(--color-navy, #1F3862);
+  box-shadow: 0 0 10px rgba(31, 56, 98, 0.4);
+}
+
+.client-network-header .eyebrow-text {
+  font-family: var(--font-family-base);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #64748B;
+}
+
+.client-network-header .section-display-heading {
+  font-family: var(--font-family-base);
+  font-size: clamp(1.8rem, 4.6vw, 3.7rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #0F172A;
+  margin: 0 0 14px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.client-network-header .text-highlight-red {
+  color: var(--color-navy, #1F3862);
+  display: inline-block;
+}
+
+.cn-supporting-text {
+  font-family: var(--font-family-base);
+  font-size: clamp(0.92rem, 1.1vw, 1.06rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: #475569;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ===================================================
+   DUAL CONTINUOUS INFINITE MARQUEES
+   =================================================== */
+.client-marquees-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  padding: 4px 0;
+}
+
+.client-marquee-row {
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.client-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Row 1: Right to Left */
+.marquee-reverse .client-marquee-track {
+  animation: clientMarqueeLeft 44s linear infinite;
+}
+
+/* Row 2: Left to Right */
+.marquee-forward .client-marquee-track {
+  animation: clientMarqueeRight 46s linear infinite;
+}
+
+/* Pause on Hover */
+.client-marquee-row:hover .client-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes clientMarqueeLeft {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes clientMarqueeRight {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-reverse .client-marquee-track,
+  .marquee-forward .client-marquee-track {
+    animation-duration: 160s;
+  }
+}
+
+/* ===================================================
+   LOGO-ONLY TILE — Large, clearly visible
+   =================================================== */
+.cn-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 90px;
+  padding: 14px 20px;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 12px;
+  flex-shrink: 0;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+}
+
+.cn-tile:hover {
+  border-color: rgba(31, 56, 98, 0.3);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.1), 0 2px 8px rgba(31, 56, 98, 0.08);
+}
+
+.cn-tile:focus-visible {
+  outline: 2px solid var(--color-navy, #1F3862);
+  outline-offset: 2px;
+}
+
+/* Logo wrapper fills the tile */
+.cn-tile-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.cn-tile-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: none;
+  transition: transform 0.3s ease;
+}
+
+.cn-tile:hover .cn-tile-logo-img {
+  transform: scale(1.06);
+}
+
+/* ===================================================
+   RESPONSIVE
+   =================================================== */
+@media (max-width: 768px) {
+  .client-network-section {
+    padding: 55px 0 48px;
+  }
+
+  .client-network-header {
+    margin-bottom: 28px;
+    padding: 0 16px;
+  }
+
+  .client-network-header .section-display-heading {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+
+  .client-marquees-wrapper {
+    gap: 16px;
+  }
+
+  .client-marquee-track {
+    gap: 20px;
+  }
+
+  .cn-tile {
+    width: 130px;
+    height: 74px;
+    padding: 10px 16px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-network-section {
+    padding: 45px 0 38px;
+  }
+
+  .client-network-header .section-display-heading {
+    font-size: clamp(1.25rem, 6.8vw, 1.65rem);
+  }
+
+  .client-marquee-track {
+    gap: 14px;
+  }
+
+  .cn-tile {
+    width: 110px;
+    height: 64px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+}

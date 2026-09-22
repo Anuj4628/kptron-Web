@@ -1,0 +1,531 @@
+/* ===================================================
+   PRODUCTS SECTION - PREMIUM ENGINEERING INVENTORY
+   =================================================== */
+
+.products-section {
+  position: relative;
+  padding: 75px 0 65px;
+  background-color: var(--color-surface-white);
+  overflow: hidden;
+}
+
+.section-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.products-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 38px;
+}
+
+/* Global Section Eyebrow */
+.products-header .section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.products-header .eyebrow-accent-bar {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-navy, #1F3862);
+  box-shadow: 0 0 10px rgba(31, 56, 98, 0.5);
+}
+
+.products-header .eyebrow-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #64748B);
+}
+
+/* Major Display Heading */
+.products-header .section-display-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.4vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--color-text-primary, #0F172A);
+  margin-bottom: 18px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+
+.products-header .text-highlight-red {
+  color: var(--color-navy, #1F3862);
+  display: inline-block;
+}
+
+.products-header .section-description {
+  font-family: var(--font-primary, sans-serif);
+  font-size: clamp(1rem, 1.15vw, 1.12rem);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: var(--color-text-secondary, #475569);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Refined Category Filter Bar */
+.product-category-tabs {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--color-steel-100, #F1F5F9);
+  padding: 6px;
+  border-radius: 9999px;
+  border: 1px solid var(--border-light, rgba(226, 232, 240, 0.9));
+  margin-top: 38px;
+  flex-wrap: wrap;
+  box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.category-tab-btn {
+  position: relative;
+  padding: 10px 22px;
+  font-family: var(--font-primary, sans-serif);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text-secondary, #475569);
+  border-radius: 9999px;
+  background: transparent;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border: none;
+}
+
+.category-tab-btn:hover {
+  color: var(--color-text-primary, #0F172A);
+}
+
+.category-tab-btn.is-active {
+  background: #FFFFFF;
+  color: var(--color-electric-blue, #64A2FF);
+  box-shadow: 0 4px 14px rgba(100, 162, 255, 0.2);
+  font-weight: 700;
+}
+
+/* Products Grid - Clean 3-Column Engineering Layout with Contained Width */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1120px;
+  margin: 0 auto 44px;
+}
+
+/* ===================================================
+   PRODUCT CARD DESIGN (VERTICAL ENGINEERING CATALOGUE)
+   Width-to-Height Ratio: ~0.83-0.85
+   =================================================== */
+
+.product-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(100, 162, 255, 0.65);
+  box-shadow: 
+    0 20px 42px -8px rgba(15, 23, 42, 0.13),
+    0 4px 16px rgba(100, 162, 255, 0.15);
+}
+
+/* 1. Upper Visual Image Container (58–60% of card height) */
+.product-card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  min-height: 250px;
+  max-height: 250px;
+  overflow: hidden;
+  background: #0B1320;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.product-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.35s ease;
+  filter: brightness(0.97) contrast(1.03);
+}
+
+.product-card:hover .product-card-img {
+  transform: scale(1.05);
+  filter: brightness(1.02) contrast(1.06);
+}
+
+.product-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 19, 32, 0.38) 0%,
+    rgba(11, 19, 32, 0.02) 42%,
+    rgba(11, 19, 32, 0.45) 100%
+  );
+  pointer-events: none;
+}
+
+/* Floating Technical Spec Badge (Top-Left) */
+.product-spec-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(11, 19, 34, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px 9px;
+  border-radius: 4px;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.badge-pulse-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-electric-blue, #64A2FF);
+  box-shadow: 0 0 8px rgba(100, 162, 255, 0.85);
+}
+
+.badge-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #F8FAFC;
+}
+
+/* Division Chip (Top-Right) */
+.product-division-chip {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  background: rgba(15, 23, 42, 0.68);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.division-chip-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(241, 245, 249, 0.9);
+}
+
+/* Hairline Seam at Bottom of Image */
+.product-image-seam {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0%, rgba(100, 162, 255, 0.4) 50%, rgba(255, 255, 255, 0.12) 100%);
+  z-index: 2;
+}
+
+/* 2. Structured Lower Engineering Panel */
+.product-card-body {
+  padding: 20px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  background: #FFFFFF;
+}
+
+.product-title-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.product-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-text-primary, #0F172A);
+  margin: 0 0 8px;
+  line-height: 1.28;
+  min-height: 29px;
+  transition: color 0.25s ease;
+}
+
+.product-card:hover .product-name {
+  color: var(--color-electric-blue, #64A2FF);
+}
+
+.product-name-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-spec-sub {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #64748B);
+  margin: 0;
+  line-height: 1.45;
+  min-height: 32px;
+}
+
+/* Bottom Action Bar */
+.product-card-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid #F1F5F9;
+  padding-top: 14px;
+  margin-top: auto;
+}
+
+.product-action-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-navy, #1F3862);
+  transition: color 0.25s ease;
+}
+
+.product-card:hover .product-action-label {
+  color: var(--color-electric-blue, #64A2FF);
+}
+
+.product-explore-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  color: var(--color-navy, #1F3862);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.explore-icon {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover .product-explore-btn {
+  background: var(--color-electric-blue, #64A2FF);
+  border-color: var(--color-electric-blue, #64A2FF);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(100, 162, 255, 0.4);
+}
+
+.product-card:hover .explore-icon {
+  transform: translate(2px, -2px);
+}
+
+/* Precision Bottom Laser Accent Line */
+.product-card-hover-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2.5px;
+  background: var(--color-electric-blue, #64A2FF);
+  box-shadow: 0 0 10px rgba(100, 162, 255, 0.7);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover .product-card-hover-line {
+  width: 100%;
+}
+
+/* ===================================================
+   BOTTOM CTA CALLOUT BOX
+   =================================================== */
+
+/* ===================================================
+   CENTERED ACTION BUTTON: ALL PRODUCTS
+   =================================================== */
+.products-action-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+}
+
+.all-products-main-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-steel-900, #0F172A);
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 14px 34px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.15);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  cursor: pointer;
+}
+
+/* Electric blue color fill from down (bottom-to-top fill effect) */
+.all-products-main-btn::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-electric-blue, #64A2FF);
+  transform: translateY(100%);
+  transform-origin: bottom center;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.all-products-main-btn:hover::before {
+  transform: translateY(0%);
+}
+
+.all-products-main-btn:hover {
+  transform: translateY(-3px);
+  border-color: #64A2FF;
+  box-shadow: 0 10px 28px rgba(100, 162, 255, 0.45),
+              0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.all-products-main-btn > * {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.all-products-main-btn .btn-arrow {
+  font-size: 1.15rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.all-products-main-btn:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .products-section {
+    padding: 70px 0 60px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 740px;
+    gap: 24px;
+    margin: 0 auto 38px;
+  }
+
+  .product-card-image-wrap {
+    height: 240px;
+    min-height: 240px;
+    max-height: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .products-section {
+    padding: 60px 0 50px;
+  }
+
+  .products-header .section-display-heading {
+    font-size: clamp(1.4rem, 6vw, 2.1rem);
+    line-height: 1.2;
+  }
+
+  .products-header {
+    margin-bottom: 26px;
+  }
+
+  .section-container {
+    padding: 0 clamp(16px, 4vw, 20px);
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    gap: 20px;
+    margin: 0 auto 34px;
+  }
+
+  .product-card-image-wrap {
+    height: 235px;
+    min-height: 235px;
+    max-height: 235px;
+  }
+
+  .product-name {
+    font-size: 1.1rem;
+  }
+}
+
+

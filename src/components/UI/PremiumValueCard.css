@@ -1,0 +1,432 @@
+/* ===================================================
+   PREMIUM VALUE CARD COMPONENT
+   Unified Architecture for "Why Choose Us" & "Value Added Service"
+   Precision Engineering Bento Module System
+   =================================================== */
+
+.premium-value-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 32px 28px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 400px;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+/* Precision Corner Accents */
+.card-corner-accent {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.45;
+  transition: opacity 0.3s ease, border-color 0.3s ease;
+}
+
+.card-corner-accent.top-left {
+  top: 7px;
+  left: 7px;
+  border-top: 1.5px solid currentColor;
+  border-left: 1.5px solid currentColor;
+}
+
+.card-corner-accent.bottom-right {
+  bottom: 7px;
+  right: 7px;
+  border-bottom: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+}
+
+.premium-value-card:hover .card-corner-accent {
+  opacity: 0.95;
+  border-color: var(--color-electric-blue, #64A2FF) !important;
+}
+
+/* Subtle Technical Mesh Ambience */
+.card-blueprint-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(rgba(100, 162, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* ===================================================
+   THEME 1: DARK VALUE MODULE (NAVY / STEEL SURFACE)
+   =================================================== */
+.premium-value-card.card-theme-dark {
+  background: linear-gradient(160deg, #0A1322 0%, #0E1A2E 50%, #132238 100%);
+  border: 1px solid rgba(100, 162, 255, 0.18);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.26);
+  color: #FFFFFF;
+}
+
+.premium-value-card.card-theme-dark:hover {
+  transform: translateY(-6px);
+  border-color: rgba(100, 162, 255, 0.7);
+  box-shadow: 0 20px 45px -6px rgba(0, 0, 0, 0.45),
+              0 0 20px rgba(100, 162, 255, 0.2);
+}
+
+.premium-value-card.card-theme-dark .card-corner-accent {
+  color: rgba(100, 162, 255, 0.4);
+}
+
+.premium-value-card.card-theme-dark .card-identifier-pill {
+  background: rgba(100, 162, 255, 0.08);
+  border: 1px solid rgba(100, 162, 255, 0.22);
+}
+
+.premium-value-card.card-theme-dark .identifier-dot {
+  background-color: var(--color-electric-blue, #64A2FF);
+  box-shadow: 0 0 8px rgba(100, 162, 255, 0.85);
+}
+
+.premium-value-card.card-theme-dark .identifier-text {
+  color: #F8FAFC;
+}
+
+.premium-value-card.card-theme-dark .card-icon-container {
+  background: rgba(100, 162, 255, 0.08);
+  border: 1px solid rgba(100, 162, 255, 0.22);
+  color: var(--color-electric-blue, #64A2FF);
+}
+
+.premium-value-card.card-theme-dark:hover .card-icon-container {
+  background: rgba(100, 162, 255, 0.18);
+  border-color: var(--color-electric-blue, #64A2FF);
+  color: #FFFFFF;
+}
+
+.premium-value-card.card-theme-dark .card-technical-line {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.premium-value-card.card-theme-dark .card-title-heading {
+  color: #FFFFFF;
+}
+
+.premium-value-card.card-theme-dark .card-desc-body {
+  color: #94A3B8;
+}
+
+.premium-value-card.card-theme-dark .card-spec-badge {
+  background: rgba(100, 162, 255, 0.07);
+  border: 1px solid rgba(100, 162, 255, 0.18);
+}
+
+.premium-value-card.card-theme-dark .spec-badge-dot {
+  background-color: var(--color-electric-blue, #64A2FF);
+  box-shadow: 0 0 6px rgba(100, 162, 255, 0.8);
+}
+
+.premium-value-card.card-theme-dark .spec-badge-label {
+  color: #CBD5E1;
+}
+
+.premium-value-card.card-theme-dark .card-bottom-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.premium-value-card.card-theme-dark .card-action-btn {
+  background: rgba(100, 162, 255, 0.1);
+  border: 1px solid rgba(100, 162, 255, 0.25);
+  color: #FFFFFF;
+}
+
+.premium-value-card.card-theme-dark:hover .card-action-btn {
+  background: var(--color-electric-blue, #64A2FF);
+  border-color: var(--color-electric-blue, #64A2FF);
+  color: #0F172A;
+  box-shadow: 0 4px 14px rgba(100, 162, 255, 0.45);
+}
+
+/* ===================================================
+   THEME 2: LIGHT VALUE MODULE (OFF-WHITE / COOL-GRAY)
+   =================================================== */
+.premium-value-card.card-theme-light {
+  background: linear-gradient(160deg, #FFFFFF 0%, #F8FAFC 60%, #F1F5F9 100%);
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  color: #0F172A;
+}
+
+.premium-value-card.card-theme-light:hover {
+  transform: translateY(-6px);
+  border-color: rgba(100, 162, 255, 0.65);
+  box-shadow: 0 20px 42px -6px rgba(15, 23, 42, 0.12),
+              0 0 18px rgba(100, 162, 255, 0.15);
+}
+
+.premium-value-card.card-theme-light .card-corner-accent {
+  color: rgba(31, 56, 98, 0.3);
+}
+
+.premium-value-card.card-theme-light .card-identifier-pill {
+  background: #EBF2FA;
+  border: 1px solid #D0E0F5;
+}
+
+.premium-value-card.card-theme-light .identifier-dot {
+  background-color: var(--color-navy, #1F3862);
+  box-shadow: 0 0 6px rgba(31, 56, 98, 0.4);
+}
+
+.premium-value-card.card-theme-light .identifier-text {
+  color: #0F172A;
+}
+
+.premium-value-card.card-theme-light .card-icon-container {
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  color: var(--color-navy, #1F3862);
+}
+
+.premium-value-card.card-theme-light:hover .card-icon-container {
+  background: rgba(100, 162, 255, 0.14);
+  border-color: var(--color-electric-blue, #64A2FF);
+  color: var(--color-navy, #1F3862);
+}
+
+.premium-value-card.card-theme-light .card-technical-line {
+  background: #E2E8F0;
+}
+
+.premium-value-card.card-theme-light .card-title-heading {
+  color: #0F172A;
+}
+
+.premium-value-card.card-theme-light .card-desc-body {
+  color: #475569;
+}
+
+.premium-value-card.card-theme-light .card-spec-badge {
+  background: #EBF2FA;
+  border: 1px solid #D0E0F5;
+}
+
+.premium-value-card.card-theme-light .spec-badge-dot {
+  background-color: var(--color-navy, #1F3862);
+}
+
+.premium-value-card.card-theme-light .spec-badge-label {
+  color: #1E3A5F;
+}
+
+.premium-value-card.card-theme-light .card-bottom-row {
+  border-top: 1px solid #E2E8F0;
+}
+
+.premium-value-card.card-theme-light .card-action-btn {
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  color: #1F3862;
+}
+
+.premium-value-card.card-theme-light:hover .card-action-btn {
+  background: var(--color-electric-blue, #64A2FF);
+  border-color: var(--color-electric-blue, #64A2FF);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(100, 162, 255, 0.4);
+}
+
+/* ===================================================
+   SHARED INTERNAL CARD ELEMENTS
+   =================================================== */
+
+/* 1. Top Row */
+.card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.card-identifier-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: 4px;
+}
+
+.identifier-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.identifier-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Architectural Icon Container */
+.card-icon-container {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.premium-value-card:hover .card-icon-container {
+  transform: translateY(-2px);
+}
+
+.card-lucide-icon {
+  transition: transform 0.3s ease;
+}
+
+.premium-value-card:hover .card-lucide-icon {
+  transform: scale(1.08);
+}
+
+/* Technical Hairline Divider with Micro Laser Pip */
+.card-technical-line {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  margin: 0 0 16px 0;
+  transition: background-color 0.3s ease;
+}
+
+.line-laser-pip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 1.5px;
+  background: var(--color-electric-blue, #64A2FF);
+  box-shadow: 0 0 6px rgba(100, 162, 255, 0.6);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-value-card:hover .line-laser-pip {
+  width: 48px;
+}
+
+/* 2. Middle Content Area */
+.card-content-area {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-bottom: 22px;
+}
+
+.card-title-heading {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  margin: 0 0 12px 0;
+  min-height: 48px;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.premium-value-card:hover .card-title-heading {
+  color: var(--color-electric-blue, #64A2FF);
+}
+
+.card-desc-body {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 0.90rem;
+  line-height: 1.62;
+  margin: 0;
+  flex: 1;
+}
+
+/* 3. Bottom Row */
+.card-bottom-row {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 18px;
+  min-height: 44px;
+}
+
+.card-spec-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.spec-badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.spec-badge-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Precision Action Arrow Indicator */
+.card-action-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.action-arrow-icon {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-value-card:hover .action-arrow-icon {
+  transform: translateX(3px);
+}
+
+/* Precision Bottom Hover Laser Line */
+.card-hover-laser {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2.5px;
+  background: var(--color-electric-blue, #64A2FF);
+  box-shadow: 0 0 10px rgba(100, 162, 255, 0.7);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-value-card:hover .card-hover-laser {
+  width: 100%;
+}

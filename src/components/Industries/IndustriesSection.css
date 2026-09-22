@@ -1,0 +1,526 @@
+/* ===================================================
+   SERVING GLOBAL MISSIONS & CRITICAL SECTORS
+   Vertical Portrait Showcase Marquee (Precision Industrial)
+   =================================================== */
+
+.industries-section {
+  position: relative;
+  padding: 75px 0 65px;
+  background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 50%, #F8FAFC 100%);
+  overflow: hidden;
+  border-top: 1px solid rgba(226, 232, 240, 0.85);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.industries-bg-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 10%, rgba(31, 56, 98, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.industries-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 38px;
+}
+
+/* Global Section Eyebrow */
+.industries-header .section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.industries-header .eyebrow-accent-bar {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-navy, #1F3862);
+  box-shadow: 0 0 10px rgba(31, 56, 98, 0.5);
+}
+
+.industries-header .eyebrow-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #64748B);
+}
+
+/* Major Visual Headline */
+.industries-header .section-display-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.4vw, 3.7rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--color-text-primary, #0F172A);
+  margin-bottom: 18px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.industries-header .text-highlight-red {
+  color: var(--color-navy, #1F3862);
+  display: inline-block;
+}
+
+.industries-header .section-description {
+  font-family: var(--font-primary, sans-serif);
+  font-size: clamp(1rem, 1.15vw, 1.12rem);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: var(--color-text-secondary, #475569);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ===================================================
+   SECTORS MARQUEE SYSTEM (CONTINUOUS HORIZONTAL SHOWCASE)
+   =================================================== */
+
+.sectors-marquee-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 16px 0 24px;
+}
+
+.sectors-marquee-track {
+  display: flex;
+  align-items: stretch;
+  gap: 26px;
+  width: max-content;
+  will-change: transform;
+  animation: sectorsMarqueeScroll 54s linear infinite;
+  padding: 8px 16px;
+}
+
+/* Pause on hover & focus for accessibility */
+.sectors-marquee-viewport:hover .sectors-marquee-track,
+.sectors-marquee-viewport:focus-within .sectors-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes sectorsMarqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sectors-marquee-track {
+    animation-duration: 160s;
+  }
+}
+
+/* ===================================================
+   REDESIGNED PORTRAIT INDUSTRIAL SHOWCASE CARD
+   (Narrower, Taller, Vertical Architecture)
+   =================================================== */
+
+.sector-showcase-card {
+  position: relative;
+  width: 320px;
+  min-height: 430px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  cursor: pointer;
+  background-color: #0B1322;
+  border: 1px solid rgba(226, 232, 240, 0.14);
+  box-shadow: 0 10px 28px -6px rgba(15, 23, 42, 0.18), 0 2px 6px rgba(15, 23, 42, 0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  user-select: none;
+}
+
+.sector-showcase-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(100, 162, 255, 0.5);
+  box-shadow: 0 24px 48px -10px rgba(15, 23, 42, 0.38),
+              0 0 20px rgba(31, 56, 98, 0.35);
+}
+
+.sector-showcase-card:focus-visible {
+  outline: 2px solid var(--color-electric-blue, #64A2FF);
+  outline-offset: 3px;
+}
+
+/* 1. SEPARATE TOP IMAGE AREA WITH CLEAN CROP & NO DARK OVERLAY */
+.sector-card-media {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #070B14;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sector-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: brightness(1) contrast(1.04);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.45s ease;
+}
+
+.sector-showcase-card:hover .sector-image {
+  transform: scale(1.06);
+  filter: brightness(1.04) contrast(1.06);
+}
+
+/* Black shadow removed completely for crystal-clear image */
+.sector-media-gradient-overlay {
+  display: none;
+}
+
+/* Technical Specification Identifier Tag (Floating over top of image) */
+.sector-top-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: rgba(11, 19, 34, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.sector-code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+}
+
+.sector-divider-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-electric-blue, #64A2FF);
+  box-shadow: 0 0 6px #64A2FF;
+}
+
+.sector-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #CBD5E1;
+  text-transform: uppercase;
+}
+
+/* 2. SEPARATE DARK CONTENT AREA BELOW THE IMAGE */
+.sector-card-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #0B1322;
+  padding: 20px 22px 18px;
+}
+
+.sector-content-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.sector-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #F8FAFC;
+  margin: 0 0 10px 0;
+  line-height: 1.26;
+  transition: color 0.3s ease;
+}
+
+.sector-showcase-card:hover .sector-title {
+  color: #FFFFFF;
+}
+
+/* Subtle engineered accent divider line */
+.sector-accent-line {
+  width: 32px;
+  height: 2px;
+  background-color: rgba(100, 162, 255, 0.6);
+  margin-bottom: 12px;
+  border-radius: 1px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.sector-showcase-card:hover .sector-accent-line {
+  width: 52px;
+  background-color: var(--color-electric-blue, #64A2FF);
+  box-shadow: 0 0 8px rgba(100, 162, 255, 0.7);
+}
+
+.sector-showcase-card .sector-description {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 0.86rem;
+  line-height: 1.58;
+  color: #94A3B8;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.sector-showcase-card:hover .sector-description {
+  color: #E2E8F0;
+}
+
+/* 3. CLEAN INTEGRATED ACTION / FOOTER ELEMENT */
+.sector-card-footer {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sector-footer-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  color: #64748B;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.sector-showcase-card:hover .sector-footer-label {
+  color: #94A3B8;
+}
+
+.sector-action-element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #CBD5E1;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.sector-action-icon {
+  transition: transform 0.3s ease;
+}
+
+.sector-showcase-card:hover .sector-action-element {
+  background: var(--color-navy, #1F3862);
+  border-color: rgba(100, 162, 255, 0.5);
+  color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(31, 56, 98, 0.6);
+}
+
+.sector-showcase-card:hover .sector-action-icon {
+  transform: translate(2px, -2px);
+}
+
+/* ===================================================
+   RESPONSIVE DESIGN (All Screens & Mobile Safe)
+   =================================================== */
+
+@media (max-width: 1200px) {
+  .sector-showcase-card {
+    width: 300px;
+    min-height: 475px;
+  }
+
+  .sector-card-media {
+    height: 210px;
+  }
+
+  .sector-title {
+    font-size: 1.18rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .industries-section {
+    padding: 65px 0 55px;
+  }
+
+  .industries-header {
+    margin-bottom: 34px;
+    padding: 0 20px;
+  }
+
+  .sector-showcase-card {
+    width: 280px;
+    min-height: 455px;
+  }
+
+  .sector-card-media {
+    height: 195px;
+  }
+
+  .sector-card-content {
+    padding: 18px 18px 16px;
+  }
+
+  .sector-title {
+    font-size: 1.12rem;
+  }
+
+  .sector-showcase-card .sector-description {
+    font-size: 0.83rem;
+  }
+
+  .sectors-marquee-track {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .industries-section {
+    padding: 55px 0 45px;
+  }
+
+  .industries-header {
+    margin-bottom: 28px;
+    padding: 0 16px;
+  }
+
+  .industries-header .section-display-heading {
+    font-size: clamp(1.4rem, 6vw, 2.1rem);
+    line-height: 1.22;
+  }
+
+  .sector-showcase-card {
+    width: 260px;
+    min-height: 430px;
+  }
+
+  .sector-card-media {
+    height: 180px;
+  }
+
+  .sector-card-content {
+    padding: 16px 16px 14px;
+  }
+
+  .sector-title {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  .sector-showcase-card .sector-description {
+    font-size: 0.81rem;
+    line-height: 1.5;
+  }
+
+  .sectors-marquee-track {
+    gap: 16px;
+    animation-duration: 44s;
+  }
+
+  .sector-action-element {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .industries-section {
+    padding: 45px 0 38px;
+  }
+
+  .industries-header {
+    margin-bottom: 24px;
+    padding: 0 14px;
+  }
+
+  .sector-showcase-card {
+    width: min(250px, 78vw);
+    min-height: 405px;
+  }
+
+  .sector-card-media {
+    height: 165px;
+  }
+
+  .sector-top-badge {
+    top: 10px;
+    left: 10px;
+    padding: 4px 8px;
+  }
+
+  .sector-code {
+    font-size: 0.62rem;
+  }
+
+  .sector-tag {
+    font-size: 0.58rem;
+  }
+
+  .sector-card-content {
+    padding: 14px 14px 12px;
+  }
+
+  .sector-title {
+    font-size: 0.96rem;
+    margin-bottom: 6px;
+  }
+
+  .sector-showcase-card .sector-description {
+    font-size: 0.78rem;
+    -webkit-line-clamp: 4;
+  }
+
+  .sector-card-footer {
+    margin-top: 14px;
+    padding-top: 10px;
+  }
+
+  .sector-footer-label {
+    font-size: 0.62rem;
+  }
+
+  .sectors-marquee-track {
+    gap: 14px;
+    animation-duration: 38s;
+  }
+}
+
+
+

@@ -1,0 +1,928 @@
+/* ===================================================
+   KPTRON PIPING SOLUTIONS - INDUSTRIAL CORPORATE FOOTER
+   Modern Precision Engineering Architecture
+   =================================================== */
+
+.site-footer {
+  position: relative;
+  background: #070B13;
+  background-image: 
+    radial-gradient(ellipse at 85% 15%, rgba(100, 162, 255, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 15% 85%, rgba(31, 56, 98, 0.15) 0%, transparent 50%),
+    linear-gradient(180deg, #090E18 0%, #060910 100%);
+  color: #E2E8F0;
+  padding: 0 0 32px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(100, 162, 255, 0.18);
+  font-family: var(--font-primary, system-ui, -apple-system, sans-serif);
+}
+
+/* Subtle Technical Grid Background Overlay */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Top Accent Line with subtle electric pulse */
+.footer-top-accent-line {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(100, 162, 255, 0.3) 20%,
+    #64A2FF 50%,
+    rgba(100, 162, 255, 0.3) 80%,
+    transparent 100%
+  );
+  overflow: hidden;
+}
+
+.accent-line-glow {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: radial-gradient(ellipse at center, rgba(100, 162, 255, 0.45) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.footer-container {
+  position: relative;
+  width: 100%;
+  max-width: var(--max-width, 1360px);
+  margin: 0 auto;
+  padding: 0 40px;
+  z-index: 1;
+}
+
+/* ===================================================
+   1. TOP CTA & STATEMENT MARQUEE
+   =================================================== */
+
+.footer-cta-marquee {
+  padding: 56px 0 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.footer-cta-text-group {
+  max-width: 720px;
+}
+
+.footer-spec-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64A2FF;
+  background: rgba(100, 162, 255, 0.08);
+  border: 1px solid rgba(100, 162, 255, 0.22);
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 18px;
+}
+
+.spec-indicator-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #64A2FF;
+  box-shadow: 0 0 8px #64A2FF;
+  animation: footerPulse 2s infinite ease-in-out;
+}
+
+@keyframes footerPulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.spec-sep {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.spec-code {
+  color: rgba(226, 232, 240, 0.75);
+}
+
+.footer-cta-headline {
+  font-family: var(--font-display, var(--font-primary, sans-serif));
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+}
+
+.cta-headline-accent {
+  color: #64A2FF;
+  display: inline-block;
+  background: linear-gradient(135deg, #FFFFFF 20%, #64A2FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-cta-subtext {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: rgba(226, 232, 240, 0.75);
+  margin: 0;
+  max-width: 640px;
+}
+
+/* CTA Action Buttons Cluster */
+.footer-cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.footer-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #64A2FF;
+  color: #070B13;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid #78B1FF;
+  box-shadow: 0 4px 18px rgba(100, 162, 255, 0.35);
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.footer-btn-primary:hover {
+  background: #78B1FF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(100, 162, 255, 0.5);
+  color: #05080E;
+}
+
+.btn-icon-corner {
+  transition: transform 0.24s ease;
+}
+
+.footer-btn-primary:hover .btn-icon-corner {
+  transform: translate(2px, -2px);
+}
+
+.footer-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #F8FAFC;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 11px 22px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: all 0.24s ease;
+  white-space: nowrap;
+}
+
+.footer-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(100, 162, 255, 0.4);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.cta-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  color: rgba(226, 232, 240, 0.6);
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+.status-ping {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+}
+
+/* ===================================================
+   2. TECHNICAL TELEMETRY & SPECIFICATION BAR
+   =================================================== */
+
+.footer-telemetry-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  margin: 32px 0 48px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: rgba(226, 232, 240, 0.68);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.telemetry-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.telemetry-label {
+  color: #64A2FF;
+  font-weight: 700;
+}
+
+.telemetry-val {
+  color: rgba(248, 250, 252, 0.85);
+}
+
+.telemetry-divider {
+  color: rgba(255, 255, 255, 0.2);
+  user-select: none;
+  font-weight: 300;
+}
+
+/* ===================================================
+   3. MAIN INDUSTRIAL INFORMATION CONSOLE
+   =================================================== */
+
+.footer-main-console {
+  display: grid;
+  grid-template-columns: 1.4fr 1.6fr 1.4fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* --- BRAND & QUALITY ASSURANCE SECTION --- */
+
+.footer-brand-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Logo Card: Clean white card container */
+.footer-logo-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  width: fit-content;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-logo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(100, 162, 255, 0.25);
+  border-color: #64A2FF;
+}
+
+.footer-logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+  image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.footer-brand-summary {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: rgba(226, 232, 240, 0.72);
+  margin: 0;
+}
+
+/* Industrial Certification Badges */
+.footer-cert-badges-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.footer-cert-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-left: 2px solid #64A2FF;
+  border-radius: 4px;
+  transition: all 0.24s ease;
+}
+
+.footer-cert-card:hover {
+  background: rgba(100, 162, 255, 0.06);
+  border-color: rgba(100, 162, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.cert-card-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64A2FF;
+  flex-shrink: 0;
+}
+
+.cert-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-card-heading {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+}
+
+.cert-card-sub {
+  font-size: 0.65rem;
+  color: rgba(226, 232, 240, 0.55);
+  line-height: 1.25;
+}
+
+/* Export Footprint Strip */
+.footer-export-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px dashed rgba(100, 162, 255, 0.24);
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.export-strip-icon {
+  color: #64A2FF;
+  flex-shrink: 0;
+}
+
+.export-strip-text {
+  font-size: 0.76rem;
+  color: rgba(226, 232, 240, 0.78);
+  line-height: 1.4;
+}
+
+.export-strip-text strong {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+/* --- NAVIGATION & PRODUCTS SECTION --- */
+
+.footer-nav-section {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 32px;
+}
+
+.footer-nav-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-col-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-col-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64A2FF;
+}
+
+.nav-col-slash {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-col-title {
+  font-family: var(--font-display, var(--font-primary, sans-serif));
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footer-nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.86rem;
+  color: rgba(226, 232, 240, 0.72);
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  line-height: 1.4;
+}
+
+.nav-chevron {
+  color: rgba(100, 162, 255, 0.4);
+  flex-shrink: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer-nav-item:hover {
+  color: #FFFFFF;
+  transform: translateX(4px);
+}
+
+.footer-nav-item:hover .nav-chevron {
+  color: #64A2FF;
+  transform: translateX(2px);
+}
+
+/* --- CONTACT CONSOLE SECTION --- */
+
+.footer-contact-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-console-box {
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 22px 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.contact-console-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(100, 162, 255, 0.5), transparent);
+}
+
+.contact-console-header {
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.console-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.console-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #64A2FF;
+}
+
+.console-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #64A2FF;
+  letter-spacing: 0.08em;
+}
+
+.console-title {
+  font-family: var(--font-display, var(--font-primary, sans-serif));
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.console-items-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.console-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.entry-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: rgba(100, 162, 255, 0.09);
+  border: 1px solid rgba(100, 162, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64A2FF;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.entry-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.entry-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(226, 232, 240, 0.5);
+  margin-bottom: 3px;
+  text-transform: uppercase;
+}
+
+.entry-values-group,
+.entry-emails-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.entry-link {
+  font-size: 0.85rem;
+  color: rgba(248, 250, 252, 0.9);
+  text-decoration: none;
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+.entry-primary-link {
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.entry-secondary-link {
+  font-size: 0.82rem;
+  color: rgba(226, 232, 240, 0.7);
+}
+
+.entry-sub-sep {
+  display: none;
+}
+
+.entry-link:hover {
+  color: #64A2FF;
+}
+
+.entry-address {
+  font-style: normal;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: rgba(226, 232, 240, 0.8);
+  word-break: break-word;
+}
+
+.console-quick-action {
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.console-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  background: rgba(100, 162, 255, 0.08);
+  border: 1px solid rgba(100, 162, 255, 0.2);
+  border-radius: 4px;
+  color: #64A2FF;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: all 0.22s ease;
+}
+
+.console-action-btn:hover {
+  background: #64A2FF;
+  color: #070B13;
+  border-color: #64A2FF;
+}
+
+/* ===================================================
+   4. REFINED BOTTOM DOCK & LEGAL STRIP
+   =================================================== */
+
+.footer-bottom-dock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 28px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.bottom-dock-legal-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bottom-copyright {
+  font-size: 0.8rem;
+  color: rgba(226, 232, 240, 0.65);
+  margin: 0;
+}
+
+.bottom-copyright strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.bottom-cert-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: rgba(100, 162, 255, 0.8);
+}
+
+.bottom-tag-icon {
+  color: #64A2FF;
+}
+
+/* Legal Links */
+.bottom-dock-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.bottom-link {
+  font-size: 0.8rem;
+  color: rgba(226, 232, 240, 0.55);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bottom-link:hover {
+  color: #64A2FF;
+}
+
+.bottom-dot {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.75rem;
+}
+
+/* Back To Top Button */
+.bottom-dock-action {
+  display: flex;
+  align-items: center;
+}
+
+.footer-back-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: rgba(226, 232, 240, 0.8);
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.back-top-code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.back-top-arrow {
+  color: #64A2FF;
+  transition: transform 0.24s ease;
+}
+
+.footer-back-to-top-btn:hover {
+  background: #64A2FF;
+  border-color: #64A2FF;
+  color: #070B13;
+  box-shadow: 0 4px 16px rgba(100, 162, 255, 0.4);
+}
+
+.footer-back-to-top-btn:hover .back-top-arrow {
+  color: #070B13;
+  transform: translateY(-3px);
+}
+
+/* ===================================================
+   5. RESPONSIVE BREAKPOINTS
+   =================================================== */
+
+/* Large Tablets & Small Laptops (<= 1180px) */
+@media (max-width: 1180px) {
+  .footer-main-console {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-contact-section {
+    grid-column: span 2;
+  }
+
+  .contact-console-box {
+    max-width: 680px;
+  }
+
+  .footer-telemetry-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .telemetry-divider {
+    display: none;
+  }
+}
+
+/* Tablets (<= 920px) */
+@media (max-width: 920px) {
+  .footer-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .footer-cta-actions {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .footer-btn-primary,
+  .footer-btn-secondary {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  .footer-main-console {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .footer-contact-section {
+    grid-column: span 1;
+  }
+
+  .contact-console-box {
+    max-width: 100%;
+  }
+}
+
+/* Mobile Devices (<= 640px) */
+@media (max-width: 640px) {
+  .site-footer {
+    padding: 0 0 40px 0;
+  }
+
+  .footer-container {
+    padding: 0 20px;
+  }
+
+  .footer-cta-marquee {
+    padding: 40px 0 36px;
+  }
+
+  .footer-cta-headline {
+    font-size: 1.85rem;
+  }
+
+  .cta-break {
+    display: inline;
+  }
+
+  .footer-btn-primary,
+  .footer-btn-secondary {
+    max-width: 100%;
+  }
+
+  .footer-telemetry-bar {
+    grid-template-columns: 1fr;
+    padding: 14px 16px;
+    font-size: 0.66rem;
+  }
+
+  .footer-nav-section {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-cert-badges-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom-dock {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    /* Add padding so floating WhatsApp/Phone icons don't cover bottom bar buttons */
+    padding-bottom: 60px;
+  }
+
+  .bottom-dock-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .bottom-dot {
+    display: none;
+  }
+
+  .bottom-dock-action {
+    width: 100%;
+  }
+
+  .footer-back-to-top-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
