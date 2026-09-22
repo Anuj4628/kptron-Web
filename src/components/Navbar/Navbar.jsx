@@ -150,8 +150,11 @@ export default function Navbar({ currentPage = 'home', onNavigate }) {
             <div className="navbar-logo-wrap">
               <img
                 src={brandDetails.logoUrl}
+                srcSet={`${brandDetails.logoUrl} 1x, ${brandDetails.logoUrl2x || brandDetails.logoUrl} 2x`}
                 alt={brandDetails.name}
                 className="navbar-brand-logo"
+                loading="eager"
+                decoding="async"
               />
             </div>
           </a>

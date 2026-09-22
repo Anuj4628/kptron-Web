@@ -43,7 +43,7 @@
 
 .navbar-container {
   max-width: var(--max-width);
-  height: 80px;
+  height: 86px;
   margin: 0 auto;
   padding: 0 40px;
   display: flex;
@@ -60,7 +60,7 @@
 }
 
 .navbar-wrapper.is-scrolled .navbar-container {
-  height: 74px;
+  height: 76px;
 }
 
 /* Logo Area - Large, prominent, clearly visible with generous spacing */
@@ -84,26 +84,21 @@
   padding: 0;
   border: none;
   box-shadow: none;
-  transform: translateZ(0);
 }
 
-/* Prominent KPTRON logo sizing - Large, crisp, bold and clearly visible */
+/* Prominent KPTRON logo sizing - Large, razor-sharp, bold and clearly readable */
 .navbar-brand-logo {
-  height: 64px;
+  height: 72px;
   width: auto;
-  max-width: 260px;
+  max-width: 290px;
   object-fit: contain;
   display: block;
-  image-rendering: auto;
-  image-rendering: -webkit-optimize-contrast;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transform: translateZ(0);
+  filter: contrast(1.02);
   transition: height 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar-wrapper.is-scrolled .navbar-brand-logo {
-  height: 60px;
+  height: 64px;
 }
 
 /* Desktop Navigation - Clean, spacious corporate alignment */
@@ -252,7 +247,7 @@
 
   .navbar-container {
     padding: 0 20px;
-    height: 74px;
+    height: 84px;
   }
 
   .navbar-wrapper.at-top {
@@ -263,14 +258,39 @@
     height: auto;
   }
 
+  .navbar-wrapper.is-scrolled .navbar-container {
+    height: 74px;
+  }
+
   .navbar-brand-logo {
-    height: 56px;
-    max-width: 230px;
+    height: 70px;
+    max-width: 265px;
   }
 
   .navbar-wrapper.is-scrolled .navbar-brand-logo {
-    height: 52px;
-    max-width: 210px;
+    height: 60px;
+    max-width: 235px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 16px;
+    height: 80px;
+  }
+
+  .navbar-brand-logo {
+    height: 66px;
+    max-width: 245px;
+  }
+
+  .navbar-wrapper.is-scrolled .navbar-container {
+    height: 70px;
+  }
+
+  .navbar-wrapper.is-scrolled .navbar-brand-logo {
+    height: 56px;
+    max-width: 215px;
   }
 }
 
