@@ -24,7 +24,7 @@ const serviceSpecs = {
   "testing-documentation": "MATERIAL TEST DOCUMENTATION",
   "custom-requirements": "CUSTOM MATERIAL PREPARATION",
   "project-supply": "INTEGRATED PROJECT SUPPORT",
-  "export-packaging": "TRANSPORT-READY PACKAGING"
+  "export-packaging": "TRANSPORT-READY PACKAGING",
 };
 
 export default function ValueAddedSection() {

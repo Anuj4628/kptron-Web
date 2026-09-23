@@ -216,6 +216,14 @@
   transform: scale(1.06);
 }
 
+.cn-tile-logo-img[alt*="Reliance"] {
+  transform: scale(1.18);
+}
+
+.cn-tile:hover .cn-tile-logo-img[alt*="Reliance"] {
+  transform: scale(1.25);
+}
+
 /* ===================================================
    RESPONSIVE
    =================================================== */

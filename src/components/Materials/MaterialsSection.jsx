@@ -166,12 +166,10 @@ export default function MaterialsSection({ onNavigate }) {
                       handleCardClick(mat);
                     }
                   }}
-                  aria-label={`${mat.name} ${mat.grade}`}
+                  aria-label={mat.name}
                 >
                   <span className="banner-card-beacon" aria-hidden="true" />
                   <span className="banner-card-name">{mat.name}</span>
-                  <span className="banner-card-divider" aria-hidden="true" />
-                  <span className="banner-card-grade">{mat.grade}</span>
                 </div>
                 <StarSeparator />
               </React.Fragment>

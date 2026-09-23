@@ -46,9 +46,12 @@ export default function AboutPartners() {
         const cardCenter = rect.left + rect.width / 2;
         const distanceFromCenter = Math.abs(cardCenter - windowCenter);
 
+        const isReliance = card.getAttribute('title')?.includes('Reliance');
+        const baseScale = isReliance ? 1.18 : 1.0;
+
         if (distanceFromCenter < focusRadius) {
           const factor = Math.max(0, 1 - distanceFromCenter / focusRadius);
-          const logoScale = 1.0 + factor * 0.12; // Scaled up to 1.12 at center
+          const logoScale = baseScale + factor * 0.12; // Scaled up at center
           const translateY = factor * -6; // Smooth subtle elevation forward
 
           const imgEl = card.querySelector('.partner-slider-logo');
@@ -70,7 +73,7 @@ export default function AboutPartners() {
         } else {
           const imgEl = card.querySelector('.partner-slider-logo');
           if (imgEl) {
-            imgEl.style.transform = 'scale(1.0)';
+            imgEl.style.transform = `scale(${baseScale})`;
           }
           card.style.transform = 'translateY(0px)';
           card.style.borderColor = 'rgba(226, 232, 240, 0.9)';
