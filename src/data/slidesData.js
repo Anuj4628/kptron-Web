@@ -1,7 +1,7 @@
 import heroSlide1Img from '../assets/Product BG/kptron-hero-slide1-global.jpg';
 import heroSlide2Img from '../assets/Product BG/kptron-hero-slide2-partnership.jpg';
-import precisionPipesImg from '../assets/Product BG/precision pipes and fitting.png';
-import superiorRoundsImg from '../assets/Product BG/superior round and bars engineeres to be perfomed.png';
+import precisionPipesImg from '../assets/Serving Global Mission-Critical Sectors/precision industrial piping.png';
+import superiorRoundsImg from '../assets/Product Images/Butt weld fit/alloy steel.jpg';
 
 export const heroSlides = [
   // Slide 01: Core Company / Global Piping
