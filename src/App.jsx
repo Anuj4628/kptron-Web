@@ -275,9 +275,9 @@ export default function App() {
         /* Full Commercial Home Page (About and Products catalog views are isolated) */
         <main id="main-content" className="home-page-main">
           <Hero onNavigate={navigateTo} />
-          <MaterialsSection onNavigate={navigateTo} />
-          <ProductsSection onNavigate={navigateTo} />
           <SpecialistProductsSection onNavigate={navigateTo} />
+          <ProductsSection onNavigate={navigateTo} />
+          <MaterialsSection onNavigate={navigateTo} />
           <WhyChooseSection />
           <IndustriesSection />
           <ValueAddedSection />
