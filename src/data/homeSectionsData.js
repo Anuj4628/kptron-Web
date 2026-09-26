@@ -10,6 +10,9 @@ import sheetsImg from '../assets/Product Images/Sheet and plates/Duplex.png';
 import platesImg from '../assets/Product Images/Sheet and plates/Carbon.png';
 import pipesImg from '../assets/Product Images/Pipes and Tubes/alloy steel.png';
 import tubesImg from '../assets/Product Images/Pipes and Tubes/alloy steel.png';
+import seamlessAlloySteelPipesImg from '../assets/Product Images/Specialist Products/seamless_alloy_steel_pipes_a335.jpg';
+import alloySteelTubesImg from '../assets/Product Images/Specialist Products/alloy_steel_tubes_a213.jpg';
+import alloySteelPlatesImg from '../assets/Product Images/Specialist Products/alloy_steel_plates_a387.jpg';
 import coilImg from '../assets/Product Section/Supplier division/Coil/alloy steel.jpg';
 import flatBarImg from '../assets/Product Section/Supplier division/flat/super duplex.jpg';
 
@@ -149,6 +152,45 @@ export const productsData = [
     image: roundBarsImg,
     route: "/products/supplier/rods-and-bars",
     alt: "Stainless steel and alloy solid rounds and bars"
+  }
+];
+
+// ==========================================
+// 2B. SPECIALIST ALLOY STEEL PRODUCTS (3 Dedicated Showcase Products)
+// ==========================================
+export const specialistProductsData = [
+  {
+    id: "seamless-alloy-steel-pipes",
+    name: "Seamless Alloy Steel Pipes",
+    standard: "ASTM / ASME SA-335",
+    specTag: "ASTM / ASME SA-335 // P11 • P22 • P9 • P5 • P91 • P92",
+    grades: "P11 • P22 • P9 • P5 • P91 • P92",
+    shortDesc: "High-pressure, creep-resistant chrome-moly seamless piping engineered for supercritical steam lines and refinery hydroprocessing up to 650°C.",
+    image: seamlessAlloySteelPipesImg,
+    route: "/products/seamless-alloy-steel-pipes",
+    alt: "Seamless Alloy Steel Pipes ASTM / ASME SA-335 Grade P11 P22 P9 P5 P91 P92"
+  },
+  {
+    id: "alloy-steel-tubes",
+    name: "Alloy Steel Tubes",
+    standard: "ASTM / ASME SA-213",
+    specTag: "ASTM / ASME SA-213 // T11 • T22 • T91",
+    grades: "T11 • T22 • T91",
+    shortDesc: "Precision cold drawn seamless boiler and superheater tubing with optimized wall thickness for high-flux heat exchangers and steam generators.",
+    image: alloySteelTubesImg,
+    route: "/products/alloy-steel-tubes",
+    alt: "Alloy Steel Tubes ASTM / ASME SA-213 Grade T11 T22 T91"
+  },
+  {
+    id: "alloy-steel-plates",
+    name: "Alloy Steel Plates",
+    standard: "ASTM / ASME SA-387",
+    specTag: "ASTM / ASME SA-387 // GR. 11 • 22 • 5 • 9 (CLASS 1 & 2)",
+    grades: "P11 • P22 • P5 • P9 (CLASS 1 & 2)",
+    shortDesc: "Heavy boiler-quality pressure vessel chrome-moly steel plates offering superior notch toughness and temper embrittlement resistance up to 600°C.",
+    image: alloySteelPlatesImg,
+    route: "/products/alloy-steel-plates",
+    alt: "Alloy Steel Plates ASTM / ASME SA-387 Grade 11 22 5 9 Class 1 and Class 2"
   }
 ];
 

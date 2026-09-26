@@ -143,6 +143,10 @@ import img_supplier_pipes_tubes_nickel_alloys_122 from "../assets/Product Sectio
 import img_supplier_pipes_tubes_stainless_steel_123 from "../assets/Product Section/Supplier division/Pipes and Tubes/stainless steel.png";
 import img_supplier_pipes_tubes_super_duplex_124 from "../assets/Product Section/Supplier division/Pipes and Tubes/super Duplex (2).png";
 import img_supplier_pipes_tubes_titanium_125 from "../assets/Product Section/Supplier division/Pipes and Tubes/titanium.png";
+import img_supplier_pipes_tubes_seamless_a335 from "../assets/Product Section/Supplier division/Pipes and Tubes/seamless_alloy_steel_pipes_a335.jpg";
+import img_specialist_pipes from "../assets/Product Images/Specialist Products/seamless_alloy_steel_pipes_a335.jpg";
+import img_specialist_tubes from "../assets/Product Images/Specialist Products/alloy_steel_tubes_a213.jpg";
+import img_specialist_plates from "../assets/Product Images/Specialist Products/alloy_steel_plates_a387.jpg";
 import img_supplier_ring_hero from "../assets/Product Section/Supplier division/Ring/stainless steel.jpg";
 import img_supplier_ring_alloy_steel_126 from "../assets/Product Section/Supplier division/Ring/alloy steel.jpg";
 import img_supplier_ring_carbon_steel_127 from "../assets/Product Section/Supplier division/Ring/carbon.jpeg";
@@ -1804,8 +1808,224 @@ export const PRODUCT_GROUPS = [
       "certification": "EN 10204 3.1 & 3.2, IBR Approved with Form III-C",
       "surfaceFinish": "Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"
 },
-    categoriesCount: 9,
+    categoriesCount: 10,
     categories: [
+      {
+        id: "pipes-tubes-seamless-alloy-steel-a335",
+        slug: "seamless-alloy-steel-pipes-a335",
+        aliases: [
+          "seamless-alloys-steel-pipes-a-335-gr-p11-p22-p9-p-5-p91-p92",
+          "seamless-alloy-steel-pipes-a-335-gr-p11-p22-p9-p-5-p91-p92",
+          "seamless-alloys-steel-pipes-a335",
+          "a335-pipes"
+        ],
+        name: "Seamless Alloys Steel Pipes A 335 Gr.P11 P22 P9 P 5 P91 P92",
+        materialName: "Alloy Steel",
+        grade: "ASTM A335 / ASME SA335 Gr. P11, P22, P9, P5, P91, P92",
+        image: img_supplier_pipes_tubes_seamless_a335,
+        shortDesc: "High-pressure, creep-resistant ferritic chrome-moly seamless line pipes engineered for supercritical steam boilers, thermal power stations, and high-temperature hydrocarbon processing.",
+        description: "KPTRON is a premier stockholder and global distributor of ASTM A335 / ASME SA335 Seamless Ferritic Chrome-Moly Alloy Steel Pipes. Engineered specifically for severe high-pressure, elevated-temperature environments, our pipes conform strictly to ASTM A335 Grades P11, P22, P9, P5, P91, and P92. The balanced chromium-molybdenum formulation delivers remarkable creep-rupture strength, graphitization resistance, and microstructural thermal stability up to 650°C. Each heat is 100% PMI verified, hydrostatic and ultrasonic tested, and certified under Indian Boiler Regulations (IBR Form III-A & III-C), NACE MR0175 / ISO 15156 for sour service, and EN 10204 3.1 & 3.2 inspection standards.",
+        specs: {
+          size: "Seamless: 1/8\" NB to 36\" NB (10.3 mm to 914.4 mm OD; Heavy-Wall Forged up to 48\" OD)",
+          schedule: "SCH 20, SCH 30, SCH 40, SCH STD, SCH 80, SCH XS, SCH 120, SCH 160, SCH XXS (1.73mm to 120mm Wall Thickness)",
+          standards: "ASTM A335 / ASME SA335 (Grades P11, P22, P9, P5, P91, P92), ANSI/ASME B36.10M, EN 10216-2, DIN 17175",
+          dimensions: "ANSI/ASME B36.10M Welded and Seamless Wrought Steel Pipe Dimensional Standards & Tolerances",
+          testing: "100% PMI Spectro, Hydrostatic Proof Testing up to 700 Bar, 100% Ultrasonic Examination (UT), Eddy Current, Charpy V-Notch (-46°C), Hardness (Max 250 HBW / 265 HV)",
+          certification: "EN 10204 3.1 & 3.2 Inspection Certificates, IBR Form III-A / III-C Approved, NACE MR0175 / ISO 15156 Sour Service, PED 2014/68/EU",
+          surfaceFinish: "Black Protective Anti-Rust Coating, Phosphated, Bare Cleaned, Shot Blasted (SA 2.5), 37.5° Beveled Ends (ASME B16.25) with Plastic/Metal End Caps"
+        },
+        standards: ["ASTM A335", "ASME SA335", "IBR Certified", "NACE MR0175", "EN 10216-2", "DIN 17175", "PED 2014/68/EU", "ISO 9001:2015"],
+        gradeBreakdown: [
+          {
+            grade: "P11",
+            uns: "UNS K11597",
+            commonName: "1.25Cr - 0.5Mo Alloy Steel",
+            dinEn: "13CrMo4-5 / DIN 13CrMo44",
+            serviceTemp: "Up to 560°C (1040°F)",
+            heatTreatment: "Full / Isothermal Anneal, or Normalize & Temper (Min 650°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 163 HBW",
+            chemistry: {
+              cr: "1.00 – 1.50%",
+              mo: "0.44 – 0.65%",
+              c: "0.05 – 0.15%",
+              mn: "0.30 – 0.60%",
+              si: "0.50 – 1.00%",
+              p: "≤ 0.025%",
+              s: "≤ 0.025%"
+            },
+            applicationNote: "Widely used in power plant boiler superheaters, reheater tubing, and high-pressure steam distribution systems where cost-effective creep resistance is needed."
+          },
+          {
+            grade: "P22",
+            uns: "UNS K21590",
+            commonName: "2.25Cr - 1Mo Alloy Steel",
+            dinEn: "10CrMo9-10 / DIN 10CrMo910",
+            serviceTemp: "Up to 580°C (1075°F)",
+            heatTreatment: "Full / Isothermal Anneal, or Normalize & Temper (Min 675°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 163 HBW",
+            chemistry: {
+              cr: "1.90 – 2.60%",
+              mo: "0.87 – 1.13%",
+              c: "0.05 – 0.15%",
+              mn: "0.30 – 0.60%",
+              si: "≤ 0.50%",
+              p: "≤ 0.025%",
+              s: "≤ 0.025%"
+            },
+            applicationNote: "The benchmark workhorse alloy for main steam headers, hot reheat circuits, and heavy-wall piping in thermal power stations and petrochemical refineries."
+          },
+          {
+            grade: "P9",
+            uns: "UNS K90941",
+            commonName: "9Cr - 1Mo Alloy Steel",
+            dinEn: "X12CrMo9-1 / DIN 12CrMo195",
+            serviceTemp: "Up to 600°C (1110°F)",
+            heatTreatment: "Full Anneal, or Normalize (900-980°C) & Temper (Min 675°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 179 HBW",
+            chemistry: {
+              cr: "8.00 – 10.00%",
+              mo: "0.90 – 1.10%",
+              c: "≤ 0.15%",
+              mn: "0.30 – 0.60%",
+              si: "0.25 – 1.00%",
+              p: "≤ 0.025%",
+              s: "≤ 0.025%"
+            },
+            applicationNote: "High chromium content provides outstanding protection against sulfidation, sour crude attack, and high-temperature oxidation in oil refinery catalytic units."
+          },
+          {
+            grade: "P5",
+            uns: "UNS K41545",
+            commonName: "5Cr - 0.5Mo Alloy Steel",
+            dinEn: "X12CrMo5 / DIN 12CrMo195",
+            serviceTemp: "Up to 650°C (1200°F)",
+            heatTreatment: "Full Anneal, or Normalize & Temper (Min 675°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 217 HBW",
+            chemistry: {
+              cr: "4.00 – 6.00%",
+              mo: "0.45 – 0.65%",
+              c: "≤ 0.15%",
+              mn: "0.30 – 0.60%",
+              si: "≤ 0.50%",
+              p: "≤ 0.025%",
+              s: "≤ 0.025%"
+            },
+            applicationNote: "Specifically engineered for petroleum refinery furnaces, delayed coker units, and hydroprocessing lines handling hydrogen attack at elevated temperatures."
+          },
+          {
+            grade: "P91",
+            uns: "UNS K91560",
+            commonName: "Modified 9Cr - 1Mo - V - Nb (CSEF)",
+            dinEn: "X10CrMoVNb9-1 / DIN X10CrMoVNb91",
+            serviceTemp: "Up to 620°C (1150°F)",
+            heatTreatment: "Normalize (1040–1080°C) & Temper (730–800°C) Air Cooled",
+            tensileMpa: "585 – 760 MPa (85–110 ksi)",
+            yieldMpa: "≥ 415 MPa (60 ksi)",
+            elongation: "≥ 20%",
+            hardness: "190 – 250 HBW (≤ 265 HV)",
+            chemistry: {
+              cr: "8.00 – 9.50%",
+              mo: "0.85 – 1.05%",
+              c: "0.08 – 0.12%",
+              mn: "0.30 – 0.60%",
+              si: "0.20 – 0.50%",
+              v: "0.18 – 0.25%",
+              nb: "0.06 – 0.10%",
+              n: "0.03 – 0.07%"
+            },
+            applicationNote: "Advanced Creep-Strength Enhanced Ferritic (CSEF) alloy. Enables up to 50% thinner pipe walls than P22, significantly reducing thermal fatigue in supercritical power stations."
+          },
+          {
+            grade: "P92",
+            uns: "UNS K92460",
+            commonName: "9Cr - 1.8W - 0.5Mo - V - Nb - B (CSEF)",
+            dinEn: "X10CrWMoVNb9-2",
+            serviceTemp: "Up to 650°C (1200°F)",
+            heatTreatment: "Normalize (1050–1080°C) & Temper (730–800°C) Air Cooled",
+            tensileMpa: "620 – 850 MPa (90–123 ksi)",
+            yieldMpa: "≥ 440 MPa (64 ksi)",
+            elongation: "≥ 20%",
+            hardness: "190 – 250 HBW (≤ 265 HV)",
+            chemistry: {
+              cr: "8.50 – 9.50%",
+              w: "1.50 – 2.00%",
+              mo: "0.30 – 0.60%",
+              c: "0.07 – 0.13%",
+              mn: "0.30 – 0.60%",
+              si: "≤ 0.50%",
+              v: "0.15 – 0.25%",
+              nb: "0.04 – 0.09%",
+              b: "0.001 – 0.006%",
+              n: "0.03 – 0.07%"
+            },
+            applicationNote: "Next-generation tungsten-strengthened CSEF steel designed for ultra-supercritical (USC) thermal power generation operating under extreme steam pressures and cyclical demands."
+          }
+        ],
+        engineeringAdvantages: [
+          {
+            title: "Supercritical Creep Rupture Strength",
+            desc: "Engineered for 100,000+ hour creep life under severe stress at 550°C to 650°C. Molybdenum and vanadium carbonitrides anchor grain boundaries, resisting void formation."
+          },
+          {
+            title: "Immunity to Thermal Graphitization",
+            desc: "In long-term service above 425°C, standard carbon steels suffer catastrophic graphitization embrittlement. Chromium in ASTM A335 binds carbon into stable chromium carbides, ensuring lifetime metallurgical integrity."
+          },
+          {
+            title: "Thinner Wall Profile & Thermal Fatigue Resistance",
+            desc: "High allowable stress in Grades P91 and P92 allows up to a 50% wall thickness reduction compared to P22. Thinner walls drastically minimize through-wall thermal gradients during fast start-ups and cyclical loading."
+          },
+          {
+            title: "Hydrogen & Sour Gas (H2S) Attack Resistance",
+            desc: "Conforming to NACE MR0175 / ISO 15156. The dense chromium oxide surface film and controlled hardness (≤ 250 HBW) resist sulfide stress cracking (SSC) and high-temperature Nelson Curve hydrogen attack."
+          },
+          {
+            title: "Strict Indian Boiler Regulations (IBR) Certified",
+            desc: "Supplied with original IBR Form III-A and Form III-C inspection documentation approved by authorized boiler inspectors for legal installation in high-pressure steam boilers and superheaters."
+          },
+          {
+            title: "Extreme Pressure Proof Tested up to 700 Bar",
+            desc: "Each pipe length undergoes 100% hydrostatic proof testing or non-destructive ultrasonic and eddy current examination with automated calibration to detect subsurface flaws."
+          }
+        ],
+        customApplications: [
+          {
+            title: "Supercritical & USC Power Plants",
+            desc: "Main steam piping, hot and cold reheat lines, boiler superheater tubes, and economizer manifolds operating at pressures up to 300 bar and 620°C."
+          },
+          {
+            title: "Hydrocracking & Hydrotreating Units",
+            desc: "Severe refinery circuits handling hydrogen at high partial pressures and elevated temperatures, preventing Nelson curve hydrogen embrittlement."
+          },
+          {
+            title: "Delayed Coker Units & Fired Heaters",
+            desc: "High-temperature furnace transfer lines and furnace coils subjected to severe thermal cycling and decoking steam-air mixtures."
+          },
+          {
+            title: "Sour Gas & Geothermal High-Pressure Piping",
+            desc: "Production manifolds, steam gathering lines, and wellheads exposed to aggressive hydrogen sulfide (H2S) sour crude and geothermal brines."
+          }
+        ],
+        qualityProtocols: [
+          { item: "Positive Material Identification (PMI)", detail: "100% XRF / OES Spectrometry test on every pipe to verify Cr, Mo, V, Nb, W composition." },
+          { item: "Non-Destructive Testing (NDT)", detail: "100% full-body Ultrasonic Testing (ASTM A388) and Eddy Current Testing (ASTM E426)." },
+          { item: "Hydrostatic Proof Testing", detail: "Tested to 100% SMYS design pressure (up to 700 bar) with 10-second dwell time." },
+          { item: "Mechanical & Hardness Testing", detail: "Transverse/longitudinal tensile, flattening, flaring, bend, and multi-point hardness (max 250 HBW)." },
+          { item: "Charpy V-Notch Impact Testing", detail: "Sub-zero impact testing performed at -20°C to -46°C to confirm transition temperature safety." },
+          { item: "Mill Certification & Documentation", detail: "EN 10204 3.1 & 3.2 MTC, IBR Form III-A / III-C, NACE MR0175, PED 2014/68/EU, TPI clearance." }
+        ]
+      },
       {
         id: "pipes-tubes-alloy-steel",
         slug: "alloy-steel",
@@ -2357,6 +2577,372 @@ export const PRODUCT_GROUPS = [
         standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
       }
     ]
+  },
+  {
+    id: "specialist-alloy-steel-products",
+    slug: "specialist-alloy-steel",
+    name: "Specialist Alloy Steel Products",
+    division: "Supplier Division",
+    divisionSlug: "supplier",
+    tagline: "High-Temperature & High-Pressure Creep-Resistant Chrome-Moly Alloys",
+    shortDesc: "Comprehensive inventory of ASTM/ASME certified Chrome-Moly seamless pipes, precision boiler tubes, and pressure vessel plates engineered for supercritical thermal power and petrochemical operations.",
+    heroImage: img_specialist_pipes,
+    specs: {
+      size: "Pipes: 1/8\" to 36\" NB; Tubes: 6.35mm to 127mm OD; Plates: 6mm to 250mm Thickness",
+      schedule: "Pipes: SCH 20 to SCH XXS; Tubes: 20 BWG to 3 BWG; Plates: Heavy Pressure Vessel Quality",
+      standards: "ASTM A335 (P11-P92), ASTM A213 (T11-T91), ASTM A387 (Gr. 11, 22, 5, 9 Class 1 & 2)",
+      dimensions: "ANSI B36.10M (Pipes), ASTM A1016 (Tubes), ASTM A20 (Plates)",
+      testing: "100% PMI Spectro, Hydrostatic up to 700 Bar, 100% Ultrasonic Testing (UT), Eddy Current, Charpy V-Notch (-46°C), Hardness Control",
+      certification: "EN 10204 3.1 & 3.2, IBR Approved (Form III-A, III-B, IV), NACE MR0175 / ISO 15156, PED 2014/68/EU",
+      surfaceFinish: "Mill Varnished, Cleaned / Bright Annealed, Shot Blasted (SA 2.5), Precision Beveled"
+    },
+    categoriesCount: 3,
+    categories: [
+      {
+        id: "specialist-seamless-alloy-steel-pipes",
+        slug: "seamless-alloy-steel-pipes",
+        aliases: [
+          "seamless-alloy-steel-pipes-a335",
+          "seamless-alloys-steel-pipes-a-335-gr-p11-p22-p9-p-5-p91-p92",
+          "a335-pipes"
+        ],
+        name: "Seamless Alloy Steel Pipes",
+        materialName: "Alloy Steel",
+        grade: "ASTM A335 / ASME SA335 Gr. P11, P22, P9, P5, P91, P92",
+        image: img_specialist_pipes,
+        shortDesc: "High-pressure, creep-resistant ferritic chrome-moly seamless line pipes engineered for supercritical steam boilers, thermal power stations, and high-temperature hydrocarbon processing.",
+        description: "KPTRON is a premier stockholder and global distributor of ASTM A335 / ASME SA335 Seamless Ferritic Chrome-Moly Alloy Steel Pipes. Engineered specifically for severe high-pressure, elevated-temperature environments, our pipes conform strictly to ASTM A335 Grades P11, P22, P9, P5, P91, and P92. The balanced chromium-molybdenum formulation delivers remarkable creep-rupture strength, graphitization resistance, and microstructural thermal stability up to 650°C. Each heat is 100% PMI verified, hydrostatic and ultrasonic tested, and certified under Indian Boiler Regulations (IBR Form III-A & III-C), NACE MR0175 / ISO 15156 for sour service, and EN 10204 3.1 & 3.2 inspection standards.",
+        gradeMatrixTitle: "ASTM A335 Grade Engineering Matrix",
+        gradeMatrixDesc: "High-temperature creep-resistant Chrome-Moly grades engineered for supercritical steam lines, hydroprocessing, and refinery cracking.",
+        comparisonTableTitle: "Full ASTM A335 Chemical Composition Comparison",
+        advantagesSubtitle: "Key reasons industry engineers specify ASTM A335 seamless chrome-moly pipes over standard carbon and stainless alternatives.",
+        qualitySubtitle: "Every pipe length is subjected to rigorous metallurgical testing and third-party inspection standards.",
+        specs: {
+          size: "Seamless: 1/8\" NB to 36\" NB (10.3 mm to 914.4 mm OD; Heavy-Wall Forged up to 48\" OD)",
+          schedule: "SCH 20, SCH 30, SCH 40, SCH STD, SCH 80, SCH XS, SCH 120, SCH 160, SCH XXS (1.73mm to 120mm Wall Thickness)",
+          standards: "ASTM A335 / ASME SA335 (Grades P11, P22, P9, P5, P91, P92), ANSI/ASME B36.10M, EN 10216-2, DIN 17175",
+          dimensions: "ANSI/ASME B36.10M Welded and Seamless Wrought Steel Pipe Dimensional Standards & Tolerances",
+          testing: "100% PMI Spectro, Hydrostatic Proof Testing up to 700 Bar, 100% Ultrasonic Examination (UT), Eddy Current, Charpy V-Notch (-46°C), Hardness (Max 250 HBW / 265 HV)",
+          certification: "EN 10204 3.1 & 3.2 Inspection Certificates, IBR Form III-A / III-C Approved, NACE MR0175 / ISO 15156 Sour Service, PED 2014/68/EU",
+          surfaceFinish: "Black Protective Anti-Rust Coating, Phosphated, Bare Cleaned, Shot Blasted (SA 2.5), 37.5° Beveled Ends (ASME B16.25) with Plastic/Metal End Caps"
+        },
+        standards: ["ASTM A335", "ASME SA335", "IBR Certified", "NACE MR0175", "EN 10216-2", "DIN 17175", "PED 2014/68/EU", "ISO 9001:2015"],
+        gradeBreakdown: [
+          {
+            grade: "P11",
+            uns: "UNS K11597",
+            commonName: "1.25Cr - 0.5Mo Alloy Steel",
+            dinEn: "13CrMo4-5 / DIN 13CrMo44",
+            serviceTemp: "Up to 560°C (1040°F)",
+            heatTreatment: "Full / Isothermal Anneal, or Normalize & Temper (Min 650°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 163 HBW",
+            chemistry: { cr: "1.00 – 1.50%", mo: "0.44 – 0.65%", c: "0.05 – 0.15%", mn: "0.30 – 0.60%", si: "0.50 – 1.00%", p: "≤ 0.025%", s: "≤ 0.025%" },
+            applicationNote: "Widely used in power plant boiler superheaters, reheater tubing, and high-pressure steam distribution systems where cost-effective creep resistance is needed."
+          },
+          {
+            grade: "P22",
+            uns: "UNS K21590",
+            commonName: "2.25Cr - 1Mo Alloy Steel",
+            dinEn: "10CrMo9-10 / DIN 10CrMo910",
+            serviceTemp: "Up to 580°C (1075°F)",
+            heatTreatment: "Full / Isothermal Anneal, or Normalize & Temper (Min 675°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 163 HBW",
+            chemistry: { cr: "1.90 – 2.60%", mo: "0.87 – 1.13%", c: "0.05 – 0.15%", mn: "0.30 – 0.60%", si: "≤ 0.50%", p: "≤ 0.025%", s: "≤ 0.025%" },
+            applicationNote: "The benchmark workhorse alloy for main steam headers, hot reheat circuits, and heavy-wall piping in thermal power stations and petrochemical refineries."
+          },
+          {
+            grade: "P9",
+            uns: "UNS K90941",
+            commonName: "9Cr - 1Mo Alloy Steel",
+            dinEn: "X12CrMo9-1 / DIN 12CrMo195",
+            serviceTemp: "Up to 600°C (1110°F)",
+            heatTreatment: "Full Anneal, or Normalize (900-980°C) & Temper (Min 675°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 179 HBW",
+            chemistry: { cr: "8.00 – 10.00%", mo: "0.90 – 1.10%", c: "≤ 0.15%", mn: "0.30 – 0.60%", si: "0.25 – 1.00%", p: "≤ 0.025%", s: "≤ 0.025%" },
+            applicationNote: "High chromium content provides outstanding protection against sulfidation, sour crude attack, and high-temperature oxidation in oil refinery catalytic units."
+          },
+          {
+            grade: "P5",
+            uns: "UNS K41545",
+            commonName: "5Cr - 0.5Mo Alloy Steel",
+            dinEn: "X12CrMo5 / DIN 12CrMo195",
+            serviceTemp: "Up to 650°C (1200°F)",
+            heatTreatment: "Full Anneal, or Normalize & Temper (Min 675°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 217 HBW",
+            chemistry: { cr: "4.00 – 6.00%", mo: "0.45 – 0.65%", c: "≤ 0.15%", mn: "0.30 – 0.60%", si: "≤ 0.50%", p: "≤ 0.025%", s: "≤ 0.025%" },
+            applicationNote: "Specifically engineered for petroleum refinery furnaces, delayed coker units, and hydroprocessing lines handling hydrogen attack at elevated temperatures."
+          },
+          {
+            grade: "P91",
+            uns: "UNS K91560",
+            commonName: "Modified 9Cr - 1Mo - V - Nb (CSEF)",
+            dinEn: "X10CrMoVNb9-1 / DIN X10CrMoVNb91",
+            serviceTemp: "Up to 620°C (1150°F)",
+            heatTreatment: "Normalize (1040–1080°C) & Temper (730–800°C) Air Cooled",
+            tensileMpa: "585 – 760 MPa (85–110 ksi)",
+            yieldMpa: "≥ 415 MPa (60 ksi)",
+            elongation: "≥ 20%",
+            hardness: "190 – 250 HBW (≤ 265 HV)",
+            chemistry: { cr: "8.00 – 9.50%", mo: "0.85 – 1.05%", c: "0.08 – 0.12%", mn: "0.30 – 0.60%", si: "0.20 – 0.50%", v: "0.18 – 0.25%", nb: "0.06 – 0.10%", n: "0.03 – 0.07%" },
+            applicationNote: "Advanced Creep-Strength Enhanced Ferritic (CSEF) alloy. Enables up to 50% thinner pipe walls than P22, significantly reducing thermal fatigue in supercritical power stations."
+          },
+          {
+            grade: "P92",
+            uns: "UNS K92460",
+            commonName: "9Cr - 1.8W - 0.5Mo - V - Nb - B (CSEF)",
+            dinEn: "X10CrWMoVNb9-2",
+            serviceTemp: "Up to 650°C (1200°F)",
+            heatTreatment: "Normalize (1050–1080°C) & Temper (730–800°C) Air Cooled",
+            tensileMpa: "620 – 850 MPa (90–123 ksi)",
+            yieldMpa: "≥ 440 MPa (64 ksi)",
+            elongation: "≥ 20%",
+            hardness: "190 – 250 HBW (≤ 265 HV)",
+            chemistry: { cr: "8.50 – 9.50%", w: "1.50 – 2.00%", mo: "0.30 – 0.60%", c: "0.07 – 0.13%", mn: "0.30 – 0.60%", si: "≤ 0.50%", v: "0.15 – 0.25%", nb: "0.04 – 0.09%", b: "0.001 – 0.006%", n: "0.03 – 0.07%" },
+            applicationNote: "Next-generation tungsten-strengthened CSEF steel designed for ultra-supercritical (USC) thermal power generation operating under extreme steam pressures and cyclical demands."
+          }
+        ],
+        engineeringAdvantages: [
+          { title: "Supercritical Creep Rupture Strength", desc: "Engineered for 100,000+ hour creep life under severe stress at 550°C to 650°C. Molybdenum and vanadium carbonitrides anchor grain boundaries, resisting void formation." },
+          { title: "Immunity to Thermal Graphitization", desc: "In long-term service above 425°C, standard carbon steels suffer catastrophic graphitization embrittlement. Chromium in ASTM A335 binds carbon into stable chromium carbides, ensuring lifetime metallurgical integrity." },
+          { title: "Thinner Wall Profile & Thermal Fatigue Resistance", desc: "High allowable stress in Grades P91 and P92 allows up to a 50% wall thickness reduction compared to P22. Thinner walls drastically minimize through-wall thermal gradients during fast start-ups and cyclical loading." },
+          { title: "Hydrogen & Sour Gas (H2S) Attack Resistance", desc: "Conforming to NACE MR0175 / ISO 15156. The dense chromium oxide surface film and controlled hardness (≤ 250 HBW) resist sulfide stress cracking (SSC) and high-temperature Nelson Curve hydrogen attack." },
+          { title: "Strict Indian Boiler Regulations (IBR) Certified", desc: "Supplied with original IBR Form III-A and Form III-C inspection documentation approved by authorized boiler inspectors for legal installation in high-pressure steam boilers and superheaters." },
+          { title: "Extreme Pressure Proof Tested up to 700 Bar", desc: "Each pipe length undergoes 100% hydrostatic proof testing or non-destructive ultrasonic and eddy current examination with automated calibration to detect subsurface flaws." }
+        ],
+        customApplications: [
+          { title: "Supercritical & USC Power Plants", desc: "Main steam piping, hot and cold reheat lines, boiler superheater tubes, and economizer manifolds operating at pressures up to 300 bar and 620°C." },
+          { title: "Hydrocracking & Hydrotreating Units", desc: "Severe refinery circuits handling hydrogen at high partial pressures and elevated temperatures, preventing Nelson curve hydrogen embrittlement." },
+          { title: "Delayed Coker Units & Fired Heaters", desc: "High-temperature furnace transfer lines and furnace coils subjected to severe thermal cycling and decoking steam-air mixtures." },
+          { title: "Sour Gas & Geothermal High-Pressure Piping", desc: "Production manifolds, steam gathering lines, and wellheads exposed to aggressive hydrogen sulfide (H2S) sour crude and geothermal brines." }
+        ],
+        qualityProtocols: [
+          { item: "Positive Material Identification (PMI)", detail: "100% XRF / OES Spectrometry test on every pipe to verify Cr, Mo, V, Nb, W composition." },
+          { item: "Non-Destructive Testing (NDT)", detail: "100% full-body Ultrasonic Testing (ASTM A388) and Eddy Current Testing (ASTM E426)." },
+          { item: "Hydrostatic Proof Testing", detail: "Tested to 100% SMYS design pressure (up to 700 bar) with 10-second dwell time." },
+          { item: "Mechanical & Hardness Testing", detail: "Transverse/longitudinal tensile, flattening, flaring, bend, and multi-point hardness (max 250 HBW)." },
+          { item: "Charpy V-Notch Impact Testing", detail: "Sub-zero impact testing performed at -20°C to -46°C to confirm transition temperature safety." },
+          { item: "Mill Certification & Documentation", detail: "EN 10204 3.1 & 3.2 MTC, IBR Form III-A / III-C, NACE MR0175, PED 2014/68/EU, TPI clearance." }
+        ]
+      },
+      {
+        id: "specialist-alloy-steel-tubes",
+        slug: "alloy-steel-tubes",
+        aliases: [
+          "alloy-steel-tubes-a213",
+          "sa-213-tubes",
+          "a213-tubes"
+        ],
+        name: "Alloy Steel Tubes",
+        materialName: "Alloy Steel",
+        grade: "ASTM A213 / ASME SA213 Gr. T11, T22, T91",
+        image: img_specialist_tubes,
+        shortDesc: "Precision cold drawn seamless boiler and superheater tubing with tight wall tolerances, high thermal conductivity, and elevated creep strength for high-flux heat exchangers.",
+        description: "KPTRON stocks and supplies high-precision ASTM A213 / ASME SA213 Seamless Ferritic Alloy-Steel Boiler, Superheater, and Heat-Exchanger Tubes. Unlike piping, tubing is manufactured to exact outside diameter (OD) and minimum or average wall thickness tolerances to maximize heat transfer efficiency and thermal fatigue endurance. Available in Grades T11, T22, and Creep-Strength Enhanced Ferritic (CSEF) T91, our tubing withstands severe thermal cyclic loading in supercritical boiler platens, reheater banks, and refinery radiant coils up to 620°C. Supplied in straight lengths up to 24 meters and precision U-bent configurations with full IBR Form III-B and EN 10204 3.1/3.2 certification.",
+        gradeMatrixTitle: "ASTM A213 Heat Exchanger & Boiler Grade Matrix",
+        gradeMatrixDesc: "Seamless ferritic alloy steel grades with verified elevated-temperature creep rupture properties for high-efficiency heat transfer equipment.",
+        comparisonTableTitle: "ASTM A213 Boiler & Heat Exchanger Chemistry Matrix",
+        advantagesSubtitle: "Engineering benefits of precision cold-drawn ASTM A213 alloy steel tubes for boiler superheaters and shell-and-tube exchangers.",
+        qualitySubtitle: "100% in-line non-destructive inspection, mechanical flaring/flattening tests, and statutory IBR certification on every tube lot.",
+        specs: {
+          size: "Outer Diameter: 1/4\" OD to 5\" OD (6.35 mm to 127 mm Outside Diameter)",
+          schedule: "Wall Thickness: 0.89 mm to 12.7 mm (20 BWG to 3 BWG; Specified Minimum or Average Wall per ASTM A1016)",
+          standards: "ASTM A213 / ASME SA213 (Grades T11, T22, T91), BS 3059-2, DIN 17175, EN 10216-2",
+          dimensions: "ASTM A1016 / ASME SA1016 Standard Specification for General Requirements for Ferritic Alloy Steel Tubes",
+          testing: "100% In-Line Eddy Current Testing, Hydrostatic Pressure Testing up to 350 Bar, Flaring & Flattening, Hardness Verification",
+          certification: "EN 10204 3.1 & 3.2 Mill Test Certificates, Indian Boiler Regulations (IBR Form III-B & III-C), PED 2014/68/EU",
+          surfaceFinish: "Cold Drawn Seamless (CDS) Bright Annealed, Acid Pickled & Passivated, Bare Clean Bore, Precision End Deburred & Plastic Capped"
+        },
+        standards: ["ASTM A213", "ASME SA213", "IBR Form III-B", "EN 10216-2", "DIN 17175", "TEMA Standards", "PED 2014/68/EU", "ISO 9001:2015"],
+        gradeBreakdown: [
+          {
+            grade: "T11",
+            uns: "UNS K11597",
+            commonName: "1.25Cr - 0.5Mo - Si Boiler Tubing",
+            dinEn: "13CrMo4-5 / DIN 13CrMo44",
+            serviceTemp: "Up to 560°C (1040°F)",
+            heatTreatment: "Full / Isothermal Anneal, or Normalize & Temper (Min 650°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 163 HBW (85 HRB)",
+            chemistry: { cr: "1.00 – 1.50%", mo: "0.44 – 0.65%", c: "0.05 – 0.15%", mn: "0.30 – 0.60%", si: "0.50 – 1.00%", p: "≤ 0.025%", s: "≤ 0.025%" },
+            applicationNote: "Standard selection for convection section boiler superheater banks, economizer coils, and industrial steam generator tubes requiring dependable thermal conductivity."
+          },
+          {
+            grade: "T22",
+            uns: "UNS K21590",
+            commonName: "2.25Cr - 1Mo Superheater Tubing",
+            dinEn: "10CrMo9-10 / DIN 10CrMo910",
+            serviceTemp: "Up to 580°C (1075°F)",
+            heatTreatment: "Full / Isothermal Anneal, or Normalize & Temper (Min 675°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 163 HBW (85 HRB)",
+            chemistry: { cr: "1.90 – 2.60%", mo: "0.87 – 1.13%", c: "0.05 – 0.15%", mn: "0.30 – 0.60%", si: "≤ 0.50%", p: "≤ 0.025%", s: "≤ 0.025%" },
+            applicationNote: "The industry benchmark workhorse boiler tube for high-temperature superheater platen coils, finishing reheaters, and chemical cracker furnaces."
+          },
+          {
+            grade: "T91",
+            uns: "UNS K91560",
+            commonName: "Modified 9Cr - 1Mo - V - Nb (CSEF Tubing)",
+            dinEn: "X10CrMoVNb9-1 / DIN X10CrMoVNb91",
+            serviceTemp: "Up to 620°C (1150°F)",
+            heatTreatment: "Normalize (1040–1080°C) & Temper (730–800°C) Air Cooled",
+            tensileMpa: "585 – 760 MPa (85–110 ksi)",
+            yieldMpa: "≥ 415 MPa (60 ksi)",
+            elongation: "≥ 20%",
+            hardness: "190 – 250 HBW (≤ 265 HV)",
+            chemistry: { cr: "8.00 – 9.50%", mo: "0.85 – 1.05%", c: "0.08 – 0.12%", mn: "0.30 – 0.60%", si: "0.20 – 0.50%", v: "0.18 – 0.25%", nb: "0.06 – 0.10%", n: "0.03 – 0.07%" },
+            applicationNote: "Creep-Strength Enhanced Ferritic (CSEF) alloy. Enables up to 50% thinner tube wall profiles, higher heat transfer coefficients, and extended life under rapid boiler cycling."
+          }
+        ],
+        engineeringAdvantages: [
+          { title: "Optimized Heat Flux & Uniform Wall Thickness", desc: "Manufactured strictly to ASTM A1016 tolerances with tight minimum wall thickness control, ensuring predictable and maximum thermal transfer without hot spots." },
+          { title: "Tube vs Pipe Dimensional Precision", desc: "Calibrated to exact outside diameter (OD) and wall thickness dimensions rather than nominal pipe sizes (NPS), delivering seamless integration into tube sheets and headers." },
+          { title: "Supercritical Creep Rupture Strength", desc: "Grade T91 features vanadium and niobium carbonitrides that pin dislocations, sustaining continuous service at 600°C+ without wall swelling or creep deformation." },
+          { title: "High-Integrity Precision U-Bending", desc: "Custom U-bent per TEMA and ASTM A688 with tight radius control and automated electric resistance post-bend heat treatment to relieve residual forming stresses." },
+          { title: "Flue-Gas Oxidation & Graphitization Immunity", desc: "Higher chromium content forms a continuous, adhering protective oxide scale that resists sulfurous flue gas corrosion and graphitization phase change." },
+          { title: "Strict Indian Boiler Regulations (IBR Form III-B) Endorsed", desc: "Supplied with statutory IBR Form III-B certificates issued by authorized boiler inspecting agencies for immediate legal installation in power utility boilers." }
+        ],
+        customApplications: [
+          { title: "Boiler Superheaters & Reheater Banks", desc: "Primary, secondary, and platen superheater tubes exposed to high radiant furnace heat in coal, gas, and biomass power stations." },
+          { title: "Shell-and-Tube Heat Exchangers & Condensers", desc: "High-pressure chemical process coolers, interchangers, and overhead condensers requiring precision U-tubes and tight baffle tolerances." },
+          { title: "Heat Recovery Steam Generators (HRSG)", desc: "Combined cycle gas turbine (CCGT) exhaust heat recovery bundles and economizer serpentine loops subjected to fast operational starts." },
+          { title: "Petrochemical Fired Heaters & Cracking Furnaces", desc: "Radiant heating coils subjected to rapid thermal ramp-up and cyclic decoking steam-air atmospheres." }
+        ],
+        qualityProtocols: [
+          { item: "100% In-line Eddy Current Testing", detail: "Continuous automated electromagnetic scanning per ASTM E426 across 100% of tube length to detect longitudinal and transverse flaws." },
+          { item: "Hydrostatic Proof Pressure Testing", detail: "Each tube tested up to 350 bar with specified holding time to verify metallurgical soundness." },
+          { item: "Mechanical Flaring & Flattening Tests", detail: "Extreme plastic expansion and reverse flattening tests to guarantee ductile bending and expansion into tube sheets." },
+          { item: "Microstructural & Decarburization Depth Check", detail: "Metallographic verification confirming complete martensitic or normalized-and-tempered grain matrix with zero surface decarburization." },
+          { item: "Wall Thickness & OD Gauge Verification", detail: "Continuous ultrasonic micrometer scanning ensuring zero wall thinning below guaranteed minimum wall thickness." },
+          { item: "Complete Mill Certification & Traceability", detail: "EN 10204 3.1 & 3.2 MTC, IBR Form III-B & III-C, PED 2014/68/EU inspection documents with heat traceability." }
+        ]
+      },
+      {
+        id: "specialist-alloy-steel-plates",
+        slug: "alloy-steel-plates",
+        aliases: [
+          "alloy-steel-plates-a387",
+          "sa-387-plates",
+          "a387-plates"
+        ],
+        name: "Alloy Steel Plates",
+        materialName: "Alloy Steel",
+        grade: "ASTM A387 / ASME SA387 Gr. 11, 22, 5, 9 (P11, P22, P5, P9) Class 1 & 2",
+        image: img_specialist_plates,
+        shortDesc: "Heavy boiler-quality pressure vessel chrome-moly steel plates offering superior notch toughness, temper embrittlement resistance, and high-temperature tensile strength up to 650°C.",
+        description: "KPTRON stocks and processes premium ASTM A387 / ASME SA387 Pressure Vessel Plates, Alloy Steel, Chromium-Molybdenum. Intended specifically for welded boilers and high-pressure process vessels operating at elevated temperatures, our plates are supplied in Grades 11, 22, 5, and 9 in both Class 1 (optimized ductility and formability) and Class 2 (higher allowable design stress). Produced with vacuum degassing and calcium treatment for low residual impurity levels (low J-Factor and X-Bar), these plates prevent 475°C temper embrittlement during decades of continuous service in hydrocrackers, catalytic reactors, and steam drums. Fully certified under EN 10204 3.1 & 3.2 and Indian Boiler Regulations (IBR Form IV).",
+        gradeMatrixTitle: "ASTM A387 Pressure Vessel Plate Grade Matrix",
+        gradeMatrixDesc: "Low-alloy chrome-molybdenum steel plates for elevated temperature service in welded boilers, hydroprocessing reactors, and pressure vessels.",
+        comparisonTableTitle: "ASTM A387 Pressure Vessel Plate Chemistry Comparison",
+        advantagesSubtitle: "Key metallurgical advantages of ASME SA387 chrome-moly plates for heavy-wall reactor shells, heads, and boiler drums.",
+        qualitySubtitle: "Comprehensive ultrasonic flaw detection (ASTM A578), simulated post-weld heat treatment (SPWHT) coupon testing, and IBR Form IV certification.",
+        specs: {
+          size: "Thickness: 6 mm to 250 mm; Width: 1,500 mm to 3,500 mm; Length: 6,000 mm to 14,000 mm",
+          schedule: "Heavy Pressure Vessel Quality Plates; Class 1 (Normalized & Tempered) & Class 2 (High Tensile Condition)",
+          standards: "ASTM A387 / ASME SA387 (Grades 11, 22, 5, 9), EN 10028-2 (13CrMo4-5, 10CrMo9-10), DIN 17155",
+          dimensions: "ASTM A20 / ASME SA20 General Requirements for Steel Plates for Pressure Vessels",
+          testing: "100% Ultrasonic Testing (UT per ASTM A578 Level A/B/C or ASTM A435), Charpy V-Notch (-40°C), SPWHT Coupons, Z-Direction Tensile (ASTM A770)",
+          certification: "EN 10204 3.1 & 3.2 Inspection Certificates, IBR Form IV (Boiler Plates) Endorsement, NACE MR0175 / ISO 15156",
+          surfaceFinish: "Shot Blasted (SA 2.5), Rust-Inhibitive Primer Coated, Precision CNC Oxy-Fuel / Plasma Profile Cut, Weld Bevel Prepared (Double V / J-Prep)"
+        },
+        standards: ["ASTM A387", "ASME SA387", "IBR Form IV", "EN 10028-2", "DIN 17155", "NACE MR0175", "PED 2014/68/EU", "ISO 9001:2015"],
+        gradeBreakdown: [
+          {
+            grade: "11 (P11)",
+            uns: "UNS K11789",
+            commonName: "1.25Cr - 0.5Mo Pressure Vessel Plate",
+            dinEn: "13CrMo4-5 / DIN 13CrMo44",
+            serviceTemp: "Up to 550°C (1020°F)",
+            heatTreatment: "Normalize (900-980°C) & Temper (Min 620°C for Class 1 / Min 650°C for Class 2)",
+            tensileMpa: "Cl 1: 415–585 MPa | Cl 2: 515–690 MPa",
+            yieldMpa: "Cl 1: ≥ 240 MPa | Cl 2: ≥ 310 MPa",
+            elongation: "Cl 1: ≥ 19% | Cl 2: ≥ 18%",
+            hardness: "≤ 205 HBW",
+            chemistry: { cr: "1.00 – 1.50%", mo: "0.45 – 0.60%", c: "0.05 – 0.17%", mn: "0.40 – 0.65%", si: "0.50 – 0.80%", p: "≤ 0.025%", s: "≤ 0.025%" },
+            applicationNote: "Standard pressure vessel plate for boiler drums, industrial deaerators, and high-temperature steam vessels where uniform ductility and weldability are essential."
+          },
+          {
+            grade: "22 (P22)",
+            uns: "UNS K21590",
+            commonName: "2.25Cr - 1Mo Pressure Vessel Plate",
+            dinEn: "10CrMo9-10 / DIN 10CrMo910",
+            serviceTemp: "Up to 580°C (1075°F)",
+            heatTreatment: "Normalize (900-980°C) & Temper (Min 675°C)",
+            tensileMpa: "Cl 1: 415–585 MPa | Cl 2: 515–690 MPa",
+            yieldMpa: "Cl 1: ≥ 205 MPa | Cl 2: ≥ 310 MPa",
+            elongation: "Cl 1: ≥ 19% | Cl 2: ≥ 18%",
+            hardness: "≤ 217 HBW",
+            chemistry: { cr: "2.00 – 2.50%", mo: "0.90 – 1.10%", c: "0.05 – 0.15%", mn: "0.30 – 0.60%", si: "≤ 0.50%", p: "≤ 0.025%", s: "≤ 0.025%" },
+            applicationNote: "The industry standard for heavy-wall hydroprocessing reactors; low J-Factor (J ≤ 100) control prevents temper embrittlement during decades of continuous operation."
+          },
+          {
+            grade: "5 (P5)",
+            uns: "UNS K41545",
+            commonName: "5Cr - 0.5Mo Pressure Vessel Plate",
+            dinEn: "X12CrMo5 / DIN 12CrMo195",
+            serviceTemp: "Up to 650°C (1200°F)",
+            heatTreatment: "Normalize (900-980°C) & Temper (Min 675°C)",
+            tensileMpa: "Cl 1: 415–585 MPa | Cl 2: 515–690 MPa",
+            yieldMpa: "Cl 1: ≥ 205 MPa | Cl 2: ≥ 310 MPa",
+            elongation: "Cl 1: ≥ 18% | Cl 2: ≥ 18%",
+            hardness: "≤ 217 HBW",
+            chemistry: { cr: "4.00 – 6.00%", mo: "0.45 – 0.65%", c: "≤ 0.15%", mn: "0.30 – 0.60%", si: "≤ 0.50%", p: "≤ 0.025%", s: "≤ 0.025%" },
+            applicationNote: "Formulated for petroleum refining delayed coker drums, catalytic reforming reactors, and hydrotreating vessels requiring resistance to hydrogen attack and sulfidation."
+          },
+          {
+            grade: "9 (P9)",
+            uns: "UNS K90941",
+            commonName: "9Cr - 1Mo Pressure Vessel Plate",
+            dinEn: "X12CrMo9-1 / DIN 12CrMo195",
+            serviceTemp: "Up to 650°C (1200°F)",
+            heatTreatment: "Normalize (900-980°C) & Temper (Min 675°C)",
+            tensileMpa: "Cl 1: 415–585 MPa | Cl 2: 515–690 MPa",
+            yieldMpa: "Cl 1: ≥ 205 MPa | Cl 2: ≥ 310 MPa",
+            elongation: "Cl 1: ≥ 18% | Cl 2: ≥ 18%",
+            hardness: "≤ 217 HBW",
+            chemistry: { cr: "8.00 – 10.00%", mo: "0.90 – 1.10%", c: "≤ 0.15%", mn: "0.30 – 0.60%", si: "0.25 – 1.00%", p: "≤ 0.025%", s: "≤ 0.025%" },
+            applicationNote: "High chromium content provides outstanding protection against sulfidation, sour crude attack, and high-temperature oxidation in oil refinery catalytic units."
+          }
+        ],
+        engineeringAdvantages: [
+          { title: "Low J-Factor & Temper Embrittlement Resistance", desc: "Rigorous metallurgical control of residual tramp elements (P, Sn, Sb, As) with J-Factor ≤ 100 ensures long-term toughness without temper embrittlement." },
+          { title: "High Allowable Stress in Class 2 Condition", desc: "Provides elevated tensile strength (515–690 MPa) and higher design allowable stress, allowing vessel designers to optimize plate shell thickness." },
+          { title: "Resistance to High-Temperature Hydrogen Attack", desc: "Complies with the API 941 Nelson Curves for safe operation under high hydrogen partial pressures without decarburization or methane micro-fissuring." },
+          { title: "Through-Thickness Ductility (Z-Direction)", desc: "Guaranteed through-thickness reduction of area (Z25 / Z35 per ASTM A770) eliminates lamellar tearing risk under high welding restraint." },
+          { title: "Fine-Grained Vacuum Degassed & Calcium Treated", desc: "Clean steel ladle metallurgy with globular sulfide inclusion shape control ensures isotropic impact toughness across heavy thickness up to 250mm." },
+          { title: "Approved under Indian Boiler Regulations (IBR Form IV)", desc: "Supplied with authorized IBR Form IV certificates for the legal fabrication of utility boiler drums, pressure shells, and dished ends." }
+        ],
+        customApplications: [
+          { title: "Heavy-Wall Hydrocracker & Hydrotreater Reactors", desc: "Thick-walled shell courses, hot separator vessels, and catalytic cracking reactor bodies in modern petroleum refineries." },
+          { title: "Boiler Steam Drums & Deaerators", desc: "High-pressure boiler separation drums, headers, and deaerator pressure vessels for thermal power generation stations." },
+          { title: "Coker Drums & High-Temperature Fractionators", desc: "Delayed coking vessels and distillation fractionators subjected to severe thermal cycling and steam-air purge cycles." },
+          { title: "Heat Exchanger Tube Sheets & Heavy Flanged Heads", desc: "Precision CNC drilled heavy tube sheets, blind plates, and hot-formed torispherical and 2:1 elliptical vessel heads." }
+        ],
+        qualityProtocols: [
+          { item: "100% Ultrasonic Testing (UT)", detail: "Full plate grid scanning per ASTM A578 Level A/B/C or ASTM A435 to confirm complete freedom from internal laminations or slag inclusions." },
+          { item: "Simulated Post-Weld Heat Treatment (SPWHT)", detail: "Mechanical test coupons subjected to multi-cycle thermal simulations replicating actual heavy vessel fabrication post-weld heat treatments." },
+          { item: "Charpy V-Notch Impact Testing", detail: "Sub-zero impact toughness verified at -20°C to -40°C in both longitudinal and transverse directions." },
+          { item: "Through-Thickness Tensile Testing (ASTM A770)", detail: "Z-direction reduction of area testing (Z25/Z35) verifying resistance to lamellar tearing under weld shrinkage stresses." },
+          { item: "Ladle & Product Chemical Analysis", detail: "Spectrometric verification of all elements including Bruscato Factor (X-Bar) and Watanabe Factor (J-Factor) control." },
+          { item: "Complete Mill Certification & Traceability", detail: "EN 10204 3.1 & 3.2 MTC with full heat, slab, plate, and rolling direction traceability alongside IBR Form IV endorsement." }
+        ]
+      }
+    ]
   }
 ];
 
@@ -2366,6 +2952,7 @@ const _groupsByDivisionAndSlug = new Map();
 const _groupsBySlug = new Map();
 const _categoriesByFullKey = new Map();
 const _categoriesByGroupAndCat = new Map();
+const _categoriesBySlug = new Map();
 const _groupsByDivision = {
   manufacturer: [],
   supplier: []
@@ -2399,6 +2986,16 @@ for (let i = 0; i < PRODUCT_GROUPS.length; i++) {
     };
     _categoriesByFullKey.set(`${divSlug}/${grpSlug}/${catSlug}`, item);
     _categoriesByGroupAndCat.set(`${grpSlug}/${catSlug}`, item);
+    _categoriesBySlug.set(catSlug, item);
+
+    if (cat.aliases && Array.isArray(cat.aliases)) {
+      cat.aliases.forEach(alias => {
+        const aSlug = String(alias).toLowerCase().trim();
+        _categoriesBySlug.set(aSlug, item);
+        _categoriesByFullKey.set(`${divSlug}/${grpSlug}/${aSlug}`, item);
+        _categoriesByGroupAndCat.set(`${grpSlug}/${aSlug}`, item);
+      });
+    }
   }
 }
 
@@ -2428,15 +3025,27 @@ export function getProductGroup(arg1, arg2) {
 }
 
 export function getProductCategory(arg1, arg2, arg3) {
-  if (!arg3) {
-    const cleanGroup = String(arg1 || '').toLowerCase().trim();
-    const cleanCat = String(arg2 || '').toLowerCase().trim();
-    return _categoriesByGroupAndCat.get(`${cleanGroup}/${cleanCat}`) || null;
+  if (arg1 && arg2 && arg3) {
+    const cleanDiv = String(arg1).toLowerCase().trim();
+    const cleanGroup = String(arg2).toLowerCase().trim();
+    const cleanCat = String(arg3).toLowerCase().trim();
+    const match = _categoriesByFullKey.get(`${cleanDiv}/${cleanGroup}/${cleanCat}`);
+    if (match) return match;
   }
-  const cleanDiv = String(arg1 || '').toLowerCase().trim();
-  const cleanGroup = String(arg2 || '').toLowerCase().trim();
-  const cleanCat = String(arg3 || '').toLowerCase().trim();
-  return _categoriesByFullKey.get(`${cleanDiv}/${cleanGroup}/${cleanCat}`) || _categoriesByGroupAndCat.get(`${cleanGroup}/${cleanCat}`) || null;
+  if (arg1 && arg2 && !arg3) {
+    const cleanGroup = String(arg1).toLowerCase().trim();
+    const cleanCat = String(arg2).toLowerCase().trim();
+    const match = _categoriesByGroupAndCat.get(`${cleanGroup}/${cleanCat}`);
+    if (match) return match;
+  }
+  const fallbackSlug = String(arg3 || arg2 || arg1 || '').toLowerCase().trim();
+  return _categoriesBySlug.get(fallbackSlug) || _categoriesByGroupAndCat.get(fallbackSlug) || null;
+}
+
+export function isProductCategorySlug(slug) {
+  if (!slug) return false;
+  const clean = String(slug).toLowerCase().trim();
+  return _categoriesBySlug.has(clean);
 }
 
 export function getRelatedProducts(arg1, arg2, limit = 4) {

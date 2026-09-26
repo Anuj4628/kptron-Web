@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import MaterialsSection from './components/Materials/MaterialsSection';
 import ProductsSection from './components/Products/ProductsSection';
+import SpecialistProductsSection from './components/Products/SpecialistProductsSection';
 import WhyChooseSection from './components/WhyChoose/WhyChooseSection';
 import IndustriesSection from './components/Industries/IndustriesSection';
 import ValueAddedSection from './components/ValueAdded/ValueAddedSection';
@@ -11,6 +12,7 @@ import GlobalExportSection from './components/Export/GlobalExportSection';
 import FinalCTASection from './components/CTA/FinalCTASection';
 import Footer from './components/Footer/Footer';
 import FloatingContactButtons from './components/UI/FloatingContactButtons';
+import { isProductCategorySlug } from './data/productCatalogData';
 
 // Lazy-loaded routes for ultra-fast initial bundle and snappy navigation
 const AboutSection = lazy(() => import('./components/About/AboutSection'));
@@ -65,12 +67,18 @@ function parseRoute(pathname = window.location.pathname) {
       if (p0 === 'manufacturer' || p0 === 'supplier') {
         return { page: 'products', view: 'division', divisionSlug: p0 };
       }
+      if (isProductCategorySlug(p0)) {
+        return { page: 'products', view: 'detail', productSlug: p0 };
+      }
       return { page: 'products', view: 'family', groupSlug: parts[0] };
     }
 
     if (parts.length === 2) {
       const p0 = parts[0].toLowerCase();
       if (p0 === 'manufacturer' || p0 === 'supplier') {
+        if (isProductCategorySlug(parts[1])) {
+          return { page: 'products', view: 'detail', divisionSlug: p0, productSlug: parts[1].toLowerCase() };
+        }
         return { page: 'products', view: 'family', divisionSlug: p0, groupSlug: parts[1] };
       }
       return { page: 'products', view: 'detail', groupSlug: parts[0], productSlug: parts[1] };
@@ -269,6 +277,7 @@ export default function App() {
           <Hero onNavigate={navigateTo} />
           <MaterialsSection onNavigate={navigateTo} />
           <ProductsSection onNavigate={navigateTo} />
+          <SpecialistProductsSection onNavigate={navigateTo} />
           <WhyChooseSection />
           <IndustriesSection />
           <ValueAddedSection />

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import ProductBreadcrumb from '../ProductBreadcrumb';
 import SpecsTable from '../SpecsTable';
 import InquiryForm from '../InquiryForm';
@@ -30,6 +30,9 @@ export default function ProductDetailView({
     if (!product) return null;
     return DIVISIONS[product.divisionSlug] || null;
   }, [product]);
+
+  const [activeGradeIndex, setActiveGradeIndex] = useState(0);
+  const currentGrade = product?.gradeBreakdown?.[activeGradeIndex] || product?.gradeBreakdown?.[0];
 
   if (!product) {
     return (
@@ -242,6 +245,207 @@ export default function ProductDetailView({
             />
           </section>
 
+          {/* Section: Grade Metallurgy & Technical Properties (If available) */}
+          {product.gradeBreakdown && product.gradeBreakdown.length > 0 && (
+            <section className="detail-metallurgy-section">
+              <div className="section-head-card">
+                <span className="section-eyebrow">ALLOY METALLURGY & CHEMICAL PROFILES</span>
+                <h3 className="section-title">{product.gradeMatrixTitle || `${product.name} Grade Engineering Matrix`}</h3>
+                <p className="section-desc">
+                  {product.gradeMatrixDesc || 'High-temperature creep-resistant Chrome-Moly grades engineered for supercritical steam lines, hydroprocessing, and refinery cracking.'}
+                </p>
+              </div>
+
+              {/* Interactive Grade Tab Selector */}
+              <div className="grade-selector-tabs" role="tablist" aria-label="Select alloy grade">
+                {product.gradeBreakdown.map((g, idx) => (
+                  <button
+                    key={g.grade}
+                    type="button"
+                    role="tab"
+                    aria-selected={activeGradeIndex === idx}
+                    className={`grade-tab-btn ${activeGradeIndex === idx ? 'active' : ''}`}
+                    onClick={() => setActiveGradeIndex(idx)}
+                  >
+                    <span className="tab-grade-tag">Grade</span>
+                    <span className="tab-grade-num">{g.grade}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Active Grade Deep Profile Card */}
+              {currentGrade && (
+                <div className="active-grade-panel">
+                  <div className="grade-profile-header">
+                    <div className="profile-identity">
+                      <span className="grade-pill-badge">GRADE {currentGrade.grade}</span>
+                      <h4 className="grade-full-name">{currentGrade.commonName}</h4>
+                      <div className="grade-ref-tags">
+                        <span className="ref-tag">UNS: <strong>{currentGrade.uns}</strong></span>
+                        <span className="ref-tag">DIN / EN: <strong>{currentGrade.dinEn}</strong></span>
+                      </div>
+                    </div>
+                    <div className="profile-metrics-grid">
+                      <div className="metric-box">
+                        <span className="metric-label">Max Service Temp</span>
+                        <span className="metric-val highlight-temp">{currentGrade.serviceTemp}</span>
+                      </div>
+                      <div className="metric-box">
+                        <span className="metric-label">Min Tensile Strength</span>
+                        <span className="metric-val">{currentGrade.tensileMpa}</span>
+                      </div>
+                      <div className="metric-box">
+                        <span className="metric-label">Min Yield Strength</span>
+                        <span className="metric-val">{currentGrade.yieldMpa}</span>
+                      </div>
+                      <div className="metric-box">
+                        <span className="metric-label">Max Hardness</span>
+                        <span className="metric-val">{currentGrade.hardness}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grade-details-body">
+                    <div className="chemistry-col">
+                      <h5 className="sub-heading">Nominal Chemical Composition (% Weight)</h5>
+                      <div className="chem-table-wrap">
+                        <table className="chem-table">
+                          <thead>
+                            <tr>
+                              <th>Element</th>
+                              <th>Specified Limits</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {Object.entries(currentGrade.chemistry).map(([el, val]) => (
+                              <tr key={el}>
+                                <td className="chem-el-name">{el.toUpperCase()}</td>
+                                <td className="chem-el-val">{val}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div className="treatment-col">
+                      <div className="treatment-block">
+                        <h5 className="sub-heading">Heat Treatment Condition</h5>
+                        <p className="treatment-text">{currentGrade.heatTreatment}</p>
+                      </div>
+
+                      <div className="treatment-block">
+                        <h5 className="sub-heading">Minimum Elongation</h5>
+                        <p className="treatment-text"><strong>{currentGrade.elongation}</strong> in 2 inches (50mm)</p>
+                      </div>
+
+                      <div className="treatment-block highlight-app-block">
+                        <h5 className="sub-heading">Target Industrial Service</h5>
+                        <p className="app-note-text">{currentGrade.applicationNote}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Master Comparative Chemical Composition Table */}
+              <div className="master-chem-overview">
+                <h4 className="master-table-title">{product.comparisonTableTitle || `Full ${product.name} Chemical Composition Comparison`}</h4>
+                <div className="master-table-scroll">
+                  <table className="master-chem-table">
+                    <thead>
+                      <tr>
+                        <th>Grade</th>
+                        <th>UNS</th>
+                        <th>Carbon (C)</th>
+                        <th>Manganese (Mn)</th>
+                        <th>Chromium (Cr)</th>
+                        <th>Molybdenum (Mo)</th>
+                        <th>Silicon (Si)</th>
+                        <th>Micro-Alloys (V, Nb, W, B, N)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {product.gradeBreakdown.map(g => (
+                        <tr key={g.grade} className={currentGrade?.grade === g.grade ? 'row-active' : ''}>
+                          <td className="td-grade-bold">Gr. {g.grade}</td>
+                          <td>{g.uns}</td>
+                          <td>{g.chemistry.c}</td>
+                          <td>{g.chemistry.mn}</td>
+                          <td className="td-cr-highlight">{g.chemistry.cr}</td>
+                          <td className="td-mo-highlight">{g.chemistry.mo}</td>
+                          <td>{g.chemistry.si}</td>
+                          <td>
+                            {[
+                              g.chemistry.v ? `V: ${g.chemistry.v}` : null,
+                              g.chemistry.nb ? `Nb: ${g.chemistry.nb}` : null,
+                              g.chemistry.w ? `W: ${g.chemistry.w}` : null,
+                              g.chemistry.b ? `B: ${g.chemistry.b}` : null,
+                              g.chemistry.n ? `N: ${g.chemistry.n}` : null
+                            ].filter(Boolean).join(', ') || '—'}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Section: Engineering Advantages & Creep Performance */}
+          {product.engineeringAdvantages && product.engineeringAdvantages.length > 0 && (
+            <section className="detail-advantages-section">
+              <div className="section-head-card">
+                <span className="section-eyebrow">METALLURGICAL ADVANTAGES</span>
+                <h3 className="section-title">Engineered For High-Temperature Integrity</h3>
+                <p className="section-desc">
+                  {product.advantagesSubtitle || `Key technical and metallurgical advantages for specifying ${product.name} over standard material grades in demanding operations.`}
+                </p>
+              </div>
+
+              <div className="advantages-grid">
+                {product.engineeringAdvantages.map((adv, idx) => (
+                  <div key={idx} className="advantage-card">
+                    <div className="adv-icon-badge">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <polyline points="9 12 11 14 15 10"></polyline>
+                      </svg>
+                    </div>
+                    <h4 className="adv-title">{adv.title}</h4>
+                    <p className="adv-desc">{adv.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Section: Quality & Inspection Protocols */}
+          {product.qualityProtocols && product.qualityProtocols.length > 0 && (
+            <section className="detail-quality-section">
+              <div className="section-head-card">
+                <span className="section-eyebrow">NON-DESTRUCTIVE & STATUTORY TESTING</span>
+                <h3 className="section-title">Quality Verification & Testing Protocols</h3>
+                <p className="section-desc">
+                  {product.qualitySubtitle || `Every ${product.name.toLowerCase()} production lot is subjected to rigorous metallurgical testing and third-party inspection standards.`}
+                </p>
+              </div>
+
+              <div className="quality-grid">
+                {product.qualityProtocols.map((qp, idx) => (
+                  <div key={idx} className="quality-item-card">
+                    <div className="quality-header">
+                      <span className="quality-num">0{idx + 1}</span>
+                      <h4 className="quality-title">{qp.item}</h4>
+                    </div>
+                    <p className="quality-desc">{qp.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Section: Industrial Applications */}
           <section className="detail-applications-section">
             <div className="apps-header">
@@ -253,46 +457,34 @@ export default function ProductDetailView({
             </div>
 
             <div className="apps-grid">
-              <div className="app-card">
-                <div className="app-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                  </svg>
+              {(product.customApplications || [
+                {
+                  title: 'Oil, Gas & Petrochemical',
+                  desc: 'Refinery pipework, offshore topsides, high-pressure process manifolds, and sour crude handling.'
+                },
+                {
+                  title: 'Chemical & Fertilizer Plants',
+                  desc: 'Severe corrosive environments, nitric/sulfuric acid circuits, reactors, and heat exchangers.'
+                },
+                {
+                  title: 'Power & Thermal Generation',
+                  desc: 'Supercritical boiler tubing, steam headers, nuclear coolant circuits, and turbine auxiliaries.'
+                },
+                {
+                  title: 'Pharmaceutical & Dairy',
+                  desc: 'Ultra-clean sanitary fluid transfer, electro-polished piping, bio-processing vessels, and CIP lines.'
+                }
+              ]).map((app, idx) => (
+                <div key={idx} className="app-card">
+                  <div className="app-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                  </div>
+                  <h4>{app.title}</h4>
+                  <p>{app.desc}</p>
                 </div>
-                <h4>Oil, Gas & Petrochemical</h4>
-                <p>Refinery pipework, offshore topsides, high-pressure process manifolds, and sour crude handling.</p>
-              </div>
-
-              <div className="app-card">
-                <div className="app-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M10 2v7.31M14 9.3V1.99M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"></path>
-                  </svg>
-                </div>
-                <h4>Chemical & Fertilizer Plants</h4>
-                <p>Severe corrosive environments, nitric/sulfuric acid circuits, reactors, and heat exchangers.</p>
-              </div>
-
-              <div className="app-card">
-                <div className="app-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                  </svg>
-                </div>
-                <h4>Power & Thermal Generation</h4>
-                <p>Supercritical boiler tubing, steam headers, nuclear coolant circuits, and turbine auxiliaries.</p>
-              </div>
-
-              <div className="app-card">
-                <div className="app-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                  </svg>
-                </div>
-                <h4>Pharmaceutical & Dairy</h4>
-                <p>Ultra-clean sanitary fluid transfer, electro-polished piping, bio-processing vessels, and CIP lines.</p>
-              </div>
+              ))}
             </div>
           </section>
 

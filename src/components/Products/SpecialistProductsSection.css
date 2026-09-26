@@ -1,0 +1,142 @@
+/* ===================================================
+   SPECIALIST ALLOY STEEL PRODUCTS SECTION
+   Consistent with Redcore Steels / KPTRON Design System
+   =================================================== */
+
+.specialist-products-section {
+  position: relative;
+  padding: 85px 0 75px;
+  background-color: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+  overflow: hidden;
+}
+
+.specialist-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 46px;
+}
+
+.specialist-header .section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.specialist-header .eyebrow-accent-bar {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-navy, #1F3862);
+  box-shadow: 0 0 10px rgba(31, 56, 98, 0.5);
+}
+
+.specialist-header .eyebrow-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #64748B);
+}
+
+.specialist-header .section-display-heading {
+  font-family: var(--font-display, sans-serif);
+  font-size: clamp(1.8rem, 4.4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--color-text-primary, #0F172A);
+  margin-bottom: 18px;
+  word-break: break-word;
+}
+
+.specialist-header .text-highlight-red {
+  color: var(--color-navy, #1F3862);
+  display: inline-block;
+}
+
+.specialist-header .section-description {
+  font-family: var(--font-primary, sans-serif);
+  font-size: clamp(0.96rem, 1.1vw, 1.08rem);
+  line-height: 1.65;
+  color: var(--color-text-secondary, #475569);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* 3-Column Grid */
+.specialist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .specialist-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 680px) {
+  .specialist-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    max-width: 440px;
+  }
+}
+
+/* Specialist Card Overrides & Enhancements */
+.specialist-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.specialist-chip {
+  background: rgba(31, 56, 98, 0.9) !important;
+}
+
+.specialist-grades-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #F1F5F9;
+  border-radius: 6px;
+  border-left: 3px solid var(--color-navy, #1F3862);
+}
+
+.grades-badge-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748B;
+}
+
+.grades-badge-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0F172A;
+  letter-spacing: 0.02em;
+}
+
+.specialist-desc-text {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: #475569;
+  margin: 12px 0 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
