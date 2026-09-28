@@ -27,6 +27,8 @@ export const brandDetails = {
     phone1Raw: "+919967616124",
     phone2: "+91 22 6636 2978",
     phone2Raw: "+912266362978",
+    phone3: "+91 93211 80097",
+    phone3Raw: "+919321180097",
     telefax: "+91 22 6749 6264",
     contactPerson: "P. V. Devasi",
     address: "Shop No. 2, Basement Sonarika Bldg., 25-C, Chandawadi, Nanubhai Desai Rd, C. P. Tank, Mumbai - 400 004, Maharashtra, India",

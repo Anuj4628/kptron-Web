@@ -111,6 +111,26 @@
   user-select: none;
 }
 
+/* Compact desktop screens adjustments */
+@media (max-width: 1240px) and (min-width: 961px) {
+  .top-contact-container {
+    padding: 8px 20px;
+    gap: 10px;
+  }
+  .top-contact-left {
+    gap: 8px;
+    font-size: 0.68rem;
+  }
+  .top-contact-right {
+    gap: 10px;
+  }
+  .top-contact-item {
+    font-size: 0.74rem;
+    gap: 5px;
+    padding: 1px 2px;
+  }
+}
+
 /* ===================================================
    MOBILE: COMPLETELY HIDE TOP BAR
    User request: "in mobile remove the detail like gmail,

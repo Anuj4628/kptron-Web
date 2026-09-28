@@ -305,6 +305,10 @@ export default function Footer({ onNavigate }) {
                         {contact.phone1}
                       </a>
                       <span className="entry-sub-sep">|</span>
+                      <a href={`tel:${contact.phone3Raw}`} className="entry-link">
+                        {contact.phone3}
+                      </a>
+                      <span className="entry-sub-sep">|</span>
                       <a href={`tel:${contact.phone2Raw}`} className="entry-link">
                         {contact.phone2}
                       </a>

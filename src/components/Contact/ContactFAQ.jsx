@@ -22,7 +22,7 @@ const FAQ_DATA = [
     id: 'faq-contact-channels',
     question: 'How can I contact the technical or sales team for an immediate requirement?',
     answer:
-      'You can submit an inquiry through our official RFQ form on this page, email our commercial team directly at kptronpipingsolutionsinc@gmail.com or pvdevashi@gmail.com, or call our dedicated Export & Direct Desk at +91 99676 16124 or our office line at +91 22 6636 2978. For quick specification exchanges, drawing reviews, and stock inquiries, you can also reach our instant messaging WhatsApp desk at +91 99676 16124 during business hours (Mon–Sat, 9:30 AM – 6:30 PM IST).'
+      'You can submit an inquiry through our official RFQ form on this page, email our commercial team directly at kptronpipingsolutionsinc@gmail.com or pvdevashi@gmail.com, or call our dedicated Export & Direct Desk at +91 99676 16124 / +91 93211 80097 or our office line at +91 22 6636 2978. For quick specification exchanges, drawing reviews, and stock inquiries, you can also reach our instant messaging WhatsApp desk at +91 99676 16124 during business hours (Mon–Sat, 9:30 AM – 6:30 PM IST).'
   },
   {
     id: 'faq-response-time',

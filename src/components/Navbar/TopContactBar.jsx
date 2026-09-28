@@ -52,6 +52,18 @@ export default function TopContactBar() {
             <Phone size={13} className="top-icon" aria-hidden="true" />
             <span className="contact-text">{contact.phone2}</span>
           </a>
+
+          <span className="top-bar-divider" aria-hidden="true">|</span>
+
+          {/* Phone 3 */}
+          <a
+            href={`tel:${contact.phone3Raw}`}
+            className="top-contact-item"
+            title="Call Mobile Line"
+          >
+            <Phone size={13} className="top-icon" aria-hidden="true" />
+            <span className="contact-text">{contact.phone3}</span>
+          </a>
         </div>
       </div>
     </div>
