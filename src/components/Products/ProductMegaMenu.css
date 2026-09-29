@@ -1,4 +1,8 @@
-/* Products Mega-Menu Dropdown Panel */
+/* ===================================================
+   PRODUCTS MEGA-MENU DROPDOWN PANEL
+   Industrial Architecture: White Surface + Charcoal Text + Red-Orange Accents
+   =================================================== */
+
 .product-megamenu-panel {
   position: absolute;
   top: 100%;
@@ -7,22 +11,22 @@
   width: 820px;
   max-width: min(820px, calc(100vw - 32px));
   background: #FFFFFF;
-  border: 1px solid rgba(226, 232, 240, 0.95);
-  border-radius: 12px;
-  box-shadow: 0 18px 45px -8px rgba(15, 23, 42, 0.16), 0 4px 14px rgba(15, 23, 42, 0.05);
-  margin-top: 8px;
+  border: 1px solid #E5E7EB;
+  border-radius: 4px;
+  box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
+  margin-top: 4px;
   overflow: hidden;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   will-change: opacity, transform;
-  transition: opacity 0.06s cubic-bezier(0, 0, 0.2, 1),
-              transform 0.06s cubic-bezier(0, 0, 0.2, 1),
-              visibility 0.06s cubic-bezier(0, 0, 0.2, 1);
+  transition: opacity 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Invisible hover bridge: ensures cursor never loses hover when moving from nav link into menu */
+/* Hover bridge */
 .product-megamenu-panel::after {
   content: '';
   position: absolute;
@@ -31,15 +35,6 @@
   right: 0;
   height: 14px;
   background: transparent;
-}
-
-/* Instant display on hover OR when is-open state is active */
-.products-item:hover .product-megamenu-panel,
-.product-megamenu-panel.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translate3d(-50%, 0, 0);
 }
 
 /* Subtle triangle pointer */
@@ -52,9 +47,17 @@
   width: 10px;
   height: 10px;
   background: #FFFFFF;
-  border-top: 1px solid rgba(226, 232, 240, 0.95);
-  border-left: 1px solid rgba(226, 232, 240, 0.95);
+  border-top: 1px solid #E5E7EB;
+  border-left: 1px solid #E5E7EB;
   z-index: 1;
+}
+
+.products-item:hover .product-megamenu-panel,
+.product-megamenu-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate3d(-50%, 0, 0);
 }
 
 .megamenu-inner {
@@ -65,7 +68,7 @@
 }
 
 .megamenu-divider {
-  background-color: #E2E8F0;
+  background-color: #E5E7EB;
   width: 1px;
   height: 100%;
 }
@@ -87,7 +90,7 @@
 .column-header {
   margin-bottom: 0.65rem;
   padding-bottom: 0.45rem;
-  border-bottom: 1px solid #F1F5F9;
+  border-bottom: 1px solid #F3F4F6;
 }
 
 .header-badge-wrap {
@@ -98,12 +101,12 @@
 }
 
 .col-badge {
-  font-family: var(--font-heading, 'Montserrat', sans-serif);
-  font-size: 0.6rem;
-  font-weight: 800;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.62rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   padding: 0.15rem 0.5rem;
-  border-radius: 4px;
+  border-radius: 2px;
   text-transform: uppercase;
   transition: transform 0.14s ease;
 }
@@ -113,38 +116,38 @@
 }
 
 .manufacturer-badge {
-  background: rgba(31, 56, 98, 0.08);
-  color: var(--color-navy, #1F3862);
-  border: 1px solid rgba(31, 56, 98, 0.22);
+  background: #FEF2F2;
+  color: #E02B20;
+  border: 1px solid rgba(224, 43, 32, 0.25);
 }
 
 .supplier-badge {
-  background: rgba(30, 64, 175, 0.08);
-  color: #1E40AF;
-  border: 1px solid rgba(30, 64, 175, 0.22);
+  background: #F3F4F6;
+  color: #111827;
+  border: 1px solid #E5E7EB;
 }
 
 .col-count {
-  font-family: var(--font-body, 'Inter', sans-serif);
+  font-family: var(--font-primary, 'Sora', sans-serif);
   font-size: 0.7rem;
   font-weight: 600;
-  color: #64748B;
+  color: #6B7280;
 }
 
 .column-title {
-  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-family: var(--font-primary, 'Sora', sans-serif);
   font-size: 0.95rem;
-  font-weight: 800;
-  color: #0F172A;
+  font-weight: 750;
+  color: #111827;
   margin: 0 0 0.15rem 0;
   letter-spacing: 0.01em;
   line-height: 1.25;
 }
 
 .column-desc {
-  font-family: var(--font-body, 'Inter', sans-serif);
+  font-family: var(--font-primary, 'Sora', sans-serif);
   font-size: 0.71rem;
-  color: #64748B;
+  color: #6B7280;
   margin: 0;
   line-height: 1.35;
 }
@@ -167,8 +170,8 @@
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  padding: 0.36rem 0.6rem;
-  border-radius: 6px;
+  padding: 0.38rem 0.6rem;
+  border-radius: 4px;
   text-decoration: none;
   position: relative;
   transition: all 0.14s ease;
@@ -187,26 +190,21 @@
   transition: background-color 0.14s ease;
 }
 
-.manufacturer-col .megamenu-link:hover::before {
-  background: var(--color-navy, #1F3862);
-}
-
-.supplier-col .megamenu-link:hover::before {
-  background: #1E40AF;
+.megamenu-link:hover::before {
+  background: #E02B20;
 }
 
 .megamenu-link:hover {
-  background: #F8FAFC;
+  background: #F9FAFB;
   transform: translateX(2px);
-  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
 }
 
 .item-thumb-box {
   width: 28px;
   height: 28px;
-  border-radius: 5px;
-  background: #F1F5F9;
-  border: 1px solid #E2E8F0;
+  border-radius: 2px;
+  background: #F3F4F6;
+  border: 1px solid #E5E7EB;
   overflow: hidden;
   flex-shrink: 0;
   transition: transform 0.14s ease, border-color 0.14s ease;
@@ -231,10 +229,10 @@
 }
 
 .item-title {
-  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-family: var(--font-primary, 'Sora', sans-serif);
   font-size: 0.8rem;
   font-weight: 700;
-  color: #0F172A;
+  color: #111827;
   line-height: 1.25;
   transition: color 0.14s ease;
   white-space: nowrap;
@@ -243,13 +241,13 @@
 }
 
 .megamenu-link:hover .item-title {
-  color: var(--color-navy, #1F3862);
+  color: #E02B20;
 }
 
 .item-subtitle {
-  font-family: var(--font-body, 'Inter', sans-serif);
+  font-family: var(--font-primary, 'Sora', sans-serif);
   font-size: 0.68rem;
-  color: #64748B;
+  color: #6B7280;
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
@@ -258,26 +256,20 @@
 }
 
 .megamenu-link:hover .item-subtitle {
-  color: #475569;
+  color: #4B5563;
 }
 
 .item-arrow {
-  color: #CBD5E1;
+  color: #9CA3AF;
   width: 13px;
   height: 13px;
   flex-shrink: 0;
-  opacity: 0.55;
+  opacity: 0.6;
   transition: all 0.14s ease;
 }
 
-.manufacturer-col .megamenu-link:hover .item-arrow {
-  color: var(--color-navy, #1F3862);
-  transform: translateX(3px);
-  opacity: 1;
-}
-
-.supplier-col .megamenu-link:hover .item-arrow {
-  color: #1E40AF;
+.megamenu-link:hover .item-arrow {
+  color: #E02B20;
   transform: translateX(3px);
   opacity: 1;
 }
@@ -288,25 +280,25 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.6rem 1.35rem;
-  background: #F8FAFC;
-  border-top: 1px solid #E2E8F0;
+  background: #F9FAFB;
+  border-top: 1px solid #E5E7EB;
 }
 
 .footer-bar-info {
   display: flex;
   align-items: center;
   gap: 0.45rem;
-  font-family: var(--font-body, 'Inter', sans-serif);
+  font-family: var(--font-primary, 'Sora', sans-serif);
   font-size: 0.72rem;
   font-weight: 600;
-  color: #475569;
+  color: #6B7280;
 }
 
 .footer-bar-dot {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--color-navy, #1F3862);
+  background: #E02B20;
 }
 
 /* Interactive Catalog CTA Button */
@@ -314,30 +306,30 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-family: var(--font-primary, 'Sora', sans-serif);
   font-size: 0.74rem;
-  font-weight: 800;
-  color: var(--color-navy, #1F3862);
+  font-weight: 700;
+  color: #111827;
   text-decoration: none;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   padding: 0.32rem 0.75rem;
-  border-radius: 6px;
-  background: rgba(31, 56, 98, 0.05);
-  border: 1px solid rgba(31, 56, 98, 0.15);
+  border-radius: 2px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
   transition: all 0.15s ease;
 }
 
 .btn-view-all-catalog:hover {
-  background: var(--color-navy, #1F3862);
+  background: #E02B20;
   color: #FFFFFF;
-  border-color: var(--color-navy, #1F3862);
-  box-shadow: 0 3px 10px rgba(31, 56, 98, 0.28);
+  border-color: #E02B20;
   transform: translateY(-1px);
 }
 
 .btn-view-all-catalog svg {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
   transition: transform 0.15s ease;
 }
 
@@ -347,6 +339,6 @@
 
 @media (max-width: 1024px) {
   .product-megamenu-panel {
-    display: none; /* Mobile menu handles navigation on smaller viewports */
+    display: none;
   }
 }

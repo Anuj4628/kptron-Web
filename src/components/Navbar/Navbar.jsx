@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { navLinks, brandDetails } from '../../data/navigationData';
-import Button from '../UI/Button';
 import MobileMenu from './MobileMenu';
-import TopContactBar from './TopContactBar';
+import TopExperienceBar from './TopExperienceBar';
 import ProductMegaMenu from '../Products/ProductMegaMenu';
 import MaterialsMegaMenu from './MaterialsMegaMenu';
 import { Menu, X } from 'lucide-react';
@@ -29,7 +28,7 @@ export default function Navbar({ currentPage = 'home', onNavigate }) {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      if (scrollPosition > 40) {
+      if (scrollPosition > 35) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -135,16 +134,17 @@ export default function Navbar({ currentPage = 'home', onNavigate }) {
         className={`navbar-wrapper ${isScrolled ? 'is-scrolled' : 'at-top'}`}
         id="main-navbar"
       >
-        {/* Top Quick Contact Strip */}
-        <TopContactBar />
+        {/* 1. Top Experience Bar */}
+        <TopExperienceBar />
 
+        {/* 2. Main Pure White Navbar */}
         <div className="navbar-container">
 
-          {/* Logo Area */}
+          {/* LEFT: Existing Company Logo */}
           <a
             href="/"
             className="navbar-logo-link"
-            aria-label="KPTRON Piping Solutions Home"
+            aria-label={`${brandDetails.name} Home`}
             onClick={handleLogoClick}
           >
             <div className="navbar-logo-wrap">
@@ -159,7 +159,7 @@ export default function Navbar({ currentPage = 'home', onNavigate }) {
             </div>
           </a>
 
-          {/* Desktop Navigation */}
+          {/* DESKTOP NAVIGATION: Horizontally to the right of logo */}
           <nav className="navbar-nav-desktop" aria-label="Main Navigation">
             <ul className="navbar-links-list">
               {navLinks.map((link) => {
@@ -200,19 +200,13 @@ export default function Navbar({ currentPage = 'home', onNavigate }) {
                         {(isProducts || isMaterials) && (
                           <svg
                             className={`nav-dropdown-chevron ${(isProducts ? megaMenuOpen : materialsMenuOpen) ? 'rotated' : ''}`}
-                            width="12"
-                            height="12"
+                            width="11"
+                            height="11"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
                             strokeWidth="2.5"
-                            style={{
-                              marginLeft: '4px',
-                              display: 'inline-block',
-                              verticalAlign: 'middle',
-                              transition: 'transform 0.2s ease',
-                              transform: (isProducts ? megaMenuOpen : materialsMenuOpen) ? 'rotate(180deg)' : 'rotate(0deg)'
-                            }}
+                            aria-hidden="true"
                           >
                             <polyline points="6 9 12 15 18 9"></polyline>
                           </svg>
@@ -242,13 +236,11 @@ export default function Navbar({ currentPage = 'home', onNavigate }) {
             </ul>
           </nav>
 
-          {/* Desktop Right CTA */}
+          {/* Desktop Right Action: Crisp Industrial B2B Quote Button */}
           <div className="navbar-actions-desktop">
-            <Button
+            <a
               href="/contact"
-              variant="nav-quote"
-              size="sm"
-              icon="arrow"
+              className="navbar-quote-btn"
               onClick={(e) => {
                 if (onNavigate) {
                   e.preventDefault();
@@ -256,8 +248,12 @@ export default function Navbar({ currentPage = 'home', onNavigate }) {
                 }
               }}
             >
-              {brandDetails.quoteCta.label}
-            </Button>
+              <span className="quote-btn-text">{brandDetails.quoteCta.label}</span>
+              <svg className="quote-btn-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
           </div>
 
           {/* Mobile Hamburger Toggle */}

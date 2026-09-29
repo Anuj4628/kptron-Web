@@ -1,4 +1,4 @@
-import heroSlide1Img from '../assets/Product BG/kptron-hero-slide1-global.jpg';
+import heroSlide1Img from '../assets/pipe/pipe.png';
 import heroSlide2Img from '../assets/Product BG/kptron-hero-slide2-partnership.jpg';
 import precisionPipesImg from '../assets/Serving Global Mission-Critical Sectors/precision industrial piping.png';
 import superiorRoundsImg from '../assets/Product Images/Butt weld fit/alloy steel.jpg';
@@ -8,9 +8,9 @@ export const heroSlides = [
   {
     id: 1,
     slideNumber: "01",
-    eyebrow: "KPTRON PIPING SOLUTIONS",
-    headline: "ENGINEERED FOR [PERFORMANCE].\nBUILT FOR INDUSTRY.",
-    description: "Delivering reliable piping solutions engineered for demanding industrial applications, with a strong focus on quality, precision and dependable performance.",
+    eyebrow: "LARGE DIAMETER ALLOY STEEL PIPES",
+    headline: "ENGINEERED FOR\n[INDUSTRIAL SCALE.]\nBUILT FOR GLOBAL DEMAND.",
+    description: "Supplying and exporting large-diameter alloy steel pipes engineered for demanding industrial applications, with a strong focus on quality, dimensional precision, durability, and dependable performance across global markets.",
     primaryCta: {
       label: "Explore Products",
       href: "/products",
@@ -22,8 +22,8 @@ export const heroSlides = [
       variant: "secondary"
     },
     image: heroSlide1Img,
-    specTag: "AN ISO 9001:2015 CERTIFIED COMPANY // INDUSTRIAL PIPING",
-    alt: "Industrial piping solutions engineered for critical manufacturing systems"
+    specTag: "LARGE DIAMETER ALLOY STEEL PIPE // GLOBAL EXPORT",
+    alt: "Large-diameter alloy steel pipes engineered for industrial scale and global demand"
   },
   // Slide 02: Reliable Solutions & Lasting Partnerships
   {
