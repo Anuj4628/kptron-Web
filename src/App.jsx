@@ -33,7 +33,8 @@ import './App.css';
  * Route parser for native history-based client routing
  */
 function parseRoute(pathname = window.location.pathname) {
-  const clean = (pathname || '').toLowerCase();
+  const cleanPath = (pathname || '').split('?')[0].split('#')[0];
+  const clean = cleanPath.toLowerCase();
 
   if (clean.includes('about')) {
     return { page: 'about' };
@@ -44,7 +45,7 @@ function parseRoute(pathname = window.location.pathname) {
   }
 
   if (clean.startsWith('/materials')) {
-    const raw = pathname.replace(/^\/materials\/?/i, '');
+    const raw = cleanPath.replace(/^\/materials\/?/i, '');
     const parts = raw.split('/').filter(Boolean);
 
     if (parts.length === 0) {
@@ -55,7 +56,7 @@ function parseRoute(pathname = window.location.pathname) {
   }
 
   if (clean.startsWith('/products')) {
-    const raw = pathname.replace(/^\/products\/?/i, '');
+    const raw = cleanPath.replace(/^\/products\/?/i, '');
     const parts = raw.split('/').filter(Boolean);
 
     if (parts.length === 0) {
@@ -108,10 +109,12 @@ export default function App() {
   const navigateTo = useCallback((target, param = null) => {
     // If target is a path string starting with '/'
     if (typeof target === 'string' && target.startsWith('/')) {
-      if (window.location.pathname !== target) {
+      const cleanPath = target.split('?')[0].split('#')[0];
+      const targetQuery = target.includes('?') ? '?' + target.split('?')[1] : '';
+      if (window.location.pathname !== cleanPath || window.location.search !== targetQuery) {
         window.history.pushState({}, '', target);
       }
-      setRoute(parseRoute(target));
+      setRoute(parseRoute(cleanPath));
       window.scrollTo({ top: 0, behavior: 'instant' });
       return;
     }
@@ -177,17 +180,28 @@ export default function App() {
   useEffect(() => {
     const handlePopState = () => {
       const nextRoute = parseRoute(window.location.pathname);
-      setRoute(nextRoute);
+      setRoute(prevRoute => {
+        // If navigating within the same product detail view (e.g. query param changed), do not reset scroll!
+        const isSameProductDetail =
+          prevRoute.page === 'products' &&
+          nextRoute.page === 'products' &&
+          prevRoute.view === 'detail' &&
+          nextRoute.view === 'detail' &&
+          prevRoute.productSlug === nextRoute.productSlug;
 
-      const hash = window.location.hash;
-      if (hash && nextRoute.page === 'home') {
-        setTimeout(() => {
-          const el = document.getElementById(hash.replace('#', ''));
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 80);
-      } else {
-        window.scrollTo({ top: 0, behavior: 'instant' });
-      }
+        if (!isSameProductDetail) {
+          const hash = window.location.hash;
+          if (hash && nextRoute.page === 'home') {
+            setTimeout(() => {
+              const el = document.getElementById(hash.replace('#', ''));
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 80);
+          } else {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+          }
+        }
+        return nextRoute;
+      });
     };
 
     window.addEventListener('popstate', handlePopState);

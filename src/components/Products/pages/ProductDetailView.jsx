@@ -1,15 +1,83 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import ProductBreadcrumb from '../ProductBreadcrumb';
 import SpecsTable from '../SpecsTable';
 import InquiryForm from '../InquiryForm';
 import RelatedProducts from '../RelatedProducts';
 import { getProductCategory, getRelatedProducts, DIVISIONS } from '../../../data/productCatalogData';
+import { getProductGrades } from '../../../data/productGradesData';
+import { 
+  CheckCircle2, 
+  ChevronRight, 
+  Layers, 
+  ShieldCheck, 
+  Sliders, 
+  Sparkles, 
+  FileText,
+  Compass,
+  ArrowRight,
+  Cpu,
+  Search
+} from 'lucide-react';
 import './ProductDetailView.css';
 
 /**
- * Bright White Product Detail View
- * Complete industrial product page with high-res imagery, metallurgy, full engineering specifications,
- * compliance standards, industry applications, RFQ form, and compatible products.
+ * Generate a clean, URL-safe slug for a grade object
+ */
+export function getGradeSlug(grade) {
+  if (!grade) return '';
+  if (grade.slug) return grade.slug;
+  if (grade.id && !grade.id.startsWith('grade-')) {
+    return grade.id.toLowerCase().trim();
+  }
+  return (grade.name || grade.code || grade.id || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Find matching grade from array using slug, id, or aliases
+ */
+export function findGradeBySlug(grades, slug) {
+  if (!slug || !grades || grades.length === 0) return null;
+  const target = decodeURIComponent(slug).toLowerCase().trim();
+
+  // 1. Direct match with grade.id
+  let found = grades.find(g => (g.id || '').toLowerCase() === target);
+  if (found) return found;
+
+  // 2. Match with computed slug
+  found = grades.find(g => getGradeSlug(g) === target);
+  if (found) return found;
+
+  // 3. Match with aliases
+  found = grades.find(g => Array.isArray(g.aliases) && g.aliases.some(a => a.toLowerCase() === target));
+  if (found) return found;
+
+  // 4. Match with code or name
+  found = grades.find(g => (g.code || '').toLowerCase() === target || (g.name || '').toLowerCase() === target);
+  if (found) return found;
+
+  // 5. Loose alphanumeric match
+  const alphaTarget = target.replace(/[^a-z0-9]/g, '');
+  if (alphaTarget) {
+    found = grades.find(g => {
+      const gId = (g.id || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const gName = (g.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const gCode = (g.code || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const aliasMatch = Array.isArray(g.aliases) && g.aliases.some(a => a.toLowerCase().replace(/[^a-z0-9]/g, '') === alphaTarget);
+      return gId === alphaTarget || gName === alphaTarget || gCode === alphaTarget || aliasMatch;
+    });
+  }
+
+  return found || null;
+}
+
+/**
+ * Premium Industrial Product Detail View
+ * Fully data-driven from the selected product card.
+ * Displays the exact product card image, specifications, dynamic grade sidebar,
+ * chemistry, mechanical properties, and RFQ form.
  */
 export default function ProductDetailView({
   divisionSlug,
@@ -17,22 +85,133 @@ export default function ProductDetailView({
   productSlug,
   onNavigate
 }) {
+  // 1. Retrieve the exact selected product data from catalog
   const product = useMemo(() => {
     return getProductCategory(divisionSlug, groupSlug, productSlug);
   }, [divisionSlug, groupSlug, productSlug]);
 
+  // 2. Compatible related products in the same group
   const related = useMemo(() => {
     if (!product) return [];
     return getRelatedProducts(product.groupSlug, product.slug, 4);
   }, [product]);
 
+  // 3. Division details
   const division = useMemo(() => {
     if (!product) return null;
     return DIVISIONS[product.divisionSlug] || null;
   }, [product]);
 
-  const [activeGradeIndex, setActiveGradeIndex] = useState(0);
-  const currentGrade = product?.gradeBreakdown?.[activeGradeIndex] || product?.gradeBreakdown?.[0];
+  // 4. Retrieve data-driven grades/variants for this exact product
+  const grades = useMemo(() => {
+    return getProductGrades(product);
+  }, [product]);
+
+  // URL -> Grade State initialization on first load
+  const [selectedGradeId, setSelectedGradeId] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const gradeSlug = params.get('grade');
+      if (gradeSlug && grades && grades.length > 0) {
+        const matched = findGradeBySlug(grades, gradeSlug);
+        if (matched) return matched.id;
+      }
+    }
+    return grades[0]?.id || 'grade-0';
+  });
+
+  const [searchFilter, setSearchFilter] = useState('');
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const gradeDetailRef = useRef(null);
+
+  // Sync selected grade if product changes or direct URL navigation occurs
+  useEffect(() => {
+    if (!grades || grades.length === 0) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const gradeSlug = params.get('grade');
+
+    if (gradeSlug) {
+      const matched = findGradeBySlug(grades, gradeSlug);
+      if (matched) {
+        setSelectedGradeId(matched.id);
+        return;
+      } else {
+        // Requirement 13: Invalid grade in URL -> fallback to default and clean URL
+        setSelectedGradeId(grades[0].id);
+        const cleanUrl = window.location.pathname;
+        window.history.replaceState({}, '', cleanUrl);
+        return;
+      }
+    }
+
+    // Requirement 12: Clean URL without grade param -> default to first grade
+    setSelectedGradeId(grades[0].id);
+    setSearchFilter('');
+  }, [product?.id, grades]);
+
+  // Requirement 8: Listen to popstate for browser Back / Forward grade switching
+  useEffect(() => {
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const gradeSlug = params.get('grade');
+      if (gradeSlug && grades && grades.length > 0) {
+        const matched = findGradeBySlug(grades, gradeSlug);
+        if (matched) {
+          setSelectedGradeId(matched.id);
+          return;
+        }
+      }
+      if (grades && grades.length > 0) {
+        setSelectedGradeId(grades[0].id);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [grades]);
+
+  // Active selected grade object
+  const activeGrade = useMemo(() => {
+    return grades.find(g => g.id === selectedGradeId) || grades[0];
+  }, [grades, selectedGradeId]);
+
+  // Filtered grades for sidebar search
+  const filteredGrades = useMemo(() => {
+    if (!searchFilter.trim()) return grades;
+    const q = searchFilter.toLowerCase().trim();
+    return grades.filter(g => 
+      g.name.toLowerCase().includes(q) ||
+      (g.code && g.code.toLowerCase().includes(q)) ||
+      (g.uns && g.uns.toLowerCase().includes(q)) ||
+      (g.shortDesc && g.shortDesc.toLowerCase().includes(q))
+    );
+  }, [grades, searchFilter]);
+
+  // Requirements 1, 2, 3, 5, 7, 9: Select grade & push URL state WITHOUT full page reload
+  const handleGradeSelect = (gradeId) => {
+    if (gradeId === selectedGradeId) return;
+
+    const gradeObj = grades.find(g => g.id === gradeId);
+    const slug = getGradeSlug(gradeObj) || gradeId;
+
+    // Dynamically update address bar without reloading or jumping
+    const newUrl = `${window.location.pathname}?grade=${encodeURIComponent(slug)}`;
+    window.history.pushState({ gradeId, slug, type: 'grade-change' }, '', newUrl);
+
+    setIsTransitioning(true);
+    setSelectedGradeId(gradeId);
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 240);
+  };
+
+  const scrollToRFQ = () => {
+    const el = document.getElementById('product-rfq-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   if (!product) {
     return (
@@ -70,439 +249,481 @@ export default function ProductDetailView({
       path: `/products/${product.divisionSlug}`
     },
     {
-      label: product.groupName,
+      label: product.groupName || 'Pipes & Tubes',
       path: `/products/${product.divisionSlug}/${product.groupSlug}`
     },
     { label: product.name, path: null }
   ];
 
-  const scrollToRFQ = () => {
-    const el = document.getElementById('product-rfq-section');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   const whatsappMessage = encodeURIComponent(
-    `Hello KPTRON, I am interested in inquiring about ${product.name} (Grade: ${product.grade}). Please share pricing and dispatch availability.`
+    `Hello KPTRON, I am inquiring about ${product.name} (Grade: ${activeGrade?.name || product.grade || 'Standard'}). Please share pricing, availability, and MTC documentation.`
   );
 
   return (
     <div className="bright-detail-view">
       <main className="detail-main-content">
         <div className="detail-container">
-          <ProductBreadcrumb items={breadcrumbItems} onNavigate={onNavigate} />
+          
+          {/* Breadcrumb Navigation */}
+          <div className="detail-breadcrumb-wrap">
+            <ProductBreadcrumb items={breadcrumbItems} onNavigate={onNavigate} />
+          </div>
 
-          {/* Top Showcase: 2-Column Industrial Layout */}
-          <section className="product-showcase-grid">
+          {/* =========================================================================
+              TWO-COLUMN MASTER GRID (Aligned from the exact same top baseline)
+              Left Column: Main Product Area & Selected Grade Details
+              Right Column: Sticky Grade / Product Variant Navigation Sidebar
+              ========================================================================= */}
+          {/* 1. Product Header Information Block (Full Container Width) */}
+          <div className="product-header-block">
+            <div className="header-meta-row">
+              <span className="badge-division">
+                {product.divisionSlug === 'manufacturer' ? 'MANUFACTURER DIVISION' : 'SUPPLIER DIVISION'}
+              </span>
+              <span className="badge-group">
+                {product.groupName || 'INDUSTRIAL CATALOGUE'}
+              </span>
+              <span className="badge-standard">
+                {product.specs?.standards ? product.specs.standards.split(',')[0].trim() : 'ASTM / ASME CERTIFIED'}
+              </span>
+            </div>
+
+            <h1 className="main-product-title">{product.name}</h1>
+
+            <p className="main-product-lead">
+              {product.description || product.shortDesc}
+            </p>
+
+            {/* Quick Metallurgy Specs Matrix (4 Equal-Height Cards) */}
+            <div className="quick-specs-grid">
+              <div className="spec-stat-card">
+                <span className="stat-label">Size Coverage</span>
+                <strong className="stat-value">{product.specs?.size || '1/8" to 36" NB'}</strong>
+                <span className="stat-sub">Seamless & Large OD Welded</span>
+              </div>
+              <div className="spec-stat-card">
+                <span className="stat-label">Wall Thickness</span>
+                <strong className="stat-value">{product.specs?.schedule || product.specs?.thickness || 'SCH 5S to SCH XXS'}</strong>
+                <span className="stat-sub">Light to Heavy Wall</span>
+              </div>
+              <div className="spec-stat-card">
+                <span className="stat-label">Governing Code</span>
+                <strong className="stat-value">
+                  {product.specs?.standards ? product.specs.standards.split(',')[0].trim() : 'ASME / ASTM'}
+                </strong>
+                <span className="stat-sub">IBR Form III-C Approved</span>
+              </div>
+              <div className="spec-stat-card">
+                <span className="stat-label">Stock Status</span>
+                <strong className="stat-value text-stock">Ready Ex-Stock</strong>
+                <span className="stat-sub">Mill Make & Immediate Dispatch</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 2. Main Product Image Section (Full Width Hero Card) */}
+          <div className="product-hero-media-card">
+            <div className="media-image-box">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="product-hero-img"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
+
+              {/* Floating Technical Verification Badges (Non-overlapping) */}
+              <div className="media-badge-tag tag-top-left">
+                <ShieldCheck size={14} className="tag-icon" />
+                <span>100% PMI SPECTRO TESTED</span>
+              </div>
+
+              <div className="media-badge-tag tag-bottom-right">
+                <span>EN 10204 3.1 & 3.2 INSPECTION CERTIFIED</span>
+              </div>
+            </div>
+          </div>
+
+          {/* =========================================================================
+              3. STICKY GRADE NAVIGATION & SPECIFICATION MASTER LAYOUT
+              LEFT: Sticky Available Grades Navigation Panel (All grades visible, no scrollbar)
+              RIGHT: Scrolling Selected Grade Details, Tables, Compliance & RFQ Form
+              ========================================================================= */}
+          <div className="grade-specs-master-layout">
             
-            {/* Left: Product Visual Card */}
-            <div className="showcase-visual-col">
-              <div className="showcase-media-box">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="showcase-img"
-                  loading="eager"
-                  decoding="async"
-                  fetchPriority="high"
-                />
-                <div className="showcase-floating-badge">
-                  <span>{product.materialName || 'PREMIUM ALLOY'}</span>
+            {/* ---------------------------------------------------------------------
+                LEFT COLUMN: STICKY AVAILABLE GRADES NAVIGATION PANEL
+                Stays sticky in the viewport while user scrolls right-side details
+                --------------------------------------------------------------------- */}
+            <aside className="grades-sticky-sidebar" aria-label="Available Product Grades Navigation">
+              <div className="sticky-grades-card">
+                
+                {/* Sidebar Header Block */}
+                <div className="sidebar-header-box">
+                  <div className="sidebar-tag">
+                    <Layers size={13} className="text-accent" />
+                    <span>METALLURGY CATALOGUE</span>
+                  </div>
+                  <h2 className="sidebar-title">Available Grades</h2>
+                  <p className="sidebar-desc">
+                    Click any grade below to inspect technical chemistry, mechanical specs, and applications.
+                  </p>
+
+                  {/* Filter Search Input */}
+                  {grades.length > 5 && (
+                    <div className="sidebar-search-wrap">
+                      <Search size={14} className="search-ico" />
+                      <input
+                        type="text"
+                        placeholder="Search grades (304, 316, P11)..."
+                        value={searchFilter}
+                        onChange={(e) => setSearchFilter(e.target.value)}
+                        className="sidebar-search-field"
+                        aria-label="Filter product grades"
+                      />
+                      {searchFilter && (
+                        <button
+                          type="button"
+                          className="search-clear-cross"
+                          onClick={() => setSearchFilter('')}
+                          aria-label="Clear filter"
+                        >
+                          ×
+                        </button>
+                      )}
+                    </div>
+                  )}
                 </div>
-              </div>
 
-              {/* Quality & Metallurgical Verification Badges */}
-              <div className="quality-assurance-row">
-                <div className="qa-badge">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F3862" strokeWidth="2.2">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                  </svg>
-                  <div>
-                    <strong>PMI Tested</strong>
-                    <span>100% Alloy Verified</span>
-                  </div>
+                {/* Grade Rows List — ALL GRADES VISIBLE TOGETHER, ZERO INTERNAL SCROLLER */}
+                <div className="sidebar-grades-list" role="list">
+                  {filteredGrades.map((grade, index) => {
+                    const isSelected = selectedGradeId === grade.id;
+                    return (
+                      <button
+                        key={grade.id}
+                        type="button"
+                        role="listitem"
+                        className={`grade-row-button ${isSelected ? 'is-selected' : ''}`}
+                        onClick={() => handleGradeSelect(grade.id)}
+                        aria-selected={isSelected}
+                      >
+                        <div className="grade-row-left">
+                          <span className="grade-num-badge">#{String(index + 1).padStart(2, '0')}</span>
+                          <span className="grade-name-text">{grade.name}</span>
+                        </div>
+
+                        <div className="grade-row-right">
+                          {isSelected ? (
+                            <span className="active-tag-chip">ACTIVE</span>
+                          ) : (
+                            <ChevronRight size={14} className="row-arrow-icon" />
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+
+                  {filteredGrades.length === 0 && (
+                    <div className="sidebar-empty-state">
+                      <p>No grades found matching "{searchFilter}"</p>
+                      <button
+                        type="button"
+                        className="btn-reset-sidebar-filter"
+                        onClick={() => setSearchFilter('')}
+                      >
+                        Show All {grades.length} Grades
+                      </button>
+                    </div>
+                  )}
                 </div>
 
-                <div className="qa-badge">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F3862" strokeWidth="2.2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                    <polyline points="10 9 9 9 8 9"></polyline>
-                  </svg>
-                  <div>
-                    <strong>EN 10204 3.1 & 3.2</strong>
-                    <span>Full MTC Supplied</span>
-                  </div>
-                </div>
-
-                <div className="qa-badge">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F3862" strokeWidth="2.2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="m4.93 4.93 4.24 4.24"></path>
-                    <path d="m14.83 9.17 4.24-4.24"></path>
-                    <path d="m14.83 14.83 4.24 4.24"></path>
-                    <path d="m9.17 14.83-4.24 4.24"></path>
-                    <circle cx="12" cy="12" r="4"></circle>
-                  </svg>
-                  <div>
-                    <strong>Pressure Tested</strong>
-                    <span>Hydro & Ultrasonic</span>
-                  </div>
-                </div>
               </div>
-            </div>
+            </aside>
 
-            {/* Right: Commercial & Technical Product Summary */}
-            <div className="showcase-info-col">
-              <div className="info-division-tag">
-                <span>{product.division}</span>
-                <span className="dot-sep">•</span>
-                <span>{product.groupName}</span>
-              </div>
-
-              <h1 className="product-title">{product.name}</h1>
-
-              <div className="product-grade-badge">
-                <span className="grade-prefix">Governing Grade:</span>
-                <span className="grade-val">{product.grade}</span>
-              </div>
-
-              <p className="product-desc-text">
-                {product.description || product.shortDesc}
-              </p>
-
-              {/* Quick Specs Matrix */}
-              <div className="quick-specs-matrix">
-                {product.specs?.size && (
-                  <div className="matrix-cell">
-                    <span className="cell-label">Size Range</span>
-                    <span className="cell-val">{product.specs.size}</span>
-                  </div>
-                )}
-                {(product.specs?.schedule || product.specs?.thickness || product.specs?.class) && (
-                  <div className="matrix-cell">
-                    <span className="cell-label">Schedule / Rating</span>
-                    <span className="cell-val">{product.specs.schedule || product.specs.thickness || product.specs.class}</span>
-                  </div>
-                )}
-                {product.specs?.standards && (
-                  <div className="matrix-cell">
-                    <span className="cell-label">Governing Code</span>
-                    <span className="cell-val">{product.specs.standards}</span>
-                  </div>
-                )}
-                <div className="matrix-cell">
-                  <span className="cell-label">Stock Availability</span>
-                  <span className="cell-val stock-ready">Ex-Stock & Mill Make</span>
-                </div>
-              </div>
-
-              {/* Primary Call to Actions */}
-              <div className="product-cta-group">
-                <button
-                  type="button"
-                  className="btn-detail-rfq"
-                  onClick={scrollToRFQ}
+            {/* ---------------------------------------------------------------------
+                RIGHT COLUMN: SCROLLING SELECTED GRADE DETAILS & SPECIFICATIONS
+                Flows naturally down the page as the primary scrollable content
+                --------------------------------------------------------------------- */}
+            <div className="grade-details-content-col">
+              
+              {/* Selected Grade Technical Deep Profile */}
+              {activeGrade && (
+                <section
+                  ref={gradeDetailRef}
+                  className={`selected-grade-section ${isTransitioning ? 'is-transitioning' : ''}`}
+                  aria-live="polite"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                  <span>Request Instant Quotation</span>
-                </button>
+                  {/* Grade Identity Card */}
+                  <div className="grade-identity-card">
+                    <div className="grade-header-row">
+                      <div className="grade-tag-group">
+                        <span className="grade-pill-active">SELECTED SPECIFICATION</span>
+                        <span className="grade-pill-type">{activeGrade.badge || 'ALLOY GRADE'}</span>
+                      </div>
+                      <span className="grade-code-pill">{activeGrade.standards || activeGrade.specification || 'ASTM / ASME'}</span>
+                    </div>
 
-                <a
-                  href={`https://wa.me/919967616124?text=${whatsappMessage}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-detail-whatsapp"
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-                  </svg>
-                  <span>WhatsApp Inquiry</span>
-                </a>
-              </div>
+                    <div className="grade-title-row">
+                      <div>
+                        <h2 className="grade-title-text">{activeGrade.name}</h2>
+                        <span className="grade-sub-text">
+                          {activeGrade.specification ? (
+                            <>
+                              SPEC: <strong>{activeGrade.specification}</strong>
+                              {activeGrade.grade && (
+                                <> | GRADE: <strong>{activeGrade.grade}</strong></>
+                              )}
+                              {activeGrade.productForm && (
+                                <> | FORM: <strong>{activeGrade.productForm}</strong></>
+                              )}
+                              {activeGrade.uns && activeGrade.uns !== '—' && (
+                                <> | UNS: <strong>{activeGrade.uns}</strong></>
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              UNS: <strong>{activeGrade.uns || 'Standard UNS'}</strong> | DIN / EN: <strong>{activeGrade.din || 'Standard Equivalent'}</strong>
+                            </>
+                          )}
+                        </span>
+                      </div>
 
-              {/* Sourcing Guarantee Snippet */}
-              <div className="sourcing-guarantee">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Third-Party Inspection (TPI) accepted: Lloyd's, BV, DNV, TUV, SGS</span>
-              </div>
-            </div>
-          </section>
+                      <button
+                        type="button"
+                        className="btn-grade-quote"
+                        onClick={scrollToRFQ}
+                      >
+                        <span>Quote For This Grade</span>
+                        <ArrowRight size={15} />
+                      </button>
+                    </div>
 
-          {/* Section: Technical Specs Table */}
-          <section className="detail-specs-section">
-            <SpecsTable
-              specs={product.specs}
-              standards={product.standards || []}
-            />
-          </section>
+                    <p className="grade-description-text">
+                      {activeGrade.fullDesc || activeGrade.shortDesc}
+                    </p>
+                  </div>
 
-          {/* Section: Grade Metallurgy & Technical Properties (If available) */}
-          {product.gradeBreakdown && product.gradeBreakdown.length > 0 && (
-            <section className="detail-metallurgy-section">
-              <div className="section-head-card">
-                <span className="section-eyebrow">ALLOY METALLURGY & CHEMICAL PROFILES</span>
-                <h3 className="section-title">{product.gradeMatrixTitle || `${product.name} Grade Engineering Matrix`}</h3>
-                <p className="section-desc">
-                  {product.gradeMatrixDesc || 'High-temperature creep-resistant Chrome-Moly grades engineered for supercritical steam lines, hydroprocessing, and refinery cracking.'}
-                </p>
-              </div>
-
-              {/* Interactive Grade Tab Selector */}
-              <div className="grade-selector-tabs" role="tablist" aria-label="Select alloy grade">
-                {product.gradeBreakdown.map((g, idx) => (
-                  <button
-                    key={g.grade}
-                    type="button"
-                    role="tab"
-                    aria-selected={activeGradeIndex === idx}
-                    className={`grade-tab-btn ${activeGradeIndex === idx ? 'active' : ''}`}
-                    onClick={() => setActiveGradeIndex(idx)}
-                  >
-                    <span className="tab-grade-tag">Grade</span>
-                    <span className="tab-grade-num">{g.grade}</span>
-                  </button>
-                ))}
-              </div>
-
-              {/* Active Grade Deep Profile Card */}
-              {currentGrade && (
-                <div className="active-grade-panel">
-                  <div className="grade-profile-header">
-                    <div className="profile-identity">
-                      <span className="grade-pill-badge">GRADE {currentGrade.grade}</span>
-                      <h4 className="grade-full-name">{currentGrade.commonName}</h4>
-                      <div className="grade-ref-tags">
-                        <span className="ref-tag">UNS: <strong>{currentGrade.uns}</strong></span>
-                        <span className="ref-tag">DIN / EN: <strong>{currentGrade.dinEn}</strong></span>
+                  {/* Key Features & Advantages */}
+                  {activeGrade.features && activeGrade.features.length > 0 && (
+                    <div className="detail-panel-box">
+                      <h3 className="panel-title">
+                        <CheckCircle2 size={18} className="title-icon" />
+                        Key Metallurgical & Service Advantages — {activeGrade.name}
+                      </h3>
+                      <div className="features-two-col-grid">
+                        {activeGrade.features.map((feat, idx) => (
+                          <div key={idx} className="feature-row-item">
+                            <CheckCircle2 size={16} className="feat-check" />
+                            <span className="feat-text">{feat}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                    <div className="profile-metrics-grid">
-                      <div className="metric-box">
-                        <span className="metric-label">Max Service Temp</span>
-                        <span className="metric-val highlight-temp">{currentGrade.serviceTemp}</span>
-                      </div>
-                      <div className="metric-box">
-                        <span className="metric-label">Min Tensile Strength</span>
-                        <span className="metric-val">{currentGrade.tensileMpa}</span>
-                      </div>
-                      <div className="metric-box">
-                        <span className="metric-label">Min Yield Strength</span>
-                        <span className="metric-val">{currentGrade.yieldMpa}</span>
-                      </div>
-                      <div className="metric-box">
-                        <span className="metric-label">Max Hardness</span>
-                        <span className="metric-val">{currentGrade.hardness}</span>
+                  )}
+
+                  {/* Mechanical & Physical Properties */}
+                  {activeGrade.mechanical && (
+                    <div className="detail-panel-box">
+                      <h3 className="panel-title">
+                        <Cpu size={18} className="title-icon" />
+                        Mechanical & Physical Properties (Minimum Specified at 20°C)
+                      </h3>
+                      <div className="mechanical-matrix-grid">
+                        {activeGrade.mechanical.tensile && (
+                          <div className="mech-stat-card">
+                            <span className="mech-label">Tensile Strength (Rm)</span>
+                            <strong className="mech-value">{activeGrade.mechanical.tensile}</strong>
+                            <span className="mech-sub">ASTM minimum test</span>
+                          </div>
+                        )}
+                        {activeGrade.mechanical.yield && (
+                          <div className="mech-stat-card">
+                            <span className="mech-label">Yield Strength (Rp 0.2%)</span>
+                            <strong className="mech-value">{activeGrade.mechanical.yield}</strong>
+                            <span className="mech-sub">0.2% Offset proof</span>
+                          </div>
+                        )}
+                        {activeGrade.mechanical.elongation && (
+                          <div className="mech-stat-card">
+                            <span className="mech-label">Elongation (A5)</span>
+                            <strong className="mech-value">{activeGrade.mechanical.elongation}</strong>
+                            <span className="mech-sub">Gauge length 50 mm</span>
+                          </div>
+                        )}
+                        {activeGrade.mechanical.hardness && (
+                          <div className="mech-stat-card">
+                            <span className="mech-label">Hardness (Max)</span>
+                            <strong className="mech-value">{activeGrade.mechanical.hardness}</strong>
+                            <span className="mech-sub">Specified by standard</span>
+                          </div>
+                        )}
+                        {activeGrade.mechanical.impact && (
+                          <div className="mech-stat-card card-impact">
+                            <span className="mech-label">Charpy V-Notch Impact</span>
+                            <strong className="mech-value text-accent">{activeGrade.mechanical.impact}</strong>
+                            <span className="mech-sub">Mandatory Sub-Zero Test</span>
+                          </div>
+                        )}
+                        {activeGrade.mechanical.maxTemp && (
+                          <div className="mech-stat-card card-temp">
+                            <span className="mech-label">Service Temp Limit</span>
+                            <strong className="mech-value text-red">{activeGrade.mechanical.maxTemp}</strong>
+                            <span className="mech-sub">Continuous design limit</span>
+                          </div>
+                        )}
                       </div>
                     </div>
-                  </div>
+                  )}
 
-                  <div className="grade-details-body">
-                    <div className="chemistry-col">
-                      <h5 className="sub-heading">Nominal Chemical Composition (% Weight)</h5>
-                      <div className="chem-table-wrap">
-                        <table className="chem-table">
+                  {/* Nominal Chemical Composition Table */}
+                  {activeGrade.chemistry && Object.keys(activeGrade.chemistry).length > 0 && (
+                    <div className="detail-panel-box">
+                      <div className="chem-box-head">
+                        <div>
+                          <h3 className="panel-title" style={{ margin: 0 }}>Nominal Chemical Composition (% Weight)</h3>
+                          <span className="chem-note">Heat Analysis verified per applicable ASTM / ASME specifications</span>
+                        </div>
+                        <span className="chem-grade-badge">
+                          {activeGrade.grade ? `GRADE / SPEC: ${activeGrade.grade}` : `SPECIFICATION: ${activeGrade.name}`}
+                        </span>
+                      </div>
+
+                      <div className="chem-table-scroll">
+                        <table className="chem-data-table">
                           <thead>
                             <tr>
-                              <th>Element</th>
-                              <th>Specified Limits</th>
+                              {Object.keys(activeGrade.chemistry).map((elem) => (
+                                <th key={elem}>{elem.toUpperCase()}</th>
+                              ))}
                             </tr>
                           </thead>
                           <tbody>
-                            {Object.entries(currentGrade.chemistry).map(([el, val]) => (
-                              <tr key={el}>
-                                <td className="chem-el-name">{el.toUpperCase()}</td>
-                                <td className="chem-el-val">{val}</td>
-                              </tr>
-                            ))}
+                            <tr>
+                              {Object.values(activeGrade.chemistry).map((val, idx) => (
+                                <td key={idx} className={val !== '—' && (val.includes('Cr') || val.includes('Ni') || val.includes('Mo') || idx < 3) ? 'cell-highlight' : ''}>
+                                  {val}
+                                </td>
+                              ))}
+                            </tr>
                           </tbody>
                         </table>
                       </div>
                     </div>
+                  )}
 
-                    <div className="treatment-col">
-                      <div className="treatment-block">
-                        <h5 className="sub-heading">Heat Treatment Condition</h5>
-                        <p className="treatment-text">{currentGrade.heatTreatment}</p>
-                      </div>
-
-                      <div className="treatment-block">
-                        <h5 className="sub-heading">Minimum Elongation</h5>
-                        <p className="treatment-text"><strong>{currentGrade.elongation}</strong> in 2 inches (50mm)</p>
-                      </div>
-
-                      <div className="treatment-block highlight-app-block">
-                        <h5 className="sub-heading">Target Industrial Service</h5>
-                        <p className="app-note-text">{currentGrade.applicationNote}</p>
+                  {/* Target Industrial Applications */}
+                  {activeGrade.applications && activeGrade.applications.length > 0 && (
+                    <div className="detail-panel-box">
+                      <h3 className="panel-title">
+                        <Compass size={18} className="title-icon" />
+                        Target Industrial Applications for {activeGrade.name}
+                      </h3>
+                      <div className="apps-chips-grid">
+                        {activeGrade.applications.map((app, idx) => (
+                          <div key={idx} className="app-chip-item">
+                            <span className="chip-dot" />
+                            <span>{app}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                  </div>
-                </div>
+                  )}
+                </section>
               )}
 
-              {/* Master Comparative Chemical Composition Table */}
-              <div className="master-chem-overview">
-                <h4 className="master-table-title">{product.comparisonTableTitle || `Full ${product.name} Chemical Composition Comparison`}</h4>
-                <div className="master-table-scroll">
-                  <table className="master-chem-table">
-                    <thead>
-                      <tr>
-                        <th>Grade</th>
-                        <th>UNS</th>
-                        <th>Carbon (C)</th>
-                        <th>Manganese (Mn)</th>
-                        <th>Chromium (Cr)</th>
-                        <th>Molybdenum (Mo)</th>
-                        <th>Silicon (Si)</th>
-                        <th>Micro-Alloys (V, Nb, W, B, N)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {product.gradeBreakdown.map(g => (
-                        <tr key={g.grade} className={currentGrade?.grade === g.grade ? 'row-active' : ''}>
-                          <td className="td-grade-bold">Gr. {g.grade}</td>
-                          <td>{g.uns}</td>
-                          <td>{g.chemistry.c}</td>
-                          <td>{g.chemistry.mn}</td>
-                          <td className="td-cr-highlight">{g.chemistry.cr}</td>
-                          <td className="td-mo-highlight">{g.chemistry.mo}</td>
-                          <td>{g.chemistry.si}</td>
-                          <td>
-                            {[
-                              g.chemistry.v ? `V: ${g.chemistry.v}` : null,
-                              g.chemistry.nb ? `Nb: ${g.chemistry.nb}` : null,
-                              g.chemistry.w ? `W: ${g.chemistry.w}` : null,
-                              g.chemistry.b ? `B: ${g.chemistry.b}` : null,
-                              g.chemistry.n ? `N: ${g.chemistry.n}` : null
-                            ].filter(Boolean).join(', ') || '—'}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+              {/* Full Engineering Specifications Table */}
+              <section className="detail-panel-box full-specs-panel">
+                <SpecsTable
+                  specs={product.specs}
+                  standards={product.standards || ['ASTM', 'ASME', 'DIN', 'ISO', 'EN', 'IBR']}
+                />
+              </section>
+
+              {/* Master Compliance & Quality Testing Section */}
+              <section className="detail-panel-box compliance-panel">
+                <div className="compliance-head">
+                  <span className="comp-eyebrow">GLOBAL COMPLIANCE PROTOCOLS</span>
+                  <h3 className="comp-title">Manufacturing, Inspection & Testing Standards</h3>
+                  <p className="comp-desc">
+                    Every production lot of {product.name.toLowerCase()} is subjected to strict dimensional verification, non-destructive examinations, and third-party inspections.
+                  </p>
                 </div>
-              </div>
-            </section>
-          )}
 
-          {/* Section: Engineering Advantages & Creep Performance */}
-          {product.engineeringAdvantages && product.engineeringAdvantages.length > 0 && (
-            <section className="detail-advantages-section">
-              <div className="section-head-card">
-                <span className="section-eyebrow">METALLURGICAL ADVANTAGES</span>
-                <h3 className="section-title">Engineered For High-Temperature Integrity</h3>
-                <p className="section-desc">
-                  {product.advantagesSubtitle || `Key technical and metallurgical advantages for specifying ${product.name} over standard material grades in demanding operations.`}
-                </p>
-              </div>
-
-              <div className="advantages-grid">
-                {product.engineeringAdvantages.map((adv, idx) => (
-                  <div key={idx} className="advantage-card">
-                    <div className="adv-icon-badge">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        <polyline points="9 12 11 14 15 10"></polyline>
-                      </svg>
+                <div className="comp-cards-grid">
+                  <div className="comp-card">
+                    <div className="comp-icon-box">
+                      <FileText size={20} className="text-accent" />
                     </div>
-                    <h4 className="adv-title">{adv.title}</h4>
-                    <p className="adv-desc">{adv.desc}</p>
+                    <h4>Governing Specifications</h4>
+                    <p>{product.specs?.standards || 'ASTM A312, ASTM A358, ASME SA312, ANSI B36.19M dimensional standards.'}</p>
                   </div>
-                ))}
-              </div>
-            </section>
-          )}
 
-          {/* Section: Quality & Inspection Protocols */}
-          {product.qualityProtocols && product.qualityProtocols.length > 0 && (
-            <section className="detail-quality-section">
-              <div className="section-head-card">
-                <span className="section-eyebrow">NON-DESTRUCTIVE & STATUTORY TESTING</span>
-                <h3 className="section-title">Quality Verification & Testing Protocols</h3>
-                <p className="section-desc">
-                  {product.qualitySubtitle || `Every ${product.name.toLowerCase()} production lot is subjected to rigorous metallurgical testing and third-party inspection standards.`}
-                </p>
-              </div>
-
-              <div className="quality-grid">
-                {product.qualityProtocols.map((qp, idx) => (
-                  <div key={idx} className="quality-item-card">
-                    <div className="quality-header">
-                      <span className="quality-num">0{idx + 1}</span>
-                      <h4 className="quality-title">{qp.item}</h4>
+                  <div className="comp-card">
+                    <div className="comp-icon-box">
+                      <ShieldCheck size={20} className="text-accent" />
                     </div>
-                    <p className="quality-desc">{qp.detail}</p>
+                    <h4>Pressure Verification</h4>
+                    <p>{product.specs?.testing || '100% Hydrostatic testing up to 400 Bar or calibrated Eddy Current inspection per ASTM E426.'}</p>
                   </div>
-                ))}
-              </div>
-            </section>
-          )}
 
-          {/* Section: Industrial Applications */}
-          <section className="detail-applications-section">
-            <div className="apps-header">
-              <span className="apps-eyebrow">SECTOR COMPATIBILITY</span>
-              <h3 className="apps-title">Engineered For Critical Operating Environments</h3>
-              <p className="apps-desc">
-                High mechanical integrity and chemical resistance across severe industrial services.
-              </p>
-            </div>
+                  <div className="comp-card">
+                    <div className="comp-icon-box">
+                      <Sparkles size={20} className="text-accent" />
+                    </div>
+                    <h4>Statutory Certification</h4>
+                    <p>{product.specs?.certification || 'EN 10204 3.1 & 3.2 inspection certificates, IBR Form III-C, NACE MR0175 compliance.'}</p>
+                  </div>
+                </div>
+              </section>
 
-            <div className="apps-grid">
-              {(product.customApplications || [
-                {
-                  title: 'Oil, Gas & Petrochemical',
-                  desc: 'Refinery pipework, offshore topsides, high-pressure process manifolds, and sour crude handling.'
-                },
-                {
-                  title: 'Chemical & Fertilizer Plants',
-                  desc: 'Severe corrosive environments, nitric/sulfuric acid circuits, reactors, and heat exchangers.'
-                },
-                {
-                  title: 'Power & Thermal Generation',
-                  desc: 'Supercritical boiler tubing, steam headers, nuclear coolant circuits, and turbine auxiliaries.'
-                },
-                {
-                  title: 'Pharmaceutical & Dairy',
-                  desc: 'Ultra-clean sanitary fluid transfer, electro-polished piping, bio-processing vessels, and CIP lines.'
-                }
-              ]).map((app, idx) => (
-                <div key={idx} className="app-card">
-                  <div className="app-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              {/* Integrated Request For Quotation (RFQ) Form */}
+              <section id="product-rfq-section" className="detail-panel-box rfq-panel">
+                <div className="rfq-head">
+                  <span className="rfq-eyebrow">DIRECT MILL & STOCKIST QUOTATION</span>
+                  <h3 className="rfq-title">Request an Instant Quote for {product.name}</h3>
+                  <p className="rfq-desc">
+                    Specify your required grade ({activeGrade?.name || product.grade || 'Standard'}), schedule, quantity, and destination port. Our piping engineering team responds within 2 business hours.
+                  </p>
+                </div>
+
+                <InquiryForm
+                  productName={product.name}
+                  materialGrade={activeGrade?.name || product.grade || 'Standard'}
+                  division={product.division || 'Supplier Division'}
+                />
+
+                {/* Direct WhatsApp Callout */}
+                <div className="direct-contact-banner">
+                  <div className="contact-text">
+                    <strong>Need immediate stock verification or project-specific schedules?</strong>
+                    <span>Connect directly with our export engineering desk on WhatsApp for live mill inventory status.</span>
+                  </div>
+                  <a
+                    href={`https://wa.me/919967616124?text=${whatsappMessage}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-whatsapp-direct"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
                     </svg>
-                  </div>
-                  <h4>{app.title}</h4>
-                  <p>{app.desc}</p>
+                    <span>Instant WhatsApp Inquiry</span>
+                  </a>
                 </div>
-              ))}
+              </section>
+
             </div>
-          </section>
 
-          {/* Section: Pre-Filled RFQ Form */}
-          <section id="product-rfq-section" className="detail-rfq-section">
-            <InquiryForm
-              productName={product.name}
-              materialGrade={product.grade}
-              division={product.division}
-            />
-          </section>
+          </div>
 
-          {/* Section: Compatible Related Products */}
+          {/* 7. Compatible Related Products (Full Width) */}
           {related && related.length > 0 && (
             <section className="detail-related-section">
               <RelatedProducts
                 products={related}
-                title={`Related Components in ${product.groupName}`}
+                title={`Related Components in ${product.groupName || 'Piping'}`}
                 onSelect={onNavigate}
               />
             </section>

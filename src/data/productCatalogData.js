@@ -2040,7 +2040,14 @@ export const PRODUCT_GROUPS = [
       {
         id: "pipes-tubes-carbon-steel",
         slug: "carbon-steel",
-        name: "Carbon Steel Pipes & Tubes",
+        aliases: [
+          "carbon-steel-pipe",
+          "carbon-steel-pipes",
+          "cs-pipe",
+          "cs-pipes",
+          "carbon-steel-pipes-tubes"
+        ],
+        name: "Carbon Steel Pipes",
         materialName: "Carbon Steel",
         grade: "ASTM A105, A106 Gr.B, A234 WPB, API 5L X42-X70",
         image: img_supplier_pipes_tubes_carbon_steel_118,
@@ -2095,7 +2102,14 @@ export const PRODUCT_GROUPS = [
       {
         id: "pipes-tubes-stainless-steel",
         slug: "stainless-steel",
-        name: "Stainless Steel Pipes & Tubes",
+        aliases: [
+          "stainless-steel-pipe",
+          "stainless-steel-pipes",
+          "ss-pipe",
+          "ss-pipes",
+          "stainless-steel-pipes-tubes"
+        ],
+        name: "Stainless Steel Pipe",
         materialName: "Stainless Steel",
         grade: "304 / 304L / 316 / 316L / 321 / 347 / 904L",
         image: img_supplier_pipes_tubes_stainless_steel_123,
@@ -2987,6 +3001,52 @@ for (let i = 0; i < PRODUCT_GROUPS.length; i++) {
     _categoriesByFullKey.set(`${divSlug}/${grpSlug}/${catSlug}`, item);
     _categoriesByGroupAndCat.set(`${grpSlug}/${catSlug}`, item);
     _categoriesBySlug.set(catSlug, item);
+
+    // Index by cat.id and natural combinations e.g. stainless-steel-flanges
+    const catId = (cat.id || '').toLowerCase().trim();
+    if (catId) {
+      _categoriesBySlug.set(catId, item);
+      _categoriesByFullKey.set(`${divSlug}/${grpSlug}/${catId}`, item);
+      _categoriesByGroupAndCat.set(`${grpSlug}/${catId}`, item);
+    }
+    const natural1 = `${catSlug}-${grpSlug}`;
+    _categoriesBySlug.set(natural1, item);
+    const natural2 = `${grpSlug}-${catSlug}`;
+    _categoriesBySlug.set(natural2, item);
+
+    // Special natural shortcuts (e.g. /products/stainless-steel-sheets, /products/stainless-steel-flanges, /products/buttweld-fittings)
+    if (grpSlug === 'flanges' && catSlug === 'stainless-steel') {
+      _categoriesBySlug.set('stainless-steel-flanges', item);
+      _categoriesBySlug.set('ss-flanges', item);
+    }
+    if (grpSlug === 'sheet-and-plates' && catSlug === 'stainless-steel') {
+      _categoriesBySlug.set('stainless-steel-sheets', item);
+      _categoriesBySlug.set('stainless-steel-plates', item);
+      _categoriesBySlug.set('ss-sheets', item);
+      _categoriesBySlug.set('ss-plates', item);
+    }
+    if (grpSlug === 'sheet-and-plates' && catSlug === 'carbon-steel') {
+      _categoriesBySlug.set('carbon-steel-sheets', item);
+      _categoriesBySlug.set('carbon-steel-plates', item);
+      _categoriesBySlug.set('cs-sheets', item);
+    }
+    if (grpSlug === 'butt-weld-fittings') {
+      if (catSlug === 'stainless-steel') {
+        _categoriesBySlug.set('buttweld-fittings', item);
+        _categoriesBySlug.set('stainless-steel-buttweld-fittings', item);
+      }
+      if (catSlug === 'carbon-steel') {
+        _categoriesBySlug.set('carbon-steel-buttweld-fittings', item);
+      }
+    }
+    if (grpSlug === 'forged-fittings') {
+      if (catSlug === 'stainless-steel') {
+        _categoriesBySlug.set('stainless-steel-forged-fittings', item);
+      }
+      if (catSlug === 'carbon-steel') {
+        _categoriesBySlug.set('carbon-steel-forged-fittings', item);
+      }
+    }
 
     if (cat.aliases && Array.isArray(cat.aliases)) {
       cat.aliases.forEach(alias => {

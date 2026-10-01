@@ -4,7 +4,7 @@ import flangesImg from '../assets/Product Images/Flanges/duplex.jpg';
 import roundBarsImg from '../assets/Product Images/Rods and BArs/Super duplex.png';
 import pipeFittingsImg from '../assets/Product Images/Butt weld fit/alloy steel.jpg';
 import tubeFittingsImg from '../assets/Product Images/Forged Fittings/stainles steel.jpg';
-import forgedFittingsImg from '../assets/Product Images/Forged Fittings/super duplex.jpeg';
+import forgedFittingsImg from '../assets/Product Images/Forged Fittings/forge-fitting-card.png';
 import fastenersImg from '../assets/Product Images/Fasteners/Hastelloy.jpeg';
 import sheetsImg from '../assets/Product Images/Sheet and plates/Duplex.png';
 import platesImg from '../assets/Product Images/Sheet and plates/Carbon.png';
