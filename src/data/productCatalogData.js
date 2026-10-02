@@ -218,6 +218,357 @@ export const DIVISIONS = {
 
 export const PRODUCT_GROUPS = [
   {
+    id: "manufacturer-pipes-tubes",
+    slug: "pipes-tubes",
+    name: "Pipes & Tubes",
+    division: "Manufacturer Division",
+    divisionSlug: "manufacturer",
+    tagline: "Seamless, Welded & Heat Exchanger Tubing",
+    shortDesc: "Extensive inventory of heavy-wall seamless line pipes, heat exchanger tubes, boiler tubes, and large-diameter welded pipes. Conforming strictly to ASTM A312, A358, A335, A106, A790, A213, A269, and API 5L per ANSI B36.19 and ANSI B36.10 dimensions.",
+    heroImage: img_supplier_pipes_tubes_hero,
+    specs: {
+      "size": "Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD",
+      "schedule": "Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)",
+      "standards": "ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269",
+      "dimensions": "ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)",
+      "testing": "100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI",
+      "certification": "EN 10204 3.1 & 3.2, IBR Approved with Form III-C",
+      "surfaceFinish": "Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"
+},
+    categoriesCount: 10,
+    categories: [
+      {
+        id: "pipes-tubes-seamless-alloy-steel-a335",
+        slug: "seamless-alloy-steel-pipes-a335",
+        aliases: [
+          "seamless-alloys-steel-pipes-a-335-gr-p11-p22-p9-p-5-p91-p92",
+          "seamless-alloy-steel-pipes-a-335-gr-p11-p22-p9-p-5-p91-p92",
+          "seamless-alloys-steel-pipes-a335",
+          "a335-pipes"
+        ],
+        name: "Seamless Alloys Steel Pipes A 335 Gr.P11 P22 P9 P 5 P91 P92",
+        materialName: "Alloy Steel",
+        grade: "ASTM A335 / ASME SA335 Gr. P11, P22, P9, P5, P91, P92",
+        image: img_supplier_pipes_tubes_seamless_a335,
+        shortDesc: "High-pressure, creep-resistant ferritic chrome-moly seamless line pipes engineered for supercritical steam boilers, thermal power stations, and high-temperature hydrocarbon processing.",
+        description: "KPTRON is a premier stockholder and global distributor of ASTM A335 / ASME SA335 Seamless Ferritic Chrome-Moly Alloy Steel Pipes. Engineered specifically for severe high-pressure, elevated-temperature environments, our pipes conform strictly to ASTM A335 Grades P11, P22, P9, P5, P91, and P92. The balanced chromium-molybdenum formulation delivers remarkable creep-rupture strength, graphitization resistance, and microstructural thermal stability up to 650°C. Each heat is 100% PMI verified, hydrostatic and ultrasonic tested, and certified under Indian Boiler Regulations (IBR Form III-A & III-C), NACE MR0175 / ISO 15156 for sour service, and EN 10204 3.1 & 3.2 inspection standards.",
+        specs: {
+          size: "Seamless: 1/8\" NB to 36\" NB (10.3 mm to 914.4 mm OD; Heavy-Wall Forged up to 48\" OD)",
+          schedule: "SCH 20, SCH 30, SCH 40, SCH STD, SCH 80, SCH XS, SCH 120, SCH 160, SCH XXS (1.73mm to 120mm Wall Thickness)",
+          standards: "ASTM A335 / ASME SA335 (Grades P11, P22, P9, P5, P91, P92), ANSI/ASME B36.10M, EN 10216-2, DIN 17175",
+          dimensions: "ANSI/ASME B36.10M Welded and Seamless Wrought Steel Pipe Dimensional Standards & Tolerances",
+          testing: "100% PMI Spectro, Hydrostatic Proof Testing up to 700 Bar, 100% Ultrasonic Examination (UT), Eddy Current, Charpy V-Notch (-46°C), Hardness (Max 250 HBW / 265 HV)",
+          certification: "EN 10204 3.1 & 3.2 Inspection Certificates, IBR Form III-A / III-C Approved, NACE MR0175 / ISO 15156 Sour Service, PED 2014/68/EU",
+          surfaceFinish: "Black Protective Anti-Rust Coating, Phosphated, Bare Cleaned, Shot Blasted (SA 2.5), 37.5° Beveled Ends (ASME B16.25) with Plastic/Metal End Caps"
+        },
+        standards: ["ASTM A335", "ASME SA335", "IBR Certified", "NACE MR0175", "EN 10216-2", "DIN 17175", "PED 2014/68/EU", "ISO 9001:2015"],
+        gradeBreakdown: [
+          {
+            grade: "P11",
+            uns: "UNS K11597",
+            commonName: "1.25Cr - 0.5Mo Alloy Steel",
+            dinEn: "13CrMo4-5 / DIN 13CrMo44",
+            serviceTemp: "Up to 560°C (1040°F)",
+            heatTreatment: "Full / Isothermal Anneal, or Normalize & Temper (Min 650°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 163 HBW",
+            chemistry: {
+              cr: "1.00 – 1.50%",
+              mo: "0.44 – 0.65%",
+              c: "0.05 – 0.15%",
+              mn: "0.30 – 0.60%",
+              si: "0.50 – 1.00%",
+              p: "≤ 0.025%",
+              s: "≤ 0.025%"
+            },
+            applicationNote: "Widely used in power plant boiler superheaters, reheater tubing, and high-pressure steam distribution systems where cost-effective creep resistance is needed."
+          },
+          {
+            grade: "P22",
+            uns: "UNS K21590",
+            commonName: "2.25Cr - 1Mo Alloy Steel",
+            dinEn: "10CrMo9-10 / DIN 10CrMo910",
+            serviceTemp: "Up to 580°C (1075°F)",
+            heatTreatment: "Full / Isothermal Anneal, or Normalize & Temper (Min 675°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 163 HBW",
+            chemistry: {
+              cr: "1.90 – 2.60%",
+              mo: "0.87 – 1.13%",
+              c: "0.05 – 0.15%",
+              mn: "0.30 – 0.60%",
+              si: "≤ 0.50%",
+              p: "≤ 0.025%",
+              s: "≤ 0.025%"
+            },
+            applicationNote: "The benchmark workhorse alloy for main steam headers, hot reheat circuits, and heavy-wall piping in thermal power stations and petrochemical refineries."
+          },
+          {
+            grade: "P9",
+            uns: "UNS K90941",
+            commonName: "9Cr - 1Mo Alloy Steel",
+            dinEn: "X12CrMo9-1 / DIN 12CrMo195",
+            serviceTemp: "Up to 600°C (1110°F)",
+            heatTreatment: "Full Anneal, or Normalize (900-980°C) & Temper (Min 675°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 179 HBW",
+            chemistry: {
+              cr: "8.00 – 10.00%",
+              mo: "0.90 – 1.10%",
+              c: "≤ 0.15%",
+              mn: "0.30 – 0.60%",
+              si: "0.25 – 1.00%",
+              p: "≤ 0.025%",
+              s: "≤ 0.025%"
+            },
+            applicationNote: "High chromium content provides outstanding protection against sulfidation, sour crude attack, and high-temperature oxidation in oil refinery catalytic units."
+          },
+          {
+            grade: "P5",
+            uns: "UNS K41545",
+            commonName: "5Cr - 0.5Mo Alloy Steel",
+            dinEn: "X12CrMo5 / DIN 12CrMo195",
+            serviceTemp: "Up to 650°C (1200°F)",
+            heatTreatment: "Full Anneal, or Normalize & Temper (Min 675°C)",
+            tensileMpa: "≥ 415 MPa (60 ksi)",
+            yieldMpa: "≥ 205 MPa (30 ksi)",
+            elongation: "≥ 30%",
+            hardness: "≤ 217 HBW",
+            chemistry: {
+              cr: "4.00 – 6.00%",
+              mo: "0.45 – 0.65%",
+              c: "≤ 0.15%",
+              mn: "0.30 – 0.60%",
+              si: "≤ 0.50%",
+              p: "≤ 0.025%",
+              s: "≤ 0.025%"
+            },
+            applicationNote: "Specifically engineered for petroleum refinery furnaces, delayed coker units, and hydroprocessing lines handling hydrogen attack at elevated temperatures."
+          },
+          {
+            grade: "P91",
+            uns: "UNS K91560",
+            commonName: "Modified 9Cr - 1Mo - V - Nb (CSEF)",
+            dinEn: "X10CrMoVNb9-1 / DIN X10CrMoVNb91",
+            serviceTemp: "Up to 620°C (1150°F)",
+            heatTreatment: "Normalize (1040–1080°C) & Temper (730–800°C) Air Cooled",
+            tensileMpa: "585 – 760 MPa (85–110 ksi)",
+            yieldMpa: "≥ 415 MPa (60 ksi)",
+            elongation: "≥ 20%",
+            hardness: "190 – 250 HBW (≤ 265 HV)",
+            chemistry: {
+              cr: "8.00 – 9.50%",
+              mo: "0.85 – 1.05%",
+              c: "0.08 – 0.12%",
+              mn: "0.30 – 0.60%",
+              si: "0.20 – 0.50%",
+              v: "0.18 – 0.25%",
+              nb: "0.06 – 0.10%",
+              n: "0.03 – 0.07%"
+            },
+            applicationNote: "Advanced Creep-Strength Enhanced Ferritic (CSEF) alloy. Enables up to 50% thinner pipe walls than P22, significantly reducing thermal fatigue in supercritical power stations."
+          },
+          {
+            grade: "P92",
+            uns: "UNS K92460",
+            commonName: "9Cr - 1.8W - 0.5Mo - V - Nb - B (CSEF)",
+            dinEn: "X10CrWMoVNb9-2",
+            serviceTemp: "Up to 650°C (1200°F)",
+            heatTreatment: "Normalize (1050–1080°C) & Temper (730–800°C) Air Cooled",
+            tensileMpa: "620 – 850 MPa (90–123 ksi)",
+            yieldMpa: "≥ 440 MPa (64 ksi)",
+            elongation: "≥ 20%",
+            hardness: "190 – 250 HBW (≤ 265 HV)",
+            chemistry: {
+              cr: "8.50 – 9.50%",
+              w: "1.50 – 2.00%",
+              mo: "0.30 – 0.60%",
+              c: "0.07 – 0.13%",
+              mn: "0.30 – 0.60%",
+              si: "≤ 0.50%",
+              v: "0.15 – 0.25%",
+              nb: "0.04 – 0.09%",
+              b: "0.001 – 0.006%",
+              n: "0.03 – 0.07%"
+            },
+            applicationNote: "Next-generation tungsten-strengthened CSEF steel designed for ultra-supercritical (USC) thermal power generation operating under extreme steam pressures and cyclical demands."
+          }
+        ],
+        engineeringAdvantages: [
+          {
+            title: "Supercritical Creep Rupture Strength",
+            desc: "Engineered for 100,000+ hour creep life under severe stress at 550°C to 650°C. Molybdenum and vanadium carbonitrides anchor grain boundaries, resisting void formation."
+          },
+          {
+            title: "Immunity to Thermal Graphitization",
+            desc: "In long-term service above 425°C, standard carbon steels suffer catastrophic graphitization embrittlement. Chromium in ASTM A335 binds carbon into stable chromium carbides, ensuring lifetime metallurgical integrity."
+          },
+          {
+            title: "Thinner Wall Profile & Thermal Fatigue Resistance",
+            desc: "High allowable stress in Grades P91 and P92 allows up to a 50% wall thickness reduction compared to P22. Thinner walls drastically minimize through-wall thermal gradients during fast start-ups and cyclical loading."
+          },
+          {
+            title: "Hydrogen & Sour Gas (H2S) Attack Resistance",
+            desc: "Conforming to NACE MR0175 / ISO 15156. The dense chromium oxide surface film and controlled hardness (≤ 250 HBW) resist sulfide stress cracking (SSC) and high-temperature Nelson Curve hydrogen attack."
+          },
+          {
+            title: "Strict Indian Boiler Regulations (IBR) Certified",
+            desc: "Supplied with original IBR Form III-A and Form III-C inspection documentation approved by authorized boiler inspectors for legal installation in high-pressure steam boilers and superheaters."
+          },
+          {
+            title: "Extreme Pressure Proof Tested up to 700 Bar",
+            desc: "Each pipe length undergoes 100% hydrostatic proof testing or non-destructive ultrasonic and eddy current examination with automated calibration to detect subsurface flaws."
+          }
+        ],
+        customApplications: [
+          {
+            title: "Supercritical & USC Power Plants",
+            desc: "Main steam piping, hot and cold reheat lines, boiler superheater tubes, and economizer manifolds operating at pressures up to 300 bar and 620°C."
+          },
+          {
+            title: "Hydrocracking & Hydrotreating Units",
+            desc: "Severe refinery circuits handling hydrogen at high partial pressures and elevated temperatures, preventing Nelson curve hydrogen embrittlement."
+          },
+          {
+            title: "Delayed Coker Units & Fired Heaters",
+            desc: "High-temperature furnace transfer lines and furnace coils subjected to severe thermal cycling and decoking steam-air mixtures."
+          },
+          {
+            title: "Sour Gas & Geothermal High-Pressure Piping",
+            desc: "Production manifolds, steam gathering lines, and wellheads exposed to aggressive hydrogen sulfide (H2S) sour crude and geothermal brines."
+          }
+        ],
+        qualityProtocols: [
+          { item: "Positive Material Identification (PMI)", detail: "100% XRF / OES Spectrometry test on every pipe to verify Cr, Mo, V, Nb, W composition." },
+          { item: "Non-Destructive Testing (NDT)", detail: "100% full-body Ultrasonic Testing (ASTM A388) and Eddy Current Testing (ASTM E426)." },
+          { item: "Hydrostatic Proof Testing", detail: "Tested to 100% SMYS design pressure (up to 700 bar) with 10-second dwell time." },
+          { item: "Mechanical & Hardness Testing", detail: "Transverse/longitudinal tensile, flattening, flaring, bend, and multi-point hardness (max 250 HBW)." },
+          { item: "Charpy V-Notch Impact Testing", detail: "Sub-zero impact testing performed at -20°C to -46°C to confirm transition temperature safety." },
+          { item: "Mill Certification & Documentation", detail: "EN 10204 3.1 & 3.2 MTC, IBR Form III-A / III-C, NACE MR0175, PED 2014/68/EU, TPI clearance." }
+        ]
+      },
+      {
+        id: "pipes-tubes-alloy-steel",
+        slug: "alloy-steel",
+        name: "Alloy Steel Pipes & Tubes",
+        materialName: "Alloy Steel",
+        grade: "ASTM A335 / A234 P11, P22, P5, P9, P91, F11, F22",
+        image: img_supplier_pipes_tubes_alloy_steel_117,
+        shortDesc: "Chrome-moly heat-resistant alloy steel formulated for supercritical steam systems, boilers, and refineries.",
+        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
+        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
+      },
+      {
+        id: "pipes-tubes-carbon-steel",
+        slug: "carbon-steel",
+        aliases: [
+          "carbon-steel-pipe",
+          "carbon-steel-pipes",
+          "cs-pipe",
+          "cs-pipes",
+          "carbon-steel-pipes-tubes"
+        ],
+        name: "Carbon Steel Pipes",
+        materialName: "Carbon Steel",
+        grade: "ASTM A105, A106 Gr.B, A234 WPB, API 5L X42-X70",
+        image: img_supplier_pipes_tubes_carbon_steel_118,
+        shortDesc: "Heavy-duty carbon steel with high impact toughness and structural reliability for oil, gas, and power lines.",
+        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
+        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
+      },
+      {
+        id: "pipes-tubes-duplex",
+        slug: "duplex",
+        name: "Duplex Steel Pipes & Tubes",
+        materialName: "Duplex Steel",
+        grade: "UNS S31803 / UNS S32205 (2205)",
+        image: img_supplier_pipes_tubes_duplex_119,
+        shortDesc: "Austenitic-ferritic balanced microstructure providing twice the mechanical yield strength of standard stainless steels.",
+        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
+        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
+      },
+      {
+        id: "pipes-tubes-exotic-alloys",
+        slug: "exotic-alloys",
+        name: "Exotic Alloys Pipes & Tubes",
+        materialName: "Exotic Alloys",
+        grade: "Tantalum, Zirconium 702, Incoloy 825, Nimonic 80A",
+        image: img_supplier_pipes_tubes_exotic_alloys_120,
+        shortDesc: "Rare refractory and specialty metals for nuclear reactors, aerospace defense, and advanced chemical synthesis.",
+        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
+        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
+      },
+      {
+        id: "pipes-tubes-high-alloys",
+        slug: "high-alloys",
+        name: "High Alloys Pipes & Tubes",
+        materialName: "High Alloys",
+        grade: "Sanicro 28, Alloy 20, Carpenter 20Cb-3, AL-6XN",
+        image: img_supplier_pipes_tubes_high_alloys_121,
+        shortDesc: "Specialty high-molybdenum and chromium superalloys engineered to withstand sulfuric and phosphoric acid media.",
+        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
+        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
+      },
+      {
+        id: "pipes-tubes-nickel-alloys",
+        slug: "nickel-alloys",
+        name: "Nickel Alloys Pipes & Tubes",
+        materialName: "Nickel Alloys",
+        grade: "Inconel 600/625, Monel 400, Hastelloy C276, Nickel 200/201",
+        image: img_supplier_pipes_tubes_nickel_alloys_122,
+        shortDesc: "Engineered for thermal stability and severe acid/caustic resistance under extreme temperature and pressure conditions.",
+        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
+        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
+      },
+      {
+        id: "pipes-tubes-stainless-steel",
+        slug: "stainless-steel",
+        aliases: [
+          "stainless-steel-pipe",
+          "stainless-steel-pipes",
+          "ss-pipe",
+          "ss-pipes",
+          "stainless-steel-pipes-tubes"
+        ],
+        name: "Stainless Steel Pipe",
+        materialName: "Stainless Steel",
+        grade: "304 / 304L / 316 / 316L / 321 / 347 / 904L",
+        image: img_supplier_pipes_tubes_stainless_steel_123,
+        shortDesc: "Premium austenitic stainless steel offering superior corrosion resistance, hygienic purity, and high structural strength.",
+        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
+        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
+      },
+      {
+        id: "pipes-tubes-super-duplex",
+        slug: "super-duplex",
+        name: "Super Duplex Steel Pipes & Tubes",
+        materialName: "Super Duplex Steel",
+        grade: "UNS S32750 (2507) / UNS S32760 (Zeron 100)",
+        image: img_supplier_pipes_tubes_super_duplex_124,
+        shortDesc: "High PREN (>42) super duplex alloy designed for subsea risers, harsh chemical plants, and aggressive seawater environments.",
+        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
+        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
+      },
+      {
+        id: "pipes-tubes-titanium",
+        slug: "titanium",
+        name: "Titanium Alloys Pipes & Tubes",
+        materialName: "Titanium Alloys",
+        grade: "Grade 1, Grade 2, Grade 5 (Ti-6Al-4V), Grade 7",
+        image: img_supplier_pipes_tubes_titanium_125,
+        shortDesc: "Exceptional strength-to-weight ratio with total immunity to sea-water pitting and chemical chloride attack.",
+        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
+        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
+      }
+    ]
+  },
+  {
     id: "manufacturer-butt-weld-fittings",
     slug: "butt-weld-fittings",
     name: "Butt Weld Fittings",
@@ -1791,357 +2142,6 @@ export const PRODUCT_GROUPS = [
     ]
   },
   {
-    id: "supplier-pipes-tubes",
-    slug: "pipes-tubes",
-    name: "Pipes & Tubes",
-    division: "Supplier Division",
-    divisionSlug: "supplier",
-    tagline: "Seamless, Welded & Heat Exchanger Tubing",
-    shortDesc: "Extensive inventory of heavy-wall seamless line pipes, heat exchanger tubes, boiler tubes, and large-diameter welded pipes. Conforming strictly to ASTM A312, A358, A335, A106, A790, A213, A269, and API 5L per ANSI B36.19 and ANSI B36.10 dimensions.",
-    heroImage: img_supplier_pipes_tubes_hero,
-    specs: {
-      "size": "Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD",
-      "schedule": "Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)",
-      "standards": "ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269",
-      "dimensions": "ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)",
-      "testing": "100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI",
-      "certification": "EN 10204 3.1 & 3.2, IBR Approved with Form III-C",
-      "surfaceFinish": "Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"
-},
-    categoriesCount: 10,
-    categories: [
-      {
-        id: "pipes-tubes-seamless-alloy-steel-a335",
-        slug: "seamless-alloy-steel-pipes-a335",
-        aliases: [
-          "seamless-alloys-steel-pipes-a-335-gr-p11-p22-p9-p-5-p91-p92",
-          "seamless-alloy-steel-pipes-a-335-gr-p11-p22-p9-p-5-p91-p92",
-          "seamless-alloys-steel-pipes-a335",
-          "a335-pipes"
-        ],
-        name: "Seamless Alloys Steel Pipes A 335 Gr.P11 P22 P9 P 5 P91 P92",
-        materialName: "Alloy Steel",
-        grade: "ASTM A335 / ASME SA335 Gr. P11, P22, P9, P5, P91, P92",
-        image: img_supplier_pipes_tubes_seamless_a335,
-        shortDesc: "High-pressure, creep-resistant ferritic chrome-moly seamless line pipes engineered for supercritical steam boilers, thermal power stations, and high-temperature hydrocarbon processing.",
-        description: "KPTRON is a premier stockholder and global distributor of ASTM A335 / ASME SA335 Seamless Ferritic Chrome-Moly Alloy Steel Pipes. Engineered specifically for severe high-pressure, elevated-temperature environments, our pipes conform strictly to ASTM A335 Grades P11, P22, P9, P5, P91, and P92. The balanced chromium-molybdenum formulation delivers remarkable creep-rupture strength, graphitization resistance, and microstructural thermal stability up to 650°C. Each heat is 100% PMI verified, hydrostatic and ultrasonic tested, and certified under Indian Boiler Regulations (IBR Form III-A & III-C), NACE MR0175 / ISO 15156 for sour service, and EN 10204 3.1 & 3.2 inspection standards.",
-        specs: {
-          size: "Seamless: 1/8\" NB to 36\" NB (10.3 mm to 914.4 mm OD; Heavy-Wall Forged up to 48\" OD)",
-          schedule: "SCH 20, SCH 30, SCH 40, SCH STD, SCH 80, SCH XS, SCH 120, SCH 160, SCH XXS (1.73mm to 120mm Wall Thickness)",
-          standards: "ASTM A335 / ASME SA335 (Grades P11, P22, P9, P5, P91, P92), ANSI/ASME B36.10M, EN 10216-2, DIN 17175",
-          dimensions: "ANSI/ASME B36.10M Welded and Seamless Wrought Steel Pipe Dimensional Standards & Tolerances",
-          testing: "100% PMI Spectro, Hydrostatic Proof Testing up to 700 Bar, 100% Ultrasonic Examination (UT), Eddy Current, Charpy V-Notch (-46°C), Hardness (Max 250 HBW / 265 HV)",
-          certification: "EN 10204 3.1 & 3.2 Inspection Certificates, IBR Form III-A / III-C Approved, NACE MR0175 / ISO 15156 Sour Service, PED 2014/68/EU",
-          surfaceFinish: "Black Protective Anti-Rust Coating, Phosphated, Bare Cleaned, Shot Blasted (SA 2.5), 37.5° Beveled Ends (ASME B16.25) with Plastic/Metal End Caps"
-        },
-        standards: ["ASTM A335", "ASME SA335", "IBR Certified", "NACE MR0175", "EN 10216-2", "DIN 17175", "PED 2014/68/EU", "ISO 9001:2015"],
-        gradeBreakdown: [
-          {
-            grade: "P11",
-            uns: "UNS K11597",
-            commonName: "1.25Cr - 0.5Mo Alloy Steel",
-            dinEn: "13CrMo4-5 / DIN 13CrMo44",
-            serviceTemp: "Up to 560°C (1040°F)",
-            heatTreatment: "Full / Isothermal Anneal, or Normalize & Temper (Min 650°C)",
-            tensileMpa: "≥ 415 MPa (60 ksi)",
-            yieldMpa: "≥ 205 MPa (30 ksi)",
-            elongation: "≥ 30%",
-            hardness: "≤ 163 HBW",
-            chemistry: {
-              cr: "1.00 – 1.50%",
-              mo: "0.44 – 0.65%",
-              c: "0.05 – 0.15%",
-              mn: "0.30 – 0.60%",
-              si: "0.50 – 1.00%",
-              p: "≤ 0.025%",
-              s: "≤ 0.025%"
-            },
-            applicationNote: "Widely used in power plant boiler superheaters, reheater tubing, and high-pressure steam distribution systems where cost-effective creep resistance is needed."
-          },
-          {
-            grade: "P22",
-            uns: "UNS K21590",
-            commonName: "2.25Cr - 1Mo Alloy Steel",
-            dinEn: "10CrMo9-10 / DIN 10CrMo910",
-            serviceTemp: "Up to 580°C (1075°F)",
-            heatTreatment: "Full / Isothermal Anneal, or Normalize & Temper (Min 675°C)",
-            tensileMpa: "≥ 415 MPa (60 ksi)",
-            yieldMpa: "≥ 205 MPa (30 ksi)",
-            elongation: "≥ 30%",
-            hardness: "≤ 163 HBW",
-            chemistry: {
-              cr: "1.90 – 2.60%",
-              mo: "0.87 – 1.13%",
-              c: "0.05 – 0.15%",
-              mn: "0.30 – 0.60%",
-              si: "≤ 0.50%",
-              p: "≤ 0.025%",
-              s: "≤ 0.025%"
-            },
-            applicationNote: "The benchmark workhorse alloy for main steam headers, hot reheat circuits, and heavy-wall piping in thermal power stations and petrochemical refineries."
-          },
-          {
-            grade: "P9",
-            uns: "UNS K90941",
-            commonName: "9Cr - 1Mo Alloy Steel",
-            dinEn: "X12CrMo9-1 / DIN 12CrMo195",
-            serviceTemp: "Up to 600°C (1110°F)",
-            heatTreatment: "Full Anneal, or Normalize (900-980°C) & Temper (Min 675°C)",
-            tensileMpa: "≥ 415 MPa (60 ksi)",
-            yieldMpa: "≥ 205 MPa (30 ksi)",
-            elongation: "≥ 30%",
-            hardness: "≤ 179 HBW",
-            chemistry: {
-              cr: "8.00 – 10.00%",
-              mo: "0.90 – 1.10%",
-              c: "≤ 0.15%",
-              mn: "0.30 – 0.60%",
-              si: "0.25 – 1.00%",
-              p: "≤ 0.025%",
-              s: "≤ 0.025%"
-            },
-            applicationNote: "High chromium content provides outstanding protection against sulfidation, sour crude attack, and high-temperature oxidation in oil refinery catalytic units."
-          },
-          {
-            grade: "P5",
-            uns: "UNS K41545",
-            commonName: "5Cr - 0.5Mo Alloy Steel",
-            dinEn: "X12CrMo5 / DIN 12CrMo195",
-            serviceTemp: "Up to 650°C (1200°F)",
-            heatTreatment: "Full Anneal, or Normalize & Temper (Min 675°C)",
-            tensileMpa: "≥ 415 MPa (60 ksi)",
-            yieldMpa: "≥ 205 MPa (30 ksi)",
-            elongation: "≥ 30%",
-            hardness: "≤ 217 HBW",
-            chemistry: {
-              cr: "4.00 – 6.00%",
-              mo: "0.45 – 0.65%",
-              c: "≤ 0.15%",
-              mn: "0.30 – 0.60%",
-              si: "≤ 0.50%",
-              p: "≤ 0.025%",
-              s: "≤ 0.025%"
-            },
-            applicationNote: "Specifically engineered for petroleum refinery furnaces, delayed coker units, and hydroprocessing lines handling hydrogen attack at elevated temperatures."
-          },
-          {
-            grade: "P91",
-            uns: "UNS K91560",
-            commonName: "Modified 9Cr - 1Mo - V - Nb (CSEF)",
-            dinEn: "X10CrMoVNb9-1 / DIN X10CrMoVNb91",
-            serviceTemp: "Up to 620°C (1150°F)",
-            heatTreatment: "Normalize (1040–1080°C) & Temper (730–800°C) Air Cooled",
-            tensileMpa: "585 – 760 MPa (85–110 ksi)",
-            yieldMpa: "≥ 415 MPa (60 ksi)",
-            elongation: "≥ 20%",
-            hardness: "190 – 250 HBW (≤ 265 HV)",
-            chemistry: {
-              cr: "8.00 – 9.50%",
-              mo: "0.85 – 1.05%",
-              c: "0.08 – 0.12%",
-              mn: "0.30 – 0.60%",
-              si: "0.20 – 0.50%",
-              v: "0.18 – 0.25%",
-              nb: "0.06 – 0.10%",
-              n: "0.03 – 0.07%"
-            },
-            applicationNote: "Advanced Creep-Strength Enhanced Ferritic (CSEF) alloy. Enables up to 50% thinner pipe walls than P22, significantly reducing thermal fatigue in supercritical power stations."
-          },
-          {
-            grade: "P92",
-            uns: "UNS K92460",
-            commonName: "9Cr - 1.8W - 0.5Mo - V - Nb - B (CSEF)",
-            dinEn: "X10CrWMoVNb9-2",
-            serviceTemp: "Up to 650°C (1200°F)",
-            heatTreatment: "Normalize (1050–1080°C) & Temper (730–800°C) Air Cooled",
-            tensileMpa: "620 – 850 MPa (90–123 ksi)",
-            yieldMpa: "≥ 440 MPa (64 ksi)",
-            elongation: "≥ 20%",
-            hardness: "190 – 250 HBW (≤ 265 HV)",
-            chemistry: {
-              cr: "8.50 – 9.50%",
-              w: "1.50 – 2.00%",
-              mo: "0.30 – 0.60%",
-              c: "0.07 – 0.13%",
-              mn: "0.30 – 0.60%",
-              si: "≤ 0.50%",
-              v: "0.15 – 0.25%",
-              nb: "0.04 – 0.09%",
-              b: "0.001 – 0.006%",
-              n: "0.03 – 0.07%"
-            },
-            applicationNote: "Next-generation tungsten-strengthened CSEF steel designed for ultra-supercritical (USC) thermal power generation operating under extreme steam pressures and cyclical demands."
-          }
-        ],
-        engineeringAdvantages: [
-          {
-            title: "Supercritical Creep Rupture Strength",
-            desc: "Engineered for 100,000+ hour creep life under severe stress at 550°C to 650°C. Molybdenum and vanadium carbonitrides anchor grain boundaries, resisting void formation."
-          },
-          {
-            title: "Immunity to Thermal Graphitization",
-            desc: "In long-term service above 425°C, standard carbon steels suffer catastrophic graphitization embrittlement. Chromium in ASTM A335 binds carbon into stable chromium carbides, ensuring lifetime metallurgical integrity."
-          },
-          {
-            title: "Thinner Wall Profile & Thermal Fatigue Resistance",
-            desc: "High allowable stress in Grades P91 and P92 allows up to a 50% wall thickness reduction compared to P22. Thinner walls drastically minimize through-wall thermal gradients during fast start-ups and cyclical loading."
-          },
-          {
-            title: "Hydrogen & Sour Gas (H2S) Attack Resistance",
-            desc: "Conforming to NACE MR0175 / ISO 15156. The dense chromium oxide surface film and controlled hardness (≤ 250 HBW) resist sulfide stress cracking (SSC) and high-temperature Nelson Curve hydrogen attack."
-          },
-          {
-            title: "Strict Indian Boiler Regulations (IBR) Certified",
-            desc: "Supplied with original IBR Form III-A and Form III-C inspection documentation approved by authorized boiler inspectors for legal installation in high-pressure steam boilers and superheaters."
-          },
-          {
-            title: "Extreme Pressure Proof Tested up to 700 Bar",
-            desc: "Each pipe length undergoes 100% hydrostatic proof testing or non-destructive ultrasonic and eddy current examination with automated calibration to detect subsurface flaws."
-          }
-        ],
-        customApplications: [
-          {
-            title: "Supercritical & USC Power Plants",
-            desc: "Main steam piping, hot and cold reheat lines, boiler superheater tubes, and economizer manifolds operating at pressures up to 300 bar and 620°C."
-          },
-          {
-            title: "Hydrocracking & Hydrotreating Units",
-            desc: "Severe refinery circuits handling hydrogen at high partial pressures and elevated temperatures, preventing Nelson curve hydrogen embrittlement."
-          },
-          {
-            title: "Delayed Coker Units & Fired Heaters",
-            desc: "High-temperature furnace transfer lines and furnace coils subjected to severe thermal cycling and decoking steam-air mixtures."
-          },
-          {
-            title: "Sour Gas & Geothermal High-Pressure Piping",
-            desc: "Production manifolds, steam gathering lines, and wellheads exposed to aggressive hydrogen sulfide (H2S) sour crude and geothermal brines."
-          }
-        ],
-        qualityProtocols: [
-          { item: "Positive Material Identification (PMI)", detail: "100% XRF / OES Spectrometry test on every pipe to verify Cr, Mo, V, Nb, W composition." },
-          { item: "Non-Destructive Testing (NDT)", detail: "100% full-body Ultrasonic Testing (ASTM A388) and Eddy Current Testing (ASTM E426)." },
-          { item: "Hydrostatic Proof Testing", detail: "Tested to 100% SMYS design pressure (up to 700 bar) with 10-second dwell time." },
-          { item: "Mechanical & Hardness Testing", detail: "Transverse/longitudinal tensile, flattening, flaring, bend, and multi-point hardness (max 250 HBW)." },
-          { item: "Charpy V-Notch Impact Testing", detail: "Sub-zero impact testing performed at -20°C to -46°C to confirm transition temperature safety." },
-          { item: "Mill Certification & Documentation", detail: "EN 10204 3.1 & 3.2 MTC, IBR Form III-A / III-C, NACE MR0175, PED 2014/68/EU, TPI clearance." }
-        ]
-      },
-      {
-        id: "pipes-tubes-alloy-steel",
-        slug: "alloy-steel",
-        name: "Alloy Steel Pipes & Tubes",
-        materialName: "Alloy Steel",
-        grade: "ASTM A335 / A234 P11, P22, P5, P9, P91, F11, F22",
-        image: img_supplier_pipes_tubes_alloy_steel_117,
-        shortDesc: "Chrome-moly heat-resistant alloy steel formulated for supercritical steam systems, boilers, and refineries.",
-        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
-        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
-      },
-      {
-        id: "pipes-tubes-carbon-steel",
-        slug: "carbon-steel",
-        aliases: [
-          "carbon-steel-pipe",
-          "carbon-steel-pipes",
-          "cs-pipe",
-          "cs-pipes",
-          "carbon-steel-pipes-tubes"
-        ],
-        name: "Carbon Steel Pipes",
-        materialName: "Carbon Steel",
-        grade: "ASTM A105, A106 Gr.B, A234 WPB, API 5L X42-X70",
-        image: img_supplier_pipes_tubes_carbon_steel_118,
-        shortDesc: "Heavy-duty carbon steel with high impact toughness and structural reliability for oil, gas, and power lines.",
-        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
-        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
-      },
-      {
-        id: "pipes-tubes-duplex",
-        slug: "duplex",
-        name: "Duplex Steel Pipes & Tubes",
-        materialName: "Duplex Steel",
-        grade: "UNS S31803 / UNS S32205 (2205)",
-        image: img_supplier_pipes_tubes_duplex_119,
-        shortDesc: "Austenitic-ferritic balanced microstructure providing twice the mechanical yield strength of standard stainless steels.",
-        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
-        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
-      },
-      {
-        id: "pipes-tubes-exotic-alloys",
-        slug: "exotic-alloys",
-        name: "Exotic Alloys Pipes & Tubes",
-        materialName: "Exotic Alloys",
-        grade: "Tantalum, Zirconium 702, Incoloy 825, Nimonic 80A",
-        image: img_supplier_pipes_tubes_exotic_alloys_120,
-        shortDesc: "Rare refractory and specialty metals for nuclear reactors, aerospace defense, and advanced chemical synthesis.",
-        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
-        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
-      },
-      {
-        id: "pipes-tubes-high-alloys",
-        slug: "high-alloys",
-        name: "High Alloys Pipes & Tubes",
-        materialName: "High Alloys",
-        grade: "Sanicro 28, Alloy 20, Carpenter 20Cb-3, AL-6XN",
-        image: img_supplier_pipes_tubes_high_alloys_121,
-        shortDesc: "Specialty high-molybdenum and chromium superalloys engineered to withstand sulfuric and phosphoric acid media.",
-        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
-        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
-      },
-      {
-        id: "pipes-tubes-nickel-alloys",
-        slug: "nickel-alloys",
-        name: "Nickel Alloys Pipes & Tubes",
-        materialName: "Nickel Alloys",
-        grade: "Inconel 600/625, Monel 400, Hastelloy C276, Nickel 200/201",
-        image: img_supplier_pipes_tubes_nickel_alloys_122,
-        shortDesc: "Engineered for thermal stability and severe acid/caustic resistance under extreme temperature and pressure conditions.",
-        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
-        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
-      },
-      {
-        id: "pipes-tubes-stainless-steel",
-        slug: "stainless-steel",
-        aliases: [
-          "stainless-steel-pipe",
-          "stainless-steel-pipes",
-          "ss-pipe",
-          "ss-pipes",
-          "stainless-steel-pipes-tubes"
-        ],
-        name: "Stainless Steel Pipe",
-        materialName: "Stainless Steel",
-        grade: "304 / 304L / 316 / 316L / 321 / 347 / 904L",
-        image: img_supplier_pipes_tubes_stainless_steel_123,
-        shortDesc: "Premium austenitic stainless steel offering superior corrosion resistance, hygienic purity, and high structural strength.",
-        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
-        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
-      },
-      {
-        id: "pipes-tubes-super-duplex",
-        slug: "super-duplex",
-        name: "Super Duplex Steel Pipes & Tubes",
-        materialName: "Super Duplex Steel",
-        grade: "UNS S32750 (2507) / UNS S32760 (Zeron 100)",
-        image: img_supplier_pipes_tubes_super_duplex_124,
-        shortDesc: "High PREN (>42) super duplex alloy designed for subsea risers, harsh chemical plants, and aggressive seawater environments.",
-        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
-        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
-      },
-      {
-        id: "pipes-tubes-titanium",
-        slug: "titanium",
-        name: "Titanium Alloys Pipes & Tubes",
-        materialName: "Titanium Alloys",
-        grade: "Grade 1, Grade 2, Grade 5 (Ti-6Al-4V), Grade 7",
-        image: img_supplier_pipes_tubes_titanium_125,
-        shortDesc: "Exceptional strength-to-weight ratio with total immunity to sea-water pitting and chemical chloride attack.",
-        specs: {"size":"Pipes: 1/2\" to 36\" NB (up to 48\" EFW); Tubes: 6 mm OD to 355.60 mm OD","schedule":"Pipes: Sch. 5 to Sch. XXS (Light to Heavy Wall); Tubes: 0.6mm - 10mm (22 SWG/BWG to 10 SWG/BWG)","standards":"ASTM A312, ASTM A358, ASTM A335 (P5, P9, P11, P12, P22, P91), ASTM A106 Gr. B, ASTM A53, ASTM A790 (UNS S31803, S32750, S32760), API 5L (X42-X70), ASTM A213, ASTM A269","dimensions":"ANSI B36.19M (Stainless), ANSI B36.10M (Carbon & Alloy Steel)","testing":"100% Eddy Current, Hydrostatic up to 400 Bar, Ultrasonic, Flattening & Flaring, Charpy V-Notch Impact, PMI","certification":"EN 10204 3.1 & 3.2, IBR Approved with Form III-C","surfaceFinish":"Pickled & Passivated, Bright Annealed (BA), 320 Grit Mirror Polish, Black Varnished"},
-        standards: ["ASTM","ASME","DIN","ISO","EN","IBR Certified"]
-      }
-    ]
-  },
-  {
     id: "supplier-ring",
     slug: "ring",
     name: "Ring",
@@ -2980,6 +2980,9 @@ for (let i = 0; i < PRODUCT_GROUPS.length; i++) {
 
   _groupsBySlug.set(grpSlug, group);
   _groupsByDivisionAndSlug.set(`${divSlug}/${grpSlug}`, group);
+  if (grpSlug === 'pipes-tubes') {
+    _groupsByDivisionAndSlug.set('supplier/pipes-tubes', group);
+  }
 
   if (_groupsByDivision[divSlug]) {
     _groupsByDivision[divSlug].push(group);
@@ -3004,6 +3007,10 @@ for (let i = 0; i < PRODUCT_GROUPS.length; i++) {
 
     // Index by cat.id and natural combinations e.g. stainless-steel-flanges
     const catId = (cat.id || '').toLowerCase().trim();
+    if (grpSlug === 'pipes-tubes') {
+      _categoriesByFullKey.set(`supplier/pipes-tubes/${catSlug}`, item);
+      if (catId) _categoriesByFullKey.set(`supplier/pipes-tubes/${catId}`, item);
+    }
     if (catId) {
       _categoriesBySlug.set(catId, item);
       _categoriesByFullKey.set(`${divSlug}/${grpSlug}/${catId}`, item);

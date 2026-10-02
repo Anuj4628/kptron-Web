@@ -1,6 +1,11 @@
 import React from 'react';
 import ProductBreadcrumb from './ProductBreadcrumb';
+import { PRODUCT_GROUPS } from '../../data/productCatalogData';
 import './BrightHero.css';
+
+const totalProductCount = PRODUCT_GROUPS.length;
+const mfrProductCount = PRODUCT_GROUPS.filter(g => g.divisionSlug === 'manufacturer').length;
+const supProductCount = PRODUCT_GROUPS.filter(g => g.divisionSlug === 'supplier').length;
 
 /**
  * Bright Premium Hero Component
@@ -68,7 +73,7 @@ export default function BrightHero({
                   className={`div-pill ${activeDivision === 'all' ? 'active' : ''}`}
                   onClick={() => onDivisionChange('all')}
                 >
-                  All Products (18)
+                  All Products ({totalProductCount})
                 </button>
                 <button
                   type="button"
@@ -77,7 +82,7 @@ export default function BrightHero({
                   className={`div-pill ${activeDivision === 'manufacturer' ? 'active' : ''}`}
                   onClick={() => onDivisionChange('manufacturer')}
                 >
-                  Manufacturer Division (9)
+                  Manufacturer Division ({mfrProductCount})
                 </button>
                 <button
                   type="button"
@@ -86,7 +91,7 @@ export default function BrightHero({
                   className={`div-pill ${activeDivision === 'supplier' ? 'active' : ''}`}
                   onClick={() => onDivisionChange('supplier')}
                 >
-                  Supplier Division (9)
+                  Supplier Division ({supProductCount})
                 </button>
               </div>
             )}

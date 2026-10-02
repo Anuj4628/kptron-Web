@@ -188,7 +188,7 @@ export default function ProductsLandingView({ onNavigate }) {
               <div className="div-card-content">
                 <span className="div-card-eyebrow eyebrow-red">A. IN-HOUSE FABRICATION</span>
                 <h3 className="div-card-title">Manufacturer</h3>
-                <span className="div-card-sub">Fittings, Flanges &amp; Fasteners</span>
+                <span className="div-card-sub">Pipes, Fittings, Flanges &amp; Fasteners</span>
               </div>
               <div className="div-card-icon-wrap">
                 <Factory size={26} className="div-card-icon" />
@@ -206,7 +206,7 @@ export default function ProductsLandingView({ onNavigate }) {
               <div className="div-card-content">
                 <span className="div-card-eyebrow eyebrow-blue">B. GLOBAL MILL STOCKIST</span>
                 <h3 className="div-card-title">Supplier</h3>
-                <span className="div-card-sub">Pipes, Plates, Bars &amp; Coils</span>
+                <span className="div-card-sub">Plates, Bars, Coils &amp; Alloys</span>
               </div>
               <div className="div-card-icon-wrap">
                 <Globe size={26} className="div-card-icon" />

@@ -41,7 +41,7 @@ function ProductMegaMenu({ isOpen, onSelect, onClose }) {
           <div className="column-header">
             <div className="header-badge-wrap">
               <span className="col-badge manufacturer-badge">MANUFACTURER</span>
-              <span className="col-count">9 Families</span>
+              <span className="col-count">{manufacturerGroups.length} Families</span>
             </div>
             <h3 className="column-title">{DIVISIONS.manufacturer.name}</h3>
             <p className="column-desc">In-house precision forged, machined & tested piping solutions</p>
@@ -86,7 +86,7 @@ function ProductMegaMenu({ isOpen, onSelect, onClose }) {
           <div className="column-header">
             <div className="header-badge-wrap">
               <span className="col-badge supplier-badge">SUPPLIER</span>
-              <span className="col-count">9 Families</span>
+              <span className="col-count">{supplierGroups.length} Families</span>
             </div>
             <h3 className="column-title">{DIVISIONS.supplier.name}</h3>
             <p className="column-desc">Global mill stockist & raw material distribution network</p>

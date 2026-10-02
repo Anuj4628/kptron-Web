@@ -73,6 +73,15 @@ export const productCategories = [
 
 export const productsData = [
   {
+    id: "pipes-and-tubes",
+    name: "Pipes and Tubes",
+    category: "pipes",
+    specTag: "ASTM A312 / A269 // SEAMLESS & WELDED",
+    image: pipesImg,
+    route: "/products/manufacturer/pipes-tubes",
+    alt: "High performance seamless and welded industrial pipes and tubes"
+  },
+  {
     id: "butt-weld-fitting",
     name: "Butt Weld Fitting",
     category: "fittings",
@@ -125,15 +134,6 @@ export const productsData = [
     image: flatBarImg,
     route: "/products/supplier/flat",
     alt: "Engineered stainless steel and titanium flat bars"
-  },
-  {
-    id: "pipes-and-tubes",
-    name: "Pipes and Tubes",
-    category: "pipes",
-    specTag: "ASTM A312 / A269 // SEAMLESS & WELDED",
-    image: pipesImg,
-    route: "/products/supplier/pipes-tubes",
-    alt: "High performance seamless and welded industrial pipes and tubes"
   },
   {
     id: "sheets-and-plates",

@@ -246,7 +246,7 @@ export default function Footer({ onNavigate }) {
                   </a>
                 </li>
                 <li>
-                  <a href="/products/supplier/pipes-tubes" className="footer-nav-item" onClick={(e) => handleLinkClick(e, '/products/supplier/pipes-tubes')}>
+                  <a href="/products/manufacturer/pipes-tubes" className="footer-nav-item" onClick={(e) => handleLinkClick(e, '/products/manufacturer/pipes-tubes')}>
                     <ChevronRight size={14} className="nav-chevron" />
                     <span>Pipes & Tubes (Seamless / Welded)</span>
                   </a>
