@@ -5,6 +5,10 @@ export const preloadRoute = (target) => {
   } else if (target === 'contact' || target?.startsWith('/contact')) {
     import('../components/Contact/ContactPage');
   } else if (target === 'products' || target?.startsWith('/products')) {
+    import('../components/Products/pages/PipesProductPage');
+    import('../components/Products/pages/PipeGradeDetailView');
+    import('../components/Products/pages/SheetsPlatesProductPage');
+    import('../components/Products/pages/SheetPlateGradeDetailView');
     import('../components/Products/pages/ProductsLandingView');
     import('../components/Products/pages/DivisionView');
     import('../components/Products/pages/ProductFamilyView');

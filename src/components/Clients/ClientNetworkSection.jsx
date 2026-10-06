@@ -120,7 +120,7 @@ export default function ClientNetworkSection() {
   const marqueeRow2 = [...row2Clients, ...row2Clients, ...row2Clients, ...row2Clients];
 
   return (
-    <section id="certificate" ref={sectionRef} className="client-network-section" aria-label="Client Network">
+    <section id="clients" ref={sectionRef} className="client-network-section" aria-label="Client Network">
       {/* Subtle ambient */}
       <div className="cn-ambient-orb" aria-hidden="true" />
 

@@ -2,12 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { navLinks, brandDetails } from '../../data/navigationData';
 import { MATERIALS } from '../../data/materialsData';
+import { certificatesList } from '../../data/certificatesData';
+import { NAVBAR_PRODUCTS_OPTIONS } from '../Products/ProductMegaMenu';
 import Button from '../UI/Button';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Eye, Download, ShieldCheck, FileText } from 'lucide-react';
 import './MobileMenu.css';
 
-export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, onNavigate }) {
+export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, onNavigate, onSelectCertificate }) {
+  const [productsExpanded, setProductsExpanded] = useState(false);
   const [materialsExpanded, setMaterialsExpanded] = useState(false);
+  const [certificatesExpanded, setCertificatesExpanded] = useState(false);
   const menuRef = useRef(null);
   const linksContainerRef = useRef(null);
   const footerRef = useRef(null);
@@ -87,12 +91,24 @@ export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, o
 
   const handleLinkClick = (e, id) => {
     e.preventDefault();
+    if (id === 'products') {
+      setProductsExpanded(prev => !prev);
+      return;
+    }
+
     if (id === 'materials') {
       setMaterialsExpanded(prev => !prev);
       return;
     }
 
+    if (id === 'certificate' || id === 'certificates') {
+      setCertificatesExpanded(prev => !prev);
+      return;
+    }
+
+    setProductsExpanded(false);
     setMaterialsExpanded(false);
+    setCertificatesExpanded(false);
     onClose();
     if (onNavigate) {
       if (id === 'about') {
@@ -101,8 +117,6 @@ export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, o
         onNavigate('contact');
       } else if (id === 'home') {
         onNavigate('home');
-      } else if (id === 'products') {
-        onNavigate('/products');
       } else {
         if (currentPage === 'about' || currentPage === 'materials' || currentPage === 'products' || currentPage === 'contact') {
           onNavigate('home', id);
@@ -116,6 +130,15 @@ export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, o
     }
   };
 
+  const handleSubProductClick = (e, url) => {
+    e.preventDefault();
+    setProductsExpanded(false);
+    onClose();
+    if (onNavigate) {
+      onNavigate(url);
+    }
+  };
+
   const handleSubMaterialClick = (e, slug) => {
     e.preventDefault();
     setMaterialsExpanded(false);
@@ -125,6 +148,31 @@ export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, o
         onNavigate('/materials');
       } else {
         onNavigate(`/materials/${slug}`);
+      }
+    }
+  };
+
+  const handleCertSelect = (e, cert) => {
+    e.preventDefault();
+    setCertificatesExpanded(false);
+    onClose();
+    if (onSelectCertificate) {
+      onSelectCertificate(cert);
+    }
+  };
+
+  const handleCertSectionClick = (e) => {
+    e.preventDefault();
+    setCertificatesExpanded(false);
+    onClose();
+    if (onNavigate) {
+      if (currentPage !== 'home') {
+        onNavigate('home', 'certificate');
+      } else {
+        const target = document.getElementById('certificate');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
   };
@@ -142,16 +190,19 @@ export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, o
         <ul ref={linksContainerRef} className="mobile-nav-list">
           {navLinks.map((link, index) => {
             const isActive = activeLink === link.id;
+            const isProducts = link.id === 'products';
             const isMaterials = link.id === 'materials';
+            const isCertificates = link.id === 'certificate' || link.id === 'certificates';
 
             let targetHref = link.href;
             if (link.id === 'about') targetHref = '/about';
             else if (link.id === 'contact') targetHref = '/contact';
             else if (link.id === 'products') targetHref = '/products';
             else if (link.id === 'materials') targetHref = '/materials';
+            else if (isCertificates) targetHref = '#certificate';
 
             return (
-              <li key={link.id} className={`mobile-nav-item ${isMaterials ? 'has-subnav' : ''}`}>
+              <li key={link.id} className={`mobile-nav-item ${isProducts || isMaterials || isCertificates ? 'has-subnav' : ''}`}>
                 <div className="mobile-nav-row">
                   <a
                     href={targetHref}
@@ -162,6 +213,18 @@ export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, o
                     <span className="mobile-link-title">{link.label}</span>
                     <span className="mobile-link-accent" />
                   </a>
+
+                  {isProducts && (
+                    <button
+                      type="button"
+                      className={`mobile-subnav-toggle ${productsExpanded ? 'expanded' : ''}`}
+                      onClick={() => setProductsExpanded(prev => !prev)}
+                      aria-label={productsExpanded ? 'Collapse Products Menu' : 'Expand Products Menu'}
+                      aria-expanded={productsExpanded}
+                    >
+                      <ChevronDown size={18} />
+                    </button>
+                  )}
 
                   {isMaterials && (
                     <button
@@ -174,7 +237,37 @@ export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, o
                       <ChevronDown size={18} />
                     </button>
                   )}
+
+                  {isCertificates && (
+                    <button
+                      type="button"
+                      className={`mobile-subnav-toggle ${certificatesExpanded ? 'expanded' : ''}`}
+                      onClick={() => setCertificatesExpanded(prev => !prev)}
+                      aria-label={certificatesExpanded ? 'Collapse Certificates Menu' : 'Expand Certificates Menu'}
+                      aria-expanded={certificatesExpanded}
+                    >
+                      <ChevronDown size={18} />
+                    </button>
+                  )}
                 </div>
+
+                {/* Expandable 6 Main Products Sub-menu */}
+                {isProducts && productsExpanded && (
+                  <div className="mobile-subnav-container">
+                    <div className="mobile-subnav-grid">
+                      {NAVBAR_PRODUCTS_OPTIONS.map((prod) => (
+                        <a
+                          key={prod.id}
+                          href={prod.url}
+                          className="mobile-subnav-item"
+                          onClick={(e) => handleSubProductClick(e, prod.url)}
+                        >
+                          <span className="subnav-mat-name">{prod.name}</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* Expandable 9 Materials Sub-menu */}
                 {isMaterials && materialsExpanded && (
@@ -199,6 +292,70 @@ export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, o
                           <span className="subnav-mat-name">{mat.name}</span>
                           <span className="subnav-mat-tag">{mat.grade.split(',')[0].split('/')[0].trim()}</span>
                         </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Expandable 2 Certificates Sub-menu */}
+                {isCertificates && certificatesExpanded && (
+                  <div className="mobile-subnav-container mobile-cert-subnav">
+                    <a
+                      href="#certificate"
+                      className="mobile-subnav-item mobile-subnav-overview"
+                      onClick={handleCertSectionClick}
+                    >
+                      <span>View Certificates Section on Page</span>
+                      <span className="mobile-subnav-badge">2 Docs</span>
+                    </a>
+
+                    <div className="mobile-cert-cards-list">
+                      {certificatesList.map((cert) => (
+                        <div key={cert.id} className="mobile-cert-item-card">
+                          <div
+                            className="mobile-cert-main-info"
+                            onClick={(e) => handleCertSelect(e, cert)}
+                            role="button"
+                            tabIndex={0}
+                          >
+                            <div className="mobile-cert-thumb-wrap">
+                              <img
+                                src={cert.thumbnail}
+                                alt=""
+                                className="mobile-cert-thumb"
+                                loading="lazy"
+                              />
+                            </div>
+                            <div className="mobile-cert-text">
+                              <div className="mobile-cert-pill-row">
+                                <span className="mobile-cert-type-pill">{cert.typeBadge}</span>
+                                <span className="mobile-cert-reg-code">{cert.registrationNumber}</span>
+                              </div>
+                              <h4 className="mobile-cert-title">{cert.title}</h4>
+                              <p className="mobile-cert-authority">{cert.shortAuthority}</p>
+                            </div>
+                          </div>
+
+                          <div className="mobile-cert-action-bar">
+                            <button
+                              type="button"
+                              className="mobile-cert-btn-view"
+                              onClick={(e) => handleCertSelect(e, cert)}
+                            >
+                              <Eye size={14} />
+                              <span>View Document</span>
+                            </button>
+                            <a
+                              href={cert.fileUrl}
+                              download={cert.downloadName || cert.fileName}
+                              className="mobile-cert-btn-download"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <Download size={14} />
+                              <span>Download PDF</span>
+                            </a>
+                          </div>
+                        </div>
                       ))}
                     </div>
                   </div>

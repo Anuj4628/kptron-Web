@@ -4,7 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // 9 Storytelling Phases
 import AboutIntro from './AboutIntro';
-import AboutLegacy from './AboutLegacy';
 import AboutQuality from './AboutQuality';
 import AboutPartners from './AboutPartners';
 import AboutLeadership from './AboutLeadership';
@@ -21,7 +20,7 @@ gsap.registerPlugin(ScrollTrigger);
  * AboutSection Master Orchestrator
  * Cinematic, continuous scroll-driven industrial story for KPTRON
  */
-export default function AboutSection({ onNavigate }) {
+export default function AboutSection({ onNavigate, onSelectCertificate }) {
   const masterRef = useRef(null);
 
   useEffect(() => {
@@ -48,10 +47,7 @@ export default function AboutSection({ onNavigate }) {
       {/* 01: About Intro / Opening */}
       <AboutIntro />
 
-      {/* 02: The Steel Legacy of KPTRON (Pinned Horizontal Journey) */}
-      <AboutLegacy />
-
-      {/* 03: Our Quality Promise (Precision Engineering Assembly) */}
+      {/* 02: Our Quality Promise (Precision Engineering Assembly) */}
       <AboutQuality />
 
       {/* 04: Trusted and Approved by Industry Leaders (Continuous Logo Marquee) */}
@@ -67,7 +63,7 @@ export default function AboutSection({ onNavigate }) {
       <AboutNumbers />
 
       {/* 08: Certifications / Material Capability (Laboratory Scanner & Swatches) */}
-      <AboutCertifications />
+      <AboutCertifications onSelectCertificate={onSelectCertificate} />
 
       {/* 09: Final Cinematic CTA (Converging Vectors & Conclusion) */}
       <AboutCTA onNavigate={onNavigate} />

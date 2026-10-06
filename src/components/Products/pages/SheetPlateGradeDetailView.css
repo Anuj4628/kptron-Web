@@ -1,0 +1,746 @@
+/* ===================================================
+   SHEET, PLATE & COIL GRADE DETAIL VIEW STYLING
+   Industrial Corporate Brand Design:
+   - Primary Navy: #0B192C / #1F3862
+   - Brand Accent: #FF5B26
+   - Slate Text: #475569 / #64748B
+   - Background: #F8FAFC
+   =================================================== */
+
+.clean-sheet-grade-detail-page {
+  width: 100%;
+  background: #F8FAFC;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
+
+/* ===================================================
+   1. Header / Breadcrumb Bar
+   =================================================== */
+.sheet-grade-header-bar {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 1.25rem 0;
+}
+
+.sheet-grade-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.sheet-grade-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  color: #64748B;
+  flex-wrap: wrap;
+}
+
+.crumb-item {
+  cursor: pointer;
+  color: #64748B;
+  transition: color 0.14s ease;
+}
+
+.crumb-item:hover {
+  color: #FF5B26;
+}
+
+.crumb-sep {
+  color: #CBD5E1;
+}
+
+.crumb-current {
+  color: #1F3862;
+  font-weight: 700;
+}
+
+.btn-back-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  color: #1F3862;
+  padding: 0.4rem 0.85rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+
+.btn-back-category:hover {
+  background: #1F3862;
+  border-color: #1F3862;
+  color: #FFFFFF;
+}
+
+/* ===================================================
+   2. Main Layout Grid (2 Columns: Main + Sidebar)
+   =================================================== */
+.sheet-grade-main-container {
+  max-width: 1240px;
+  margin: 2rem auto 0;
+  padding: 0 1.5rem;
+}
+
+.sheet-grade-layout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* ===================================================
+   3. Primary Content Column
+   =================================================== */
+.sheet-grade-primary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Top Hero Card */
+.sheet-grade-hero-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.hero-category-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  color: #FF5B26;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.hero-tag-dot {
+  color: #CBD5E1;
+}
+
+.hero-grade-title {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: #0B192C;
+  line-height: 1.2;
+  margin: 0 0 0.85rem 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-code-badge {
+  display: inline-block;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  color: #1F3862;
+  font-size: 0.82rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-code-badge strong {
+  color: #0B192C;
+}
+
+/* Hero Media Box - 320px Height with Proper Object-Fit */
+.hero-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: #0B192C;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1.75rem;
+  border: 1px solid #E2E8F0;
+}
+
+.hero-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.hero-media-overlay-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(11, 25, 44, 0.92);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-transform: uppercase;
+}
+
+.hero-description-block {
+  margin-bottom: 1.75rem;
+}
+
+.section-subheading {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 750;
+  color: #0B192C;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.65rem 0;
+}
+
+.hero-desc-text {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #334155;
+  margin: 0;
+}
+
+/* Standard Identifiers Matrix */
+.standards-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #E2E8F0;
+}
+
+.matrix-cell {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+}
+
+.cell-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748B;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+
+.cell-value {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0B192C;
+}
+
+/* Specifications Card & Clean Industrial Table */
+.sheet-grade-specs-card,
+.sheet-grade-forms-card,
+.sheet-grade-apps-card,
+.sheet-grade-qa-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: #0B192C;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.01em;
+}
+
+.heading-icon {
+  color: #FF5B26;
+  flex-shrink: 0;
+}
+
+.specs-table-wrapper {
+  overflow-x: auto;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.specs-table tr {
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.specs-table tr:last-child {
+  border-bottom: none;
+}
+
+.specs-table th {
+  text-align: left;
+  padding: 0.75rem 1rem 0.75rem 0;
+  color: #64748B;
+  font-weight: 600;
+  width: 38%;
+  vertical-align: top;
+}
+
+.specs-table td {
+  padding: 0.75rem 0;
+  color: #0B192C;
+  font-weight: 600;
+}
+
+/* Available Forms Grid */
+.forms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.form-item-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 650;
+  color: #0B192C;
+}
+
+.form-item-dot {
+  color: #FF5B26;
+  font-size: 0.95rem;
+}
+
+/* Applications List */
+.applications-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem;
+}
+
+.application-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: #334155;
+}
+
+.app-check-icon {
+  color: #FF5B26;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+/* Quality Assurance Grid */
+.qa-points-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.qa-point {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 4px;
+  padding: 0.85rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #475569;
+}
+
+.qa-point strong {
+  color: #0B192C;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* ===================================================
+   4. Sidebar Column (RFQ Form & Other Grades)
+   =================================================== */
+.sheet-grade-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 90px;
+}
+
+/* RFQ Card */
+.sidebar-rfq-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-top: 3px solid #FF5B26;
+  border-radius: 6px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.rfq-card-header {
+  margin-bottom: 1.25rem;
+}
+
+.rfq-title {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: #0B192C;
+  margin: 0 0 0.25rem 0;
+}
+
+.rfq-sub {
+  font-size: 0.78rem;
+  color: #64748B;
+  margin: 0;
+}
+
+.rfq-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-field label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon svg {
+  position: absolute;
+  left: 0.75rem;
+  color: #94A3B8;
+  pointer-events: none;
+}
+
+.input-with-icon input {
+  padding-left: 2.25rem !important;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  border: 1px solid #CBD5E1;
+  background: #F8FAFC;
+  border-radius: 4px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.82rem;
+  color: #1E293B;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.14s ease, box-shadow 0.14s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #1F3862;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 2px rgba(31, 56, 98, 0.1);
+}
+
+.btn-submit-rfq {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: #FF5B26;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 750;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.14s ease, transform 0.14s ease;
+  margin-top: 0.5rem;
+}
+
+.btn-submit-rfq:hover {
+  background: #e04b1a;
+  transform: translateY(-1px);
+}
+
+.rfq-success-message {
+  text-align: center;
+  padding: 1.5rem 0.5rem;
+}
+
+.success-icon {
+  color: #10B981;
+  margin-bottom: 0.5rem;
+}
+
+.rfq-success-message h4 {
+  color: #0B192C;
+  font-size: 1rem;
+  margin: 0 0 0.35rem 0;
+}
+
+.rfq-success-message p {
+  color: #64748B;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Direct WhatsApp CTA Button */
+.rfq-whatsapp-block {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #E2E8F0;
+}
+
+.btn-whatsapp-quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #25D366;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 0.65rem 0.85rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: background 0.14s ease;
+}
+
+.btn-whatsapp-quote:hover {
+  background: #20bd5a;
+}
+
+/* Sidebar Sister Grades List */
+.sidebar-other-grades-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+
+.sidebar-grades-title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 750;
+  color: #0B192C;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.85rem 0;
+}
+
+.sidebar-grades-title svg {
+  color: #FF5B26;
+}
+
+.sidebar-grades-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+/* Sister Grade Button - Dark Navy #0B192C with Brand Orange Bullet */
+.sidebar-grade-btn {
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: #0B192C;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.45rem;
+  width: 100%;
+  transition: all 0.12s ease;
+}
+
+.sidebar-grade-dot {
+  color: #FF5B26;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.sidebar-grade-name {
+  color: #0B192C;
+  word-break: break-word;
+  white-space: normal;
+  flex: 1;
+}
+
+.sidebar-grade-btn:hover {
+  background: #0B192C;
+  border-color: #0B192C;
+  color: #FFFFFF;
+}
+
+.sidebar-grade-btn:hover .sidebar-grade-name {
+  color: #FFFFFF;
+}
+
+.sidebar-grade-btn:hover .sidebar-grade-dot {
+  color: #FF5B26;
+}
+
+/* Sidebar Contact Card */
+.sidebar-contact-info-card {
+  background: #0B192C;
+  color: #FFFFFF;
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+
+.contact-info-title {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 750;
+  color: #FFFFFF;
+  margin-bottom: 0.35rem;
+}
+
+.contact-info-text {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #94A3B8;
+  margin: 0 0 0.85rem 0;
+}
+
+.contact-phone-direct,
+.contact-email-direct {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #F1F5F9;
+  margin-top: 0.35rem;
+}
+
+.contact-phone-direct svg,
+.contact-email-direct svg {
+  color: #FF5B26;
+}
+
+/* Not Found State */
+.sheet-grade-not-found-container {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.sheet-grade-not-found-card {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.sheet-grade-not-found-card h2 {
+  color: #0B192C;
+  margin-bottom: 0.5rem;
+}
+
+.sheet-grade-not-found-card p {
+  color: #64748B;
+  margin-bottom: 1.5rem;
+}
+
+.btn-back-to-sheets {
+  background: #1F3862;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  padding: 0.65rem 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ===================================================
+   Responsive Breakpoints
+   =================================================== */
+@media (max-width: 1024px) {
+  .sheet-grade-layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sheet-grade-sidebar {
+    position: static;
+  }
+
+  .hero-media-wrapper {
+    height: 260px;
+  }
+
+  .qa-points-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-grade-title {
+    font-size: 1.75rem;
+  }
+
+  .sheet-grade-hero-card {
+    padding: 1.25rem;
+  }
+
+  .hero-media-wrapper {
+    height: 210px;
+  }
+}

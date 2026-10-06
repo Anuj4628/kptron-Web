@@ -1,344 +1,112 @@
 /* ===================================================
-   PRODUCTS MEGA-MENU DROPDOWN PANEL
-   Industrial Architecture: White Surface + Charcoal Text + Red-Orange Accents
+   PRODUCTS NAVBAR DROPDOWN — 6 OPTIONS ONLY
+   Exact Match to User Reference Screenshot:
+   Pure white vertical box, bold uppercase industrial typography,
+   brand orange hover state (#FF5B26), compact and cleanly aligned.
    =================================================== */
 
-.product-megamenu-panel {
+.product-dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translate3d(-50%, 4px, 0);
-  width: 820px;
-  max-width: min(820px, calc(100vw - 32px));
+  left: 0;
+  min-width: 260px;
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
-  border-radius: 4px;
-  box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
-  margin-top: 4px;
-  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.12), 0 4px 10px rgba(15, 23, 42, 0.05);
+  margin-top: 2px;
+  padding: 0.5rem 0;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  will-change: opacity, transform;
-  transition: opacity 0.15s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(4px);
+  transition: opacity 0.15s ease-out,
+              transform 0.15s ease-out,
+              visibility 0.15s ease-out;
 }
 
-/* Hover bridge */
-.product-megamenu-panel::after {
+/* Invisible hover bridge */
+.product-dropdown-menu::after {
   content: '';
   position: absolute;
-  top: -14px;
+  top: -12px;
   left: 0;
   right: 0;
-  height: 14px;
+  height: 12px;
   background: transparent;
 }
 
-/* Subtle triangle pointer */
-.product-megamenu-panel::before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 10px;
-  height: 10px;
-  background: #FFFFFF;
-  border-top: 1px solid #E5E7EB;
-  border-left: 1px solid #E5E7EB;
-  z-index: 1;
-}
-
-.products-item:hover .product-megamenu-panel,
-.product-megamenu-panel.is-open {
+/* Open state on hover */
+.products-item:hover .product-dropdown-menu,
+.product-dropdown-menu.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translate3d(-50%, 0, 0);
+  transform: translateY(0);
 }
 
-.megamenu-inner {
-  display: grid;
-  grid-template-columns: 1fr 1px 1fr;
-  padding: 1rem 1.35rem 0.75rem;
-  background: #FFFFFF;
-}
-
-.megamenu-divider {
-  background-color: #E5E7EB;
-  width: 1px;
-  height: 100%;
-}
-
-.megamenu-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.manufacturer-col {
-  padding-right: 1.15rem;
-}
-
-.supplier-col {
-  padding-left: 1.15rem;
-}
-
-/* Column Header */
-.column-header {
-  margin-bottom: 0.65rem;
-  padding-bottom: 0.45rem;
-  border-bottom: 1px solid #F3F4F6;
-}
-
-.header-badge-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.2rem;
-}
-
-.col-badge {
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 0.15rem 0.5rem;
-  border-radius: 2px;
-  text-transform: uppercase;
-  transition: transform 0.14s ease;
-}
-
-.col-badge:hover {
-  transform: translateY(-1px);
-}
-
-.manufacturer-badge {
-  background: #FEF2F2;
-  color: #E02B20;
-  border: 1px solid rgba(224, 43, 32, 0.25);
-}
-
-.supplier-badge {
-  background: #F3F4F6;
-  color: #111827;
-  border: 1px solid #E5E7EB;
-}
-
-.col-count {
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: #6B7280;
-}
-
-.column-title {
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.95rem;
-  font-weight: 750;
-  color: #111827;
-  margin: 0 0 0.15rem 0;
-  letter-spacing: 0.01em;
-  line-height: 1.25;
-}
-
-.column-desc {
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.71rem;
-  color: #6B7280;
-  margin: 0;
-  line-height: 1.35;
-}
-
-/* Items List */
-.megamenu-list {
+/* List container */
+.product-dropdown-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.12rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.megamenu-item {
+.product-dropdown-item {
   margin: 0;
 }
 
-.megamenu-link {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 0.38rem 0.6rem;
-  border-radius: 4px;
+/* Individual dropdown links */
+.product-dropdown-link {
+  display: block;
+  padding: 0.72rem 1.4rem;
   text-decoration: none;
+  background: #FFFFFF;
   position: relative;
-  transition: all 0.14s ease;
+  transition: background-color 0.12s ease, color 0.12s ease, padding-left 0.12s ease;
 }
 
-/* Interactive subtle left border indicator */
-.megamenu-link::before {
+/* Left accent bar on hover */
+.product-dropdown-link::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 15%;
-  bottom: 15%;
+  top: 0;
+  bottom: 0;
   width: 3px;
-  border-radius: 0 2px 2px 0;
-  background: transparent;
-  transition: background-color 0.14s ease;
+  background-color: transparent;
+  transition: background-color 0.12s ease;
 }
 
-.megamenu-link:hover::before {
-  background: #E02B20;
-}
-
-.megamenu-link:hover {
-  background: #F9FAFB;
-  transform: translateX(2px);
-}
-
-.item-thumb-box {
-  width: 28px;
-  height: 28px;
-  border-radius: 2px;
-  background: #F3F4F6;
-  border: 1px solid #E5E7EB;
-  overflow: hidden;
-  flex-shrink: 0;
-  transition: transform 0.14s ease, border-color 0.14s ease;
-}
-
-.item-thumb {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.megamenu-link:hover .item-thumb-box {
-  transform: scale(1.06);
-  border-color: #CBD5E1;
-}
-
-.item-content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-width: 0;
-}
-
-.item-title {
+/* Typography matching screenshot */
+.product-dropdown-text {
   font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #111827;
-  line-height: 1.25;
-  transition: color 0.14s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.megamenu-link:hover .item-title {
-  color: #E02B20;
-}
-
-.item-subtitle {
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.68rem;
-  color: #6B7280;
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: color 0.14s ease;
-}
-
-.megamenu-link:hover .item-subtitle {
-  color: #4B5563;
-}
-
-.item-arrow {
-  color: #9CA3AF;
-  width: 13px;
-  height: 13px;
-  flex-shrink: 0;
-  opacity: 0.6;
-  transition: all 0.14s ease;
-}
-
-.megamenu-link:hover .item-arrow {
-  color: #E02B20;
-  transform: translateX(3px);
-  opacity: 1;
-}
-
-/* Bottom Footer Bar */
-.megamenu-footer-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.6rem 1.35rem;
-  background: #F9FAFB;
-  border-top: 1px solid #E5E7EB;
-}
-
-.footer-bar-info {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #6B7280;
-}
-
-.footer-bar-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #E02B20;
-}
-
-/* Interactive Catalog CTA Button */
-.btn-view-all-catalog {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.74rem;
-  font-weight: 700;
-  color: #111827;
-  text-decoration: none;
-  letter-spacing: 0.04em;
+  font-size: 0.88rem;
+  font-weight: 750;
+  letter-spacing: 0.03em;
+  color: #1F2937;
   text-transform: uppercase;
-  padding: 0.32rem 0.75rem;
-  border-radius: 2px;
-  background: #FFFFFF;
-  border: 1px solid #E5E7EB;
-  transition: all 0.15s ease;
+  line-height: 1.25;
+  transition: color 0.12s ease;
 }
 
-.btn-view-all-catalog:hover {
-  background: #E02B20;
-  color: #FFFFFF;
-  border-color: #E02B20;
-  transform: translateY(-1px);
+/* Hover state */
+.product-dropdown-link:hover {
+  background-color: #F8FAFC;
+  padding-left: 1.55rem;
 }
 
-.btn-view-all-catalog svg {
-  width: 13px;
-  height: 13px;
-  transition: transform 0.15s ease;
+.product-dropdown-link:hover::before {
+  background-color: #FF5B26;
 }
 
-.btn-view-all-catalog:hover svg {
-  transform: translateX(3px);
+.product-dropdown-link:hover .product-dropdown-text {
+  color: #FF5B26;
 }
 
-@media (max-width: 1024px) {
-  .product-megamenu-panel {
-    display: none;
-  }
+.product-dropdown-link:active {
+  background-color: #F1F5F9;
 }

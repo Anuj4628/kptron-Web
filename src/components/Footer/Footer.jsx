@@ -223,7 +223,7 @@ export default function Footer({ onNavigate }) {
                   </a>
                 </li>
                 <li>
-                  <a href="#certificate" className="footer-nav-item">
+                  <a href="#clients" className="footer-nav-item">
                     <ChevronRight size={14} className="nav-chevron" />
                     <span>Client Network</span>
                   </a>

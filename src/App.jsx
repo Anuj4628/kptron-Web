@@ -7,15 +7,21 @@ import SpecialistProductsSection from './components/Products/SpecialistProductsS
 import WhyChooseSection from './components/WhyChoose/WhyChooseSection';
 import IndustriesSection from './components/Industries/IndustriesSection';
 import ValueAddedSection from './components/ValueAdded/ValueAddedSection';
+import CertificatesSection from './components/Certificates/CertificatesSection';
 import ClientNetworkSection from './components/Clients/ClientNetworkSection';
 import GlobalExportSection from './components/Export/GlobalExportSection';
 import FinalCTASection from './components/CTA/FinalCTASection';
 import Footer from './components/Footer/Footer';
 import FloatingContactButtons from './components/UI/FloatingContactButtons';
+import CertificateViewerModal from './components/Certificates/CertificateViewerModal';
 import { isProductCategorySlug } from './data/productCatalogData';
 
 // Lazy-loaded routes for ultra-fast initial bundle and snappy navigation
 const AboutSection = lazy(() => import('./components/About/AboutSection'));
+const PipesProductPage = lazy(() => import('./components/Products/pages/PipesProductPage'));
+const PipeGradeDetailView = lazy(() => import('./components/Products/pages/PipeGradeDetailView'));
+const SheetsPlatesProductPage = lazy(() => import('./components/Products/pages/SheetsPlatesProductPage'));
+const SheetPlateGradeDetailView = lazy(() => import('./components/Products/pages/SheetPlateGradeDetailView'));
 const ProductsLandingView = lazy(() => import('./components/Products/pages/ProductsLandingView'));
 const DivisionView = lazy(() => import('./components/Products/pages/DivisionView'));
 const ProductFamilyView = lazy(() => import('./components/Products/pages/ProductFamilyView'));
@@ -63,8 +69,64 @@ function parseRoute(pathname = window.location.pathname) {
       return { page: 'products', view: 'landing' };
     }
 
+    const p0 = parts[0].toLowerCase();
+
+    // Dedicated Pipes Product Page & Grade Detail Routes
+    if (p0 === 'pipes' || p0 === 'pipe' || p0 === 'pipes-and-tubes' || p0 === 'pipes-tubes') {
+      if (parts.length === 1) {
+        return { page: 'products', view: 'pipes-listing' };
+      }
+      if (parts.length === 2) {
+        return { 
+          page: 'products', 
+          view: 'pipe-grade-detail', 
+          categorySlug: parts[1].toLowerCase(),
+          gradeSlug: null 
+        };
+      }
+      if (parts.length >= 3) {
+        return { 
+          page: 'products', 
+          view: 'pipe-grade-detail', 
+          categorySlug: parts[1].toLowerCase(), 
+          gradeSlug: parts[2].toLowerCase() 
+        };
+      }
+    }
+
+    // Dedicated Sheets, Plates & Coils Product Page & Grade Detail Routes
+    if (
+      p0 === 'sheets-plates-coils' ||
+      p0 === 'sheet-plates-coils' ||
+      p0 === 'sheets-and-plates' ||
+      p0 === 'sheet-and-plates' ||
+      p0 === 'sheets-plates' ||
+      p0 === 'sheets' ||
+      p0 === 'plates' ||
+      p0 === 'coils'
+    ) {
+      if (parts.length === 1) {
+        return { page: 'products', view: 'sheets-plates-listing' };
+      }
+      if (parts.length === 2) {
+        return { 
+          page: 'products', 
+          view: 'sheet-plate-grade-detail', 
+          categorySlug: parts[1].toLowerCase(),
+          gradeSlug: null 
+        };
+      }
+      if (parts.length >= 3) {
+        return { 
+          page: 'products', 
+          view: 'sheet-plate-grade-detail', 
+          categorySlug: parts[1].toLowerCase(), 
+          gradeSlug: parts[2].toLowerCase() 
+        };
+      }
+    }
+
     if (parts.length === 1) {
-      const p0 = parts[0].toLowerCase();
       if (p0 === 'manufacturer' || p0 === 'supplier') {
         return { page: 'products', view: 'division', divisionSlug: p0 };
       }
@@ -75,8 +137,21 @@ function parseRoute(pathname = window.location.pathname) {
     }
 
     if (parts.length === 2) {
-      const p0 = parts[0].toLowerCase();
       if (p0 === 'manufacturer' || p0 === 'supplier') {
+        const p1 = parts[1].toLowerCase();
+        if (p1 === 'pipes' || p1 === 'pipe' || p1 === 'pipes-tubes' || p1 === 'pipes-and-tubes') {
+          return { page: 'products', view: 'pipes-listing' };
+        }
+        if (
+          p1 === 'sheet-and-plates' ||
+          p1 === 'sheets-and-plates' ||
+          p1 === 'sheets-plates-coils' ||
+          p1 === 'sheet-plates-coils' ||
+          p1 === 'sheets' ||
+          p1 === 'plates'
+        ) {
+          return { page: 'products', view: 'sheets-plates-listing' };
+        }
         if (isProductCategorySlug(parts[1])) {
           return { page: 'products', view: 'detail', divisionSlug: p0, productSlug: parts[1].toLowerCase() };
         }
@@ -86,6 +161,22 @@ function parseRoute(pathname = window.location.pathname) {
     }
 
     if (parts.length >= 3) {
+      if (p0 === 'supplier' || p0 === 'manufacturer') {
+        const p1 = parts[1].toLowerCase();
+        if (
+          p1 === 'sheet-and-plates' ||
+          p1 === 'sheets-and-plates' ||
+          p1 === 'sheets-plates-coils' ||
+          p1 === 'sheet-plates-coils'
+        ) {
+          return {
+            page: 'products',
+            view: 'sheet-plate-grade-detail',
+            categorySlug: parts[2].toLowerCase(),
+            gradeSlug: parts[3] ? parts[3].toLowerCase() : null
+          };
+        }
+      }
       return {
         page: 'products',
         view: 'detail',
@@ -104,6 +195,7 @@ function parseRoute(pathname = window.location.pathname) {
  */
 export default function App() {
   const [route, setRoute] = useState(parseRoute);
+  const [activeCertificate, setActiveCertificate] = useState(null);
 
   // Centralized page and section navigation handler
   const navigateTo = useCallback((target, param = null) => {
@@ -227,14 +319,18 @@ export default function App() {
   return (
     <div className="app-container">
       {/* 1. Global Navbar with integrated page navigation */}
-      <Navbar currentPage={route.page} onNavigate={navigateTo} />
+      <Navbar
+        currentPage={route.page}
+        onNavigate={navigateTo}
+        onSelectCertificate={setActiveCertificate}
+      />
 
       {/* 2. Page Switcher with Instant Suspense Fallback */}
       {route.page === 'about' ? (
         /* Dedicated Independent About Page */
         <main id="main-content" className="about-page-main">
           <Suspense fallback={<div className="page-load-shell about-shell" aria-hidden="true" />}>
-            <AboutSection onNavigate={navigateTo} />
+            <AboutSection onNavigate={navigateTo} onSelectCertificate={setActiveCertificate} />
           </Suspense>
         </main>
       ) : route.page === 'contact' ? (
@@ -262,7 +358,23 @@ export default function App() {
         /* Dedicated Bright Products Catalog Pages */
         <main id="main-content" className="products-page-main">
           <Suspense fallback={<div className="page-load-shell products-shell" aria-hidden="true" />}>
-            {route.view === 'division' ? (
+            {route.view === 'pipes-listing' ? (
+              <PipesProductPage onNavigate={navigateTo} />
+            ) : route.view === 'pipe-grade-detail' ? (
+              <PipeGradeDetailView
+                categorySlug={route.categorySlug}
+                gradeSlug={route.gradeSlug}
+                onNavigate={navigateTo}
+              />
+            ) : route.view === 'sheets-plates-listing' ? (
+              <SheetsPlatesProductPage onNavigate={navigateTo} />
+            ) : route.view === 'sheet-plate-grade-detail' ? (
+              <SheetPlateGradeDetailView
+                categorySlug={route.categorySlug}
+                gradeSlug={route.gradeSlug}
+                onNavigate={navigateTo}
+              />
+            ) : route.view === 'division' ? (
               <DivisionView
                 divisionSlug={route.divisionSlug}
                 onNavigate={navigateTo}
@@ -295,6 +407,7 @@ export default function App() {
           <WhyChooseSection />
           <IndustriesSection />
           <ValueAddedSection />
+          <CertificatesSection onSelectCertificate={setActiveCertificate} />
           <ClientNetworkSection />
           <GlobalExportSection />
           <FinalCTASection onNavigate={navigateTo} />
@@ -306,6 +419,12 @@ export default function App() {
 
       {/* 4. Floating Direct Contact Buttons (WhatsApp & Direct Call) */}
       <FloatingContactButtons />
+
+      {/* 5. Document Inspection Modal for Official Certificates */}
+      <CertificateViewerModal
+        certificate={activeCertificate}
+        onClose={() => setActiveCertificate(null)}
+      />
     </div>
   );
 }

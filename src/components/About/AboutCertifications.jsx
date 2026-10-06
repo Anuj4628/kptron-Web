@@ -2,11 +2,12 @@ import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { aboutCertificationsData } from '../../data/aboutData';
-import { Award, CheckCircle, Layers } from 'lucide-react';
+import { certificatesList } from '../../data/certificatesData';
+import { Award, CheckCircle, Layers, Eye, Download, ShieldCheck } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function AboutCertifications() {
+export default function AboutCertifications({ onSelectCertificate }) {
   const containerRef = useRef(null);
   const scanBeamRef = useRef(null);
   const materialsStackRef = useRef(null);
@@ -133,6 +134,45 @@ export default function AboutCertifications() {
                     <CheckCircle size={18} className="cert-check-icon" />
                   </div>
                 ))}
+              </div>
+
+              {/* Official Statutory Document Verification & Download Strip */}
+              <div className="about-official-docs-strip">
+                <div className="official-docs-header">
+                  <ShieldCheck size={16} className="official-docs-icon" />
+                  <span>OFFICIAL STATUTORY CERTIFICATES ON FILE</span>
+                </div>
+                <div className="official-docs-list">
+                  {certificatesList.map((c) => (
+                    <div key={c.id} className="official-doc-item">
+                      <div className="doc-item-left">
+                        <span className="doc-item-badge">{c.typeBadge}</span>
+                        <div className="doc-item-title-wrap">
+                          <h5 className="doc-item-title">{c.title}</h5>
+                          <span className="doc-item-reg">{c.regLabel}: {c.registrationNumber}</span>
+                        </div>
+                      </div>
+                      <div className="doc-item-actions">
+                        <button
+                          type="button"
+                          className="doc-btn-view"
+                          onClick={() => onSelectCertificate && onSelectCertificate(c)}
+                        >
+                          <Eye size={13} />
+                          <span>View</span>
+                        </button>
+                        <a
+                          href={c.fileUrl}
+                          download={c.downloadName}
+                          className="doc-btn-download"
+                        >
+                          <Download size={13} />
+                          <span>PDF</span>
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

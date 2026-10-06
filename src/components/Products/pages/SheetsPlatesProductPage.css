@@ -1,0 +1,596 @@
+/* ===================================================
+   SHEETS, PLATES & COILS PRODUCT PAGE STYLING
+   Industrial Brand Identity:
+   - Primary Dark Navy Typography: #0B192C / #1F3862
+   - Brand Accent: #FF5B26 (Red-Orange)
+   - Background: #F8FAFC
+   - Card Background: #FFFFFF
+   - Border & Muted: #E2E8F0 / #CBD5E1 / #64748B
+   - 3-Column Desktop Grid with Fixed Slots to Prevent Zig-Zag
+   =================================================== */
+
+.clean-sheets-page {
+  width: 100%;
+  background: #F8FAFC;
+  min-height: 100vh;
+  padding-bottom: 4rem;
+}
+
+/* ===================================================
+   1. Header Section
+   =================================================== */
+.sheets-header-section {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 2.5rem 0 2.25rem;
+}
+
+.sheets-header-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sheets-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: #64748B;
+  margin-bottom: 1.25rem;
+}
+
+.crumb-link {
+  cursor: pointer;
+  color: #64748B;
+  transition: color 0.14s ease;
+}
+
+.crumb-link:hover {
+  color: #FF5B26;
+}
+
+.crumb-sep {
+  color: #CBD5E1;
+}
+
+.crumb-current {
+  color: #1F3862;
+  font-weight: 700;
+}
+
+.sheets-header-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.sheets-badge-tag {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  color: #FF5B26;
+  background: #FFF1EE;
+  padding: 0.25rem 0.65rem;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 91, 38, 0.2);
+  text-transform: uppercase;
+}
+
+.sheets-badge-count {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.sheets-main-title {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #1F3862;
+  margin: 0 0 0.85rem 0;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.sheets-lead-text {
+  max-width: 860px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Quick Specifications Strip */
+.sheets-quick-spec-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0.85rem 1.25rem;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  margin-bottom: 1.75rem;
+}
+
+.quick-spec-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: #334155;
+}
+
+.spec-item-bullet {
+  color: #FF5B26;
+  font-weight: bold;
+}
+
+.quick-spec-item strong {
+  color: #0B192C;
+  font-weight: 700;
+}
+
+/* Search Box */
+.sheets-search-wrapper {
+  max-width: 600px;
+}
+
+.sheets-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  transition: border-color 0.14s ease, box-shadow 0.14s ease;
+}
+
+.sheets-search-box:focus-within {
+  border-color: #1F3862;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(31, 56, 98, 0.08);
+}
+
+.search-icon {
+  color: #64748B;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+}
+
+.sheets-search-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.9rem;
+  color: #1E293B;
+  outline: none;
+  font-family: inherit;
+}
+
+.search-clear-btn {
+  background: none;
+  border: none;
+  color: #94A3B8;
+  padding: 0.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-clear-btn:hover {
+  color: #1E293B;
+}
+
+.search-indicator-text {
+  font-size: 0.78rem;
+  color: #64748B;
+  margin-top: 0.5rem;
+}
+
+/* ===================================================
+   2. Product Cards Grid (3 Columns on Desktop)
+   =================================================== */
+.sheets-grid-section {
+  max-width: 1240px;
+  margin: 2.5rem auto 0;
+  padding: 0 1.5rem;
+}
+
+.sheets-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  align-items: stretch;
+}
+
+.sheet-product-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.sheet-product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.1), 0 4px 8px rgba(15, 23, 42, 0.04);
+  border-color: #CBD5E1;
+}
+
+.card-top-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #FF5B26;
+  z-index: 2;
+}
+
+/* Card Media Box - Consistent 220px Height & Proper Object-Fit */
+.card-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: #0B192C;
+  overflow: hidden;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.card-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.sheet-product-card:hover .card-product-img {
+  transform: scale(1.03);
+}
+
+.card-img-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(11, 25, 44, 0.88);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.22rem 0.55rem;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-transform: uppercase;
+}
+
+/* Card Body - Standardized Slots to Eliminate Zig-Zag */
+.card-body {
+  padding: 1.25rem 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-top-info {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.card-title {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 1.2rem;
+  font-weight: 750;
+  color: #0B192C;
+  margin: 0 0 0.35rem 0;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  min-height: 2.85rem;
+  display: flex;
+  align-items: flex-start;
+  transition: color 0.14s ease;
+}
+
+.sheet-product-card:hover .card-title {
+  color: #FF5B26;
+}
+
+.card-standards-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.74rem;
+  margin-bottom: 0.5rem;
+  min-height: 2rem;
+  line-height: 1.35;
+}
+
+.standards-label {
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.68rem;
+  flex-shrink: 0;
+}
+
+.standards-value {
+  color: #0B192C;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.card-desc {
+  font-size: 0.82rem;
+  line-height: 1.48;
+  color: #475569;
+  margin: 0 0 0.85rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 3.6rem;
+}
+
+/* Available Grades Section */
+.card-grades-section {
+  padding-top: 0.75rem;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.grades-header-row {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grades-heading-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  color: #0B192C;
+  text-transform: uppercase;
+}
+
+.label-icon {
+  color: #FF5B26;
+}
+
+.grades-pills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+  min-height: 195px;
+}
+
+/* Grade Item Button: Professional Dark Navy (#0B192C) with Brand Red-Orange Bullet */
+.grade-pill-btn {
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  padding: 0.38rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: #0B192C;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.45rem;
+  width: 100%;
+  transition: all 0.12s ease;
+  line-height: 1.3;
+}
+
+.pill-dot {
+  color: #FF5B26;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.pill-text {
+  color: #0B192C;
+  word-break: break-word;
+  white-space: normal;
+  flex: 1;
+}
+
+.grade-pill-btn:hover {
+  background: #0B192C;
+  border-color: #0B192C;
+  color: #FFFFFF;
+}
+
+.grade-pill-btn:hover .pill-text {
+  color: #FFFFFF;
+}
+
+.grade-pill-btn:hover .pill-dot {
+  color: #FF5B26;
+}
+
+/* Expander Button */
+.btn-toggle-grades {
+  background: none;
+  border: none;
+  color: #FF5B26;
+  font-size: 0.75rem;
+  font-weight: 750;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.2rem 0.2rem;
+  margin-top: 0.25rem;
+  transition: opacity 0.14s ease;
+}
+
+.btn-toggle-grades:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Card Explore Action */
+.card-footer-action {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #E2E8F0;
+}
+
+.btn-card-explore {
+  width: 100%;
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  color: #1F3862;
+  padding: 0.55rem 0.85rem;
+  border-radius: 4px;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+.sheet-product-card:hover .btn-card-explore,
+.btn-card-explore:hover {
+  background: #1F3862;
+  border-color: #1F3862;
+  color: #FFFFFF;
+}
+
+/* No Results State */
+.sheets-no-results {
+  background: #FFFFFF;
+  border: 1px dashed #CBD5E1;
+  border-radius: 6px;
+  padding: 3rem 2rem;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.sheets-no-results h3 {
+  font-size: 1.15rem;
+  color: #1F3862;
+  margin-bottom: 0.5rem;
+}
+
+.sheets-no-results p {
+  color: #64748B;
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
+}
+
+.btn-reset-search {
+  background: #1F3862;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ===================================================
+   3. Bottom Features Strip
+   =================================================== */
+.sheets-features-bar {
+  max-width: 1240px;
+  margin: 3.5rem auto 0;
+  padding: 0 1.5rem;
+}
+
+.sheets-features-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.feature-icon {
+  color: #FF5B26;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.feature-title {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 750;
+  color: #0B192C;
+  margin-bottom: 0.25rem;
+}
+
+.feature-sub {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #64748B;
+}
+
+/* ===================================================
+   Responsive Breakpoints
+   =================================================== */
+@media (max-width: 1024px) {
+  .sheets-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .sheets-features-container {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sheets-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .sheets-main-title {
+    font-size: 1.85rem;
+  }
+
+  .sheets-quick-spec-strip {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+}

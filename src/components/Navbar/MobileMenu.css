@@ -278,3 +278,146 @@
   letter-spacing: 0.04em;
   color: #6B7280;
 }
+
+/* ===================================================
+   MOBILE CERTIFICATES SUBNAV
+   =================================================== */
+.mobile-cert-subnav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-cert-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-cert-item-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.mobile-cert-main-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  background: #FFFFFF;
+}
+
+.mobile-cert-thumb-wrap {
+  width: 44px;
+  height: 56px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid #D1D5DB;
+  background: #F3F4F6;
+  flex-shrink: 0;
+}
+
+.mobile-cert-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.mobile-cert-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mobile-cert-pill-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.mobile-cert-type-pill {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #1F3862;
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  padding: 1px 4px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.mobile-cert-reg-code {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #4B5563;
+}
+
+.mobile-cert-title {
+  margin: 0;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.25;
+}
+
+.mobile-cert-authority {
+  margin: 0;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.68rem;
+  color: #6B7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-cert-action-bar {
+  display: flex;
+  border-top: 1px solid #F3F4F6;
+  background: #F9FAFB;
+}
+
+.mobile-cert-btn-view,
+.mobile-cert-btn-download {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 10px;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #374151;
+  transition: all 0.15s ease;
+}
+
+.mobile-cert-btn-view {
+  border-right: 1px solid #E5E7EB;
+  color: #1F3862;
+  font-weight: 700;
+}
+
+.mobile-cert-btn-view:hover {
+  background: #EFF6FF;
+}
+
+.mobile-cert-btn-download:hover {
+  background: #F3F4F6;
+  color: #111827;
+}
+

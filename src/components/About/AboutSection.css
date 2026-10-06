@@ -2499,6 +2499,136 @@
   flex-shrink: 0;
 }
 
+/* Official Statutory Certificates Strip */
+.about-official-docs-strip {
+  margin-top: 14px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.official-docs-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #64A2FF;
+  letter-spacing: 0.06em;
+}
+
+.official-docs-icon {
+  color: #64A2FF;
+}
+
+.official-docs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.official-doc-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+.doc-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.doc-item-badge {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #93C5FD;
+  background: rgba(30, 58, 138, 0.4);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  padding: 2px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.doc-item-title-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.doc-item-title {
+  margin: 0;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doc-item-reg {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  color: rgba(226, 232, 240, 0.6);
+}
+
+.doc-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.doc-btn-view,
+.doc-btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.doc-btn-view {
+  background: #1F3862;
+  color: #FFFFFF;
+  border: 1px solid rgba(100, 162, 255, 0.4);
+}
+
+.doc-btn-view:hover {
+  background: #2A4C84;
+}
+
+.doc-btn-download {
+  background: rgba(255, 255, 255, 0.08);
+  color: #E2E8F0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.doc-btn-download:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
 .spectrum-title-wrap {
   display: flex;
   align-items: center;

@@ -8,8 +8,8 @@ import forgedFittingsImg from '../assets/Product Images/Forged Fittings/forge-fi
 import fastenersImg from '../assets/Product Images/Fasteners/Hastelloy.jpeg';
 import sheetsImg from '../assets/Product Images/Sheet and plates/Duplex.png';
 import platesImg from '../assets/Product Images/Sheet and plates/Carbon.png';
-import pipesImg from '../assets/Product Images/Pipes and Tubes/alloy steel.png';
-import tubesImg from '../assets/Product Images/Pipes and Tubes/alloy steel.png';
+import pipesImg from '../assets/New Product img/Pipes/alloy-steel-pipes.jpg';
+import tubesImg from '../assets/New Product img/Pipes/stainless steel pipes.jpg';
 import seamlessAlloySteelPipesImg from '../assets/Product Images/Specialist Products/seamless_alloy_steel_pipes_a335.jpg';
 import alloySteelTubesImg from '../assets/Product Images/Specialist Products/alloy_steel_tubes_a213.jpg';
 import alloySteelPlatesImg from '../assets/Product Images/Specialist Products/alloy_steel_plates_a387.jpg';

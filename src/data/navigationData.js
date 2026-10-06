@@ -6,7 +6,7 @@ export const navLinks = [
   { id: "about", label: "About", href: "/about" },
   { id: "products", label: "Products", href: "/products" },
   { id: "materials", label: "Materials", href: "/materials" },
-  { id: "certificate", label: "Certificate", href: "#certificate" },
+  { id: "certificate", label: "Certificates", href: "#certificate" },
   { id: "contact", label: "Contact", href: "/contact" }
 ];
 
