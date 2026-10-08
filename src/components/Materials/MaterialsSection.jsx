@@ -15,17 +15,20 @@ const StarSeparator = () => (
   </span>
 );
 
-// The EXACT 9 Materials defined in the central materials catalog (materialsData.js)
+// The genuine materials from the central materials database
 const bannerMaterials = [
-  { id: 'stainless-steel', slug: 'stainless-steel', name: 'STAINLESS STEEL', grade: '304L / 316L / 904L' },
-  { id: 'carbon', slug: 'carbon', name: 'CARBON STEEL', grade: 'ASTM A106 / A105' },
-  { id: 'alloy-steel', slug: 'alloy-steel', name: 'ALLOY STEEL', grade: 'P11 / P22 / P91' },
-  { id: 'duplex', slug: 'duplex', name: 'DUPLEX STEEL', grade: 'UNS S31803 / 2205' },
-  { id: 'super-duplex', slug: 'super-duplex', name: 'SUPER DUPLEX', grade: 'UNS S32750 / 2507' },
-  { id: 'nickel-alloy', slug: 'nickel-alloy', name: 'NICKEL ALLOY', grade: 'INCONEL / MONEL / HASTELLOY' },
-  { id: 'titanium', slug: 'titanium', name: 'TITANIUM', grade: 'GRADE 2 / GRADE 5' },
-  { id: 'high-alloy', slug: 'high-alloy', name: 'HIGH ALLOY', grade: 'SANICRO 28 / ALLOY 20' },
-  { id: 'exotic-alloy', slug: 'exotic-alloy', name: 'EXOTIC ALLOY', grade: 'INCOLOY 825 / ZR 702' },
+  { id: 'stainless-steel', slug: 'stainless-steel', name: 'STAINLESS STEEL' },
+  { id: 'carbon-steel', slug: 'carbon-steel', name: 'CARBON STEEL' },
+  { id: 'alloy-steel', slug: 'alloy-steel', name: 'ALLOY STEEL' },
+  { id: 'duplex-steel', slug: 'duplex-steel', name: 'DUPLEX STEEL' },
+  { id: 'super-duplex-steel', slug: 'super-duplex-steel', name: 'SUPER DUPLEX' },
+  { id: 'inconel', slug: 'inconel', name: 'INCONEL' },
+  { id: 'monel', slug: 'monel', name: 'MONEL' },
+  { id: 'hastelloy', slug: 'hastelloy', name: 'HASTELLOY' },
+  { id: 'nickel-alloys', slug: 'nickel-alloys', name: 'NICKEL ALLOYS' },
+  { id: 'copper-nickel', slug: 'copper-nickel', name: 'COPPER NICKEL' },
+  { id: 'titanium', slug: 'titanium', name: 'TITANIUM' },
+  { id: 'maraging-steel', slug: 'maraging-steel', name: 'MARAGING STEEL' },
 ];
 
 export default function MaterialsSection({ onNavigate }) {

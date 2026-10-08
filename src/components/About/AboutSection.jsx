@@ -20,7 +20,7 @@ gsap.registerPlugin(ScrollTrigger);
  * AboutSection Master Orchestrator
  * Cinematic, continuous scroll-driven industrial story for KPTRON
  */
-export default function AboutSection({ onNavigate, onSelectCertificate }) {
+export default function AboutSection({ onNavigate, onSelectCertificate, onOpenQuoteModal }) {
   const masterRef = useRef(null);
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function AboutSection({ onNavigate, onSelectCertificate }) {
       <AboutCertifications onSelectCertificate={onSelectCertificate} />
 
       {/* 09: Final Cinematic CTA (Converging Vectors & Conclusion) */}
-      <AboutCTA onNavigate={onNavigate} />
+      <AboutCTA onNavigate={onNavigate} onOpenQuoteModal={onOpenQuoteModal} />
     </section>
   );
 }

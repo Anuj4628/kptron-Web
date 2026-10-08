@@ -1,20 +1,7 @@
-// Authentic Alternative Product Images from Product Folders
-import buttWeldFittingImg from '../assets/Product Images/Butt weld fit/alloy steel.jpg';
-import flangesImg from '../assets/Product Images/Flanges/duplex.jpg';
-import roundBarsImg from '../assets/Product Images/Rods and BArs/Super duplex.png';
-import pipeFittingsImg from '../assets/Product Images/Butt weld fit/alloy steel.jpg';
-import tubeFittingsImg from '../assets/Product Images/Forged Fittings/stainles steel.jpg';
-import forgedFittingsImg from '../assets/Product Images/Forged Fittings/forge-fitting-card.png';
-import fastenersImg from '../assets/Product Images/Fasteners/Hastelloy.jpeg';
-import sheetsImg from '../assets/Product Images/Sheet and plates/Duplex.png';
-import platesImg from '../assets/Product Images/Sheet and plates/Carbon.png';
-import pipesImg from '../assets/New Product img/Pipes/alloy-steel-pipes.jpg';
-import tubesImg from '../assets/New Product img/Pipes/stainless steel pipes.jpg';
+// Specialist Product Images
 import seamlessAlloySteelPipesImg from '../assets/Product Images/Specialist Products/seamless_alloy_steel_pipes_a335.jpg';
 import alloySteelTubesImg from '../assets/Product Images/Specialist Products/alloy_steel_tubes_a213.jpg';
 import alloySteelPlatesImg from '../assets/Product Images/Specialist Products/alloy_steel_plates_a387.jpg';
-import coilImg from '../assets/Product Section/Supplier division/Coil/alloy steel.jpg';
-import flatBarImg from '../assets/Product Section/Supplier division/flat/super duplex.jpg';
 
 // Authentic Sector Images from Serving Global Mission-Critical Sectors Folder
 import aerospaceImg from '../assets/Serving Global Mission-Critical Sectors/aerospace and defence.png';
@@ -60,100 +47,6 @@ export const materialsRow2 = [
   { id: "as-p22", name: "ALLOY STEEL", grade: "P11 / P22 / P91" }
 ];
 
-// ==========================================
-// 2. PRODUCTS DATA (13 Products with Category Tabs)
-// ==========================================
-export const productCategories = [
-  { id: "all", label: "All Products" },
-  { id: "fittings", label: "Fittings & Flanges" },
-  { id: "pipes", label: "Pipes & Tubes" },
-  { id: "plates", label: "Sheets & Plates" },
-  { id: "bars", label: "Bars & Fasteners" }
-];
-
-export const productsData = [
-  {
-    id: "pipes-and-tubes",
-    name: "Pipes and Tubes",
-    category: "pipes",
-    specTag: "ASTM A312 / A269 // SEAMLESS & WELDED",
-    image: pipesImg,
-    route: "/products/manufacturer/pipes-tubes",
-    alt: "High performance seamless and welded industrial pipes and tubes"
-  },
-  {
-    id: "butt-weld-fitting",
-    name: "Butt Weld Fitting",
-    category: "fittings",
-    specTag: "ASME B16.9 // ELBOWS, TEES, REDUCERS",
-    image: buttWeldFittingImg,
-    route: "/products/manufacturer/butt-weld-fittings",
-    alt: "Precision industrial buttweld pipe fittings in stainless and alloy steel"
-  },
-  {
-    id: "fasteners",
-    name: "Fasteners",
-    category: "bars",
-    specTag: "ASTM A193 / A194 // STUDS, BOLTS & SPECIALS",
-    image: fastenersImg,
-    route: "/products/manufacturer/fasteners",
-    alt: "High tensile industrial alloy fasteners"
-  },
-  {
-    id: "flanges",
-    name: "Flanges",
-    category: "fittings",
-    specTag: "ASME B16.5 // WELD NECK, SLIP-ON, BLIND",
-    image: flangesImg,
-    route: "/products/manufacturer/flanges",
-    alt: "High-pressure industrial forged steel flanges"
-  },
-  {
-    id: "forge-fitting",
-    name: "Forge Fitting",
-    category: "fittings",
-    specTag: "ASME B16.11 // 3000# / 6000# / 9000#",
-    image: forgedFittingsImg,
-    route: "/products/manufacturer/forged-fittings",
-    alt: "High-pressure forged socket weld and threaded fittings"
-  },
-  {
-    id: "coil",
-    name: "Coil",
-    category: "plates",
-    specTag: "ASTM A240 // HOT & COLD ROLLED COILS",
-    image: coilImg,
-    route: "/products/supplier/coil",
-    alt: "High grade precision cold and hot rolled coils"
-  },
-  {
-    id: "flat-bar",
-    name: "Flat Bar",
-    category: "bars",
-    specTag: "ASTM A276 / A484 // COLD DRAWN & HRAP",
-    image: flatBarImg,
-    route: "/products/supplier/flat",
-    alt: "Engineered stainless steel and titanium flat bars"
-  },
-  {
-    id: "sheets-and-plates",
-    name: "Sheets and Plates",
-    category: "plates",
-    specTag: "ASTM A240 / ASME SA516 // COLD & HOT ROLLED",
-    image: sheetsImg,
-    route: "/products/supplier/sheet-and-plates",
-    alt: "Industrial stainless and carbon steel sheets and plates"
-  },
-  {
-    id: "rods-and-bars",
-    name: "Rods and Bars",
-    category: "bars",
-    specTag: "ASTM A276 / A479 // BRIGHT & BLACK FINISH",
-    image: roundBarsImg,
-    route: "/products/supplier/rods-and-bars",
-    alt: "Stainless steel and alloy solid rounds and bars"
-  }
-];
 
 // ==========================================
 // 2B. SPECIALIST ALLOY STEEL PRODUCTS (3 Dedicated Showcase Products)

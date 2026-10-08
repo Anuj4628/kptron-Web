@@ -9,7 +9,7 @@ import { Menu, X } from 'lucide-react';
 import { preloadRoute } from '../../utils/preloadRoute';
 import './Navbar.css';
 
-export default function Navbar({ currentPage = 'home', onNavigate, onSelectCertificate }) {
+export default function Navbar({ currentPage = 'home', onNavigate, onSelectCertificate, onOpenQuoteModal }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
@@ -111,11 +111,48 @@ export default function Navbar({ currentPage = 'home', onNavigate, onSelectCerti
     setMaterialsMenuOpen(false);
   }, []);
 
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setMaterialsMenuOpen(false);
+        setMegaMenuOpen(false);
+        setCertificatesMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
+
   const handleLinkClick = (e, link) => {
     e.preventDefault();
+
+    if (link.id === 'materials') {
+      setMegaMenuOpen(false);
+      setCertificatesMenuOpen(false);
+      setMaterialsMenuOpen((prev) => !prev);
+      return;
+    }
+
+    if (link.id === 'products') {
+      setMaterialsMenuOpen(false);
+      setCertificatesMenuOpen(false);
+      setMegaMenuOpen((prev) => !prev);
+      return;
+    }
+
+    if (link.id === 'certificate' || link.id === 'certificates') {
+      setMaterialsMenuOpen(false);
+      setMegaMenuOpen(false);
+      setCertificatesMenuOpen((prev) => !prev);
+      return;
+    }
+
     setMegaMenuOpen(false);
     setMaterialsMenuOpen(false);
     setCertificatesMenuOpen(false);
+
     if (onNavigate) {
       if (link.id === 'about') {
         onNavigate('about');
@@ -291,22 +328,27 @@ export default function Navbar({ currentPage = 'home', onNavigate, onSelectCerti
 
           {/* Desktop Right Action: Crisp Industrial B2B Quote Button */}
           <div className="navbar-actions-desktop">
-            <a
-              href="/contact"
+            <button
+              type="button"
+              id="quote-btn"
+              data-testid="quote-btn"
               className="navbar-quote-btn"
               onClick={(e) => {
-                if (onNavigate) {
-                  e.preventDefault();
+                e.preventDefault();
+                if (onOpenQuoteModal) {
+                  onOpenQuoteModal({ source: 'Navbar Desktop' });
+                } else if (onNavigate) {
                   onNavigate('contact');
                 }
               }}
+              aria-label="Request a Quote"
             >
               <span className="quote-btn-text">{brandDetails.quoteCta.label}</span>
               <svg className="quote-btn-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
-            </a>
+            </button>
           </div>
 
           {/* Mobile Hamburger Toggle */}
@@ -332,6 +374,7 @@ export default function Navbar({ currentPage = 'home', onNavigate, onSelectCerti
         currentPage={currentPage}
         onNavigate={onNavigate}
         onSelectCertificate={onSelectCertificate}
+        onOpenQuoteModal={onOpenQuoteModal}
       />
     </>
   );

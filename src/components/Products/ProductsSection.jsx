@@ -1,11 +1,99 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { productsData } from '../../data/homeSectionsData';
-import ProductCard from './ProductCard';
+import { ShieldCheck, Layers, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
+
+// Authentic images for the 6 core product divisions
+import img_pipes from '../../assets/New Product img/Pipes/alloy-steel-pipes.jpg';
+import img_sheets from '../../assets/New Product img/sheet plates coil/ss-sheet.jpg';
+import img_bars from '../../assets/New Product img/Bars/ss-bars.jpg';
+import img_fittings from '../../assets/New Product img/pipe fittings/ss-pipe-fittings.jpg';
+import img_flanges from '../../assets/New Product img/flanges/ss-flanges.jpg';
+import img_fasteners from '../../assets/New Product img/fasteners/ss-fasteners.jpg';
+
+// Live category & verified grades databases
+import { PIPE_CATEGORIES } from '../../data/pipesData';
+import { SHEETS_PLATES_COILS_CATEGORIES } from '../../data/sheetsPlatesCoilsData';
+import { BARS_CATEGORIES } from '../../data/barsData';
+import { PIPE_FITTINGS_CATEGORIES } from '../../data/pipeFittingsData';
+import { FLANGES_CATEGORIES } from '../../data/flangesData';
+import { FASTENERS_CATEGORIES } from '../../data/fastenersData';
+
 import './ProductsSection.css';
 
 gsap.registerPlugin(ScrollTrigger);
+
+/**
+ * EXACT 6 PRODUCTS SPECIFIED:
+ * 1. PIPES
+ * 2. SHEETS, PLATES, COILS
+ * 3. BARS
+ * 4. PIPE FITTINGS
+ * 5. FLANGES
+ * 6. FASTENERS
+ */
+const PRODUCTS_SHOWCASE_DATA = [
+  {
+    id: 'pipes',
+    name: 'Pipes & Tubes',
+    url: '/products/pipes',
+    image: img_pipes,
+    standards: 'ASTM A335 / ASME SA335, ASTM A312, ASTM A106, API 5L',
+    shortDesc: 'Ferritic chrome-moly alloy steel, stainless steel, and carbon steel seamless and welded pipes engineered for high creep-rupture strength, elevated temperatures, and severe process piping.',
+    categoriesList: PIPE_CATEGORIES,
+    categoryUrlPrefix: '/products/pipes/'
+  },
+  {
+    id: 'sheets-plates-coils',
+    name: 'Sheets, Plates, Coils',
+    url: '/products/sheets-plates-coils',
+    image: img_sheets,
+    standards: 'ASTM A240 / SA240, ASTM A516, ASTM A387, EN 10028',
+    shortDesc: 'Cold-rolled sheets, hot-rolled pickled plates, and precision strip coils in stainless steel, boiler-quality carbon steel, chrome-moly, and corrosion-resistant alloys conforming to ASTM A240.',
+    categoriesList: SHEETS_PLATES_COILS_CATEGORIES,
+    categoryUrlPrefix: '/products/sheets-plates-coils/'
+  },
+  {
+    id: 'bars',
+    name: 'Bars & Rods',
+    url: '/products/bars',
+    image: img_bars,
+    standards: 'ASTM A276 / SA276, ASTM A479, EN 10088-3, DIN 1013',
+    shortDesc: 'Precision cold drawn, centerless ground, and hot rolled solid round bars, hex shafts, and square profiles with tight diameter tolerances (h8/h9) and superior surface finishes.',
+    categoriesList: BARS_CATEGORIES,
+    categoryUrlPrefix: '/products/bars/'
+  },
+  {
+    id: 'pipe-fittings',
+    name: 'Pipe Fittings',
+    url: '/products/pipe-fittings',
+    image: img_fittings,
+    standards: 'ASME B16.9, ASME B16.11, ASTM A403, MSS SP-43',
+    shortDesc: 'Seamless and welded buttweld pipe fittings and high-pressure forged fittings including 45°/90° elbows, equal tees, reducers, and stub ends conforming to ASME B16.9 and B16.11.',
+    categoriesList: PIPE_FITTINGS_CATEGORIES,
+    categoryUrlPrefix: '/products/pipe-fittings/'
+  },
+  {
+    id: 'flanges',
+    name: 'Flanges',
+    url: '/products/flanges',
+    image: img_flanges,
+    standards: 'ASME B16.5, ASME B16.47, ASTM A182, EN 1092-1',
+    shortDesc: 'Drop-forged and precision CNC machined industrial pipe flanges in weld neck, slip-on, blind, socket weld, and RTJ configurations rated from Class 150# to 2500# and PN6 to PN400.',
+    categoriesList: FLANGES_CATEGORIES,
+    categoryUrlPrefix: '/products/flanges/'
+  },
+  {
+    id: 'fasteners',
+    name: 'Fasteners',
+    url: '/products/fasteners',
+    image: img_fasteners,
+    standards: 'ASTM A193 / A194, ASTM A320, DIN 933 / 934, ISO 3506',
+    shortDesc: 'High-tensile, elevated-temperature, and corrosion-resistant threaded stud bolts, heavy hex nuts, socket cap screws, and washers certified to ASTM A193 B7/B8/B16 and A194 2H/Gr. 8.',
+    categoriesList: FASTENERS_CATEGORIES,
+    categoryUrlPrefix: '/products/fasteners/'
+  }
+];
 
 export default function ProductsSection({ onNavigate }) {
   const sectionRef = useRef(null);
@@ -13,12 +101,36 @@ export default function ProductsSection({ onNavigate }) {
   const gridRef = useRef(null);
   const ctaRef = useRef(null);
 
-  // GSAP ScrollTrigger animation on section entrance
+  // Expand / collapse state for grade lists per card
+  const [expandedCardIds, setExpandedCardIds] = useState({});
+
+  const toggleExpand = (id, e) => {
+    e.stopPropagation();
+    setExpandedCardIds(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
+  const handleCardClick = (url) => {
+    if (onNavigate) {
+      onNavigate(url);
+    }
+  };
+
+  const handleGradeClick = (e, url) => {
+    e.stopPropagation();
+    if (onNavigate) {
+      onNavigate(url);
+    }
+  };
+
+  // GSAP ScrollTrigger animations on section entrance
   useEffect(() => {
     if (!sectionRef.current || !gridRef.current) return;
 
     const ctx = gsap.context(() => {
-      // 1. Header reveal with eyebrow line draw
+      // 1. Header entrance
       if (headerRef.current) {
         const eyebrowBar = headerRef.current.querySelector('.eyebrow-accent-bar');
         const eyebrowText = headerRef.current.querySelector('.eyebrow-text');
@@ -51,27 +163,21 @@ export default function ProductsSection({ onNavigate }) {
         }
       }
 
-      // 2. Product cards 2D Matrix Staggered Reveal
-      const cards = gridRef.current.querySelectorAll('.product-card');
+      // 2. Product cards reveal
+      const cards = gridRef.current.querySelectorAll('.pipe-product-card');
       if (cards.length > 0) {
-        // Set initial states
         gsap.set(cards, {
           opacity: 0,
-          y: 45,
-          scale: 0.94,
-          transformOrigin: '50% 80%'
+          y: 35,
+          scale: 0.97
         });
 
         gsap.to(cards, {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 0.8,
-          stagger: {
-            grid: 'auto',
-            from: 'start',
-            amount: 0.55
-          },
+          duration: 0.65,
+          stagger: 0.08,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: gridRef.current,
@@ -79,42 +185,18 @@ export default function ProductsSection({ onNavigate }) {
             toggleActions: 'play none none none'
           }
         });
-
-        // Layered image counter-zoom inside cards
-        const cardImgs = gridRef.current.querySelectorAll('.product-card-img');
-        if (cardImgs.length > 0) {
-          gsap.fromTo(
-            cardImgs,
-            { scale: 1.12 },
-            {
-              scale: 1,
-              duration: 1.1,
-              stagger: {
-                grid: 'auto',
-                from: 'start',
-                amount: 0.55
-              },
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: gridRef.current,
-                start: 'top 84%',
-                toggleActions: 'play none none none'
-              }
-            }
-          );
-        }
       }
 
-      // 3. Bottom Button reveal with subtle arrow nudge
+      // 3. CTA button reveal
       if (ctaRef.current) {
         gsap.fromTo(
           ctaRef.current,
-          { opacity: 0, y: 22, scale: 0.96 },
+          { opacity: 0, y: 20, scale: 0.96 },
           {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.65,
+            duration: 0.6,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: ctaRef.current,
@@ -136,7 +218,7 @@ export default function ProductsSection({ onNavigate }) {
         <div ref={headerRef} className="products-header">
           <div className="section-eyebrow">
             <span className="eyebrow-accent-bar" />
-            <span className="eyebrow-text">ENGINEERING INVENTORY & PRODUCTION</span>
+            <span className="eyebrow-text">ENGINEERING INVENTORY &amp; PRODUCTION</span>
           </div>
 
           <h2 className="section-display-heading">
@@ -144,18 +226,110 @@ export default function ProductsSection({ onNavigate }) {
           </h2>
 
           <p className="section-description">
-            Precision-engineered steel products for demanding industrial and engineering applications.
+            Precision-engineered steel piping components, sheets, bars, fittings, flanges, and fasteners manufactured to international ASTM and ASME standards.
           </p>
         </div>
 
-        {/* 9 Products Grid */}
+        {/* 6 Product Cards Grid (Matching the exact product card design from reference) */}
         <div ref={gridRef} className="products-grid">
-          {productsData.map(product => (
-            <ProductCard key={product.id} product={product} onNavigate={onNavigate} />
-          ))}
+          {PRODUCTS_SHOWCASE_DATA.map((prod) => {
+            const isExpanded = !!expandedCardIds[prod.id];
+            const allGrades = prod.categoriesList.map((cat) => ({
+              id: cat.id,
+              name: cat.name || cat.title,
+              url: `${prod.categoryUrlPrefix}${cat.slug}`
+            }));
+            const displayGrades = isExpanded ? allGrades : allGrades.slice(0, 5);
+            const remainingCount = allGrades.length - 5;
+
+            return (
+              <article
+                key={prod.id}
+                className="pipe-product-card"
+                onClick={() => handleCardClick(prod.url)}
+              >
+                {/* Top Red-Orange Accent Bar */}
+                <div className="card-top-accent" aria-hidden="true" />
+
+                {/* Product Image Frame */}
+                <div className="card-media-wrapper">
+                  <img
+                    src={prod.image}
+                    alt={prod.name}
+                    className="card-product-img"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="card-img-badge">
+                    <ShieldCheck size={13} />
+                    <span>MILL CERTIFIED</span>
+                  </div>
+                </div>
+
+                {/* Card Content Body */}
+                <div className="card-body">
+                  <div className="card-top-info">
+                    <h2 className="card-title">{prod.name}</h2>
+
+                    <div className="card-standards-line">
+                      <span className="standards-label">STANDARDS:</span>
+                      <span className="standards-value">{prod.standards}</span>
+                    </div>
+
+                    <p className="card-desc">{prod.shortDesc}</p>
+                  </div>
+
+                  {/* Available Grades Section */}
+                  <div className="card-grades-section">
+                    <div className="grades-header-row">
+                      <span className="grades-heading-label">
+                        <Layers size={13} className="label-icon" />
+                        AVAILABLE GRADES ({allGrades.length})
+                      </span>
+                    </div>
+
+                    <div className="grades-pills-list">
+                      {displayGrades.map((grade) => (
+                        <button
+                          key={grade.id}
+                          type="button"
+                          className="grade-pill-btn"
+                          title={`View ${grade.name} Specifications`}
+                          onClick={(e) => handleGradeClick(e, grade.url)}
+                        >
+                          <span className="pill-dot">•</span>
+                          <span className="pill-text">{grade.name}</span>
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Show More / Show Less Toggle Button */}
+                    {remainingCount > 0 && (
+                      <button
+                        type="button"
+                        className="btn-toggle-grades"
+                        onClick={(e) => toggleExpand(prod.id, e)}
+                      >
+                        <span>{isExpanded ? 'Show Less Grades' : `+ ${remainingCount} More Grades`}</span>
+                        {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                {/* Card Footer Action Bar */}
+                <div className="card-footer-bar">
+                  <span className="card-action-text">EXPLORE ALL GRADES</span>
+                  <div className="card-arrow-circle" aria-hidden="true">
+                    <ArrowRight size={15} />
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
 
-        {/* Medium-sized Centered Button: ALL PRODUCTS → */}
+        {/* Clean & Premium "All Products" Button */}
         <div ref={ctaRef} className="products-action-center">
           <a
             href="/products"
@@ -168,8 +342,8 @@ export default function ProductsSection({ onNavigate }) {
               }
             }}
           >
-            <span>ALL PRODUCTS</span>
-            <span className="btn-arrow" aria-hidden="true">&rarr;</span>
+            <span>All Products</span>
+            <ArrowRight size={18} className="btn-arrow-icon" aria-hidden="true" />
           </a>
         </div>
       </div>

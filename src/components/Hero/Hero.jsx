@@ -8,7 +8,7 @@ import './Hero.css';
 const SLIDE_DURATION_MS = 6000;
 const PROGRESS_INTERVAL_MS = 40;
 
-export default function Hero({ onNavigate }) {
+export default function Hero({ onNavigate, onOpenQuoteModal }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [progressPercent, setProgressPercent] = useState(0);
@@ -83,6 +83,7 @@ export default function Hero({ onNavigate }) {
             isActive={index === currentSlideIndex}
             direction={direction}
             onNavigate={onNavigate}
+            onOpenQuoteModal={onOpenQuoteModal}
           />
         ))}
       </div>

@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { getSheetsPlatesCategoryBySlug, getSheetsPlatesGradeBySlug } from '../../../data/sheetsPlatesCoilsData';
+import { submitQuoteRequest } from '../../../services/quoteService';
 import { 
   ShieldCheck, 
   Layers, 
@@ -7,14 +8,10 @@ import {
   PhoneCall, 
   ArrowLeft, 
   CheckCircle2, 
-  FileText, 
   Send,
-  Building2,
   Mail,
   User,
-  MessageSquare,
-  Sparkles,
-  Maximize2
+  MessageSquare
 } from 'lucide-react';
 import './SheetPlateGradeDetailView.css';
 
@@ -25,6 +22,8 @@ import './SheetPlateGradeDetailView.css';
  */
 export default function SheetPlateGradeDetailView({ categorySlug, gradeSlug, onNavigate }) {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -47,13 +46,28 @@ export default function SheetPlateGradeDetailView({ categorySlug, gradeSlug, onN
     return category.grades.filter(g => g.slug !== grade.slug);
   }, [category, grade]);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', quantity: '', notes: '' });
-    }, 4000);
+    setIsSubmitting(true);
+    setSubmitError('');
+    try {
+      await submitQuoteRequest({
+        fullName: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        product: `${grade?.name || 'Sheet / Plate Specification'} (${category?.name || 'Sheets, Plates & Coils'})`,
+        specsAndQuantity: `Quantity: ${formData.quantity || 'Per project schedule'} | Notes: ${formData.notes || 'None'}`
+      });
+      setIsSubmitting(false);
+      setFormSubmitted(true);
+      setTimeout(() => {
+        setFormSubmitted(false);
+        setFormData({ name: '', email: '', phone: '', quantity: '', notes: '' });
+      }, 5000);
+    } catch (err) {
+      setIsSubmitting(false);
+      setSubmitError(err.message || 'Submission error');
+    }
   };
 
   if (!category || !grade) {
@@ -306,6 +320,11 @@ export default function SheetPlateGradeDetailView({ categorySlug, gradeSlug, onN
                 </div>
               ) : (
                 <form className="rfq-form" onSubmit={handleFormSubmit}>
+                  {submitError && (
+                    <div style={{ background: '#fef2f2', border: '1px solid #fecaca', color: '#991b1b', padding: '0.6rem 0.75rem', borderRadius: '4px', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
+                      {submitError}
+                    </div>
+                  )}
                   <div className="form-field">
                     <label htmlFor="rfq-name">Full Name *</label>
                     <div className="input-with-icon">
@@ -372,9 +391,9 @@ export default function SheetPlateGradeDetailView({ categorySlug, gradeSlug, onN
                     />
                   </div>
 
-                  <button type="submit" className="btn-submit-rfq">
+                  <button type="submit" className="btn-submit-rfq" disabled={isSubmitting}>
                     <Send size={15} />
-                    <span>Submit Price Request</span>
+                    <span>{isSubmitting ? 'Transmitting Request...' : 'Submit Price Request'}</span>
                   </button>
                 </form>
               )}

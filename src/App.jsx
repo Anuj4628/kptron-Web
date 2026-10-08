@@ -3,7 +3,6 @@ import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import MaterialsSection from './components/Materials/MaterialsSection';
 import ProductsSection from './components/Products/ProductsSection';
-import SpecialistProductsSection from './components/Products/SpecialistProductsSection';
 import WhyChooseSection from './components/WhyChoose/WhyChooseSection';
 import IndustriesSection from './components/Industries/IndustriesSection';
 import ValueAddedSection from './components/ValueAdded/ValueAddedSection';
@@ -22,6 +21,15 @@ const PipesProductPage = lazy(() => import('./components/Products/pages/PipesPro
 const PipeGradeDetailView = lazy(() => import('./components/Products/pages/PipeGradeDetailView'));
 const SheetsPlatesProductPage = lazy(() => import('./components/Products/pages/SheetsPlatesProductPage'));
 const SheetPlateGradeDetailView = lazy(() => import('./components/Products/pages/SheetPlateGradeDetailView'));
+const BarsProductPage = lazy(() => import('./components/Products/pages/BarsProductPage'));
+const BarGradeDetailView = lazy(() => import('./components/Products/pages/BarGradeDetailView'));
+const PipeFittingsProductPage = lazy(() => import('./components/Products/pages/PipeFittingsProductPage'));
+const PipeFittingGradeDetailView = lazy(() => import('./components/Products/pages/PipeFittingGradeDetailView'));
+const FlangesProductPage = lazy(() => import('./components/Products/pages/FlangesProductPage'));
+const FlangeGradeDetailView = lazy(() => import('./components/Products/pages/FlangeGradeDetailView'));
+const FlangeTypeDetailView = lazy(() => import('./components/Products/pages/FlangeTypeDetailView'));
+const FastenersProductPage = lazy(() => import('./components/Products/pages/FastenersProductPage'));
+const FastenerGradeDetailView = lazy(() => import('./components/Products/pages/FastenerGradeDetailView'));
 const ProductsLandingView = lazy(() => import('./components/Products/pages/ProductsLandingView'));
 const DivisionView = lazy(() => import('./components/Products/pages/DivisionView'));
 const ProductFamilyView = lazy(() => import('./components/Products/pages/ProductFamilyView'));
@@ -30,8 +38,16 @@ const MaterialsLandingView = lazy(() => import('./components/Materials/pages/Mat
 const MaterialDetailView = lazy(() => import('./components/Materials/pages/MaterialDetailView'));
 const ContactPage = lazy(() => import('./components/Contact/ContactPage'));
 
-export { preloadRoute } from './utils/preloadRoute';
 import { preloadRoute } from './utils/preloadRoute';
+import QuoteModal from './components/UI/QuoteModal';
+import { 
+  isFlangeMaterialSlug, 
+  isFlangeTypeSlug, 
+  normalizeMaterialSlug, 
+  normalizeFlangeTypeSlug,
+  isFlangeGradeSlug,
+  normalizeFlangeGradeSlug 
+} from './data/flangeTypesData';
 
 import './App.css';
 
@@ -126,6 +142,227 @@ function parseRoute(pathname = window.location.pathname) {
       }
     }
 
+    // Dedicated Bars Product Page & Grade Detail Routes
+    if (
+      p0 === 'bars' ||
+      p0 === 'bar' ||
+      p0 === 'rods-and-bars' ||
+      p0 === 'rods-bars' ||
+      p0 === 'rods-and-bar'
+    ) {
+      if (parts.length === 1) {
+        return { page: 'products', view: 'bars-listing' };
+      }
+      if (parts.length === 2) {
+        return { 
+          page: 'products', 
+          view: 'bar-grade-detail', 
+          categorySlug: parts[1].toLowerCase(),
+          gradeSlug: null 
+        };
+      }
+      if (parts.length >= 3) {
+        return { 
+          page: 'products', 
+          view: 'bar-grade-detail', 
+          categorySlug: parts[1].toLowerCase(), 
+          gradeSlug: parts[2].toLowerCase() 
+        };
+      }
+    }
+
+    // Dedicated Pipe Fittings Product Page & Grade Detail Routes
+    if (
+      p0 === 'pipe-fittings' ||
+      p0 === 'pipe-fitting' ||
+      p0 === 'fittings' ||
+      p0 === 'butt-weld-fittings' ||
+      p0 === 'buttweld-fittings'
+    ) {
+      if (parts.length === 1) {
+        return { page: 'products', view: 'pipe-fittings-listing' };
+      }
+      if (parts.length === 2) {
+        return { 
+          page: 'products', 
+          view: 'pipe-fitting-grade-detail', 
+          categorySlug: parts[1].toLowerCase(),
+          gradeSlug: null 
+        };
+      }
+      if (parts.length >= 3) {
+        return { 
+          page: 'products', 
+          view: 'pipe-fitting-grade-detail', 
+          categorySlug: parts[1].toLowerCase(), 
+          gradeSlug: parts[2].toLowerCase() 
+        };
+      }
+    }
+
+    // Dedicated Flanges Product Page, Types of Flanges & Grade Detail Routes
+    if (p0 === 'flanges' || p0 === 'flange') {
+      if (parts.length === 1) {
+        return { page: 'products', view: 'flanges-listing', materialSlug: null };
+      }
+
+      if (parts.length === 2) {
+        const p1 = parts[1].toLowerCase();
+        if (isFlangeTypeSlug(p1)) {
+          return { 
+            page: 'products', 
+            view: 'flange-type-detail', 
+            materialSlug: 'stainless-steel', 
+            typeSlug: normalizeFlangeTypeSlug(p1),
+            gradeSlug: null
+          };
+        }
+        if (isFlangeMaterialSlug(p1)) {
+          return { 
+            page: 'products', 
+            view: 'flanges-listing', 
+            materialSlug: normalizeMaterialSlug(p1) 
+          };
+        }
+        return { 
+          page: 'products', 
+          view: 'flange-grade-detail', 
+          categorySlug: p1,
+          materialSlug: normalizeMaterialSlug(p1),
+          gradeSlug: null 
+        };
+      }
+
+      if (parts.length === 3) {
+        const p1 = parts[1].toLowerCase();
+        const p2 = parts[2].toLowerCase();
+        const normMat = normalizeMaterialSlug(p1);
+
+        // Case: /products/flanges/:material/types
+        if (p2 === 'types' || p2 === 'type') {
+          return { 
+            page: 'products', 
+            view: 'flanges-listing', 
+            materialSlug: normMat 
+          };
+        }
+
+        // Case: /products/flanges/:material/grades
+        if (p2 === 'grades' || p2 === 'grade') {
+          return { 
+            page: 'products', 
+            view: 'flanges-listing', 
+            materialSlug: normMat 
+          };
+        }
+
+        // Case: /products/flanges/:material/:typeSlug
+        if (isFlangeTypeSlug(p2)) {
+          return { 
+            page: 'products', 
+            view: 'flange-type-detail', 
+            materialSlug: normMat, 
+            typeSlug: normalizeFlangeTypeSlug(p2),
+            gradeSlug: null
+          };
+        }
+
+        // Case: /products/flanges/:material/:gradeSlug
+        if (isFlangeGradeSlug(normMat, p2)) {
+          return { 
+            page: 'products', 
+            view: 'flange-grade-detail', 
+            materialSlug: normMat,
+            categorySlug: p1, 
+            gradeSlug: normalizeFlangeGradeSlug(normMat, p2) 
+          };
+        }
+
+        // Default legacy: /products/flanges/:categorySlug/:gradeSlug
+        return { 
+          page: 'products', 
+          view: 'flange-grade-detail', 
+          materialSlug: normMat,
+          categorySlug: p1, 
+          gradeSlug: p2 
+        };
+      }
+
+      if (parts.length >= 4) {
+        const p1 = parts[1].toLowerCase();
+        const p2 = parts[2].toLowerCase();
+        const p3 = parts[3].toLowerCase();
+        const normMat = normalizeMaterialSlug(p1);
+
+        // Case: /products/flanges/:material/types/:typeSlug
+        if ((p2 === 'types' || p2 === 'type') && isFlangeTypeSlug(p3)) {
+          const p4 = parts[4] ? parts[4].toLowerCase() : null;
+          return { 
+            page: 'products', 
+            view: 'flange-type-detail', 
+            materialSlug: normMat, 
+            typeSlug: normalizeFlangeTypeSlug(p3),
+            gradeSlug: p4 ? normalizeFlangeGradeSlug(normMat, p4) : null
+          };
+        }
+
+        // Case: /products/flanges/:material/grades/:gradeSlug
+        if ((p2 === 'grades' || p2 === 'grade') && isFlangeGradeSlug(normMat, p3)) {
+          return { 
+            page: 'products', 
+            view: 'flange-grade-detail', 
+            materialSlug: normMat,
+            categorySlug: p1, 
+            gradeSlug: normalizeFlangeGradeSlug(normMat, p3)
+          };
+        }
+
+        // Case: /products/flanges/:material/:typeSlug/:gradeSlug (Level 4 Combination!)
+        // e.g. /products/flanges/stainless-steel/weld-neck-flange/316l or /products/flanges/stainless-steel/weld-neck/316l
+        if (isFlangeTypeSlug(p2)) {
+          return { 
+            page: 'products', 
+            view: 'flange-type-detail', 
+            materialSlug: normMat, 
+            typeSlug: normalizeFlangeTypeSlug(p2),
+            gradeSlug: normalizeFlangeGradeSlug(normMat, p3) || p3
+          };
+        }
+
+        // Default legacy
+        return { 
+          page: 'products', 
+          view: 'flange-grade-detail', 
+          materialSlug: normMat,
+          categorySlug: p1, 
+          gradeSlug: p2 
+        };
+      }
+    }
+
+    // Dedicated Fasteners Product Page & Grade Detail Routes
+    if (p0 === 'fasteners' || p0 === 'fastener') {
+      if (parts.length === 1) {
+        return { page: 'products', view: 'fasteners-listing' };
+      }
+      if (parts.length === 2) {
+        return { 
+          page: 'products', 
+          view: 'fastener-grade-detail', 
+          categorySlug: parts[1].toLowerCase(),
+          gradeSlug: null 
+        };
+      }
+      if (parts.length >= 3) {
+        return { 
+          page: 'products', 
+          view: 'fastener-grade-detail', 
+          categorySlug: parts[1].toLowerCase(), 
+          gradeSlug: parts[2].toLowerCase() 
+        };
+      }
+    }
+
     if (parts.length === 1) {
       if (p0 === 'manufacturer' || p0 === 'supplier') {
         return { page: 'products', view: 'division', divisionSlug: p0 };
@@ -152,6 +389,30 @@ function parseRoute(pathname = window.location.pathname) {
         ) {
           return { page: 'products', view: 'sheets-plates-listing' };
         }
+        if (
+          p1 === 'rods-and-bars' ||
+          p1 === 'rods-bars' ||
+          p1 === 'bars' ||
+          p1 === 'bar' ||
+          p1 === 'rods-and-bar'
+        ) {
+          return { page: 'products', view: 'bars-listing' };
+        }
+        if (
+          p1 === 'butt-weld-fittings' ||
+          p1 === 'buttweld-fittings' ||
+          p1 === 'pipe-fittings' ||
+          p1 === 'pipe-fitting' ||
+          p1 === 'fittings'
+        ) {
+          return { page: 'products', view: 'pipe-fittings-listing' };
+        }
+        if (p1 === 'flanges' || p1 === 'flange') {
+          return { page: 'products', view: 'flanges-listing' };
+        }
+        if (p1 === 'fasteners' || p1 === 'fastener') {
+          return { page: 'products', view: 'fasteners-listing' };
+        }
         if (isProductCategorySlug(parts[1])) {
           return { page: 'products', view: 'detail', divisionSlug: p0, productSlug: parts[1].toLowerCase() };
         }
@@ -176,6 +437,49 @@ function parseRoute(pathname = window.location.pathname) {
             gradeSlug: parts[3] ? parts[3].toLowerCase() : null
           };
         }
+        if (
+          p1 === 'rods-and-bars' ||
+          p1 === 'rods-bars' ||
+          p1 === 'bars' ||
+          p1 === 'bar'
+        ) {
+          return {
+            page: 'products',
+            view: 'bar-grade-detail',
+            categorySlug: parts[2].toLowerCase(),
+            gradeSlug: parts[3] ? parts[3].toLowerCase() : null
+          };
+        }
+        if (
+          p1 === 'butt-weld-fittings' ||
+          p1 === 'buttweld-fittings' ||
+          p1 === 'pipe-fittings' ||
+          p1 === 'pipe-fitting' ||
+          p1 === 'fittings'
+        ) {
+          return {
+            page: 'products',
+            view: 'pipe-fitting-grade-detail',
+            categorySlug: parts[2].toLowerCase(),
+            gradeSlug: parts[3] ? parts[3].toLowerCase() : null
+          };
+        }
+        if (p1 === 'flanges' || p1 === 'flange') {
+          return {
+            page: 'products',
+            view: 'flange-grade-detail',
+            categorySlug: parts[2].toLowerCase(),
+            gradeSlug: parts[3] ? parts[3].toLowerCase() : null
+          };
+        }
+        if (p1 === 'fasteners' || p1 === 'fastener') {
+          return {
+            page: 'products',
+            view: 'fastener-grade-detail',
+            categorySlug: parts[2].toLowerCase(),
+            gradeSlug: parts[3] ? parts[3].toLowerCase() : null
+          };
+        }
       }
       return {
         page: 'products',
@@ -196,6 +500,18 @@ function parseRoute(pathname = window.location.pathname) {
 export default function App() {
   const [route, setRoute] = useState(parseRoute);
   const [activeCertificate, setActiveCertificate] = useState(null);
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [quoteModalContext, setQuoteModalContext] = useState(null);
+
+  const openQuoteModal = useCallback((context = null) => {
+    setQuoteModalContext(context);
+    setQuoteModalOpen(true);
+  }, []);
+
+  const closeQuoteModal = useCallback(() => {
+    setQuoteModalOpen(false);
+    setQuoteModalContext(null);
+  }, []);
 
   // Centralized page and section navigation handler
   const navigateTo = useCallback((target, param = null) => {
@@ -323,6 +639,7 @@ export default function App() {
         currentPage={route.page}
         onNavigate={navigateTo}
         onSelectCertificate={setActiveCertificate}
+        onOpenQuoteModal={openQuoteModal}
       />
 
       {/* 2. Page Switcher with Instant Suspense Fallback */}
@@ -330,7 +647,11 @@ export default function App() {
         /* Dedicated Independent About Page */
         <main id="main-content" className="about-page-main">
           <Suspense fallback={<div className="page-load-shell about-shell" aria-hidden="true" />}>
-            <AboutSection onNavigate={navigateTo} onSelectCertificate={setActiveCertificate} />
+            <AboutSection 
+              onNavigate={navigateTo} 
+              onSelectCertificate={setActiveCertificate}
+              onOpenQuoteModal={openQuoteModal}
+            />
           </Suspense>
         </main>
       ) : route.page === 'contact' ? (
@@ -358,32 +679,85 @@ export default function App() {
         /* Dedicated Bright Products Catalog Pages */
         <main id="main-content" className="products-page-main">
           <Suspense fallback={<div className="page-load-shell products-shell" aria-hidden="true" />}>
-            {route.view === 'pipes-listing' ? (
-              <PipesProductPage onNavigate={navigateTo} />
+            {route.view === 'flange-type-detail' ? (
+              <FlangeTypeDetailView
+                materialSlug={route.materialSlug}
+                typeSlug={route.typeSlug}
+                gradeSlug={route.gradeSlug}
+                onNavigate={navigateTo}
+                onOpenQuoteModal={openQuoteModal}
+              />
+            ) : route.view === 'flanges-listing' ? (
+              <FlangesProductPage 
+                materialSlug={route.materialSlug}
+                onNavigate={navigateTo} 
+                onOpenQuoteModal={openQuoteModal} 
+              />
+            ) : route.view === 'flange-grade-detail' ? (
+              <FlangeGradeDetailView
+                categorySlug={route.categorySlug}
+                materialSlug={route.materialSlug}
+                gradeSlug={route.gradeSlug}
+                onNavigate={navigateTo}
+                onOpenQuoteModal={openQuoteModal}
+              />
+            ) : route.view === 'fasteners-listing' ? (
+              <FastenersProductPage onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
+            ) : route.view === 'fastener-grade-detail' ? (
+              <FastenerGradeDetailView
+                categorySlug={route.categorySlug}
+                gradeSlug={route.gradeSlug}
+                onNavigate={navigateTo}
+                onOpenQuoteModal={openQuoteModal}
+              />
+            ) : route.view === 'pipe-fittings-listing' ? (
+              <PipeFittingsProductPage onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
+            ) : route.view === 'pipe-fitting-grade-detail' ? (
+              <PipeFittingGradeDetailView
+                categorySlug={route.categorySlug}
+                gradeSlug={route.gradeSlug}
+                onNavigate={navigateTo}
+                onOpenQuoteModal={openQuoteModal}
+              />
+            ) : route.view === 'bars-listing' ? (
+              <BarsProductPage onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
+            ) : route.view === 'bar-grade-detail' ? (
+              <BarGradeDetailView
+                categorySlug={route.categorySlug}
+                gradeSlug={route.gradeSlug}
+                onNavigate={navigateTo}
+                onOpenQuoteModal={openQuoteModal}
+              />
+            ) : route.view === 'pipes-listing' ? (
+              <PipesProductPage onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
             ) : route.view === 'pipe-grade-detail' ? (
               <PipeGradeDetailView
                 categorySlug={route.categorySlug}
                 gradeSlug={route.gradeSlug}
                 onNavigate={navigateTo}
+                onOpenQuoteModal={openQuoteModal}
               />
             ) : route.view === 'sheets-plates-listing' ? (
-              <SheetsPlatesProductPage onNavigate={navigateTo} />
+              <SheetsPlatesProductPage onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
             ) : route.view === 'sheet-plate-grade-detail' ? (
               <SheetPlateGradeDetailView
                 categorySlug={route.categorySlug}
                 gradeSlug={route.gradeSlug}
                 onNavigate={navigateTo}
+                onOpenQuoteModal={openQuoteModal}
               />
             ) : route.view === 'division' ? (
               <DivisionView
                 divisionSlug={route.divisionSlug}
                 onNavigate={navigateTo}
+                onOpenQuoteModal={openQuoteModal}
               />
             ) : route.view === 'family' ? (
               <ProductFamilyView
                 divisionSlug={route.divisionSlug}
                 groupSlug={route.groupSlug}
                 onNavigate={navigateTo}
+                onOpenQuoteModal={openQuoteModal}
               />
             ) : route.view === 'detail' ? (
               <ProductDetailView
@@ -391,17 +765,17 @@ export default function App() {
                 groupSlug={route.groupSlug}
                 productSlug={route.productSlug}
                 onNavigate={navigateTo}
+                onOpenQuoteModal={openQuoteModal}
               />
             ) : (
-              <ProductsLandingView onNavigate={navigateTo} />
+              <ProductsLandingView onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
             )}
           </Suspense>
         </main>
       ) : (
         /* Full Commercial Home Page (About and Products catalog views are isolated) */
         <main id="main-content" className="home-page-main">
-          <Hero onNavigate={navigateTo} />
-          <SpecialistProductsSection onNavigate={navigateTo} />
+          <Hero onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
           <ProductsSection onNavigate={navigateTo} />
           <MaterialsSection onNavigate={navigateTo} />
           <WhyChooseSection />
@@ -410,7 +784,7 @@ export default function App() {
           <CertificatesSection onSelectCertificate={setActiveCertificate} />
           <ClientNetworkSection />
           <GlobalExportSection />
-          <FinalCTASection onNavigate={navigateTo} />
+          <FinalCTASection onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
         </main>
       )}
 
@@ -424,6 +798,13 @@ export default function App() {
       <CertificateViewerModal
         certificate={activeCertificate}
         onClose={() => setActiveCertificate(null)}
+      />
+
+      {/* 6. Instant Industrial RFQ / Get Quote Modal */}
+      <QuoteModal
+        isOpen={quoteModalOpen}
+        onClose={closeQuoteModal}
+        initialContext={quoteModalContext}
       />
     </div>
   );

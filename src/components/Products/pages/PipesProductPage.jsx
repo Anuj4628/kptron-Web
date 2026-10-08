@@ -13,7 +13,7 @@ import './PipesProductPage.css';
  * 5. Super & Duplex Steel Pipe
  * 6. Carbon Steel Pipe
  */
-export default function PipesProductPage({ onNavigate }) {
+export default function PipesProductPage({ onNavigate, onOpenQuoteModal }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedCards, setExpandedCards] = useState({});
 
@@ -258,8 +258,15 @@ export default function PipesProductPage({ onNavigate }) {
               </a>
               <button
                 type="button"
+                id="pipes-quote-btn"
                 className="btn-strip-quote"
-                onClick={() => onNavigate && onNavigate('contact')}
+                onClick={() => {
+                  if (onOpenQuoteModal) {
+                    onOpenQuoteModal({ product: 'Pipes & Tubes (All Grades)', source: 'Pipes Product Page' });
+                  } else if (onNavigate) {
+                    onNavigate('contact');
+                  }
+                }}
               >
                 <span>Request Formal Quote</span>
               </button>

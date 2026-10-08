@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { navLinks, brandDetails } from '../../data/navigationData';
-import { MATERIALS } from '../../data/materialsData';
+import { NAVBAR_MATERIALS_OPTIONS } from '../../data/materialsData';
 import { certificatesList } from '../../data/certificatesData';
 import { NAVBAR_PRODUCTS_OPTIONS } from '../Products/ProductMegaMenu';
 import Button from '../UI/Button';
-import { ChevronDown, Eye, Download, ShieldCheck, FileText } from 'lucide-react';
+import { ChevronDown, Eye, Download } from 'lucide-react';
 import './MobileMenu.css';
 
-export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, onNavigate, onSelectCertificate }) {
+export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, onNavigate, onSelectCertificate, onOpenQuoteModal }) {
   const [productsExpanded, setProductsExpanded] = useState(false);
   const [materialsExpanded, setMaterialsExpanded] = useState(false);
   const [certificatesExpanded, setCertificatesExpanded] = useState(false);
@@ -269,31 +269,29 @@ export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, o
                   </div>
                 )}
 
-                {/* Expandable 9 Materials Sub-menu */}
+                {/* Expandable Materials Sub-menu */}
                 {isMaterials && materialsExpanded && (
                   <div className="mobile-subnav-container">
+                    <div className="mobile-subnav-grid">
+                      {NAVBAR_MATERIALS_OPTIONS.map((mat) => (
+                        <a
+                          key={mat.id}
+                          href={mat.url}
+                          className="mobile-subnav-item"
+                          onClick={(e) => handleSubProductClick(e, mat.url)}
+                        >
+                          <span className="subnav-mat-name">{mat.name}</span>
+                        </a>
+                      ))}
+                    </div>
                     <a
                       href="/materials"
                       className="mobile-subnav-item mobile-subnav-overview"
                       onClick={(e) => handleSubMaterialClick(e, 'all')}
                     >
-                      <span>Explore All 9 Materials Page</span>
+                      <span>Explore All Materials Overview</span>
                       <span className="mobile-subnav-badge">View All</span>
                     </a>
-
-                    <div className="mobile-subnav-grid">
-                      {MATERIALS.map((mat) => (
-                        <a
-                          key={mat.id}
-                          href={`/materials/${mat.slug}`}
-                          className="mobile-subnav-item"
-                          onClick={(e) => handleSubMaterialClick(e, mat.slug)}
-                        >
-                          <span className="subnav-mat-name">{mat.name}</span>
-                          <span className="subnav-mat-tag">{mat.grade.split(',')[0].split('/')[0].trim()}</span>
-                        </a>
-                      ))}
-                    </div>
                   </div>
                 )}
 
@@ -368,14 +366,18 @@ export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, o
         {/* Footer info & CTA */}
         <div ref={footerRef} className="mobile-menu-footer">
           <Button
-            href="/contact"
+            id="mobile-quote-btn"
             variant="primary"
             size="md"
             icon="arrow"
             onClick={(e) => {
               e.preventDefault();
               onClose();
-              if (onNavigate) onNavigate('contact');
+              if (onOpenQuoteModal) {
+                onOpenQuoteModal({ source: 'Mobile Menu' });
+              } else if (onNavigate) {
+                onNavigate('contact');
+              }
             }}
             className="mobile-quote-btn"
           >

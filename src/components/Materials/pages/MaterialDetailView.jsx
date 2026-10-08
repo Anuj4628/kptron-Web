@@ -1,26 +1,28 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import GradeCard from '../../Products/GradeCard';
 import { getMaterialBySlug, getProductsByMaterial, getMaterialCategories } from '../../../data/materialsData';
-import { ArrowLeft, Package, Layers, Search, X, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Layers, Search, X, ShieldCheck, ChevronDown, ChevronUp, Package } from 'lucide-react';
 import './MaterialDetailView.css';
 
 /**
- * Material-Specific Product Listing View
- * Displays exclusively the products belonging to the selected material.
+ * Dedicated Material Page
+ * Displays ALL genuine products from the complete website associated with the selected material.
+ * Reuses the exact product-card design, typography, colors, spacing, and 3-column responsive grid.
  */
 export default function MaterialDetailView({ materialSlug, onNavigate }) {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [searchQuery, setSearchQuery] = useState('');
+  const [expandedCards, setExpandedCards] = useState({});
 
   const heroRef = useRef(null);
   const gridContainerRef = useRef(null);
 
+  // Lookup canonical material
   const material = useMemo(() => {
     return getMaterialBySlug(materialSlug);
   }, [materialSlug]);
 
-  // Dynamic collection of ALL products strictly belonging to this material
+  // ALL products strictly belonging to this material across all 6 product divisions
   const allMaterialProducts = useMemo(() => {
     if (!material) return [];
     return getProductsByMaterial(material.slug);
@@ -32,35 +34,88 @@ export default function MaterialDetailView({ materialSlug, onNavigate }) {
     return getMaterialCategories(material.slug);
   }, [material]);
 
-  // Filter products by selected category and search query
+  // Filter products by selected product family and search query
   const filteredProducts = useMemo(() => {
+    const q = searchQuery.toLowerCase().trim();
+
     return allMaterialProducts.filter(item => {
-      // Category / Family filter
-      if (selectedCategory !== 'ALL' && item.groupSlug !== selectedCategory) {
+      // Family filter
+      if (selectedCategory !== 'ALL' && item.productTypeSlug !== selectedCategory) {
         return false;
       }
+
       // Search filter
-      if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase().trim();
-        const matchName = (item.name || '').toLowerCase().includes(q);
-        const matchGrade = (item.grade || '').toLowerCase().includes(q);
-        const matchGroup = (item.groupName || '').toLowerCase().includes(q);
+      if (q) {
+        const matchTitle = (item.title || item.name || '').toLowerCase().includes(q);
+        const matchType = (item.productType || '').toLowerCase().includes(q);
+        const matchStandards = (item.standards || '').toLowerCase().includes(q);
         const matchDesc = (item.shortDesc || '').toLowerCase().includes(q);
-        const matchSpecs = item.specs ? JSON.stringify(item.specs).toLowerCase().includes(q) : false;
-        return matchName || matchGrade || matchGroup || matchDesc || matchSpecs;
+
+        const matchGrades = (item.grades || []).some(g => {
+          const gName = typeof g === 'string' ? g : (g.name || g.code || '');
+          return gName.toLowerCase().includes(q);
+        });
+
+        return matchTitle || matchType || matchStandards || matchDesc || matchGrades;
       }
+
       return true;
+    }).map(item => {
+      if (!q) return item;
+
+      // Extract matching grades when searching
+      const matchingGrades = (item.grades || []).filter(g => {
+        const gName = typeof g === 'string' ? g : (g.name || g.code || '');
+        return gName.toLowerCase().includes(q);
+      });
+
+      return {
+        ...item,
+        highlightGrades: matchingGrades.length > 0 ? matchingGrades : null
+      };
     });
   }, [allMaterialProducts, selectedCategory, searchQuery]);
 
-  // GSAP Entrance Animations
+  // Toggle card grade expansion
+  const toggleExpand = (cardId, e) => {
+    e.stopPropagation();
+    setExpandedCards(prev => ({
+      ...prev,
+      [cardId]: !prev[cardId]
+    }));
+  };
+
+  // Navigate to product category page
+  const handleCardClick = (product) => {
+    if (onNavigate) {
+      onNavigate(product.productUrl);
+    }
+  };
+
+  // Navigate to grade detail page
+  const handleGradeClick = (e, product, gradeItem) => {
+    e.stopPropagation();
+    const gradeSlug = typeof gradeItem === 'string'
+      ? (product.grades.find(g => typeof g === 'object' && g.name === gradeItem)?.slug || gradeItem.toLowerCase().replace(/[^a-z0-9]+/g, '-'))
+      : (gradeItem.slug || (gradeItem.name ? gradeItem.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') : ''));
+
+    if (onNavigate) {
+      if (gradeSlug) {
+        onNavigate(`${product.productUrl}/${gradeSlug}`);
+      } else {
+        onNavigate(product.productUrl);
+      }
+    }
+  };
+
+  // GSAP Entrance Animation
   useEffect(() => {
     const ctx = gsap.context(() => {
       if (heroRef.current) {
         gsap.fromTo(
           heroRef.current,
-          { opacity: 0, y: 25 },
-          { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
         );
       }
     });
@@ -70,12 +125,12 @@ export default function MaterialDetailView({ materialSlug, onNavigate }) {
   // Animate grid cards when category or search changes
   useEffect(() => {
     if (!gridContainerRef.current) return;
-    const cards = gridContainerRef.current.querySelectorAll('.ref-grade-card');
+    const cards = gridContainerRef.current.querySelectorAll('.material-catalog-card');
     if (cards.length > 0) {
       gsap.fromTo(
         cards,
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.4, stagger: 0.03, ease: 'power2.out' }
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.35, stagger: 0.04, ease: 'power2.out' }
       );
     }
   }, [selectedCategory, searchQuery, materialSlug]);
@@ -85,13 +140,13 @@ export default function MaterialDetailView({ materialSlug, onNavigate }) {
       <div className="material-not-found-view">
         <div className="material-not-found-card">
           <h2>Material Category Not Found</h2>
-          <p>We couldn't locate the requested material specification. Please browse our 9 standard materials.</p>
+          <p>We couldn't locate the requested material. Please select from our available materials.</p>
           <button
             type="button"
             className="btn-back-to-materials"
             onClick={() => onNavigate && onNavigate('/materials')}
           >
-            Explore All 9 Materials
+            Explore All Materials
           </button>
         </div>
       </div>
@@ -99,135 +154,75 @@ export default function MaterialDetailView({ materialSlug, onNavigate }) {
   }
 
   return (
-    <div className="material-detail-page">
+    <div className="clean-material-page">
       {/* 1. Header & Hero Area with Breadcrumb */}
-      <section className="material-page-hero" ref={heroRef}>
-        <div className="material-hero-container">
+      <section className="material-header-section" ref={heroRef}>
+        <div className="material-header-container">
 
           {/* Breadcrumb Navigation */}
           <nav className="material-breadcrumb" aria-label="Breadcrumb">
-            <ol className="breadcrumb-list">
-              <li className="breadcrumb-item">
-                <a
-                  href="/"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (onNavigate) onNavigate('home');
-                  }}
-                >
-                  Home
-                </a>
-              </li>
-              <li className="breadcrumb-separator">/</li>
-              <li className="breadcrumb-item">
-                <a
-                  href="/materials"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (onNavigate) onNavigate('/materials');
-                  }}
-                >
-                  Materials
-                </a>
-              </li>
-              <li className="breadcrumb-separator">/</li>
-              <li className="breadcrumb-item active" aria-current="page">
-                {material.name}
-              </li>
-            </ol>
+            <a
+              href="/"
+              className="crumb-link"
+              onClick={(e) => {
+                e.preventDefault();
+                if (onNavigate) onNavigate('home');
+              }}
+            >
+              Home
+            </a>
+            <span className="crumb-sep">/</span>
+            <a
+              href="/materials"
+              className="crumb-link"
+              onClick={(e) => {
+                e.preventDefault();
+                if (onNavigate) onNavigate('/materials');
+              }}
+            >
+              Materials
+            </a>
+            <span className="crumb-sep">/</span>
+            <span className="crumb-current">{material.name}</span>
           </nav>
 
-          {/* Main Material Header Card */}
-          <div className="material-header-card">
-            <div className="material-header-info">
-              <div className="material-badge-row">
-                <span className="mat-pill-badge">{material.badge}</span>
-                <span className="mat-pill-spec">METALLURGICAL SPECIFICATIONS</span>
-              </div>
+          {/* Header Badges */}
+          <div className="material-header-badge-row">
+            <span className="material-badge-tag">{material.badge}</span>
+            <span className="material-badge-count">{allMaterialProducts.length} Verified Products</span>
+            <span className="material-badge-tested">
+              <ShieldCheck size={13} className="inline-icon" /> 100% PMI Tested
+            </span>
+          </div>
 
-              <h1 className="material-display-title">
-                {material.name} <span className="text-highlight-red">Products</span>
-              </h1>
+          {/* Main Title & Lead Text */}
+          <h1 className="material-main-title">
+            {material.name} <span className="title-highlight">Products</span>
+          </h1>
 
-              <p className="material-lead-desc">
-                {material.shortDesc}
-              </p>
+          <p className="material-lead-text">
+            {material.shortDesc}
+          </p>
 
-              {/* Key Grade & Standard Tags */}
-              <div className="material-standards-list">
-                <span className="standards-label">KEY STANDARDS:</span>
-                {material.standards.map((std) => (
-                  <span key={std} className="standard-tag">
-                    {std}
-                  </span>
-                ))}
-              </div>
-
-              {/* Summary Metrics */}
-              <div className="material-metrics-strip">
-                <div className="metric-badge">
-                  <Package size={14} className="metric-icon" />
-                  <span className="metric-label">Total Products:</span>
-                  <strong>{allMaterialProducts.length} Items</strong>
-                </div>
-
-                <div className="metric-badge">
-                  <Layers size={14} className="metric-icon" />
-                  <span className="metric-label">Product Families:</span>
-                  <strong>{categoryFilters.length} Categories</strong>
-                </div>
-
-                <div className="metric-badge">
-                  <ShieldCheck size={14} className="metric-icon" />
-                  <span className="metric-label">Quality:</span>
-                  <strong>100% PMI Tested</strong>
-                </div>
-              </div>
+          {/* Quick Specifications Strip */}
+          <div className="material-quick-spec-strip">
+            <div className="quick-spec-item">
+              <span className="spec-item-bullet">•</span>
+              <strong>Primary Grades:</strong> {material.grade}
             </div>
-
-            {/* Right Side: Visual Material Representative Showcase */}
-            <div className="material-header-visual">
-              <div className="material-visual-frame">
-                <img
-                  src={material.heroImage}
-                  alt={`${material.name} representative industrial component`}
-                  className="material-visual-img"
-                  loading="eager"
-                  decoding="async"
-                />
-                <div className="material-visual-meta">
-                  <span className="meta-grade-label">PRIMARY GRADES</span>
-                  <span className="meta-grade-value">{material.grade}</span>
-                </div>
-              </div>
+            <div className="quick-spec-item">
+              <span className="spec-item-bullet">•</span>
+              <strong>Key Standards:</strong> {material.standards.join(', ')}
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* 2. Product Browsing & Filtering Section */}
-      <section className="material-products-section" aria-label={`${material.name} Product Catalog`}>
-        <div className="material-products-container">
-
-          {/* Top Bar with Back Link & Search */}
-          <div className="material-action-bar">
-            <button
-              type="button"
-              className="btn-back-materials-nav"
-              onClick={() => onNavigate && onNavigate('/materials')}
-              aria-label="Back to All Materials"
-            >
-              <ArrowLeft size={16} />
-              <span>Back to All Materials</span>
-            </button>
-
-            {/* Search Input */}
-            <div className="material-search-wrap">
-              <Search size={16} className="material-search-icon" />
+          {/* Search Bar */}
+          <div className="material-search-wrapper">
+            <div className="material-search-box">
+              <Search size={18} className="search-icon" />
               <input
                 type="text"
-                placeholder={`Search in ${material.name} (grade, category, spec)...`}
+                placeholder={`Search ${material.name} products & grades (e.g., 304, 316L, Pipes, Flanges, ASTM)...`}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="material-search-input"
@@ -236,23 +231,28 @@ export default function MaterialDetailView({ materialSlug, onNavigate }) {
               {searchQuery && (
                 <button
                   type="button"
-                  className="material-search-clear"
+                  className="search-clear-btn"
                   onClick={() => setSearchQuery('')}
                   aria-label="Clear search"
                 >
-                  <X size={15} />
+                  <X size={16} />
                 </button>
               )}
             </div>
+            {searchQuery && (
+              <div className="search-indicator-text">
+                Found {filteredProducts.length} matching products for "{searchQuery}"
+              </div>
+            )}
           </div>
 
-          {/* Category Filter Pills (Only categories containing products for this material) */}
-          <div className="material-categories-filter-row">
-            <span className="cat-filter-label">FILTER BY FAMILY:</span>
-            <div className="cat-filter-pills">
+          {/* Category Filter Pills */}
+          <div className="material-filter-pills-row">
+            <span className="filter-pills-label">FILTER BY FAMILY:</span>
+            <div className="filter-pills-list">
               <button
                 type="button"
-                className={`cat-pill ${selectedCategory === 'ALL' ? 'active' : ''}`}
+                className={`filter-pill-btn ${selectedCategory === 'ALL' ? 'active' : ''}`}
                 onClick={() => setSelectedCategory('ALL')}
               >
                 ALL ({allMaterialProducts.length})
@@ -261,7 +261,7 @@ export default function MaterialDetailView({ materialSlug, onNavigate }) {
                 <button
                   key={cat.slug}
                   type="button"
-                  className={`cat-pill ${selectedCategory === cat.slug ? 'active' : ''}`}
+                  className={`filter-pill-btn ${selectedCategory === cat.slug ? 'active' : ''}`}
                   onClick={() => setSelectedCategory(cat.slug)}
                 >
                   {cat.name} ({cat.count})
@@ -270,43 +270,130 @@ export default function MaterialDetailView({ materialSlug, onNavigate }) {
             </div>
           </div>
 
-          {/* Results Counter Bar */}
-          <div className="material-results-status-bar">
-            <span className="results-count-info">
-              Displaying <strong>{filteredProducts.length}</strong> of {allMaterialProducts.length} {material.name} specifications
-            </span>
-            {(selectedCategory !== 'ALL' || searchQuery) && (
-              <button
-                type="button"
-                className="btn-reset-material-filter"
-                onClick={() => {
-                  setSelectedCategory('ALL');
-                  setSearchQuery('');
-                }}
-              >
-                Reset Filters
-              </button>
-            )}
-          </div>
+        </div>
+      </section>
 
-          {/* 3-Column Desktop Grid with Reused GradeCard Components */}
+      {/* 2. Main Products Grid (Exact Match to Catalog Design System) */}
+      <section className="material-grid-section" aria-label={`${material.name} Products Catalog`}>
+        <div className="material-grid-container" ref={gridContainerRef}>
           {filteredProducts.length > 0 ? (
-            <div ref={gridContainerRef} className="material-products-grid">
-              {filteredProducts.map((prod) => (
-                <GradeCard
-                  key={`${prod.groupSlug}-${prod.slug}`}
-                  category={prod}
-                  groupSlug={prod.groupSlug}
-                  divisionSlug={prod.divisionSlug}
-                  onSelect={onNavigate}
-                />
-              ))}
+            <div className="material-cards-grid">
+              {filteredProducts.map((prod) => {
+                const isExpanded = !!expandedCards[prod.id];
+                const displayGrades = searchQuery.trim() && prod.highlightGrades
+                  ? prod.highlightGrades
+                  : (isExpanded ? prod.grades : (prod.grades || []).slice(0, 5));
+
+                const remainingCount = (prod.grades || []).length - 5;
+
+                return (
+                  <article
+                    key={prod.id}
+                    className="material-catalog-card"
+                    onClick={() => handleCardClick(prod)}
+                  >
+                    {/* Top Red-Orange Accent Bar */}
+                    <div className="card-top-accent" aria-hidden="true" />
+
+                    {/* 1. Large Product Image on Top */}
+                    <div className="card-media-wrapper">
+                      <img
+                        src={prod.image}
+                        alt={prod.title}
+                        className="card-product-img"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span className="card-division-badge">{prod.productType}</span>
+                    </div>
+
+                    {/* 2. Card Content Body */}
+                    <div className="card-body">
+                      {/* Product Title & Standards */}
+                      <div className="card-top-info">
+                        <h2 className="card-title">{prod.title}</h2>
+
+                        {prod.standards && (
+                          <div className="card-standards-line">
+                            <span className="standards-label">STANDARDS:</span>
+                            <span className="standards-value">{prod.standards}</span>
+                          </div>
+                        )}
+
+                        <p className="card-desc">{prod.shortDesc}</p>
+                      </div>
+
+                      {/* Available Grades Section */}
+                      {prod.grades && prod.grades.length > 0 && (
+                        <div className="card-grades-section">
+                          <div className="grades-header-row">
+                            <span className="grades-heading-label">
+                              <Layers size={13} className="label-icon" />
+                              AVAILABLE GRADES ({prod.grades.length})
+                            </span>
+                          </div>
+
+                          {/* Grade Pills List with Orange Dot and Uppercase Text */}
+                          <div className="grades-pills-list">
+                            {displayGrades.map((gradeItem, idx) => {
+                              const gradeName = typeof gradeItem === 'string' ? gradeItem : (gradeItem.name || gradeItem.code);
+
+                              return (
+                                <button
+                                  key={idx}
+                                  type="button"
+                                  className="grade-pill-btn"
+                                  title={`View ${gradeName} Specifications`}
+                                  onClick={(e) => handleGradeClick(e, prod, gradeItem)}
+                                >
+                                  <span className="pill-dot" aria-hidden="true">▪</span>
+                                  <span className="pill-text">{gradeName.toUpperCase()}</span>
+                                </button>
+                              );
+                            })}
+                          </div>
+
+                          {/* Show More / Show Less Toggle Button */}
+                          {!searchQuery.trim() && remainingCount > 0 && (
+                            <button
+                              type="button"
+                              className="btn-toggle-grades"
+                              onClick={(e) => toggleExpand(prod.id, e)}
+                              aria-expanded={isExpanded}
+                            >
+                              <span>
+                                {isExpanded ? 'Show Less Grades' : `+ ${remainingCount} More Grades`}
+                              </span>
+                              {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                            </button>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Bottom Action Button */}
+                      <div className="card-action-box">
+                        <button
+                          type="button"
+                          className="btn-card-action"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleCardClick(prod);
+                          }}
+                        >
+                          <span>View All Specifications</span>
+                          <ArrowRight size={15} />
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           ) : (
             <div className="material-empty-box">
-              <Package size={40} className="empty-box-icon" />
+              <Package size={42} className="empty-box-icon" />
               <h3>No {material.name} Products Found</h3>
-              <p>No specifications matched your filter query. Reset your search or select "ALL" to view the complete catalog.</p>
+              <p>No products matched your search or category filter. Reset to view all {material.name} products.</p>
               <button
                 type="button"
                 className="btn-empty-reset"
@@ -319,20 +406,18 @@ export default function MaterialDetailView({ materialSlug, onNavigate }) {
               </button>
             </div>
           )}
-
         </div>
       </section>
 
       {/* 3. Bottom RFQ Direct Sourcing Strip */}
       <section className="material-bottom-cta">
-        <div className="material-products-container">
+        <div className="material-cta-container">
           <div className="material-rfq-banner">
             <div className="material-rfq-info">
-              <span className="rfq-eyebrow">CUSTOM ORDERS &amp; MILL DISPATCH</span>
-              <h3>Need Custom Thickness, Flange Schedules or Mill Quantities in {material.name}?</h3>
+              <span className="rfq-eyebrow">CUSTOM SIZES &amp; MILL DISPATCH</span>
+              <h3>Need Custom Specifications or Bulk Mill Dispatch in {material.name}?</h3>
               <p>
-                Our manufacturing and distribution teams provide rapid turnarounds, custom cut-to-length services,
-                and full third-party inspection (TUV, BV, DNV, Lloyd's) on all {material.name} supplies.
+                KPTRON PIPING SOLUTIONS INC. maintains extensive ready inventory and provides customized cutting, beveling, ultrasonic inspection, and full EN 10204 3.1 &amp; 3.2 certification for {material.name} products.
               </p>
             </div>
             <div className="material-rfq-btns">

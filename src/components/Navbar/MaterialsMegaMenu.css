@@ -1,33 +1,39 @@
 /* ===================================================
-   MATERIALS MEGA-MENU DROPDOWN PANEL
-   Industrial Architecture: White Surface + Charcoal Text + Red-Orange Accents
+   MATERIALS NAVBAR DROPDOWN / MEGA-MENU
+   Designed for KPTRON Industrial Engineering:
+   - Clean, pure white background (#FFFFFF)
+   - Professional industrial look & typography
+   - 12 Material Categories (2 balanced columns of 6)
+   - Representative industrial metal image showcase on the right
+   - Subtle shadow, proper spacing, smooth hover transitions
+   - Perfectly aligned with the navbar
    =================================================== */
 
-.materials-megamenu-panel {
+.materials-dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 2px);
   left: 50%;
-  transform: translate3d(-50%, 4px, 0);
-  width: 720px;
-  max-width: min(720px, calc(100vw - 32px));
+  transform: translateX(-50%) translateY(6px);
+  width: 730px;
+  max-width: calc(100vw - 32px);
   background: #FFFFFF;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #E2E8F0;
   border-radius: 4px;
-  box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
-  margin-top: 4px;
-  overflow: hidden;
+  box-shadow: 0 16px 38px -6px rgba(15, 23, 42, 0.13), 0 4px 14px rgba(15, 23, 42, 0.05);
+  margin-top: 2px;
+  padding: 0;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  will-change: opacity, transform;
-  transition: opacity 0.15s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 
-/* Hover bridge */
-.materials-megamenu-panel::after {
+/* Invisible hover bridge to prevent premature closing */
+.materials-dropdown-menu::after {
   content: '';
   position: absolute;
   top: -14px;
@@ -37,218 +43,358 @@
   background: transparent;
 }
 
-/* Pointer arrow */
-.materials-megamenu-panel::before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 10px;
-  height: 10px;
-  background: #FFFFFF;
-  border-top: 1px solid #E5E7EB;
-  border-left: 1px solid #E5E7EB;
-  z-index: 1;
-}
-
-.materials-item:hover .materials-megamenu-panel,
-.materials-megamenu-panel.is-open {
+/* Open state on hover or toggle click */
+.materials-item:hover .materials-dropdown-menu,
+.materials-dropdown-menu.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translate3d(-50%, 0, 0);
+  transform: translateX(-50%) translateY(0);
 }
 
-/* Header strip */
-.materials-megamenu-header {
+/* Main Inner Container */
+.materials-dropdown-inner {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  background: #FFFFFF;
+}
+
+/* ===================================================
+   LEFT PANEL: 2 Columns of 6 Material Categories
+   =================================================== */
+
+.materials-dropdown-left-panel {
+  flex: 1 1 63%;
+  min-width: 0;
+  padding: 1.15rem 1.15rem 0.95rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.materials-dropdown-header {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #F1F5F9;
+  display: flex;
+  align-items: baseline;
   justify-content: space-between;
-  padding: 0.85rem 1.25rem 0.5rem;
-  border-bottom: 1px solid #F3F4F6;
-  background: #FAFAFC;
 }
 
-.materials-header-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.materials-eyebrow-bar {
-  width: 14px;
-  height: 2px;
-  background-color: #E02B20;
-  border-radius: 1px;
-}
-
-.materials-eyebrow-text {
+.materials-dropdown-header-tag {
   font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #111827;
+  font-size: 0.68rem;
+  font-weight: 750;
+  color: #FF5B26;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.materials-header-count {
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #6B7280;
-  background: #F3F4F6;
-  padding: 2px 8px;
-  border-radius: 2px;
+.materials-dropdown-header-title {
+  font-size: 0.78rem;
+  font-weight: 550;
+  color: #64748B;
+  letter-spacing: 0.01em;
 }
 
-/* Grid for all 9 Materials */
-.materials-megamenu-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px;
-  padding: 0.75rem 1rem;
-  background: #FFFFFF;
-}
-
-/* Individual Material Card in Menu */
-.materials-nav-card {
+.materials-dropdown-columns {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 10px;
-  border-radius: 4px;
-  text-decoration: none;
-  background: transparent;
-  border: 1px solid transparent;
-  transition: all 0.18s ease;
-}
-
-.materials-nav-card:hover {
-  background: #F9FAFB;
-  border-color: #E5E7EB;
-  transform: translateY(-1px);
-}
-
-.materials-nav-thumb-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 2px;
-  overflow: hidden;
-  background: #F3F4F6;
-  flex-shrink: 0;
-  border: 1px solid #E5E7EB;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.materials-nav-thumb {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.25s ease;
-}
-
-.materials-nav-card:hover .materials-nav-thumb {
-  transform: scale(1.06);
-}
-
-.materials-nav-content {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
+  align-items: stretch;
+  gap: 0.35rem;
   flex: 1;
 }
 
-.materials-nav-title {
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.86rem;
-  font-weight: 650;
-  color: #111827;
-  line-height: 1.25;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: color 0.18s ease;
+.materials-dropdown-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
 }
 
-.materials-nav-card:hover .materials-nav-title {
-  color: #E02B20;
+.materials-dropdown-col-divider {
+  width: 1px;
+  background-color: #F1F5F9;
+  margin: 0.2rem 0.4rem;
 }
 
-.materials-nav-grade {
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.72rem;
-  color: #6B7280;
-  margin-top: 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.materials-dropdown-item {
+  margin: 0;
 }
 
-.materials-nav-arrow {
-  color: #9CA3AF;
-  flex-shrink: 0;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.materials-nav-card:hover .materials-nav-arrow {
-  color: #E02B20;
-  transform: translateX(2px);
-}
-
-/* Footer Action Bar */
-.materials-megamenu-footer {
+/* Individual Category Link */
+.materials-dropdown-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1.25rem;
-  background: #F9FAFB;
-  border-top: 1px solid #E5E7EB;
+  padding: 0.52rem 0.7rem;
+  border-radius: 3px;
+  text-decoration: none;
+  background: transparent;
+  position: relative;
+  transition: background-color 0.15s ease, padding-left 0.15s ease;
+  white-space: nowrap;
 }
 
-.materials-footer-info {
+.materials-link-dot {
+  width: 3px;
+  height: 12px;
+  background-color: transparent;
+  border-radius: 2px;
+  margin-right: 8px;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+}
+
+.materials-dropdown-text {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  color: #1E293B;
+  line-height: 1.25;
+  flex: 1;
+  transition: color 0.15s ease;
+}
+
+.materials-link-arrow {
+  color: #94A3B8;
+  opacity: 0;
+  transform: translateX(-3px);
+  transition: opacity 0.15s ease, transform 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+/* Hover State on Material Link */
+.materials-dropdown-link:hover {
+  background-color: #F8FAFC;
+  padding-left: 0.82rem;
+}
+
+.materials-dropdown-link:hover .materials-link-dot {
+  background-color: #FF5B26;
+}
+
+.materials-dropdown-link:hover .materials-dropdown-text {
+  color: #0F172A;
+  font-weight: 700;
+}
+
+.materials-dropdown-link:hover .materials-link-arrow {
+  opacity: 1;
+  color: #FF5B26;
+  transform: translateX(0);
+}
+
+/* ===================================================
+   RIGHT PANEL: Industrial Metal Representative Showcase
+   =================================================== */
+
+.materials-dropdown-right-panel {
+  flex: 0 0 255px;
+  border-left: 1px solid #F1F5F9;
+  padding: 1rem 0.95rem;
+  background: #FAFAFA;
+  display: flex;
+  flex-direction: column;
+}
+
+.materials-media-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.materials-media-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+.materials-media-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  background: #0F172A;
+}
+
+.materials-media-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.materials-media-card:hover .materials-media-banner-img {
+  transform: scale(1.05);
+}
+
+.materials-media-img-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.65) 100%);
+  pointer-events: none;
+}
+
+.materials-media-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 3px 6px;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.materials-badge-icon {
+  color: #FF5B26;
+}
+
+.materials-media-content {
+  padding: 0.8rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.materials-media-kicker {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.64rem;
+  font-weight: 750;
+  color: #FF5B26;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.materials-media-heading {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 4px 0;
+  line-height: 1.25;
+}
+
+.materials-media-caption {
+  font-size: 0.72rem;
+  color: #64748B;
+  margin: 0 0 8px 0;
+  line-height: 1.35;
+  flex: 1;
+}
+
+.materials-media-link-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #FF5B26;
+  transition: gap 0.15s ease;
+}
+
+.materials-media-card:hover .materials-media-link-label {
+  gap: 7px;
+  color: #E04818;
+}
+
+.materials-media-link-icon {
+  transition: transform 0.15s ease;
+}
+
+.materials-media-card:hover .materials-media-link-icon {
+  transform: translateX(2px);
+}
+
+/* ===================================================
+   BOTTOM ACTION FOOTER
+   =================================================== */
+
+.materials-dropdown-footer {
+  border-top: 1px solid #F1F5F9;
+  background: #F8FAFC;
+  padding: 0.65rem 1.25rem;
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.74rem;
-  color: #6B7280;
-  font-weight: 500;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.materials-footer-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #E02B20;
-  display: inline-block;
-}
-
-.btn-view-all-materials {
+.materials-footer-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #111827;
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  color: #FF5B26;
   text-decoration: none;
-  padding: 4px 8px;
-  border-radius: 2px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  transition: all 0.18s ease;
+  transition: color 0.15s ease, transform 0.15s ease;
 }
 
-.btn-view-all-materials:hover {
-  color: #E02B20;
-  background: #F3F4F6;
+.materials-footer-link:hover {
+  color: #E04818;
   transform: translateX(2px);
 }
 
-@media (max-width: 1024px) {
-  .materials-megamenu-panel {
+.materials-footer-arrow {
+  transition: transform 0.15s ease;
+}
+
+.materials-footer-link:hover .materials-footer-arrow {
+  transform: translateX(2px);
+}
+
+.materials-footer-note {
+  font-size: 0.7rem;
+  color: #94A3B8;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ===================================================
+   RESPONSIVENESS & ALIGNMENT SAFEGUARDS
+   =================================================== */
+
+@media (max-width: 1200px) {
+  .materials-dropdown-menu {
+    left: auto;
+    right: -100px;
+    transform: translateY(6px);
+  }
+
+  .materials-item:hover .materials-dropdown-menu,
+  .materials-dropdown-menu.is-open {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 980px) {
+  /* On mobile and tablet, the navbar uses MobileMenu drawer */
+  .materials-dropdown-menu {
     display: none;
   }
 }

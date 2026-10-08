@@ -1,0 +1,723 @@
+/* ===================================================
+   BARS & RODS GRADE DETAIL VIEW STYLING
+   Industrial Corporate Brand Design:
+   - Primary Navy: #0B192C / #1F3862
+   - Brand Accent: #FF5B26
+   - Slate Text: #475569 / #64748B
+   - Background: #F8FAFC
+   =================================================== */
+
+.clean-bar-grade-detail-page {
+  width: 100%;
+  background: #F8FAFC;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
+
+/* ===================================================
+   1. Header / Breadcrumb Bar
+   =================================================== */
+.bar-grade-header-bar {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 1.25rem 0;
+}
+
+.bar-grade-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.bar-grade-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  color: #64748B;
+  flex-wrap: wrap;
+}
+
+.bar-grade-breadcrumb .crumb-item {
+  cursor: pointer;
+  color: #64748B;
+  transition: color 0.14s ease;
+}
+
+.bar-grade-breadcrumb .crumb-item:hover {
+  color: #FF5B26;
+}
+
+.bar-grade-breadcrumb .crumb-sep {
+  color: #CBD5E1;
+}
+
+.bar-grade-breadcrumb .crumb-current {
+  color: #1F3862;
+  font-weight: 700;
+}
+
+.btn-back-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  color: #1F3862;
+  padding: 0.4rem 0.85rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+
+.btn-back-category:hover {
+  background: #1F3862;
+  border-color: #1F3862;
+  color: #FFFFFF;
+}
+
+/* ===================================================
+   2. Main Layout Grid (2 Columns: Main + Sticky Sidebar)
+   =================================================== */
+.bar-grade-main-container {
+  max-width: 1240px;
+  margin: 2rem auto 0;
+  padding: 0 1.5rem;
+}
+
+.bar-grade-layout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* ===================================================
+   3. Primary Content Column (Left Side)
+   =================================================== */
+.bar-grade-primary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Top Hero Card */
+.bar-grade-hero-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.hero-category-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  color: #FF5B26;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.hero-tag-dot {
+  color: #CBD5E1;
+}
+
+.hero-grade-title {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: #0B192C;
+  line-height: 1.2;
+  margin: 0 0 0.85rem 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-code-badge {
+  display: inline-block;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  color: #1F3862;
+  font-size: 0.82rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-code-badge strong {
+  color: #0B192C;
+}
+
+/* Hero Media Box */
+.hero-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: #0B192C;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1.75rem;
+  border: 1px solid #E2E8F0;
+}
+
+.hero-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.hero-media-overlay-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(11, 25, 44, 0.92);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-transform: uppercase;
+}
+
+.hero-description-block {
+  margin-bottom: 1.75rem;
+}
+
+.section-subheading {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 750;
+  color: #0B192C;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.65rem 0;
+}
+
+.hero-desc-text {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #334155;
+  margin: 0;
+}
+
+/* Standard Identifiers Matrix */
+.standards-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #E2E8F0;
+}
+
+.matrix-cell {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+}
+
+.cell-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748B;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+
+.cell-value {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0B192C;
+}
+
+/* Specifications Card & Clean Industrial Table */
+.bar-grade-specs-card,
+.bar-grade-forms-card,
+.bar-grade-apps-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: #0B192C;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.01em;
+}
+
+.heading-icon {
+  color: #FF5B26;
+  flex-shrink: 0;
+}
+
+.specs-table-wrapper {
+  overflow-x: auto;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.specs-table tr {
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.specs-table tr:last-child {
+  border-bottom: none;
+}
+
+.specs-table th {
+  text-align: left;
+  padding: 0.75rem 1rem 0.75rem 0;
+  color: #64748B;
+  font-weight: 600;
+  width: 38%;
+  vertical-align: top;
+}
+
+.specs-table td {
+  padding: 0.75rem 0;
+  color: #0B192C;
+  font-weight: 600;
+}
+
+/* Available Forms Grid */
+.forms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.form-item-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 0.65rem 0.95rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1F3862;
+}
+
+.form-dot {
+  color: #FF5B26;
+  font-weight: bold;
+}
+
+/* Applications Grid */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.85rem;
+}
+
+.app-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 0.84rem;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.app-check-icon {
+  color: #16A34A;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ===================================================
+   4. Sidebar Column (Exact Match to User Screenshots)
+   =================================================== */
+.grade-sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 100px;
+}
+
+/* --- Box 1: Dark Navy Fast Dispatch Quotation Card --- */
+.sidebar-action-card {
+  background: #172E54;
+  border-radius: 8px;
+  padding: 1.65rem 1.5rem;
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
+}
+
+.sidebar-action-tag {
+  color: #FF5B26;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.sidebar-action-title {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 750;
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin: 0 0 0.6rem 0;
+}
+
+.sidebar-action-desc {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #CBD5E1;
+  margin: 0 0 1.35rem 0;
+}
+
+.btn-sidebar-wa {
+  background: #10B981;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.82rem 1rem;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  transition: background-color 0.14s ease, transform 0.14s ease;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
+}
+
+.btn-sidebar-wa:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+.btn-sidebar-call {
+  background: #253E68;
+  color: #FFFFFF;
+  font-weight: 650;
+  font-size: 0.84rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: background-color 0.14s ease, border-color 0.14s ease;
+}
+
+.btn-sidebar-call:hover {
+  background: #2E4C7E;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+/* --- Box 2: Formal RFQ Card --- */
+.sidebar-form-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 1.65rem 1.5rem;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+}
+
+.form-card-title {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 1.18rem;
+  font-weight: 750;
+  color: #0F172A;
+  margin: 0 0 0.35rem 0;
+  letter-spacing: -0.01em;
+}
+
+.form-card-sub {
+  font-size: 0.82rem;
+  color: #64748B;
+  margin: 0 0 1.25rem 0;
+  line-height: 1.45;
+}
+
+.rfq-form-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-field label {
+  font-size: 0.72rem;
+  font-weight: 750;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field-icon {
+  position: absolute;
+  left: 0.75rem;
+  color: #94A3B8;
+  pointer-events: none;
+}
+
+.input-with-icon input {
+  padding-left: 2.25rem !important;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  color: #1E293B;
+  background: #FFFFFF;
+  outline: none;
+  transition: border-color 0.14s ease, box-shadow 0.14s ease;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #94A3B8;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #172E54;
+  box-shadow: 0 0 0 3px rgba(23, 46, 84, 0.08);
+}
+
+.btn-submit-rfq {
+  background: #FF5B26;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 0.85rem 1.15rem;
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 750;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 0.35rem;
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 12px rgba(255, 91, 38, 0.25);
+}
+
+.btn-submit-rfq:hover {
+  background: #E04818;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255, 91, 38, 0.32);
+}
+
+.form-success-banner {
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: 6px;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.success-icon {
+  color: #16A34A;
+  margin: 0 auto 0.5rem;
+}
+
+.form-success-banner h4 {
+  font-size: 0.95rem;
+  color: #166534;
+  margin: 0 0 0.35rem 0;
+  font-weight: 750;
+}
+
+.form-success-banner p {
+  font-size: 0.8rem;
+  color: #15803D;
+  margin: 0;
+}
+
+/* --- Box 3: Other Grades Navigation Card --- */
+.sidebar-grades-nav-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+}
+
+.other-grades-title {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 750;
+  color: #0F172A;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid #F1F5F9;
+  padding-bottom: 0.65rem;
+}
+
+.other-grades-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.other-grades-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.other-grades-list::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 4px;
+}
+
+.other-grades-list::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+.other-grades-list::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+.other-grade-btn {
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 650;
+  color: #0F172A;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  transition: all 0.12s ease;
+  line-height: 1.35;
+}
+
+.og-dot {
+  color: #FF5B26;
+  font-size: 0.95rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.other-grade-btn:hover {
+  background: #0B192C;
+  border-color: #0B192C;
+  color: #FFFFFF;
+}
+
+.other-grade-btn:hover .og-dot {
+  color: #FF5B26;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .bar-grade-layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grade-sidebar-column {
+    position: static;
+  }
+
+  .hero-media-wrapper {
+    height: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-grade-title {
+    font-size: 1.6rem;
+  }
+
+  .bar-grade-hero-card,
+  .bar-grade-specs-card,
+  .bar-grade-forms-card,
+  .bar-grade-apps-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .hero-media-wrapper {
+    height: 200px;
+  }
+
+  .specs-table th {
+    width: 45%;
+    font-size: 0.78rem;
+  }
+
+  .specs-table td {
+    font-size: 0.78rem;
+  }
+
+  .sidebar-action-card,
+  .sidebar-form-card,
+  .sidebar-grades-nav-card {
+    padding: 1.25rem 1rem;
+  }
+}

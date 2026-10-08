@@ -28,7 +28,7 @@ function renderHeadline(headline) {
   });
 }
 
-function HeroSlide({ slide, isActive, direction = 1, onNavigate }) {
+function HeroSlide({ slide, isActive, direction = 1, onNavigate, onOpenQuoteModal }) {
   const slideRef = useRef(null);
   const bgImageRef = useRef(null);
   const glassCardRef = useRef(null);
@@ -266,13 +266,15 @@ function HeroSlide({ slide, isActive, direction = 1, onNavigate }) {
 
                 {slide.secondaryCta && (
                   <Button
-                    href={slide.secondaryCta.href}
+                    id={slide.secondaryCta.label === 'Request Quote' ? 'hero-quote-btn' : undefined}
                     variant="secondary"
                     size="lg"
                     icon="chevron"
                     onClick={(e) => {
-                      if (onNavigate && slide.secondaryCta.href) {
-                        e.preventDefault();
+                      e.preventDefault();
+                      if (slide.secondaryCta.label.toLowerCase().includes('quote') && onOpenQuoteModal) {
+                        onOpenQuoteModal({ product: 'Alloy & Stainless Steel Pipes', source: 'Hero Slide 03' });
+                      } else if (onNavigate && slide.secondaryCta.href) {
                         onNavigate(slide.secondaryCta.href);
                       }
                     }}

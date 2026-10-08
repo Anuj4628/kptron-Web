@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { submitQuoteRequest, generateTicketNumber } from '../../services/quoteService';
 import './InquiryForm.css';
 
 /**
@@ -23,6 +24,7 @@ export default function InquiryForm({
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [ticketId, setTicketId] = useState('');
 
   const validate = () => {
@@ -51,7 +53,7 @@ export default function InquiryForm({
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -60,12 +62,26 @@ export default function InquiryForm({
     }
 
     setIsSubmitting(true);
-    const newTicket = 'JS-' + Math.floor(100000 + Math.random() * 900000);
-    setTimeout(() => {
+    setSubmitError('');
+    const newTicket = generateTicketNumber();
+
+    try {
+      await submitQuoteRequest({
+        fullName: formData.fullName,
+        companyName: formData.company,
+        email: formData.email,
+        phone: formData.phone,
+        product: `${productName} (${materialGrade})`,
+        specsAndQuantity: `Quantity: ${formData.quantity} ${formData.unit} | Location: ${formData.deliveryLocation || 'Not specified'} | Notes: ${formData.notes || 'None'}`,
+        ticketNumber: newTicket
+      });
       setIsSubmitting(false);
       setTicketId(newTicket);
       setSubmitted(true);
-    }, 500);
+    } catch (err) {
+      setIsSubmitting(false);
+      setSubmitError(err.message || 'Submission error. Please try again or use direct WhatsApp.');
+    }
   };
 
   const handleReset = () => {
@@ -136,6 +152,11 @@ export default function InquiryForm({
           </div>
         ) : (
           <form className="bright-rfq-form" onSubmit={handleSubmit} noValidate>
+            {submitError && (
+              <div style={{ background: '#fef2f2', border: '1px solid #fecaca', color: '#991b1b', padding: '0.75rem 1rem', borderRadius: '6px', fontSize: '0.85rem', marginBottom: '1rem' }} role="alert">
+                <strong>Notice:</strong> {submitError}
+              </div>
+            )}
             <div className="rfq-fields-grid">
               {/* Full Name */}
               <div className="form-group">

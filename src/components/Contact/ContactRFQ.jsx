@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { getAllProductGroups } from '../../data/productCatalogData';
 import { brandDetails } from '../../data/navigationData';
+import { submitQuoteRequest, generateTicketNumber, getWhatsAppInquiryUrl } from '../../services/quoteService';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -177,10 +178,7 @@ export default function ContactRFQ() {
       timeStyle: 'medium'
     });
 
-    const generatedTicket = `KP-RFQ-${Math.floor(100000 + Math.random() * 900000)}`;
-
-    const targetEmail = brandDetails.contact.email;
-    const subjectText = `New RFQ Inquiry — KPTRON [${generatedTicket}]`;
+    const generatedTicket = generateTicketNumber();
 
     const emailBodyText = [
       `Full Name: ${formData.fullName.trim()}`,
@@ -193,26 +191,24 @@ export default function ContactRFQ() {
     ].join('\n');
 
     try {
-      // Simulate real asynchronous submission network round-trip
-      await new Promise((resolve) => setTimeout(resolve, 850));
+      const result = await submitQuoteRequest({
+        ...formData,
+        ticketNumber: generatedTicket
+      });
 
-      setTicketNumber(generatedTicket);
+      setTicketNumber(result.ticket || generatedTicket);
       setSubmitSuccess(true);
       setIsSubmitting(false);
 
-      // Attempt background dispatch / mailto protocol trigger if client permits
-      const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(emailBodyText)}`;
-      
-      // Store formatted text for easy clipboard copy in the success banner
+      // Store formatted text for easy clipboard copy
       setFormData((prev) => ({
         ...prev,
-        _formattedEmail: emailBodyText,
-        _mailtoUrl: mailtoUrl
+        _formattedEmail: emailBodyText
       }));
 
-    } catch (_err) {
+    } catch (err) {
       setIsSubmitting(false);
-      setSubmitError('An unexpected transmission error occurred. Please retry or contact our desk directly.');
+      setSubmitError(err.message || 'An unexpected transmission error occurred. Please retry or contact our desk directly.');
     }
   };
 
@@ -347,7 +343,18 @@ export default function ContactRFQ() {
               {submitError && (
                 <div className="rfq-global-error" role="alert">
                   <AlertCircle size={18} className="error-icon" aria-hidden="true" />
-                  <span>{submitError}</span>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', flex: 1 }}>
+                    <span>{submitError}</span>
+                    <a
+                      href={getWhatsAppInquiryUrl(formData)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: '#38EF7D', textDecoration: 'underline', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '4px' }}
+                    >
+                      <MessageSquare size={14} />
+                      <span>Transmit your RFQ directly via WhatsApp</span>
+                    </a>
+                  </div>
                 </div>
               )}
 

@@ -10,7 +10,6 @@ import {
   ChevronRight, 
   Layers, 
   ShieldCheck, 
-  Sliders, 
   Sparkles, 
   FileText,
   Compass,

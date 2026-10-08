@@ -8,8 +8,10 @@
 .product-dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
   min-width: 260px;
+  max-width: calc(100vw - 32px);
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
   border-radius: 2px;
@@ -20,7 +22,6 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(4px);
   transition: opacity 0.15s ease-out,
               transform 0.15s ease-out,
               visibility 0.15s ease-out;
@@ -43,7 +44,7 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 /* List container */
@@ -110,3 +111,131 @@
 .product-dropdown-link:active {
   background-color: #F1F5F9;
 }
+
+/* ----------------------------------------------------------------------
+   Flanges Materials Subflyout
+   ---------------------------------------------------------------------- */
+.has-subflyout {
+  position: relative;
+}
+
+.product-dropdown-link.with-flyout-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subflyout-arrow {
+  color: #9CA3AF;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.product-dropdown-link:hover .subflyout-arrow {
+  color: #FF5B26;
+  transform: translateX(2px);
+}
+
+.product-subflyout-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 260px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-left: 2px solid #FF5B26;
+  border-radius: 2px;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.14), 0 4px 10px rgba(15, 23, 42, 0.06);
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(6px);
+  transition: opacity 0.15s ease-out, transform 0.15s ease-out, visibility 0.15s ease-out;
+  z-index: 1050;
+}
+
+.has-subflyout:hover .product-subflyout-menu,
+.product-subflyout-menu.flyout-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.subflyout-header {
+  padding: 0.45rem 1.2rem 0.35rem;
+  border-bottom: 1px solid #F1F5F9;
+  margin-bottom: 0.3rem;
+}
+
+.subflyout-title {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #94A3B8;
+  text-transform: uppercase;
+}
+
+.subflyout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.subflyout-item {
+  margin: 0;
+}
+
+.subflyout-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1.2rem;
+  text-decoration: none;
+  transition: background-color 0.12s ease, padding-left 0.12s ease;
+}
+
+.subflyout-bullet {
+  color: #CBD5E1;
+  font-size: 0.85rem;
+  transition: color 0.12s ease;
+}
+
+.subflyout-text {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #334155;
+  transition: color 0.12s ease;
+}
+
+.subflyout-link:hover {
+  background-color: #FFF7ED;
+  padding-left: 1.35rem;
+}
+
+.subflyout-link:hover .subflyout-bullet {
+  color: #FF5B26;
+}
+
+.subflyout-link:hover .subflyout-text {
+  color: #FF5B26;
+}
+
+.subflyout-view-all {
+  border-top: 1px solid #F1F5F9;
+  margin-top: 0.35rem;
+  padding-top: 0.25rem;
+}
+
+.subflyout-link.view-all-link {
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #FF5B26;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+

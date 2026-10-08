@@ -69,7 +69,7 @@ export default function MaterialsLandingView({ onNavigate }) {
           <div className="materials-hero-metrics-row">
             <div className="materials-hero-chip">
               <Layers size={14} className="chip-icon" />
-              <span>9 Certified Metallurgical Materials</span>
+              <span>{materials.length} Certified Metallurgical Materials</span>
             </div>
             <div className="materials-hero-chip">
               <ShieldCheck size={14} className="chip-icon" />
@@ -87,7 +87,7 @@ export default function MaterialsLandingView({ onNavigate }) {
               <span className="section-small-eyebrow">STANDARDIZED ALLOY CATALOG</span>
               <h2 className="section-main-title">SELECT A MATERIAL TO EXPLORE PRODUCTS</h2>
             </div>
-            <span className="materials-count-pill">9 Specialized Materials</span>
+            <span className="materials-count-pill">{materials.length} Certified Materials</span>
           </div>
 
           <div className="materials-cards-grid" ref={gridRef}>

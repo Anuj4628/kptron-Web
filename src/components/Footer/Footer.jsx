@@ -9,9 +9,7 @@ import {
   Award, 
   ArrowUpRight, 
   ChevronRight, 
-  Clock, 
   Globe2, 
-  CheckCircle2, 
   FileCheck2 
 } from 'lucide-react';
 import './Footer.css';
@@ -246,25 +244,25 @@ export default function Footer({ onNavigate }) {
                   </a>
                 </li>
                 <li>
-                  <a href="/products/manufacturer/pipes-tubes" className="footer-nav-item" onClick={(e) => handleLinkClick(e, '/products/manufacturer/pipes-tubes')}>
+                  <a href="/products/pipes" className="footer-nav-item" onClick={(e) => handleLinkClick(e, '/products/pipes')}>
                     <ChevronRight size={14} className="nav-chevron" />
                     <span>Pipes & Tubes (Seamless / Welded)</span>
                   </a>
                 </li>
                 <li>
-                  <a href="/products/manufacturer/butt-weld-fittings" className="footer-nav-item" onClick={(e) => handleLinkClick(e, '/products/manufacturer/butt-weld-fittings')}>
+                  <a href="/products/pipe-fittings" className="footer-nav-item" onClick={(e) => handleLinkClick(e, '/products/pipe-fittings')}>
                     <ChevronRight size={14} className="nav-chevron" />
-                    <span>Butt Weld Pipe Fittings</span>
+                    <span>Pipe Fittings (BW &amp; Forged)</span>
                   </a>
                 </li>
                 <li>
-                  <a href="/products/manufacturer/flanges" className="footer-nav-item" onClick={(e) => handleLinkClick(e, '/products/manufacturer/flanges')}>
+                  <a href="/products/flanges" className="footer-nav-item" onClick={(e) => handleLinkClick(e, '/products/flanges')}>
                     <ChevronRight size={14} className="nav-chevron" />
-                    <span>Forged & Industrial Flanges</span>
+                    <span>Forged &amp; Industrial Flanges</span>
                   </a>
                 </li>
                 <li>
-                  <a href="/products/supplier/rods-and-bars" className="footer-nav-item" onClick={(e) => handleLinkClick(e, '/products/supplier/rods-and-bars')}>
+                  <a href="/products/bars" className="footer-nav-item" onClick={(e) => handleLinkClick(e, '/products/bars')}>
                     <ChevronRight size={14} className="nav-chevron" />
                     <span>Round Rods & Hex Bars</span>
                   </a>

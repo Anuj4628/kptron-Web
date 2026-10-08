@@ -9,7 +9,7 @@ import './FinalCTASection.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function FinalCTASection({ onNavigate }) {
+export default function FinalCTASection({ onNavigate, onOpenQuoteModal }) {
   const sectionRef = useRef(null);
   const cardRef = useRef(null);
 
@@ -162,13 +162,15 @@ export default function FinalCTASection({ onNavigate }) {
               {/* CTA Buttons */}
               <div className="cta-buttons-group">
                 <Button
-                  href="/contact"
+                  id="final-cta-quote-btn"
                   variant="primary"
                   size="lg"
                   icon="arrow"
                   onClick={(e) => {
-                    if (onNavigate) {
-                      e.preventDefault();
+                    e.preventDefault();
+                    if (onOpenQuoteModal) {
+                      onOpenQuoteModal({ source: 'Final CTA Section' });
+                    } else if (onNavigate) {
                       onNavigate('contact');
                     }
                   }}

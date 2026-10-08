@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { getPipeCategoryBySlug, getPipeGradeBySlug } from '../../../data/pipesData';
+import { submitQuoteRequest } from '../../../services/quoteService';
 import { 
   ShieldCheck, 
   Layers, 
@@ -11,8 +12,7 @@ import {
   Send,
   Building2,
   Mail,
-  User,
-  MessageSquare
+  User
 } from 'lucide-react';
 import './PipeGradeDetailView.css';
 
@@ -23,6 +23,8 @@ import './PipeGradeDetailView.css';
  */
 export default function PipeGradeDetailView({ categorySlug, gradeSlug, onNavigate }) {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,13 +47,28 @@ export default function PipeGradeDetailView({ categorySlug, gradeSlug, onNavigat
     return category.grades.filter(g => g.slug !== grade.slug);
   }, [category, grade]);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', quantity: '', notes: '' });
-    }, 4000);
+    setIsSubmitting(true);
+    setSubmitError('');
+    try {
+      await submitQuoteRequest({
+        fullName: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        product: `${grade?.name || 'Pipe Specification'} (${category?.name || 'Pipes & Tubes'})`,
+        specsAndQuantity: `Quantity: ${formData.quantity || 'Per project schedule'} | Notes: ${formData.notes || 'None'}`
+      });
+      setIsSubmitting(false);
+      setFormSubmitted(true);
+      setTimeout(() => {
+        setFormSubmitted(false);
+        setFormData({ name: '', email: '', phone: '', quantity: '', notes: '' });
+      }, 5000);
+    } catch (err) {
+      setIsSubmitting(false);
+      setSubmitError(err.message || 'Submission error');
+    }
   };
 
   if (!category || !grade) {
@@ -282,6 +299,11 @@ export default function PipeGradeDetailView({ categorySlug, gradeSlug, onNavigat
                 </div>
               ) : (
                 <form onSubmit={handleFormSubmit} className="rfq-form-compact">
+                  {submitError && (
+                    <div style={{ background: '#fef2f2', border: '1px solid #fecaca', color: '#991b1b', padding: '0.6rem 0.75rem', borderRadius: '4px', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
+                      {submitError}
+                    </div>
+                  )}
                   <div className="form-field">
                     <label htmlFor="rfq-name">Your Name</label>
                     <div className="input-with-icon">
@@ -349,8 +371,8 @@ export default function PipeGradeDetailView({ categorySlug, gradeSlug, onNavigat
                     />
                   </div>
 
-                  <button type="submit" className="btn-submit-rfq">
-                    <span>Send RFQ For {grade.name}</span>
+                  <button type="submit" className="btn-submit-rfq" disabled={isSubmitting}>
+                    <span>{isSubmitting ? 'Transmitting Request...' : `Send RFQ For ${grade.name}`}</span>
                     <Send size={14} />
                   </button>
                 </form>

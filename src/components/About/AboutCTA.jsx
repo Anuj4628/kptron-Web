@@ -6,7 +6,7 @@ import { ArrowRight, PhoneCall } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function AboutCTA({ onNavigate }) {
+export default function AboutCTA({ onNavigate, onOpenQuoteModal }) {
   const containerRef = useRef(null);
   const headingRef = useRef(null);
   const linesRef = useRef(null);
@@ -79,8 +79,10 @@ export default function AboutCTA({ onNavigate }) {
   }, []);
 
   const handleQuoteClick = (e) => {
-    if (onNavigate) {
-      e.preventDefault();
+    e.preventDefault();
+    if (onOpenQuoteModal) {
+      onOpenQuoteModal({ source: 'About Section CTA' });
+    } else if (onNavigate) {
       onNavigate('contact');
     }
   };
