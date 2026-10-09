@@ -258,11 +258,22 @@ function parseRoute(pathname = window.location.pathname) {
     // Dedicated Flanges Product Page, Types of Flanges & Grade Detail Routes
     if (p0 === 'flanges' || p0 === 'flange') {
       if (parts.length === 1) {
-        return { page: 'products', view: 'flanges-listing', materialSlug: 'carbon-steel', isManufacturedInMumbai };
+        return { page: 'products', view: 'flanges-listing', materialSlug: null, isManufacturedInMumbai };
       }
 
       if (parts.length === 2) {
         const p1 = parts[1].toLowerCase();
+        if (p1 === 'all') {
+          return { page: 'products', view: 'flanges-listing', materialSlug: null, isManufacturedInMumbai };
+        }
+        if (isFlangeMaterialSlug(p1)) {
+          return { 
+            page: 'products', 
+            view: 'flanges-listing', 
+            materialSlug: normalizeMaterialSlug(p1),
+            isManufacturedInMumbai
+          };
+        }
         if (isFlangeTypeSlug(p1)) {
           return { 
             page: 'products', 
@@ -270,14 +281,6 @@ function parseRoute(pathname = window.location.pathname) {
             materialSlug: 'carbon-steel', 
             typeSlug: normalizeFlangeTypeSlug(p1),
             gradeSlug: null,
-            isManufacturedInMumbai
-          };
-        }
-        if (isFlangeMaterialSlug(p1)) {
-          return { 
-            page: 'products', 
-            view: 'flanges-listing', 
-            materialSlug: normalizeMaterialSlug(p1),
             isManufacturedInMumbai
           };
         }

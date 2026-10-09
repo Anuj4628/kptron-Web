@@ -5,6 +5,7 @@ import {
   getPipeMaterialList 
 } from '../../../data/pipesData';
 import ProductMaterialFilterBar from '../ProductMaterialFilterBar';
+import CategoryMaterialListingView from '../CategoryMaterialListingView';
 import { Search, X, ArrowRight, Layers, ShieldCheck, ChevronDown, ChevronUp, MapPin } from 'lucide-react';
 import './PipesProductPage.css';
 
@@ -18,10 +19,26 @@ export default function PipesProductPage({
   onNavigate, 
   onOpenQuoteModal 
 }) {
+  // If no material requested or 'all', display "Materials in Pipes & Tubes" listing page
+  if (!materialSlug || materialSlug.toLowerCase().trim() === 'all') {
+    return (
+      <CategoryMaterialListingView
+        categorySlug="pipes"
+        categoryName="Pipes & Tubes"
+        mainHeading="Materials in Pipes & Tubes"
+        leadText="Extensive mill inventory and precision manufactured industrial pipes conforming strictly to ASTM, ASME, DIN, EN, and API 5L specifications. Supplied in seamless, ERW, and EFW configurations with 100% PMI verification and complete EN 10204 3.1 & 3.2 certification."
+        materials={PIPE_CATEGORIES}
+        isManufacturedInMumbai={isManufacturedInMumbai}
+        onNavigate={onNavigate}
+        onOpenQuoteModal={onOpenQuoteModal}
+      />
+    );
+  }
+
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedCards, setExpandedCards] = useState({});
   const [selectedMaterial, setSelectedMaterial] = useState(
-    materialSlug ? materialSlug.toLowerCase().trim() : 'all'
+    materialSlug.toLowerCase().trim()
   );
 
   useEffect(() => {
@@ -209,9 +226,36 @@ export default function PipesProductPage({
         </div>
       </section>
 
-      {/* 2. Main 6-Category Products Grid (3 Columns on Desktop) */}
+      {/* 2. Main Products Grid */}
       <section className="pipes-grid-section">
         <div className="pipes-grid-container">
+          {/* SECTION C: HORIZONTAL AVAILABLE GRADES SECTION */}
+          {activeMaterialObj && filteredCategories.length > 0 && (
+            <div className="cat-horizontal-grades-section" aria-label="Available Grades">
+              <div className="horizontal-grades-header-row">
+                <div className="grades-row-left">
+                  <Layers size={15} className="grades-row-icon" />
+                  <h3 className="grades-row-title">Available Grades in {activeMaterialObj.name} Pipes &amp; Tubes</h3>
+                </div>
+                <span className="grades-row-hint">Click any grade to view detailed specifications</span>
+              </div>
+              <div className="horizontal-grades-chips-track">
+                {filteredCategories.flatMap(c => c.grades.map(g => ({ ...g, catSlug: c.slug }))).map((grade, gIdx) => (
+                  <button
+                    key={grade.id || grade.slug || `g-${gIdx}`}
+                    type="button"
+                    className="horizontal-grade-nav-pill"
+                    title={`View specifications for ${grade.name}`}
+                    onClick={(e) => handleGradeClick(e, grade.catSlug, grade.slug)}
+                  >
+                    <span className="pill-dot">•</span>
+                    <span className="pill-name">{grade.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           {filteredCategories.length > 0 ? (
             <div className="pipes-cards-grid">
               {filteredCategories.map((cat) => {

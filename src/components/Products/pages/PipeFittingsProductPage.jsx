@@ -5,6 +5,7 @@ import {
   getPipeFittingsMaterialList 
 } from '../../../data/pipeFittingsData';
 import ProductMaterialFilterBar from '../ProductMaterialFilterBar';
+import CategoryMaterialListingView from '../CategoryMaterialListingView';
 import { Search, X, Layers, ChevronDown, ChevronUp, FileText, ArrowRight, ShieldCheck, CheckCircle2, MapPin } from 'lucide-react';
 import './PipeFittingsProductPage.css';
 
@@ -18,10 +19,26 @@ export default function PipeFittingsProductPage({
   onNavigate, 
   onOpenQuoteModal 
 }) {
+  // If no material requested or 'all', display "Materials in Pipe Fittings" listing page
+  if (!materialSlug || materialSlug.toLowerCase().trim() === 'all') {
+    return (
+      <CategoryMaterialListingView
+        categorySlug="pipe-fittings"
+        categoryName="Pipe Fittings"
+        mainHeading="Materials in Pipe Fittings"
+        leadText="Seamless and welded buttweld pipe fittings and high-pressure forged fittings including 45°/90° elbows, equal tees, reducers, and stub ends conforming to ASME B16.9 and B16.11."
+        materials={PIPE_FITTINGS_CATEGORIES}
+        isManufacturedInMumbai={isManufacturedInMumbai}
+        onNavigate={onNavigate}
+        onOpenQuoteModal={onOpenQuoteModal}
+      />
+    );
+  }
+
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedCards, setExpandedCards] = useState({});
   const [selectedMaterial, setSelectedMaterial] = useState(
-    materialSlug ? materialSlug.toLowerCase().trim() : 'all'
+    materialSlug.toLowerCase().trim()
   );
 
   useEffect(() => {
@@ -225,9 +242,36 @@ export default function PipeFittingsProductPage({
         </div>
       </section>
 
-      {/* 2. Main 9-Category Products Grid (Exact Match to Design System) */}
+      {/* 2. Main Products Grid */}
       <section className="fittings-grid-section">
         <div className="fittings-grid-container">
+          {/* SECTION C: HORIZONTAL AVAILABLE GRADES SECTION */}
+          {activeMaterialObj && filteredCategories.length > 0 && (
+            <div className="cat-horizontal-grades-section" aria-label="Available Grades">
+              <div className="horizontal-grades-header-row">
+                <div className="grades-row-left">
+                  <Layers size={15} className="grades-row-icon" />
+                  <h3 className="grades-row-title">Available Grades in {activeMaterialObj.name} Pipe Fittings</h3>
+                </div>
+                <span className="grades-row-hint">Click any grade to view detailed specifications</span>
+              </div>
+              <div className="horizontal-grades-chips-track">
+                {filteredCategories.flatMap(c => c.grades.map(g => ({ ...g, catSlug: c.slug }))).map((grade, gIdx) => (
+                  <button
+                    key={grade.id || grade.slug || `g-${gIdx}`}
+                    type="button"
+                    className="horizontal-grade-nav-pill"
+                    title={`View specifications for ${grade.name}`}
+                    onClick={(e) => handleGradeClick(e, grade.catSlug, grade.slug)}
+                  >
+                    <span className="pill-dot">•</span>
+                    <span className="pill-name">{grade.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           {filteredCategories.length > 0 ? (
             <div className="fittings-cards-grid">
               {filteredCategories.map((cat) => {

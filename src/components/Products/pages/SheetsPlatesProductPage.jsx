@@ -5,6 +5,7 @@ import {
   getSheetsPlatesMaterialList 
 } from '../../../data/sheetsPlatesCoilsData';
 import ProductMaterialFilterBar from '../ProductMaterialFilterBar';
+import CategoryMaterialListingView from '../CategoryMaterialListingView';
 import { Search, X, Layers, ShieldCheck, ChevronDown, ChevronUp, Sparkles, CheckCircle2, MapPin } from 'lucide-react';
 import './SheetsPlatesProductPage.css';
 
@@ -18,10 +19,26 @@ export default function SheetsPlatesProductPage({
   onNavigate,
   _onOpenQuoteModal 
 }) {
+  // If no material requested or 'all', display "Materials in Sheets & Plates" listing page
+  if (!materialSlug || materialSlug.toLowerCase().trim() === 'all') {
+    return (
+      <CategoryMaterialListingView
+        categorySlug="sheets-plates-coils"
+        categoryName="Sheets, Plates & Coils"
+        mainHeading="Materials in Sheets & Plates"
+        leadText="Cold-rolled sheets, hot-rolled pickled plates, and precision strip coils in stainless steel, boiler-quality carbon steel, chrome-moly, and corrosion-resistant alloys conforming to ASTM A240 and ASME SA240."
+        materials={SHEETS_PLATES_COILS_CATEGORIES}
+        isManufacturedInMumbai={isManufacturedInMumbai}
+        onNavigate={onNavigate}
+        onOpenQuoteModal={_onOpenQuoteModal}
+      />
+    );
+  }
+
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedCards, setExpandedCards] = useState({});
   const [selectedMaterial, setSelectedMaterial] = useState(
-    materialSlug ? materialSlug.toLowerCase().trim() : 'all'
+    materialSlug.toLowerCase().trim()
   );
 
   useEffect(() => {
@@ -227,9 +244,36 @@ export default function SheetsPlatesProductPage({
         </div>
       </section>
 
-      {/* 2. Main 7-Category Products Grid (3 Columns on Desktop, 2 on Tablet, 1 on Mobile) */}
+      {/* 2. Main Products Grid */}
       <section className="sheets-grid-section">
         <div className="sheets-grid-container">
+          {/* SECTION C: HORIZONTAL AVAILABLE GRADES SECTION */}
+          {activeMaterialObj && filteredCategories.length > 0 && (
+            <div className="cat-horizontal-grades-section" aria-label="Available Grades">
+              <div className="horizontal-grades-header-row">
+                <div className="grades-row-left">
+                  <Layers size={15} className="grades-row-icon" />
+                  <h3 className="grades-row-title">Available Grades in {activeMaterialObj.name} Sheets, Plates &amp; Coils</h3>
+                </div>
+                <span className="grades-row-hint">Click any grade to view detailed specifications</span>
+              </div>
+              <div className="horizontal-grades-chips-track">
+                {filteredCategories.flatMap(c => c.grades.map(g => ({ ...g, catSlug: c.slug }))).map((grade, gIdx) => (
+                  <button
+                    key={grade.id || grade.slug || `g-${gIdx}`}
+                    type="button"
+                    className="horizontal-grade-nav-pill"
+                    title={`View specifications for ${grade.name}`}
+                    onClick={(e) => handleGradeClick(e, grade.catSlug, grade.slug)}
+                  >
+                    <span className="pill-dot">•</span>
+                    <span className="pill-name">{grade.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           {filteredCategories.length > 0 ? (
             <div className="sheets-cards-grid">
               {filteredCategories.map((cat) => {

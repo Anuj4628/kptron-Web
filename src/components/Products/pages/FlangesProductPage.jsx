@@ -9,6 +9,7 @@ import {
   normalizeMaterialSlug 
 } from '../../../data/flangeTypesData';
 import FlangesSidebarNav from '../FlangesSidebarNav';
+import CategoryMaterialListingView from '../CategoryMaterialListingView';
 import { 
   Search, 
   X, 
@@ -25,16 +26,14 @@ import './FlangesProductPage.css';
 /**
  * Dedicated Flanges Product Section Page
  * 
- * 3-Level Flange Navigation & Material-Based Visual Presentation:
- * Level 1: Flange Materials (Stainless Steel, Carbon Steel, Alloy Steel, Inconel, Monel, Hastelloy, Nickel, Cu-Ni, Titanium)
- * Level 2: Types of Flanges (01 to 14) with authentic material-specific visuals
- * Level 3: Grades and Technical Specifications
- * 
- * SEO URL Support:
- * - /products/flanges
- * - /products/flanges/manufactured-in-mumbai
- * - /products/flanges/:material
- * - /products/flanges/:material/manufactured-in-mumbai
+ * - When materialSlug is null (/products/flanges):
+ *   Renders the "Materials in Flanges" Category Material Listing Page!
+ * - When materialSlug is provided (/products/flanges/:material):
+ *   Renders the Material Detail Page for that metal with:
+ *   1. Main material heading and specs
+ *   2. Dedicated "Types of Flanges" sidebar with material-specific imagery
+ *   3. Horizontal "Available Grades" section with clickable dark navy blue chips
+ *   4. Types of Flanges showcase grid
  */
 export default function FlangesProductPage({ 
   materialSlug = null, 
@@ -42,11 +41,27 @@ export default function FlangesProductPage({
   onNavigate, 
   _onOpenQuoteModal 
 }) {
+  // If no specific material is requested, show "Materials in Flanges" listing page
+  if (!materialSlug) {
+    return (
+      <CategoryMaterialListingView
+        categorySlug="flanges"
+        categoryName="Flanges"
+        mainHeading="Materials in Flanges"
+        leadText="Drop-forged and precision CNC machined industrial pipe flanges manufactured in accordance with ASME B16.5, ASME B16.47 Series A & B, DIN, and EN standards. Explore our inventory by metallurgical material classification below."
+        materials={FLANGES_CATEGORIES}
+        isManufacturedInMumbai={isManufacturedInMumbai}
+        onNavigate={onNavigate}
+        onOpenQuoteModal={_onOpenQuoteModal}
+      />
+    );
+  }
+
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedCards, setExpandedCards] = useState({});
   const [catalogViewTab, setCatalogViewTab] = useState('types'); // 'types' | 'grades'
   const [selectedMaterialSlug, setSelectedMaterialSlug] = useState(
-    materialSlug ? normalizeMaterialSlug(materialSlug) : 'carbon-steel'
+    normalizeMaterialSlug(materialSlug)
   );
 
   // Sync state if URL prop changes
@@ -315,6 +330,32 @@ export default function FlangesProductPage({
                     <BookmarkCheck size={16} />
                     <span>Certified Grades ({activeMaterialGrades.length})</span>
                   </button>
+                </div>
+              </div>
+
+              {/* SECTION C: HORIZONTAL AVAILABLE GRADES SECTION */}
+              <div className="flange-horizontal-grades-section" aria-label="Available Grades">
+                <div className="horizontal-grades-header-row">
+                  <div className="grades-row-left">
+                    <Layers size={15} className="grades-row-icon" />
+                    <h3 className="grades-row-title">Available Grades in {activeMaterial.name}</h3>
+                    <span className="grades-row-count">({activeMaterialGrades.length} Specifications)</span>
+                  </div>
+                  <span className="grades-row-hint">Click any grade to open dedicated specifications</span>
+                </div>
+                <div className="horizontal-grades-chips-track">
+                  {activeMaterialGrades.map((grade) => (
+                    <button
+                      key={grade.id || grade.slug}
+                      type="button"
+                      className="horizontal-grade-nav-pill"
+                      title={`View specifications for ${grade.name}`}
+                      onClick={() => handleGradeCardClick(grade.slug)}
+                    >
+                      <span className="pill-dot">•</span>
+                      <span className="pill-name">{grade.name}</span>
+                    </button>
+                  ))}
                 </div>
               </div>
 

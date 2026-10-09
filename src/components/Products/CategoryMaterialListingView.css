@@ -1,0 +1,516 @@
+/* ======================================================================
+   CATEGORY MATERIAL LISTING VIEW STYLES
+   Industrial B2B Aesthetic: White/light neutral background,
+   Dark Navy Blue typography, Red-Orange (#FF5B26) accents,
+   High-contrast dark navy clickable grade pills.
+   ====================================================================== */
+
+.cat-materials-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-family: inherit;
+  padding-bottom: 5rem;
+}
+
+/* Header Section */
+.cat-materials-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 3rem 1.5rem 2.5rem;
+}
+
+.cat-materials-header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Breadcrumb */
+.cat-materials-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #64748b;
+  margin-bottom: 1.25rem;
+}
+
+.cat-materials-breadcrumb .crumb-link {
+  color: #64748b;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.cat-materials-breadcrumb .crumb-link:hover {
+  color: #FF5B26;
+  text-decoration: underline;
+}
+
+.cat-materials-breadcrumb .crumb-sep {
+  color: #cbd5e1;
+  user-select: none;
+}
+
+.cat-materials-breadcrumb .crumb-current {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* Badge Row */
+.cat-materials-badge-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.cat-materials-badge-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0f172a;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+}
+
+.cat-materials-badge-mumbai {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background-color: #FF5B26;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+}
+
+.cat-materials-badge-count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* Main Heading */
+.cat-materials-main-heading {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.cat-materials-lead-text {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #475569;
+  max-width: 980px;
+  margin: 0 0 2rem;
+}
+
+/* Search Bar */
+.cat-materials-search-wrap {
+  max-width: 650px;
+}
+
+.cat-materials-search-box {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  gap: 0.6rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cat-materials-search-box:focus-within {
+  border-color: #FF5B26;
+  box-shadow: 0 0 0 3px rgba(255, 91, 38, 0.15);
+}
+
+.cat-materials-search-box .search-icon {
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.cat-materials-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  color: #0f172a;
+  background: transparent;
+}
+
+.cat-materials-search-input::placeholder {
+  color: #94a3b8;
+}
+
+.search-clear-btn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s ease;
+}
+
+.search-clear-btn:hover {
+  color: #0f172a;
+}
+
+.search-results-indicator {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Grid Section */
+.cat-materials-grid-section {
+  max-width: 1280px;
+  margin: 3rem auto 0;
+  padding: 0 1.5rem;
+}
+
+.cat-materials-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1080px) {
+  .cat-materials-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cat-materials-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Material Card */
+.cat-material-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+}
+
+.cat-material-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  border-color: #cbd5e1;
+}
+
+/* Top Accent Bar */
+.cat-material-card .card-top-accent {
+  height: 4px;
+  width: 100%;
+  background-color: #FF5B26;
+  transition: height 0.2s ease;
+}
+
+.cat-material-card:hover .card-top-accent {
+  height: 5px;
+}
+
+/* Card Image Frame */
+.cat-material-card .card-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background-color: #f1f5f9;
+  overflow: hidden;
+}
+
+.cat-material-card .card-material-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.cat-material-card:hover .card-material-img {
+  transform: scale(1.04);
+}
+
+.cat-material-card .card-img-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Card Body */
+.cat-material-card .card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cat-material-card .card-top-info {
+  margin-bottom: 1.25rem;
+}
+
+.cat-material-card .card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.cat-material-card:hover .card-title {
+  color: #FF5B26;
+}
+
+.cat-material-card .card-standards-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  margin-bottom: 0.75rem;
+}
+
+.cat-material-card .standards-label {
+  font-weight: 800;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.cat-material-card .standards-value {
+  color: #334155;
+  font-weight: 600;
+}
+
+.cat-material-card .card-desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #475569;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Available Grades Section */
+.cat-material-card .card-grades-section {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.cat-material-card .grades-header-row {
+  margin-bottom: 0.65rem;
+}
+
+.cat-material-card .grades-heading-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #0f172a;
+  text-transform: uppercase;
+}
+
+.cat-material-card .label-icon {
+  color: #FF5B26;
+}
+
+/* CRITICAL GRADE PILL STYLING:
+   Dark Navy Blue text (#0f172a), high contrast,
+   never pale or light blue! Independently clickable! */
+.cat-material-card .grades-pills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.65rem;
+}
+
+.material-grade-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #0f172a; /* DARK NAVY BLUE - strictly required */
+  font-size: 0.78rem;
+  font-weight: 700; /* bold readability */
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  user-select: none;
+  line-height: 1.2;
+}
+
+.material-grade-pill-btn:hover {
+  background-color: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.15);
+}
+
+.material-grade-pill-btn .pill-dot {
+  color: #FF5B26;
+  font-size: 0.95rem;
+  line-height: 0;
+  transition: color 0.18s ease;
+}
+
+.material-grade-pill-btn:hover .pill-dot {
+  color: #FF8F6B;
+}
+
+.material-grade-pill-btn .pill-text {
+  letter-spacing: -0.01em;
+}
+
+/* Expand / Collapse Button */
+.btn-toggle-grades {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  transition: color 0.15s ease;
+}
+
+.btn-toggle-grades:hover {
+  color: #FF5B26;
+}
+
+/* Card Footer Action Bar */
+.cat-material-card .card-footer-bar {
+  padding: 0.9rem 1.5rem;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.2s ease;
+}
+
+.cat-material-card:hover .card-footer-bar {
+  background: #f1f5f9;
+}
+
+.cat-material-card .card-action-text {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0f172a;
+  transition: color 0.2s ease;
+}
+
+.cat-material-card:hover .card-action-text {
+  color: #FF5B26;
+}
+
+.cat-material-card .card-arrow-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  transition: all 0.2s ease;
+}
+
+.cat-material-card:hover .card-arrow-circle {
+  background: #FF5B26;
+  border-color: #FF5B26;
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+/* Empty State */
+.cat-materials-empty-state {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.cat-materials-empty-state h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.cat-materials-empty-state p {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+.btn-reset-search {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.6rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-reset-search:hover {
+  background: #FF5B26;
+}

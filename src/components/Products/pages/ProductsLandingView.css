@@ -454,12 +454,12 @@
 
 .category-pill-btn {
   background: #F8FAFC;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #CBD5E1;
   border-radius: 4px;
-  padding: 0.3rem 0.55rem;
-  font-size: 0.74rem;
-  font-weight: 600;
-  color: #334155;
+  padding: 0.32rem 0.6rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #0F172A;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -475,9 +475,9 @@
 }
 
 .category-pill-btn:hover {
-  background: #FFF1EE;
-  border-color: #FF5B26;
-  color: #FF5B26;
+  background: #0F172A;
+  border-color: #0F172A;
+  color: #FFFFFF;
   transform: translateY(-1px);
 }
 

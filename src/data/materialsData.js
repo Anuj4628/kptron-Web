@@ -276,6 +276,7 @@ export const NAVBAR_MATERIALS_OPTIONS = [
   { id: 'stainless-steel', name: 'Stainless Steel', slug: 'stainless-steel', url: '/materials/stainless-steel' },
   { id: 'carbon-steel', name: 'Carbon Steel', slug: 'carbon-steel', url: '/materials/carbon-steel' },
   { id: 'alloy-steel', name: 'Alloy Steel', slug: 'alloy-steel', url: '/materials/alloy-steel' },
+  { id: 'duplex-steel', name: 'Duplex Steel', slug: 'duplex-steel', url: '/materials/duplex-steel' },
   { id: 'inconel', name: 'Inconel', slug: 'inconel', url: '/materials/inconel' },
   { id: 'monel', name: 'Monel', slug: 'monel', url: '/materials/monel' },
   { id: 'hastelloy', name: 'Hastelloy', slug: 'hastelloy', url: '/materials/hastelloy' },
@@ -283,6 +284,7 @@ export const NAVBAR_MATERIALS_OPTIONS = [
   { id: 'nickel', name: 'Nickel', slug: 'nickel-alloys', url: '/materials/nickel' },
   { id: 'copper-nickel', name: 'Copper Nickel', slug: 'copper-nickel', url: '/materials/copper-nickel' },
   { id: 'titanium', name: 'Titanium', slug: 'titanium', url: '/materials/titanium' },
+  { id: 'aluminum', name: 'Aluminium', slug: 'aluminum', url: '/materials/aluminum' },
   { id: 'is-grades', name: 'IS Grades', slug: 'is-grades', url: '/materials/is-grades' },
   { id: 'api-5l', name: 'API 5L', slug: 'api-5l', url: '/materials/api-5l' },
   { id: 'en-standards', name: 'EN Standards', slug: 'en-standards', url: '/materials/en-standards' }
@@ -469,7 +471,8 @@ function buildDynamicCatalog() {
   (FASTENERS_CATEGORIES || []).forEach(cat => {
     const slug = cat.slug;
     let matKeys = [];
-    if (slug === 'stainless-steel-fasteners') matKeys = ['stainless-steel'];
+    if (slug === 'carbon-steel-fasteners') matKeys = ['carbon-steel'];
+    else if (slug === 'stainless-steel-fasteners') matKeys = ['stainless-steel'];
     else if (slug === 'duplex-steel-fasteners') matKeys = ['duplex-steel', 'super-duplex-steel'];
     else if (slug === 'alloy-steel-fasteners') matKeys = ['alloy-steel'];
     else if (slug === 'inconel-fasteners') matKeys = ['inconel'];

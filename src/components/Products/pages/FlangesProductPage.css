@@ -583,6 +583,104 @@
 }
 
 /* ===================================================
+   Horizontal Available Grades Section
+   Dark Navy Blue typography, crisp clickable pills
+   =================================================== */
+.flange-horizontal-grades-section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.horizontal-grades-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.grades-row-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.grades-row-icon {
+  color: #FF5B26;
+}
+
+.grades-row-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.grades-row-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.grades-row-hint {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.horizontal-grades-chips-track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.horizontal-grade-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #0f172a; /* DARK NAVY BLUE - strictly required */
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  line-height: 1.2;
+}
+
+.horizontal-grade-nav-pill:hover {
+  background-color: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.18);
+}
+
+.horizontal-grade-nav-pill .pill-dot {
+  color: #FF5B26;
+  font-size: 0.95rem;
+  line-height: 0;
+}
+
+.horizontal-grade-nav-pill:hover .pill-dot {
+  color: #FF8F6B;
+}
+
+.horizontal-grade-nav-pill .pill-name {
+  letter-spacing: -0.01em;
+}
+
+/* ===================================================
    4. Responsive Adjustments
    =================================================== */
 @media (max-width: 1024px) {

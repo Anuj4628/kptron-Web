@@ -17,6 +17,8 @@ export const FLANGES_CATEGORIES = [
   {
     id: 'stainless-steel-flanges',
     slug: 'stainless-steel-flanges',
+    materialSlug: 'stainless-steel',
+    materialName: 'Stainless Steel',
     name: 'Stainless Steel Flanges',
     title: 'Stainless Steel Flanges',
     image: img_ss_flanges,
@@ -130,6 +132,8 @@ export const FLANGES_CATEGORIES = [
   {
     id: 'carbon-steel-flanges',
     slug: 'carbon-steel-flanges',
+    materialSlug: 'carbon-steel',
+    materialName: 'Carbon Steel',
     name: 'Carbon Steel Flanges',
     title: 'Carbon Steel Flanges',
     image: img_cs_flanges,
@@ -216,6 +220,8 @@ export const FLANGES_CATEGORIES = [
   {
     id: 'alloy-steel-flanges',
     slug: 'alloy-steel-flanges',
+    materialSlug: 'alloy-steel',
+    materialName: 'Alloy Steel',
     name: 'Alloy Steel Flanges',
     title: 'Alloy Steel Flanges',
     image: img_alloy_flanges,
@@ -327,6 +333,8 @@ export const FLANGES_CATEGORIES = [
   {
     id: 'inconel-flanges',
     slug: 'inconel-flanges',
+    materialSlug: 'inconel',
+    materialName: 'Inconel',
     name: 'Inconel Flanges',
     title: 'Inconel Flanges',
     image: img_inconel_flanges,
@@ -359,6 +367,8 @@ export const FLANGES_CATEGORIES = [
   {
     id: 'monel-flanges',
     slug: 'monel-flanges',
+    materialSlug: 'monel',
+    materialName: 'Monel',
     name: 'Monel Flanges',
     title: 'Monel Flanges',
     image: img_monel_flanges,
@@ -391,6 +401,8 @@ export const FLANGES_CATEGORIES = [
   {
     id: 'hastelloy-flanges',
     slug: 'hastelloy-flanges',
+    materialSlug: 'hastelloy',
+    materialName: 'Hastelloy',
     name: 'Hastelloy Flanges',
     title: 'Hastelloy Flanges',
     image: img_hastelloy_flanges,
@@ -423,6 +435,8 @@ export const FLANGES_CATEGORIES = [
   {
     id: 'nickel-flanges',
     slug: 'nickel-flanges',
+    materialSlug: 'nickel-alloys',
+    materialName: 'Nickel',
     name: 'Nickel Flanges',
     title: 'Nickel Flanges',
     image: img_nickel_flanges,
@@ -454,6 +468,8 @@ export const FLANGES_CATEGORIES = [
   {
     id: 'copper-nickel-flanges',
     slug: 'copper-nickel-flanges',
+    materialSlug: 'copper-nickel',
+    materialName: 'Copper Nickel',
     name: 'Copper Nickel Flanges',
     title: 'Copper Nickel Flanges',
     image: img_cu_ni_flanges,
@@ -486,6 +502,8 @@ export const FLANGES_CATEGORIES = [
   {
     id: 'titanium-flanges',
     slug: 'titanium-flanges',
+    materialSlug: 'titanium',
+    materialName: 'Titanium',
     name: 'Titanium Flanges',
     title: 'Titanium Flanges',
     image: img_titanium_flanges,

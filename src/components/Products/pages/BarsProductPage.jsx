@@ -5,6 +5,7 @@ import {
   getBarsMaterialList 
 } from '../../../data/barsData';
 import ProductMaterialFilterBar from '../ProductMaterialFilterBar';
+import CategoryMaterialListingView from '../CategoryMaterialListingView';
 import { Search, X, Layers, ChevronDown, ChevronUp, MapPin } from 'lucide-react';
 import './BarsProductPage.css';
 
@@ -18,10 +19,26 @@ export default function BarsProductPage({
   onNavigate, 
   onOpenQuoteModal 
 }) {
+  // If no material requested or 'all', display "Materials in Bars & Rods" listing page
+  if (!materialSlug || materialSlug.toLowerCase().trim() === 'all') {
+    return (
+      <CategoryMaterialListingView
+        categorySlug="bars"
+        categoryName="Bars & Rods"
+        mainHeading="Materials in Bars & Rods"
+        leadText="Precision cold drawn, centerless ground, and hot rolled solid round bars, hex shafts, and square profiles with tight diameter tolerances (h8/h9) and superior surface finishes conforming to ASTM A276 and ASTM A479."
+        materials={BARS_CATEGORIES}
+        isManufacturedInMumbai={isManufacturedInMumbai}
+        onNavigate={onNavigate}
+        onOpenQuoteModal={onOpenQuoteModal}
+      />
+    );
+  }
+
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedCards, setExpandedCards] = useState({});
   const [selectedMaterial, setSelectedMaterial] = useState(
-    materialSlug ? materialSlug.toLowerCase().trim() : 'all'
+    materialSlug.toLowerCase().trim()
   );
 
   useEffect(() => {
@@ -225,9 +242,36 @@ export default function BarsProductPage({
         </div>
       </section>
 
-      {/* 2. Main 11-Category Products Grid (Exact Match to Reference Screenshot) */}
+      {/* 2. Main Products Grid */}
       <section className="bars-grid-section">
         <div className="bars-grid-container">
+          {/* SECTION C: HORIZONTAL AVAILABLE GRADES SECTION */}
+          {activeMaterialObj && filteredCategories.length > 0 && (
+            <div className="cat-horizontal-grades-section" aria-label="Available Grades">
+              <div className="horizontal-grades-header-row">
+                <div className="grades-row-left">
+                  <Layers size={15} className="grades-row-icon" />
+                  <h3 className="grades-row-title">Available Grades in {activeMaterialObj.name} Bars &amp; Rods</h3>
+                </div>
+                <span className="grades-row-hint">Click any grade to view detailed specifications</span>
+              </div>
+              <div className="horizontal-grades-chips-track">
+                {filteredCategories.flatMap(c => c.grades.map(g => ({ ...g, catSlug: c.slug }))).map((grade, gIdx) => (
+                  <button
+                    key={grade.id || grade.slug || `g-${gIdx}`}
+                    type="button"
+                    className="horizontal-grade-nav-pill"
+                    title={`View specifications for ${grade.name}`}
+                    onClick={(e) => handleGradeClick(e, grade.catSlug, grade.slug)}
+                  >
+                    <span className="pill-dot">•</span>
+                    <span className="pill-name">{grade.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           {filteredCategories.length > 0 ? (
             <div className="bars-cards-grid">
               {filteredCategories.map((cat) => {
