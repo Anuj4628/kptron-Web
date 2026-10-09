@@ -106,9 +106,7 @@ function parseRoute(pathname = window.location.pathname) {
         }
         const cat = getPipeCategoryBySlug(p1);
         if (cat) {
-          if (p1 === cat.materialSlug || (cat.aliases && cat.aliases.includes(p1) && p1 !== cat.slug)) {
-            return { page: 'products', view: 'pipes-listing', materialSlug: cat.materialSlug || p1, isManufacturedInMumbai };
-          }
+          return { page: 'products', view: 'pipes-listing', materialSlug: cat.materialSlug || cat.slug || p1, isManufacturedInMumbai };
         }
         return { 
           page: 'products', 
@@ -150,9 +148,7 @@ function parseRoute(pathname = window.location.pathname) {
         }
         const cat = getSheetsPlatesCategoryBySlug(p1);
         if (cat) {
-          if (p1 === cat.materialSlug || (cat.aliases && cat.aliases.includes(p1) && p1 !== cat.slug)) {
-            return { page: 'products', view: 'sheets-plates-listing', materialSlug: cat.materialSlug || p1, isManufacturedInMumbai };
-          }
+          return { page: 'products', view: 'sheets-plates-listing', materialSlug: cat.materialSlug || cat.slug || p1, isManufacturedInMumbai };
         }
         return { 
           page: 'products', 
@@ -191,9 +187,7 @@ function parseRoute(pathname = window.location.pathname) {
         }
         const cat = getBarsCategoryBySlug(p1);
         if (cat) {
-          if (p1 === cat.materialSlug || (cat.aliases && cat.aliases.includes(p1) && p1 !== cat.slug)) {
-            return { page: 'products', view: 'bars-listing', materialSlug: cat.materialSlug || p1, isManufacturedInMumbai };
-          }
+          return { page: 'products', view: 'bars-listing', materialSlug: cat.materialSlug || cat.slug || p1, isManufacturedInMumbai };
         }
         return { 
           page: 'products', 
@@ -232,9 +226,7 @@ function parseRoute(pathname = window.location.pathname) {
         }
         const cat = getPipeFittingsCategoryBySlug(p1);
         if (cat) {
-          if (p1 === cat.materialSlug || (cat.aliases && cat.aliases.includes(p1) && p1 !== cat.slug)) {
-            return { page: 'products', view: 'pipe-fittings-listing', materialSlug: cat.materialSlug || p1, isManufacturedInMumbai };
-          }
+          return { page: 'products', view: 'pipe-fittings-listing', materialSlug: cat.materialSlug || cat.slug || p1, isManufacturedInMumbai };
         }
         return { 
           page: 'products', 
@@ -421,9 +413,7 @@ function parseRoute(pathname = window.location.pathname) {
         }
         const cat = getFastenersCategoryBySlug(p1);
         if (cat) {
-          if (p1 === cat.materialSlug || (cat.aliases && cat.aliases.includes(p1) && p1 !== cat.slug)) {
-            return { page: 'products', view: 'fasteners-listing', materialSlug: cat.materialSlug || p1, isManufacturedInMumbai };
-          }
+          return { page: 'products', view: 'fasteners-listing', materialSlug: cat.materialSlug || cat.slug || p1, isManufacturedInMumbai };
         }
         return { 
           page: 'products', 

@@ -93,8 +93,8 @@ export default function PipeFittingGradeDetailView({ categorySlug, gradeSlug, on
             <span className="crumb-sep">/</span>
             <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products/pipe-fittings')}>Pipe Fittings</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-link" onClick={() => onNavigate && onNavigate(`/products/pipe-fittings/${category.slug}`)}>
-              {category.name}
+            <span className="crumb-link" onClick={() => onNavigate && onNavigate(`/products/pipe-fittings/${category.materialSlug || category.slug}`)}>
+              {category.materialName || category.name}
             </span>
             <span className="crumb-sep">/</span>
             <span className="crumb-current">{grade.name}</span>
@@ -103,10 +103,10 @@ export default function PipeFittingGradeDetailView({ categorySlug, gradeSlug, on
           <button
             type="button"
             className="btn-back-to-fittings"
-            onClick={() => onNavigate && onNavigate('/products/pipe-fittings')}
+            onClick={() => onNavigate && onNavigate(`/products/pipe-fittings/${category.materialSlug || category.slug}`)}
           >
             <ArrowLeft size={15} />
-            <span>Back to All Pipe Fittings</span>
+            <span>Back to {category.materialName || category.name}</span>
           </button>
         </div>
       </section>

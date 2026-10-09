@@ -105,8 +105,8 @@ export default function PipeGradeDetailView({ categorySlug, gradeSlug, onNavigat
             <span className="crumb-sep">/</span>
             <span className="crumb-item" onClick={() => onNavigate && onNavigate('/products/pipes')}>Pipes</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-item" onClick={() => onNavigate && onNavigate(`/products/pipes/${category.slug}`)}>
-              {category.name}
+            <span className="crumb-item" onClick={() => onNavigate && onNavigate(`/products/pipes/${category.materialSlug || category.slug}`)}>
+              {category.materialName || category.name}
             </span>
             <span className="crumb-sep">/</span>
             <span className="crumb-current">{grade.name}</span>
@@ -115,10 +115,10 @@ export default function PipeGradeDetailView({ categorySlug, gradeSlug, onNavigat
           <button
             type="button"
             className="btn-back-category"
-            onClick={() => onNavigate && onNavigate('/products/pipes')}
+            onClick={() => onNavigate && onNavigate(`/products/pipes/${category.materialSlug || category.slug}`)}
           >
             <ArrowLeft size={15} />
-            <span>Back to All Pipes</span>
+            <span>Back to {category.materialName || category.name}</span>
           </button>
         </div>
       </div>

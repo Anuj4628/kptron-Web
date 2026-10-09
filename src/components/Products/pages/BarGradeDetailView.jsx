@@ -108,8 +108,8 @@ export default function BarGradeDetailView({ categorySlug, gradeSlug, onNavigate
               Bars
             </span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-item" onClick={() => onNavigate && onNavigate(`/products/bars/${category.slug}`)}>
-              {category.name}
+            <span className="crumb-item" onClick={() => onNavigate && onNavigate(`/products/bars/${category.materialSlug || category.slug}`)}>
+              {category.materialName || category.name}
             </span>
             <span className="crumb-sep">/</span>
             <span className="crumb-current">{grade.name}</span>
@@ -118,10 +118,10 @@ export default function BarGradeDetailView({ categorySlug, gradeSlug, onNavigate
           <button
             type="button"
             className="btn-back-category"
-            onClick={() => onNavigate && onNavigate('/products/bars')}
+            onClick={() => onNavigate && onNavigate(`/products/bars/${category.materialSlug || category.slug}`)}
           >
             <ArrowLeft size={16} />
-            <span>All Bars</span>
+            <span>Back to {category.materialName || category.name}</span>
           </button>
         </div>
       </div>

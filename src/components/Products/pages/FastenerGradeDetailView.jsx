@@ -92,8 +92,8 @@ export default function FastenerGradeDetailView({ categorySlug, gradeSlug, onNav
             <span className="crumb-sep">/</span>
             <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products/fasteners')}>Fasteners</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-link" onClick={() => onNavigate && onNavigate(`/products/fasteners/${category.slug}`)}>
-              {category.name}
+            <span className="crumb-link" onClick={() => onNavigate && onNavigate(`/products/fasteners/${category.materialSlug || category.slug}`)}>
+              {category.materialName || category.name}
             </span>
             <span className="crumb-sep">/</span>
             <span className="crumb-current">{grade.name}</span>
@@ -102,10 +102,10 @@ export default function FastenerGradeDetailView({ categorySlug, gradeSlug, onNav
           <button
             type="button"
             className="btn-back-to-fasteners"
-            onClick={() => onNavigate && onNavigate('/products/fasteners')}
+            onClick={() => onNavigate && onNavigate(`/products/fasteners/${category.materialSlug || category.slug}`)}
           >
             <ArrowLeft size={15} />
-            <span>Back to All Fasteners</span>
+            <span>Back to {category.materialName || category.name}</span>
           </button>
         </div>
       </section>

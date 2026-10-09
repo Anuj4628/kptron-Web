@@ -106,8 +106,8 @@ export default function SheetPlateGradeDetailView({ categorySlug, gradeSlug, onN
               Sheets, Plates &amp; Coils
             </span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-item" onClick={() => onNavigate && onNavigate(`/products/sheets-plates-coils/${category.slug}`)}>
-              {category.name}
+            <span className="crumb-item" onClick={() => onNavigate && onNavigate(`/products/sheets-plates-coils/${category.materialSlug || category.slug}`)}>
+              {category.materialName || category.name}
             </span>
             <span className="crumb-sep">/</span>
             <span className="crumb-current">{grade.name}</span>
@@ -116,10 +116,10 @@ export default function SheetPlateGradeDetailView({ categorySlug, gradeSlug, onN
           <button
             type="button"
             className="btn-back-category"
-            onClick={() => onNavigate && onNavigate('/products/sheets-plates-coils')}
+            onClick={() => onNavigate && onNavigate(`/products/sheets-plates-coils/${category.materialSlug || category.slug}`)}
           >
             <ArrowLeft size={16} />
-            <span>All Sheets, Plates &amp; Coils</span>
+            <span>Back to {category.materialName || category.name}</span>
           </button>
         </div>
       </div>
