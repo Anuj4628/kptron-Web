@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatProductUrl } from '../../utils/urlUtils';
 import './ProductBreadcrumb.css';
 
 /**
@@ -7,10 +8,10 @@ import './ProductBreadcrumb.css';
 export default function ProductBreadcrumb({ items = [], onNavigate }) {
   if (!items || items.length === 0) return null;
 
-  const handleClick = (e, item) => {
+  const handleClick = (e, targetUrl) => {
     e.preventDefault();
-    if (onNavigate && item.url) {
-      onNavigate(item.url);
+    if (onNavigate && targetUrl) {
+      onNavigate(formatProductUrl(targetUrl));
     }
   };
 
@@ -19,6 +20,9 @@ export default function ProductBreadcrumb({ items = [], onNavigate }) {
       <ol className="breadcrumb-list">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
+          const rawUrl = item.url || item.path;
+          const formattedUrl = rawUrl ? formatProductUrl(rawUrl) : null;
+
           return (
             <li
               key={item.label + index}
@@ -32,13 +36,13 @@ export default function ProductBreadcrumb({ items = [], onNavigate }) {
                   </svg>
                 </span>
               )}
-              {isLast || !item.url ? (
+              {isLast || !formattedUrl ? (
                 <span className="breadcrumb-current">{item.label}</span>
               ) : (
                 <a
-                  href={item.url}
+                  href={formattedUrl}
                   className="breadcrumb-link"
-                  onClick={(e) => handleClick(e, item)}
+                  onClick={(e) => handleClick(e, formattedUrl)}
                 >
                   {index === 0 && (
                     <svg className="home-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

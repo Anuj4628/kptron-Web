@@ -46,8 +46,10 @@ import {
   normalizeMaterialSlug, 
   normalizeFlangeTypeSlug,
   isFlangeGradeSlug,
-  normalizeFlangeGradeSlug 
+  normalizeFlangeGradeSlug,
+  matchFlangeTypeAndGrade
 } from './data/flangeTypesData';
+import { formatProductUrl, cleanProductSlug } from './utils/urlUtils';
 import { getFastenersCategoryBySlug } from './data/fastenersData';
 import { getPipeCategoryBySlug } from './data/pipesData';
 import { getSheetsPlatesCategoryBySlug } from './data/sheetsPlatesCoilsData';
@@ -59,8 +61,16 @@ import './App.css';
 /**
  * Route parser for native history-based client routing
  */
-function parseRoute(pathname = window.location.pathname) {
-  const cleanPath = (pathname || '').split('?')[0].split('#')[0];
+function parseRoute(pathname = (typeof window !== 'undefined' ? window.location.pathname : '')) {
+  let activePath = pathname;
+  if (typeof window !== 'undefined') {
+    const hash = window.location.hash;
+    if (hash && (hash.startsWith('#products') || hash.startsWith('#/products') || hash.startsWith('#category') || hash.startsWith('#/category'))) {
+      activePath = hash.replace(/^#\/?/, '/');
+    }
+  }
+
+  const cleanPath = (activePath || '').split('?')[0].split('#')[0];
   const clean = cleanPath.toLowerCase();
 
   if (clean.includes('about')) {
@@ -84,9 +94,17 @@ function parseRoute(pathname = window.location.pathname) {
 
   if (clean.startsWith('/products')) {
     const raw = cleanPath.replace(/^\/products\/?/i, '');
-    const rawParts = raw.split('/').filter(Boolean);
-    const isManufacturedInMumbai = rawParts.some(p => p.toLowerCase() === 'manufactured-in-mumbai');
-    const parts = rawParts.filter(p => p.toLowerCase() !== 'manufactured-in-mumbai');
+    let rawParts = raw.split('/').filter(Boolean);
+
+    // If first segment is 'category', e.g. /products/category/...
+    if (rawParts.length > 0 && rawParts[0].toLowerCase() === 'category') {
+      rawParts.shift();
+    }
+
+    const isManufacturedInMumbai = clean.includes('manufactured-in-mumbai');
+    const parts = rawParts
+      .filter(p => p.toLowerCase() !== 'manufactured-in-mumbai')
+      .map(p => cleanProductSlug(p));
 
     if (parts.length === 0) {
       return { page: 'products', view: 'landing', isManufacturedInMumbai };
@@ -331,6 +349,19 @@ function parseRoute(pathname = window.location.pathname) {
             materialSlug: normMat,
             categorySlug: p1, 
             gradeSlug: normalizeFlangeGradeSlug(normMat, p2),
+            isManufacturedInMumbai
+          };
+        }
+
+        // Case: /products/flanges/:material/:typeSlug-:gradeSlug (e.g. threaded-flange-316l)
+        const combo = matchFlangeTypeAndGrade(normMat, p2);
+        if (combo) {
+          return {
+            page: 'products',
+            view: 'flange-type-detail',
+            materialSlug: normMat,
+            typeSlug: combo.typeSlug,
+            gradeSlug: combo.gradeSlug,
             isManufacturedInMumbai
           };
         }
@@ -588,10 +619,11 @@ export default function App() {
   const navigateTo = useCallback((target, param = null) => {
     // If target is a path string starting with '/'
     if (typeof target === 'string' && target.startsWith('/')) {
-      const cleanPath = target.split('?')[0].split('#')[0];
-      const targetQuery = target.includes('?') ? '?' + target.split('?')[1] : '';
+      const formattedTarget = formatProductUrl(target);
+      const cleanPath = formattedTarget.split('?')[0].split('#')[0];
+      const targetQuery = formattedTarget.includes('?') ? '?' + formattedTarget.split('?')[1] : '';
       if (window.location.pathname !== cleanPath || window.location.search !== targetQuery) {
-        window.history.pushState({}, '', target);
+        window.history.pushState({}, '', formattedTarget);
       }
       setRoute(parseRoute(cleanPath));
       window.scrollTo({ top: 0, behavior: 'instant' });
@@ -627,7 +659,8 @@ export default function App() {
     }
 
     if (target === 'products') {
-      const dest = param ? (param.startsWith('/') ? param : `/products/${param}`) : '/products';
+      const rawDest = param ? (param.startsWith('/') ? param : `/products/${param}`) : '/products';
+      const dest = formatProductUrl(rawDest);
       if (window.location.pathname !== dest) {
         window.history.pushState({ page: 'products' }, '', dest);
       }
@@ -685,6 +718,19 @@ export default function App() {
 
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Normalize initial address bar URL to SEO format if landing on a product route
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const currentPath = window.location.pathname;
+      if (currentPath.startsWith('/products') && currentPath !== '/products' && !currentPath.includes('manufactured-in-mumbai')) {
+        const formatted = formatProductUrl(currentPath + window.location.search + window.location.hash);
+        if (formatted !== currentPath) {
+          window.history.replaceState({}, '', formatted);
+        }
+      }
+    }
   }, []);
 
   // Idle preloading of secondary route bundles once initial page load is quiet

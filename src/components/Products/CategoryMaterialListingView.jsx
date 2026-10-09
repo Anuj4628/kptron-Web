@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Search, X, ShieldCheck, Layers, ChevronDown, ChevronUp, ArrowRight, MapPin } from 'lucide-react';
+import { formatProductUrl } from '../../utils/urlUtils';
 import './CategoryMaterialListingView.css';
 
 /**
@@ -109,9 +110,7 @@ export default function CategoryMaterialListingView({
   // Click handler for parent material card -> Opens material detail page
   const handleCardClick = (mat) => {
     const matSlug = mat.materialSlug || mat.slug.replace(/-(flanges|pipe|pipes|bars|bar|pipe-fittings|fasteners|sheets-plates-coils)$/, '');
-    const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
-    const targetUrl = `/products/${categorySlug}/${matSlug}${suffix}`;
+    const targetUrl = formatProductUrl(`/products/${categorySlug}/${matSlug}`);
     if (onNavigate) {
       onNavigate(targetUrl);
     }
@@ -125,9 +124,7 @@ export default function CategoryMaterialListingView({
       ? grade.toLowerCase().replace(/[^a-z0-9]+/g, '-')
       : (grade.slug || grade.id || (grade.name ? grade.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') : ''));
 
-    const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
-    const targetUrl = `/products/${categorySlug}/${matSlug}/${gradeSlug}${suffix}`;
+    const targetUrl = formatProductUrl(`/products/${categorySlug}/${matSlug}/${gradeSlug}`);
     if (onNavigate) {
       onNavigate(targetUrl);
     }

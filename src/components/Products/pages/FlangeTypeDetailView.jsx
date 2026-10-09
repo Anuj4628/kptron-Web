@@ -24,6 +24,7 @@ import {
   Check,
   MapPin
 } from 'lucide-react';
+import { formatProductUrl } from '../../../utils/urlUtils';
 import './FlangeTypeDetailView.css';
 
 /**
@@ -134,23 +135,19 @@ export default function FlangeTypeDetailView({
 
   const handleSelectGrade = (targetGradeSlug) => {
     if (!onNavigate) return;
-    const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
     if (targetGradeSlug) {
-      onNavigate(`/products/flanges/${normMatSlug}/${normTypeSlug}/${targetGradeSlug}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${normMatSlug}/${normTypeSlug}/${targetGradeSlug}`));
     } else {
-      onNavigate(`/products/flanges/${normMatSlug}/${normTypeSlug}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${normMatSlug}/${normTypeSlug}`));
     }
   };
 
   const handleSelectRelatedType = (relTypeSlug) => {
     if (!onNavigate) return;
-    const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
     if (normGradeSlug) {
-      onNavigate(`/products/flanges/${normMatSlug}/${relTypeSlug}/${normGradeSlug}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${normMatSlug}/${relTypeSlug}/${normGradeSlug}`));
     } else {
-      onNavigate(`/products/flanges/${normMatSlug}/${relTypeSlug}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${normMatSlug}/${relTypeSlug}`));
     }
   };
 
@@ -162,7 +159,7 @@ export default function FlangeTypeDetailView({
         <button 
           type="button" 
           className="btn-back-catalog" 
-          onClick={() => onNavigate && onNavigate('/products/flanges')}
+          onClick={() => onNavigate && onNavigate(formatProductUrl('/products/flanges'))}
         >
           <ArrowLeft size={16} />
           <span>Return to Flanges Catalog</span>
@@ -181,9 +178,9 @@ export default function FlangeTypeDetailView({
             <span className="crumb-sep">/</span>
             <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products')}>Products</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products/flanges')}>Flanges</span>
+            <span className="crumb-link" onClick={() => onNavigate && onNavigate(formatProductUrl('/products/flanges'))}>Flanges</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-link" onClick={() => onNavigate && onNavigate(`/products/flanges/${material.slug}`)}>
+            <span className="crumb-link" onClick={() => onNavigate && onNavigate(formatProductUrl(`/products/flanges/${material.slug}`))}>
               {material.name}
             </span>
             <span className="crumb-sep">/</span>
@@ -191,7 +188,7 @@ export default function FlangeTypeDetailView({
               <>
                 <span 
                   className="crumb-link" 
-                  onClick={() => onNavigate && onNavigate(`/products/flanges/${material.slug}/${detail.typeSlug}`)}
+                  onClick={() => onNavigate && onNavigate(formatProductUrl(`/products/flanges/${material.slug}/${detail.typeSlug}`))}
                 >
                   {detail.typeName}
                 </span>
@@ -474,7 +471,7 @@ export default function FlangeTypeDetailView({
                   <div className="rfq-icon-wrap">
                     <FileText size={22} />
                   </div>
-                  <div>
+                  <div className="rfq-header-text">
                     <h3 className="rfq-title">Direct Procurement RFQ — {detail.fullName}</h3>
                     <p className="rfq-subtitle">Submit your exact size, pressure class, schedule, and quantity for guaranteed mill-direct export pricing within 2 hours.</p>
                   </div>
@@ -494,14 +491,15 @@ export default function FlangeTypeDetailView({
                       <div className="rfq-error-alert">{submitError}</div>
                     )}
 
-                    <div className="form-row-grid">
-                      <div className="form-group">
-                        <label htmlFor="user-name">Full Name *</label>
-                        <div className="input-wrap">
-                          <User size={15} className="input-icon" />
+                    <div className="rfq-form-row-grid">
+                      <div className="rfq-field-group">
+                        <label htmlFor="user-name" className="rfq-field-label">Full Name <span className="rfq-req-star">*</span></label>
+                        <div className="rfq-input-wrap">
+                          <User size={16} className="rfq-input-icon" />
                           <input
                             id="user-name"
                             type="text"
+                            className="rfq-field-input"
                             placeholder="e.g. John Doe"
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -510,13 +508,14 @@ export default function FlangeTypeDetailView({
                         </div>
                       </div>
 
-                      <div className="form-group">
-                        <label htmlFor="user-email">Corporate Email *</label>
-                        <div className="input-wrap">
-                          <Mail size={15} className="input-icon" />
+                      <div className="rfq-field-group">
+                        <label htmlFor="user-email" className="rfq-field-label">Corporate Email <span className="rfq-req-star">*</span></label>
+                        <div className="rfq-input-wrap">
+                          <Mail size={16} className="rfq-input-icon" />
                           <input
                             id="user-email"
                             type="email"
+                            className="rfq-field-input"
                             placeholder="e.g. purchasing@energycorp.com"
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -526,14 +525,15 @@ export default function FlangeTypeDetailView({
                       </div>
                     </div>
 
-                    <div className="form-row-grid">
-                      <div className="form-group">
-                        <label htmlFor="user-phone">Phone / WhatsApp</label>
-                        <div className="input-wrap">
-                          <PhoneCall size={15} className="input-icon" />
+                    <div className="rfq-form-row-grid">
+                      <div className="rfq-field-group">
+                        <label htmlFor="user-phone" className="rfq-field-label">Phone / WhatsApp</label>
+                        <div className="rfq-input-wrap">
+                          <PhoneCall size={16} className="rfq-input-icon" />
                           <input
                             id="user-phone"
                             type="tel"
+                            className="rfq-field-input"
                             placeholder="e.g. +1 555 019 2834"
                             value={formData.phone}
                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -541,13 +541,14 @@ export default function FlangeTypeDetailView({
                         </div>
                       </div>
 
-                      <div className="form-group">
-                        <label htmlFor="user-qty">Estimated Quantity / Sizes</label>
-                        <div className="input-wrap">
-                          <Layers size={15} className="input-icon" />
+                      <div className="rfq-field-group">
+                        <label htmlFor="user-qty" className="rfq-field-label">Estimated Quantity / Sizes</label>
+                        <div className="rfq-input-wrap">
+                          <Layers size={16} className="rfq-input-icon" />
                           <input
                             id="user-qty"
                             type="text"
+                            className="rfq-field-input"
                             placeholder='e.g. 50 pcs 4" Class 300 WNRF'
                             value={formData.quantity}
                             onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
@@ -556,30 +557,39 @@ export default function FlangeTypeDetailView({
                       </div>
                     </div>
 
-                    <div className="form-group">
-                      <label htmlFor="user-notes">Project Specifications / Additional Notes</label>
+                    <div className="rfq-field-group">
+                      <label htmlFor="user-notes" className="rfq-field-label">Project Specifications / Additional Notes</label>
                       <textarea
                         id="user-notes"
                         rows="3"
+                        className="rfq-field-textarea"
                         placeholder="Specify required wall thickness (e.g. Sch 40/80), facing roughness (125-250 AARH), coating requirements, or third-party inspection (TUV/SGS/Lloyds)..."
                         value={formData.notes}
                         onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                       />
                     </div>
 
-                    <button
-                      type="submit"
-                      className="btn-submit-rfq"
-                      disabled={isSubmitting}
-                    >
-                      <Send size={15} />
-                      <span>{isSubmitting ? 'Transmitting Request...' : `Submit Quote Request for ${detail.fullName}`}</span>
-                    </button>
+                    <div className="rfq-submit-container">
+                      <button
+                        type="submit"
+                        className="rfq-btn-submit"
+                        disabled={isSubmitting}
+                      >
+                        <Send size={16} />
+                        <span>{isSubmitting ? 'Transmitting Request...' : `Submit Quote Request for ${detail.fullName}`}</span>
+                      </button>
+
+                      <div className="rfq-guarantee-strip">
+                        <span className="rfq-guar-item"><CheckCircle2 size={13} /> 2-Hour Response Guarantee</span>
+                        <span className="rfq-guar-item"><CheckCircle2 size={13} /> EN 10204 3.1 & 3.2 MTC</span>
+                        <span className="rfq-guar-item"><CheckCircle2 size={13} /> Mill-Direct Export Rates</span>
+                      </div>
+                    </div>
                   </form>
                 )}
               </article>
 
-              {/* Related Flange Types Grid */}
+              {/* Related Flange Types Grid (Compact & Perfectly Sized) */}
               <article className="type-related-card">
                 <div className="card-header-bar">
                   <h2 className="overview-heading">
@@ -589,26 +599,29 @@ export default function FlangeTypeDetailView({
                   </h2>
                 </div>
 
-                <div className="related-cards-grid">
+                <div className="type-related-grid">
                   {relatedTypes.map((rel) => (
                     <div
                       key={rel.id}
-                      className="related-item-card"
+                      className="type-related-card-item"
                       onClick={() => handleSelectRelatedType(rel.slug)}
+                      title={`View specifications for ${rel.name}`}
                     >
-                      <img
-                        src={rel.displayImage}
-                        alt={`${detail.materialName} ${rel.name}`}
-                        className="related-img"
-                        loading="lazy"
-                      />
-                      <div className="related-item-body">
-                        <span className="related-num">TYPE {rel.number}</span>
-                        <h4 className="related-title">{rel.name}</h4>
-                        <p className="related-sub">{rel.categoryClassification}</p>
-                        <div className="related-link-row">
-                          <span>View {rel.name}</span>
-                          <ArrowRight size={13} />
+                      <div className="type-related-thumb-box">
+                        <img
+                          src={rel.displayImage}
+                          alt={`${detail.materialName} ${rel.name}`}
+                          className="type-related-thumb-img"
+                          loading="lazy"
+                        />
+                        <span className="type-related-num-badge">TYPE {rel.number}</span>
+                      </div>
+                      <div className="type-related-item-body">
+                        <h4 className="type-related-title">{rel.name}</h4>
+                        <p className="type-related-sub">{rel.categoryClassification}</p>
+                        <div className="type-related-link-row">
+                          <span>View Specs</span>
+                          <ArrowRight size={12} />
                         </div>
                       </div>
                     </div>

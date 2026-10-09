@@ -17,7 +17,7 @@
 }
 
 .cat-mat-container {
-  max-width: 1320px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.5rem;
   box-sizing: border-box;
@@ -494,12 +494,13 @@
 }
 
 .spec-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 0.75rem;
   align-items: baseline;
-  gap: 0.5rem;
-  font-size: 0.8rem;
-  line-height: 1.4;
-  flex-wrap: wrap;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  padding: 0.2rem 0;
 }
 
 .spec-label {
@@ -509,13 +510,14 @@
 }
 
 .spec-value {
-  color: #475569;
+  color: #334155;
   font-weight: 500;
 }
 
 .spec-item.full-width {
+  display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 
 .spec-forms-pills {

@@ -13,6 +13,7 @@ import {
   PhoneCall,
   Send
 } from 'lucide-react';
+import { formatProductUrl } from '../../utils/urlUtils';
 import './CategoryMaterialDetailView.css';
 
 /**
@@ -102,17 +103,13 @@ export default function CategoryMaterialDetailView({
   const handleSidebarClick = (mat) => {
     if (!onNavigate) return;
     const targetSlug = mat.materialSlug || mat.slug;
-    const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
-    onNavigate(`/products/${categorySlug}/${targetSlug}${suffix}`);
+    onNavigate(formatProductUrl(`/products/${categorySlug}/${targetSlug}`));
   };
 
   const handleGradeClick = (grade) => {
     if (!onNavigate) return;
-    const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
     const gradeSlug = grade.slug || grade.id;
-    onNavigate(`/products/${categorySlug}/${currentCategory.slug}/${gradeSlug}${suffix}`);
+    onNavigate(formatProductUrl(`/products/${categorySlug}/${currentCategory.slug}/${gradeSlug}`));
   };
 
   const handleOpenQuote = () => {
@@ -138,7 +135,7 @@ export default function CategoryMaterialDetailView({
               <span className="crumb-sep">/</span>
               <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products')}>Products</span>
               <span className="crumb-sep">/</span>
-              <span className="crumb-link" onClick={() => onNavigate && onNavigate(`/products/${categorySlug}`)}>
+              <span className="crumb-link" onClick={() => onNavigate && onNavigate(formatProductUrl(`/products/${categorySlug}`))}>
                 {categoryName}
               </span>
               <span className="crumb-sep">/</span>
@@ -148,9 +145,7 @@ export default function CategoryMaterialDetailView({
             <button
               type="button"
               className="btn-back-to-materials"
-              onClick={() => onNavigate && onNavigate(`/products/${categorySlug}`)}
-              title={`Return to all ${categoryName} materials`}
-            >
+              onClick={() => onNavigate && onNavigate(formatProductUrl(`/products/${categorySlug}`))}>
               <ArrowLeft size={14} />
               <span>Back to Materials in {categoryName}</span>
             </button>

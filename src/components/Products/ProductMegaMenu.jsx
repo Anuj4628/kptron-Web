@@ -16,32 +16,32 @@ export const NAVBAR_PRODUCTS_OPTIONS = [
   {
     id: 'pipes',
     name: 'PIPES',
-    url: '/products/pipes'
+    url: '/products/pipes-manufactured-in-mumbai'
   },
   {
     id: 'sheets-plates-coils',
     name: 'SHEETS, PLATES, COILS',
-    url: '/products/sheets-and-plates'
+    url: '/products/sheets-and-plates-manufactured-in-mumbai'
   },
   {
     id: 'bars',
     name: 'BARS',
-    url: '/products/bars'
+    url: '/products/bars-manufactured-in-mumbai'
   },
   {
     id: 'pipe-fittings',
     name: 'PIPE FITTINGS',
-    url: '/products/pipe-fittings'
+    url: '/products/pipe-fittings-manufactured-in-mumbai'
   },
   {
     id: 'flanges',
     name: 'FLANGES',
-    url: '/products/flanges'
+    url: '/products/flanges-manufactured-in-mumbai'
   },
   {
     id: 'fasteners',
     name: 'FASTENERS',
-    url: '/products/fasteners'
+    url: '/products/fasteners-manufactured-in-mumbai'
   }
 ];
 

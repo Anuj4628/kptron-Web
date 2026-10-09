@@ -9,7 +9,6 @@ import {
   normalizeMaterialSlug 
 } from '../../../data/flangeTypesData';
 import FlangesSidebarNav from '../FlangesSidebarNav';
-import CategoryMaterialListingView from '../CategoryMaterialListingView';
 import { 
   Search, 
   X, 
@@ -21,6 +20,7 @@ import {
   ShieldCheck,
   MapPin
 } from 'lucide-react';
+import { formatProductUrl } from '../../../utils/urlUtils';
 import './FlangesProductPage.css';
 
 /**
@@ -158,34 +158,26 @@ export default function FlangesProductPage({
     const norm = normalizeMaterialSlug(catSlug);
     setSelectedMaterialSlug(norm);
     if (onNavigate) {
-      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
-      onNavigate(`/products/flanges/${norm}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${norm}`));
     }
   };
 
   const handleTypeCardClick = (typeSlug) => {
     if (onNavigate) {
-      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
-      onNavigate(`/products/flanges/${selectedMaterialSlug}/${typeSlug}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${selectedMaterialSlug}/${typeSlug}`));
     }
   };
 
   const handleTypeWithGradeClick = (e, typeSlug, gradeSlug) => {
     e.stopPropagation();
     if (onNavigate) {
-      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
-      onNavigate(`/products/flanges/${selectedMaterialSlug}/${typeSlug}/${gradeSlug}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${selectedMaterialSlug}/${typeSlug}/${gradeSlug}`));
     }
   };
 
   const handleGradeCardClick = (gradeSlug) => {
     if (onNavigate) {
-      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
-      onNavigate(`/products/flanges/${selectedMaterialSlug}/grades/${gradeSlug}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${selectedMaterialSlug}/grades/${gradeSlug}`));
     }
   };
 
@@ -680,9 +672,7 @@ export default function FlangesProductPage({
                                       onClick={(e) => {
                                         e.stopPropagation();
                                         if (onNavigate) {
-                                          const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-                                          const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
-                                          onNavigate(`/products/flanges/${normSlug}/grades/${gradeSlug}${suffix}`);
+                                          onNavigate(formatProductUrl(`/products/flanges/${normSlug}/grades/${gradeSlug}`));
                                         }
                                       }}
                                     >

@@ -1,16 +1,16 @@
 import React from 'react';
 import { brandDetails } from '../../data/navigationData';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  ArrowUp, 
-  ShieldCheck, 
-  Award, 
-  ArrowUpRight, 
-  ChevronRight, 
-  Globe2, 
-  FileCheck2 
+import {
+  MapPin,
+  Phone,
+  Mail,
+  ArrowUp,
+  ShieldCheck,
+  Award,
+  ArrowUpRight,
+  ChevronRight,
+  Globe2,
+  FileCheck2
 } from 'lucide-react';
 import './Footer.css';
 
@@ -40,7 +40,7 @@ export default function Footer({ onNavigate }) {
       </div>
 
       <div className="footer-container">
-        
+
         {/* ===================================================
             1. TOP CTA & INDUSTRIAL STATEMENT BANNER
             =================================================== */}
@@ -121,7 +121,7 @@ export default function Footer({ onNavigate }) {
             3. MAIN INDUSTRIAL INFORMATION CONSOLE
             =================================================== */}
         <div className="footer-main-console">
-          
+
           {/* Brand & Corporate Trust Section */}
           <div className="footer-brand-section">
             <a
@@ -175,7 +175,7 @@ export default function Footer({ onNavigate }) {
 
           {/* Navigation & Products Columns */}
           <div className="footer-nav-section">
-            
+
             {/* Column 1: Quick Links */}
             <div className="footer-nav-col">
               <div className="nav-col-header">
@@ -290,7 +290,7 @@ export default function Footer({ onNavigate }) {
               </div>
 
               <div className="console-items-stack">
-                
+
                 {/* Phones */}
                 <div className="console-entry">
                   <div className="entry-icon-box">
@@ -371,7 +371,7 @@ export default function Footer({ onNavigate }) {
             4. REFINED BOTTOM BAR & LEGAL DOCK
             =================================================== */}
         <div className="footer-bottom-dock">
-          
+
           <div className="bottom-dock-legal-block">
             <p className="bottom-copyright">
               &copy; {new Date().getFullYear()} <strong>KPTRON Piping Solutions Inc.</strong> All rights reserved.
@@ -380,6 +380,17 @@ export default function Footer({ onNavigate }) {
               <FileCheck2 size={13} className="bottom-tag-icon" />
               <span>AN ISO 9001:2015 & IBR REGISTERED ENTERPRISE</span>
             </div>
+            <p className="footer-credit-line">
+              Design and SEO by{' '}
+              <a
+                href="https://sunmargindia.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-credit-link"
+              >
+                Sunmark India
+              </a>
+            </p>
           </div>
 
           <div className="bottom-dock-links">

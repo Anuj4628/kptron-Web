@@ -19,7 +19,7 @@
 }
 
 .detail-nav-container {
-  max-width: 1240px;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -85,14 +85,14 @@
    2. Main Layout (Left: Technical Content, Right: Sidebar)
    =================================================== */
 .detail-layout-section {
-  max-width: 1240px;
+  max-width: 1280px;
   margin: 2rem auto 0;
   padding: 0 1.5rem;
 }
 
 .detail-grade-wrapper-grid {
   display: grid;
-  grid-template-columns: 310px 1fr;
+  grid-template-columns: 300px minmax(0, 1fr);
   gap: 2rem;
   align-items: start;
 }
@@ -103,10 +103,10 @@
 }
 
 .detail-layout-container {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
-  gap: 1.75rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0;
 }
 
 .detail-main-column {
@@ -279,26 +279,51 @@
 .specs-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.86rem;
+  font-size: 0.88rem;
+  table-layout: fixed;
 }
 
 .specs-table tr {
-  border-bottom: 1px solid #F1F5F9;
+  border-bottom: 1px solid #E2E8F0;
+  transition: background-color 0.1s ease;
+}
+
+.specs-table tr:last-child {
+  border-bottom: none;
+}
+
+.specs-table tr:hover th {
+  background-color: #F1F5F9;
+}
+
+.specs-table tr:hover td {
+  background-color: #FAFAFA;
 }
 
 .specs-table th {
   text-align: left;
-  padding: 0.75rem 1rem 0.75rem 0;
-  color: #64748B;
-  font-weight: 600;
-  width: 38%;
+  padding: 0.9rem 1.25rem;
+  background: #F8FAFC;
+  color: #0F172A;
+  font-weight: 700;
+  font-size: 0.84rem;
+  width: 32%;
+  min-width: 180px;
+  max-width: 250px;
   vertical-align: top;
+  border-right: 1px solid #E2E8F0;
+  line-height: 1.45;
+  word-break: break-word;
 }
 
 .specs-table td {
-  padding: 0.75rem 0;
-  color: #0B192C;
-  font-weight: 600;
+  padding: 0.9rem 1.25rem;
+  color: #334155;
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.55;
+  vertical-align: top;
+  word-break: break-word;
 }
 
 /* Available Forms Grid */
@@ -479,9 +504,9 @@
 }
 
 .form-field label {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 750;
-  color: #334155;
+  color: #0F172A;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -494,49 +519,53 @@
 
 .field-icon {
   position: absolute;
-  left: 0.75rem;
-  color: #94A3B8;
+  left: 0.85rem;
+  color: #2563EB;
   pointer-events: none;
 }
 
 .input-with-icon input {
-  padding-left: 2.25rem !important;
+  padding-left: 2.5rem !important;
 }
 
 .form-field input,
 .form-field textarea {
   width: 100%;
-  border: 1px solid #CBD5E1;
-  border-radius: 6px;
-  padding: 0.65rem 0.75rem;
-  font-size: 0.85rem;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 8px;
+  padding: 0.75rem 0.95rem;
+  font-size: 0.88rem;
+  font-weight: 550;
   font-family: inherit;
-  color: #1E293B;
-  background: #FFFFFF;
+  color: #0F172A;
+  background: #F8FAFC;
   outline: none;
-  transition: border-color 0.14s ease, box-shadow 0.14s ease;
+  transition: all 0.18s ease;
+  box-sizing: border-box;
 }
 
 .form-field input::placeholder,
 .form-field textarea::placeholder {
   color: #94A3B8;
+  font-weight: 400;
 }
 
 .form-field input:focus,
 .form-field textarea:focus {
-  border-color: #172E54;
-  box-shadow: 0 0 0 3px rgba(23, 46, 84, 0.08);
+  background: #FFFFFF;
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3.5px rgba(37, 99, 235, 0.16);
 }
 
 .btn-submit-rfq {
-  background: #FF5B26;
+  background: linear-gradient(135deg, #1F3862 0%, #2563EB 100%);
   color: #FFFFFF;
   border: none;
-  border-radius: 6px;
-  padding: 0.85rem 1.15rem;
+  border-radius: 8px;
+  padding: 0.9rem 1.25rem;
   font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.82rem;
-  font-weight: 750;
+  font-size: 0.84rem;
+  font-weight: 800;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   cursor: pointer;
@@ -545,15 +574,15 @@
   justify-content: space-between;
   gap: 0.5rem;
   width: 100%;
-  margin-top: 0.35rem;
-  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 4px 12px rgba(255, 91, 38, 0.25);
+  margin-top: 0.45rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 18px rgba(31, 56, 98, 0.28);
 }
 
 .btn-submit-rfq:hover {
-  background: #E04818;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(255, 91, 38, 0.32);
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.38);
 }
 
 .form-success-banner {

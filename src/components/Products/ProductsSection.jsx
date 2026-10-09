@@ -4,10 +4,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ShieldCheck, Layers, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 
 // Authentic images for the 6 core product divisions
-import img_pipes from '../../assets/New Product img/Pipes/alloy-steel-pipes.jpg';
-import img_sheets from '../../assets/New Product img/sheet plates coil/ss-sheet.jpg';
-import img_bars from '../../assets/New Product img/Bars/ss-bars.jpg';
-import img_fittings from '../../assets/New Product img/pipe fittings/ss-pipe-fittings.jpg';
+import img_pipes from '../../assets/New Product img/Pipes/pipes-showcase.jpg';
+import img_sheets from '../../assets/New Product img/sheet plates coil/sheets-plates-showcase.png';
+import img_bars from '../../assets/New Product img/Bars/bars-showcase.png';
+import img_fittings from '../../assets/New Product img/pipe fittings/fittings-showcase.jpg';
 import img_flanges from '../../assets/New Product img/flanges/ss-flanges.jpg';
 import img_fasteners from '../../assets/New Product img/fasteners/ss-fasteners.jpg';
 
@@ -20,6 +20,7 @@ import { FLANGES_CATEGORIES } from '../../data/flangesData';
 import { FASTENERS_CATEGORIES } from '../../data/fastenersData';
 
 import './ProductsSection.css';
+import { formatProductUrl } from '../../utils/urlUtils';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,7 +37,7 @@ const PRODUCTS_SHOWCASE_DATA = [
   {
     id: 'pipes',
     name: 'Pipes & Tubes',
-    url: '/products/pipes',
+    url: '/products/pipes-manufactured-in-mumbai',
     image: img_pipes,
     standards: 'ASTM A335 / ASME SA335, ASTM A312, ASTM A106, API 5L',
     shortDesc: 'Ferritic chrome-moly alloy steel, stainless steel, and carbon steel seamless and welded pipes engineered for high creep-rupture strength, elevated temperatures, and severe process piping.',
@@ -46,7 +47,7 @@ const PRODUCTS_SHOWCASE_DATA = [
   {
     id: 'sheets-plates-coils',
     name: 'Sheets, Plates, Coils',
-    url: '/products/sheets-plates-coils',
+    url: '/products/sheets-plates-coils-manufactured-in-mumbai',
     image: img_sheets,
     standards: 'ASTM A240 / SA240, ASTM A516, ASTM A387, EN 10028',
     shortDesc: 'Cold-rolled sheets, hot-rolled pickled plates, and precision strip coils in stainless steel, boiler-quality carbon steel, chrome-moly, and corrosion-resistant alloys conforming to ASTM A240.',
@@ -56,7 +57,7 @@ const PRODUCTS_SHOWCASE_DATA = [
   {
     id: 'bars',
     name: 'Bars & Rods',
-    url: '/products/bars',
+    url: '/products/bars-manufactured-in-mumbai',
     image: img_bars,
     standards: 'ASTM A276 / SA276, ASTM A479, EN 10088-3, DIN 1013',
     shortDesc: 'Precision cold drawn, centerless ground, and hot rolled solid round bars, hex shafts, and square profiles with tight diameter tolerances (h8/h9) and superior surface finishes.',
@@ -66,7 +67,7 @@ const PRODUCTS_SHOWCASE_DATA = [
   {
     id: 'pipe-fittings',
     name: 'Pipe Fittings',
-    url: '/products/pipe-fittings',
+    url: '/products/pipe-fittings-manufactured-in-mumbai',
     image: img_fittings,
     standards: 'ASME B16.9, ASME B16.11, ASTM A403, MSS SP-43',
     shortDesc: 'Seamless and welded buttweld pipe fittings and high-pressure forged fittings including 45°/90° elbows, equal tees, reducers, and stub ends conforming to ASME B16.9 and B16.11.',
@@ -76,7 +77,7 @@ const PRODUCTS_SHOWCASE_DATA = [
   {
     id: 'flanges',
     name: 'Flanges',
-    url: '/products/flanges',
+    url: '/products/flanges-manufactured-in-mumbai',
     image: img_flanges,
     standards: 'ASME B16.5, ASME B16.47, ASTM A182, EN 1092-1',
     shortDesc: 'Drop-forged and precision CNC machined industrial pipe flanges in weld neck, slip-on, blind, socket weld, and RTJ configurations rated from Class 150# to 2500# and PN6 to PN400.',
@@ -86,7 +87,7 @@ const PRODUCTS_SHOWCASE_DATA = [
   {
     id: 'fasteners',
     name: 'Fasteners',
-    url: '/products/fasteners',
+    url: '/products/fasteners-manufactured-in-mumbai',
     image: img_fasteners,
     standards: 'ASTM A193 / A194, ASTM A320, DIN 933 / 934, ISO 3506',
     shortDesc: 'High-tensile, elevated-temperature, and corrosion-resistant threaded stud bolts, heavy hex nuts, socket cap screws, and washers certified to ASTM A193 B7/B8/B16 and A194 2H/Gr. 8.',
@@ -114,14 +115,14 @@ export default function ProductsSection({ onNavigate }) {
 
   const handleCardClick = (url) => {
     if (onNavigate) {
-      onNavigate(url);
+      onNavigate(formatProductUrl(url));
     }
   };
 
   const handleGradeClick = (e, url) => {
     e.stopPropagation();
     if (onNavigate) {
-      onNavigate(url);
+      onNavigate(formatProductUrl(url));
     }
   };
 

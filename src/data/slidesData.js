@@ -8,8 +8,8 @@ export const heroSlides = [
   {
     id: 1,
     slideNumber: "01",
-    eyebrow: "LARGE DIAMETER ALLOY STEEL PIPES",
-    headline: "ENGINEERED FOR\n[INDUSTRIAL SCALE.]\nBUILT FOR GLOBAL DEMAND.",
+    eyebrow: "GLOBAL INDUSTRIAL PIPING",
+    headline: "LARGE DIAMETER\n[ALLOY STEEL PIPES.]\nBUILT FOR GLOBAL DEMAND.",
     description: "Supplying and exporting large-diameter alloy steel pipes engineered for demanding industrial applications, with a strong focus on quality, dimensional precision, durability, and dependable performance across global markets.",
     primaryCta: {
       label: "Explore Products",
@@ -23,7 +23,7 @@ export const heroSlides = [
     },
     image: heroSlide1Img,
     specTag: "LARGE DIAMETER ALLOY STEEL PIPE // GLOBAL EXPORT",
-    alt: "Large-diameter alloy steel pipes engineered for industrial scale and global demand"
+    alt: "Large-diameter alloy steel pipes built for global demand"
   },
   // Slide 02: Reliable Solutions & Lasting Partnerships
   {

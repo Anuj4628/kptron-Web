@@ -15,6 +15,7 @@ import {
   RotateCcw,
   Filter
 } from 'lucide-react';
+import { formatProductUrl } from '../../utils/urlUtils';
 import './FlangesSidebarNav.css';
 
 /**
@@ -46,40 +47,34 @@ export default function FlangesSidebarNav({
 
   const handleMaterialClick = (matSlug) => {
     if (!onNavigate) return;
-    const isMumbai = typeof window !== 'undefined' && window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
     if (currentTypeSlug) {
-      onNavigate(`/products/flanges/${matSlug}/${currentTypeSlug}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${matSlug}/${currentTypeSlug}`));
     } else {
-      onNavigate(`/products/flanges/${matSlug}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${matSlug}`));
     }
   };
 
   const handleTypeClick = (typeSlug) => {
     if (!onNavigate) return;
-    const isMumbai = typeof window !== 'undefined' && window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
     if (normalizedCurrentGrade) {
-      onNavigate(`/products/flanges/${currentMaterial.slug}/${typeSlug}/${normalizedCurrentGrade}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${currentMaterial.slug}/${typeSlug}/${normalizedCurrentGrade}`));
     } else {
-      onNavigate(`/products/flanges/${currentMaterial.slug}/${typeSlug}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${currentMaterial.slug}/${typeSlug}`));
     }
   };
 
   const handleGradeClick = (gradeSlug) => {
     if (!onNavigate) return;
-    const isMumbai = typeof window !== 'undefined' && window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
-    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
     if (currentTypeSlug) {
-      onNavigate(`/products/flanges/${currentMaterial.slug}/${currentTypeSlug}/${gradeSlug}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${currentMaterial.slug}/${currentTypeSlug}/${gradeSlug}`));
     } else {
-      onNavigate(`/products/flanges/${currentMaterial.slug}/grades/${gradeSlug}${suffix}`);
+      onNavigate(formatProductUrl(`/products/flanges/${currentMaterial.slug}/grades/${gradeSlug}`));
     }
   };
 
   const handleResetFilters = () => {
     if (onNavigate) {
-      onNavigate(`/products/flanges/${currentMaterial.slug}`);
+      onNavigate(formatProductUrl(`/products/flanges/${currentMaterial.slug}`));
     }
   };
 

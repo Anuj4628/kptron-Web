@@ -24,7 +24,7 @@
 }
 
 .sheet-grade-container {
-  max-width: 1240px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.5rem;
   display: flex;
@@ -87,7 +87,7 @@
    2. Main Layout Grid (2 Columns: Main + Sidebar)
    =================================================== */
 .sheet-grade-main-container {
-  max-width: 1240px;
+  max-width: 1280px;
   margin: 2rem auto 0;
   padding: 0 1.5rem;
 }
@@ -286,30 +286,51 @@
 .specs-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
+  table-layout: fixed;
 }
 
 .specs-table tr {
   border-bottom: 1px solid #E2E8F0;
+  transition: background-color 0.1s ease;
 }
 
 .specs-table tr:last-child {
   border-bottom: none;
 }
 
+.specs-table tr:hover th {
+  background-color: #F1F5F9;
+}
+
+.specs-table tr:hover td {
+  background-color: #FAFAFA;
+}
+
 .specs-table th {
   text-align: left;
-  padding: 0.75rem 1rem 0.75rem 0;
-  color: #64748B;
-  font-weight: 600;
-  width: 38%;
+  padding: 0.9rem 1.25rem;
+  background: #F8FAFC;
+  color: #0F172A;
+  font-weight: 700;
+  font-size: 0.84rem;
+  width: 32%;
+  min-width: 180px;
+  max-width: 250px;
   vertical-align: top;
+  border-right: 1px solid #E2E8F0;
+  line-height: 1.45;
+  word-break: break-word;
 }
 
 .specs-table td {
-  padding: 0.75rem 0;
-  color: #0B192C;
-  font-weight: 600;
+  padding: 0.9rem 1.25rem;
+  color: #334155;
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.55;
+  vertical-align: top;
+  word-break: break-word;
 }
 
 /* Available Forms Grid */
@@ -437,11 +458,11 @@
 }
 
 .form-field label {
-  font-size: 0.74rem;
-  font-weight: 700;
-  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 750;
+  color: #0F172A;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
 }
 
 .input-with-icon {
@@ -452,59 +473,69 @@
 
 .input-with-icon svg {
   position: absolute;
-  left: 0.75rem;
-  color: #94A3B8;
+  left: 0.85rem;
+  color: #2563EB;
   pointer-events: none;
 }
 
 .input-with-icon input {
-  padding-left: 2.25rem !important;
+  padding-left: 2.5rem !important;
 }
 
 .form-field input,
 .form-field textarea {
   width: 100%;
-  border: 1px solid #CBD5E1;
+  border: 1.5px solid #CBD5E1;
   background: #F8FAFC;
-  border-radius: 4px;
-  padding: 0.6rem 0.75rem;
-  font-size: 0.82rem;
-  color: #1E293B;
+  border-radius: 8px;
+  padding: 0.75rem 0.95rem;
+  font-size: 0.88rem;
+  font-weight: 550;
+  color: #0F172A;
   outline: none;
   font-family: inherit;
-  transition: border-color 0.14s ease, box-shadow 0.14s ease;
+  transition: all 0.18s ease;
+  box-sizing: border-box;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #94A3B8;
+  font-weight: 400;
 }
 
 .form-field input:focus,
 .form-field textarea:focus {
-  border-color: #1F3862;
+  border-color: #2563EB;
   background: #FFFFFF;
-  box-shadow: 0 0 0 2px rgba(31, 56, 98, 0.1);
+  box-shadow: 0 0 0 3.5px rgba(37, 99, 235, 0.16);
 }
 
 .btn-submit-rfq {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
-  background: #FF5B26;
+  gap: 0.55rem;
+  background: linear-gradient(135deg, #1F3862 0%, #2563EB 100%);
   color: #FFFFFF;
   border: none;
-  border-radius: 4px;
-  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  padding: 0.9rem 1.25rem;
   font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.82rem;
-  font-weight: 750;
+  font-size: 0.84rem;
+  font-weight: 800;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.14s ease, transform 0.14s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 18px rgba(31, 56, 98, 0.28);
   margin-top: 0.5rem;
 }
 
 .btn-submit-rfq:hover {
-  background: #e04b1a;
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.38);
 }
 
 .rfq-success-message {

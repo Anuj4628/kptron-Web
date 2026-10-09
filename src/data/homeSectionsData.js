@@ -60,7 +60,7 @@ export const specialistProductsData = [
     grades: "P11 • P22 • P9 • P5 • P91 • P92",
     shortDesc: "High-pressure, creep-resistant chrome-moly seamless piping engineered for supercritical steam lines and refinery hydroprocessing up to 650°C.",
     image: seamlessAlloySteelPipesImg,
-    route: "/products/seamless-alloy-steel-pipes",
+    route: "/products/seamless-alloy-steel-pipes-manufactured-in-mumbai",
     alt: "Seamless Alloy Steel Pipes ASTM / ASME SA-335 Grade P11 P22 P9 P5 P91 P92"
   },
   {
@@ -71,7 +71,7 @@ export const specialistProductsData = [
     grades: "T11 • T22 • T91",
     shortDesc: "Precision cold drawn seamless boiler and superheater tubing with optimized wall thickness for high-flux heat exchangers and steam generators.",
     image: alloySteelTubesImg,
-    route: "/products/alloy-steel-tubes",
+    route: "/products/alloy-steel-tubes-manufactured-in-mumbai",
     alt: "Alloy Steel Tubes ASTM / ASME SA-213 Grade T11 T22 T91"
   },
   {
@@ -82,7 +82,7 @@ export const specialistProductsData = [
     grades: "P11 • P22 • P5 • P9 (CLASS 1 & 2)",
     shortDesc: "Heavy boiler-quality pressure vessel chrome-moly steel plates offering superior notch toughness and temper embrittlement resistance up to 600°C.",
     image: alloySteelPlatesImg,
-    route: "/products/alloy-steel-plates",
+    route: "/products/alloy-steel-plates-manufactured-in-mumbai",
     alt: "Alloy Steel Plates ASTM / ASME SA-387 Grade 11 22 5 9 Class 1 and Class 2"
   }
 ];

@@ -47,36 +47,119 @@ import img_cs_reducing from '../assets/flanges/types/cs-reducing-flanges.jpg';
 import img_cs_expander from '../assets/flanges/types/cs-expander-flanges.jpg';
 import img_cs_square from '../assets/flanges/types/cs-square-flanges.jpg';
 import img_cs_elbow from '../assets/flanges/types/cs-elbow-flanges.jpg';
+import img_cs_cast from '../assets/flanges/types/cs-cast-flanges.jpg';
+
+// Authentic Alloy Steel product imagery (from dedicated project asset collection)
+import img_as_threaded from '../assets/types of product/flanges/alloy steel types/Threaded Flange.jpeg';
+import img_as_weld_neck from '../assets/types of product/flanges/alloy steel types/Weld Neck Flange.jpeg';
+import img_as_slip_on from '../assets/types of product/flanges/alloy steel types/slip-on-flanges.jpg';
+import img_as_blind from '../assets/types of product/flanges/alloy steel types/blind.jpeg';
+import img_as_socket_weld from '../assets/types of product/flanges/alloy steel types/socket weld.jpeg';
+import img_as_lap_joint from '../assets/types of product/flanges/alloy steel types/lap joint flanges.jpeg';
+import img_as_orifice from '../assets/types of product/flanges/alloy steel types/orifice flanges.jpeg';
+import img_as_long_weld_neck from '../assets/types of product/flanges/alloy steel types/long weld neck.jpeg';
+import img_as_spectacle_blind from '../assets/types of product/flanges/alloy steel types/spectackle blind flanges.jpeg';
+import img_as_reducing from '../assets/types of product/flanges/alloy steel types/reducing flanes.jpeg';
+import img_as_expander from '../assets/types of product/flanges/alloy steel types/expander flanges.jpeg';
+import img_as_elbow from '../assets/types of product/flanges/alloy steel types/elbow flanges.jpeg';
+import img_as_cast from '../assets/types of product/flanges/alloy steel types/cast.jpeg';
+import img_as_square from '../assets/flanges/types/alloy-steel-square-flanges.jpg';
+
+// Authentic Inconel product imagery (from dedicated project asset collection)
+import img_inc_threaded from '../assets/types of product/flanges/iconel types/threaded.jpeg';
+import img_inc_weld_neck from '../assets/types of product/flanges/iconel types/weld neck.jpeg';
+import img_inc_slip_on from '../assets/types of product/flanges/iconel types/slip on.jpeg';
+import img_inc_blind from '../assets/types of product/flanges/iconel types/blind.jpeg';
+import img_inc_socket_weld from '../assets/types of product/flanges/iconel types/socket wel fitting.jpeg';
+import img_inc_lap_joint from '../assets/types of product/flanges/iconel types/lap joint flanges.jpeg';
+import img_inc_orifice from '../assets/types of product/flanges/iconel types/orifice.jpeg';
+import img_inc_long_weld_neck from '../assets/types of product/flanges/iconel types/long weld neck.jpeg';
+import img_inc_spectacle_blind from '../assets/types of product/flanges/iconel types/specktackle.jpeg';
+import img_inc_reducing from '../assets/types of product/flanges/iconel types/reducing.jpeg';
+import img_inc_expander from '../assets/types of product/flanges/iconel types/expander.jpeg';
+import img_inc_square from '../assets/types of product/flanges/iconel types/sqaure.jpeg';
+import img_inc_elbow from '../assets/types of product/flanges/iconel types/elbow.jpeg';
+import img_inc_cast from '../assets/types of product/flanges/iconel types/cast.jpeg';
 
 // Authentic Hastelloy product imagery
-import img_hastelloy_flanges from '../assets/flanges/types/hastelloy-alloy-flanges.jpg';
-import img_hastelloy_blind from '../assets/flanges/types/hastelloy-blind-flanges.jpg';
-import img_hastelloy_slip_on from '../assets/flanges/types/hastelloy-slip-on-flanges.jpg';
-import img_hastelloy_threaded from '../assets/flanges/types/hastelloy-threaded-flanges.jpg';
-import img_hastelloy_socket_weld from '../assets/flanges/types/hastelloy-socket-weld-flanges.jpg';
-
-// Authentic Alloy Steel product imagery
-import img_alloy_flanges from '../assets/Product Section/Manufacturer division/Flanges/alloy steel.jpg';
-import img_steel_flanges_types from '../assets/flanges/types/steel-flanges-types.jpg';
-
-// Authentic Inconel product imagery
-import img_inconel_flanges from '../assets/flanges/types/inconel-600-flange.jpg';
-import img_inconel_flanges_new from '../assets/New Product img/flanges/inconel-flanges.jpg';
-import img_incoloy_800 from '../assets/flanges/types/incoloy-800-flanges.jpg';
-import img_inconel_threaded from '../assets/Product Images/Flanges/iconel.jpeg';
+import img_has_threaded from '../assets/flanges/types/hastelloy-threaded-flanges.jpg';
+import img_has_weld_neck from '../assets/flanges/types/hastelloy-weld-neck-flanges.jpg';
+import img_has_slip_on from '../assets/flanges/types/hastelloy-slip-on-flanges.jpg';
+import img_has_blind from '../assets/flanges/types/hastelloy-blind-flanges.jpg';
+import img_has_socket_weld from '../assets/flanges/types/hastelloy-socket-weld-flanges.jpg';
+import img_has_lap_joint from '../assets/flanges/types/hastelloy-lap-joint-flanges.jpg';
+import img_has_orifice from '../assets/flanges/types/hastelloy-orifice-flanges.jpg';
+import img_has_long_weld_neck from '../assets/flanges/types/hastelloy-long-weld-neck-flanges.jpg';
+import img_has_spectacle_blind from '../assets/flanges/types/hastelloy-spectacle-blind-flanges.jpg';
+import img_has_reducing from '../assets/flanges/types/hastelloy-reducing-flanges.jpg';
+import img_has_expander from '../assets/flanges/types/hastelloy-expander-flanges.jpg';
+import img_has_square from '../assets/flanges/types/hastelloy-square-flanges.jpg';
+import img_has_elbow from '../assets/flanges/types/hastelloy-elbow-flanges.jpg';
+import img_has_cast from '../assets/flanges/types/hastelloy-cast-flanges.jpg';
 
 // Authentic Monel product imagery
-import img_monel_flanges from '../assets/New Product img/flanges/monel-flanges.jpg';
-import img_monel_blind from '../assets/Product Images/Flanges/monel.jpeg';
+import img_monel_threaded from '../assets/flanges/types/monel-threaded-flanges.jpg';
+import img_monel_weld_neck from '../assets/flanges/types/monel-weld-neck-flanges.jpg';
+import img_monel_slip_on from '../assets/flanges/types/monel-slip-on-flanges.jpg';
+import img_monel_blind from '../assets/flanges/types/monel-blind-flanges.jpg';
+import img_monel_socket_weld from '../assets/flanges/types/monel-socket-weld-flanges.jpg';
+import img_monel_lap_joint from '../assets/flanges/types/monel-lap-joint-flanges.jpg';
+import img_monel_orifice from '../assets/flanges/types/monel-orifice-flanges.jpg';
+import img_monel_long_weld_neck from '../assets/flanges/types/monel-long-weld-neck-flanges.jpg';
+import img_monel_spectacle_blind from '../assets/flanges/types/monel-spectacle-blind-flanges.jpg';
+import img_monel_reducing from '../assets/flanges/types/monel-reducing-flanges.jpg';
+import img_monel_expander from '../assets/flanges/types/monel-expander-flanges.jpg';
+import img_monel_square from '../assets/flanges/types/monel-square-flanges.jpg';
+import img_monel_elbow from '../assets/flanges/types/monel-elbow-flanges.jpg';
+import img_monel_cast from '../assets/flanges/types/monel-cast-flanges.jpg';
 
 // Authentic Copper Nickel product imagery
-import img_cu_ni_flanges from '../assets/flanges/types/copper-nickel-flange-500x500.jpg';
-import img_cu_ni_flanges_new from '../assets/New Product img/flanges/copper-nickel-flanges.jpg';
+import img_cuni_threaded from '../assets/flanges/types/cuni-threaded-flanges.jpg';
+import img_cuni_weld_neck from '../assets/flanges/types/cuni-weld-neck-flanges.jpg';
+import img_cuni_slip_on from '../assets/flanges/types/cuni-slip-on-flanges.jpg';
+import img_cuni_blind from '../assets/flanges/types/cuni-blind-flanges.jpg';
+import img_cuni_socket_weld from '../assets/flanges/types/cuni-socket-weld-flanges.jpg';
+import img_cuni_lap_joint from '../assets/flanges/types/cuni-lap-joint-flanges.jpg';
+import img_cuni_orifice from '../assets/flanges/types/cuni-orifice-flanges.jpg';
+import img_cuni_long_weld_neck from '../assets/flanges/types/cuni-long-weld-neck-flanges.jpg';
+import img_cuni_spectacle_blind from '../assets/flanges/types/cuni-spectacle-blind-flanges.jpg';
+import img_cuni_reducing from '../assets/flanges/types/cuni-reducing-flanges.jpg';
+import img_cuni_expander from '../assets/flanges/types/cuni-expander-flanges.jpg';
+import img_cuni_square from '../assets/flanges/types/cuni-square-flanges.jpg';
+import img_cuni_elbow from '../assets/flanges/types/cuni-elbow-flanges.jpg';
+import img_cuni_cast from '../assets/flanges/types/cuni-cast-flanges.jpg';
 
-// Authentic Titanium & Nickel product imagery
-import img_titanium_flanges from '../assets/New Product img/flanges/titanium-flanges.jpg';
-import img_titanium_blind from '../assets/Product Section/Manufacturer division/Flanges/titainium.avif';
-import img_nickel_flanges from '../assets/Product Section/Manufacturer division/Flanges/nikle.jpg';
+// Authentic Titanium product imagery
+import img_ti_threaded from '../assets/flanges/types/titanium-threaded-flanges.jpg';
+import img_ti_weld_neck from '../assets/flanges/types/titanium-weld-neck-flanges.jpg';
+import img_ti_slip_on from '../assets/flanges/types/titanium-slip-on-flanges.jpg';
+import img_ti_blind from '../assets/flanges/types/titanium-blind-flanges.jpg';
+import img_ti_socket_weld from '../assets/flanges/types/titanium-socket-weld-flanges.jpg';
+import img_ti_lap_joint from '../assets/flanges/types/titanium-lap-joint-flanges.jpg';
+import img_ti_orifice from '../assets/flanges/types/titanium-orifice-flanges.jpg';
+import img_ti_long_weld_neck from '../assets/flanges/types/titanium-long-weld-neck-flanges.jpg';
+import img_ti_spectacle_blind from '../assets/flanges/types/titanium-spectacle-blind-flanges.jpg';
+import img_ti_reducing from '../assets/flanges/types/titanium-reducing-flanges.jpg';
+import img_ti_expander from '../assets/flanges/types/titanium-expander-flanges.jpg';
+import img_ti_square from '../assets/flanges/types/titanium-square-flanges.jpg';
+import img_ti_elbow from '../assets/flanges/types/titanium-elbow-flanges.jpg';
+import img_ti_cast from '../assets/flanges/types/titanium-cast-flanges.jpg';
+
+// Authentic Nickel Alloy product imagery
+import img_ni_threaded from '../assets/flanges/types/nickel-threaded-flanges.jpg';
+import img_ni_weld_neck from '../assets/flanges/types/nickel-weld-neck-flanges.jpg';
+import img_ni_slip_on from '../assets/flanges/types/nickel-slip-on-flanges.jpg';
+import img_ni_blind from '../assets/flanges/types/nickel-blind-flanges.jpg';
+import img_ni_socket_weld from '../assets/flanges/types/nickel-socket-weld-flanges.jpg';
+import img_ni_lap_joint from '../assets/flanges/types/nickel-lap-joint-flanges.jpg';
+import img_ni_orifice from '../assets/flanges/types/nickel-orifice-flanges.jpg';
+import img_ni_long_weld_neck from '../assets/flanges/types/nickel-long-weld-neck-flanges.jpg';
+import img_ni_spectacle_blind from '../assets/flanges/types/nickel-spectacle-blind-flanges.jpg';
+import img_ni_reducing from '../assets/flanges/types/nickel-reducing-flanges.jpg';
+import img_ni_expander from '../assets/flanges/types/nickel-expander-flanges.jpg';
+import img_ni_square from '../assets/flanges/types/nickel-square-flanges.jpg';
+import img_ni_elbow from '../assets/flanges/types/nickel-elbow-flanges.jpg';
+import img_ni_cast from '../assets/flanges/types/nickel-cast-flanges.jpg';
 
 /**
  * 12 Core Flange Types Metadata
@@ -685,7 +768,7 @@ export const FLANGE_MATERIALS = [
       'expander-flange': img_cs_expander,
       'square-flange': img_cs_square,
       'elbow-flange': img_cs_elbow,
-      'cast-flange': img_cs_threaded
+      'cast-flange': img_cs_cast
     },
     grades: [
       {
@@ -810,20 +893,20 @@ export const FLANGE_MATERIALS = [
       'cast-flange'
     ],
     typeImages: {
-      'threaded-flange': img_steel_flanges_types,
-      'weld-neck-flange': img_alloy_flanges,
-      'slip-on-flange': img_steel_flanges_types,
-      'blind-flange': img_alloy_flanges,
-      'socket-weld-flange': img_steel_flanges_types,
-      'lap-joint-flange': img_steel_flanges_types,
-      'orifice-flange': img_alloy_flanges,
-      'long-weld-neck-flange': img_alloy_flanges,
-      'spectacle-blind-flange': img_alloy_flanges,
-      'reducing-flange': img_steel_flanges_types,
-      'expander-flange': img_steel_flanges_types,
-      'square-flange': img_steel_flanges_types,
-      'elbow-flange': img_alloy_flanges,
-      'cast-flange': img_steel_flanges_types
+      'threaded-flange': img_as_threaded,
+      'weld-neck-flange': img_as_weld_neck,
+      'slip-on-flange': img_as_slip_on,
+      'blind-flange': img_as_blind,
+      'socket-weld-flange': img_as_socket_weld,
+      'lap-joint-flange': img_as_lap_joint,
+      'orifice-flange': img_as_orifice,
+      'long-weld-neck-flange': img_as_long_weld_neck,
+      'spectacle-blind-flange': img_as_spectacle_blind,
+      'reducing-flange': img_as_reducing,
+      'expander-flange': img_as_expander,
+      'square-flange': img_as_square,
+      'elbow-flange': img_as_elbow,
+      'cast-flange': img_as_cast
     },
     grades: [
       {
@@ -982,20 +1065,20 @@ export const FLANGE_MATERIALS = [
       'cast-flange'
     ],
     typeImages: {
-      'threaded-flange': img_inconel_threaded,
-      'weld-neck-flange': img_inconel_flanges,
-      'slip-on-flange': img_inconel_flanges_new,
-      'blind-flange': img_inconel_flanges,
-      'socket-weld-flange': img_incoloy_800,
-      'lap-joint-flange': img_inconel_flanges_new,
-      'orifice-flange': img_inconel_flanges,
-      'long-weld-neck-flange': img_incoloy_800,
-      'spectacle-blind-flange': img_inconel_flanges,
-      'reducing-flange': img_inconel_flanges_new,
-      'expander-flange': img_inconel_flanges,
-      'square-flange': img_inconel_flanges_new,
-      'elbow-flange': img_inconel_flanges,
-      'cast-flange': img_inconel_flanges
+      'threaded-flange': img_inc_threaded,
+      'weld-neck-flange': img_inc_weld_neck,
+      'slip-on-flange': img_inc_slip_on,
+      'blind-flange': img_inc_blind,
+      'socket-weld-flange': img_inc_socket_weld,
+      'lap-joint-flange': img_inc_lap_joint,
+      'orifice-flange': img_inc_orifice,
+      'long-weld-neck-flange': img_inc_long_weld_neck,
+      'spectacle-blind-flange': img_inc_spectacle_blind,
+      'reducing-flange': img_inc_reducing,
+      'expander-flange': img_inc_expander,
+      'square-flange': img_inc_square,
+      'elbow-flange': img_inc_elbow,
+      'cast-flange': img_inc_cast
     },
     grades: [
       {
@@ -1083,20 +1166,20 @@ export const FLANGE_MATERIALS = [
       'cast-flange'
     ],
     typeImages: {
-      'threaded-flange': img_monel_flanges,
-      'weld-neck-flange': img_monel_flanges,
-      'slip-on-flange': img_monel_flanges,
+      'threaded-flange': img_monel_threaded,
+      'weld-neck-flange': img_monel_weld_neck,
+      'slip-on-flange': img_monel_slip_on,
       'blind-flange': img_monel_blind,
-      'socket-weld-flange': img_monel_flanges,
-      'lap-joint-flange': img_monel_flanges,
-      'orifice-flange': img_monel_flanges,
-      'long-weld-neck-flange': img_monel_flanges,
-      'spectacle-blind-flange': img_monel_blind,
-      'reducing-flange': img_monel_flanges,
-      'expander-flange': img_monel_flanges,
-      'square-flange': img_monel_flanges,
-      'elbow-flange': img_monel_flanges,
-      'cast-flange': img_monel_flanges
+      'socket-weld-flange': img_monel_socket_weld,
+      'lap-joint-flange': img_monel_lap_joint,
+      'orifice-flange': img_monel_orifice,
+      'long-weld-neck-flange': img_monel_long_weld_neck,
+      'spectacle-blind-flange': img_monel_spectacle_blind,
+      'reducing-flange': img_monel_reducing,
+      'expander-flange': img_monel_expander,
+      'square-flange': img_monel_square,
+      'elbow-flange': img_monel_elbow,
+      'cast-flange': img_monel_cast
     },
     grades: [
       {
@@ -1156,20 +1239,20 @@ export const FLANGE_MATERIALS = [
       'cast-flange'
     ],
     typeImages: {
-      'threaded-flange': img_hastelloy_threaded,
-      'weld-neck-flange': img_hastelloy_flanges,
-      'slip-on-flange': img_hastelloy_slip_on,
-      'blind-flange': img_hastelloy_blind,
-      'socket-weld-flange': img_hastelloy_socket_weld,
-      'lap-joint-flange': img_hastelloy_slip_on,
-      'orifice-flange': img_hastelloy_flanges,
-      'long-weld-neck-flange': img_hastelloy_flanges,
-      'spectacle-blind-flange': img_hastelloy_blind,
-      'reducing-flange': img_hastelloy_slip_on,
-      'expander-flange': img_hastelloy_flanges,
-      'square-flange': img_hastelloy_flanges,
-      'elbow-flange': img_hastelloy_flanges,
-      'cast-flange': img_hastelloy_flanges
+      'threaded-flange': img_has_threaded,
+      'weld-neck-flange': img_has_weld_neck,
+      'slip-on-flange': img_has_slip_on,
+      'blind-flange': img_has_blind,
+      'socket-weld-flange': img_has_socket_weld,
+      'lap-joint-flange': img_has_lap_joint,
+      'orifice-flange': img_has_orifice,
+      'long-weld-neck-flange': img_has_long_weld_neck,
+      'spectacle-blind-flange': img_has_spectacle_blind,
+      'reducing-flange': img_has_reducing,
+      'expander-flange': img_has_expander,
+      'square-flange': img_has_square,
+      'elbow-flange': img_has_elbow,
+      'cast-flange': img_has_cast
     },
     grades: [
       {
@@ -1229,20 +1312,20 @@ export const FLANGE_MATERIALS = [
       'cast-flange'
     ],
     typeImages: {
-      'threaded-flange': img_nickel_flanges,
-      'weld-neck-flange': img_nickel_flanges,
-      'slip-on-flange': img_nickel_flanges,
-      'blind-flange': img_nickel_flanges,
-      'socket-weld-flange': img_nickel_flanges,
-      'lap-joint-flange': img_nickel_flanges,
-      'orifice-flange': img_nickel_flanges,
-      'long-weld-neck-flange': img_nickel_flanges,
-      'spectacle-blind-flange': img_nickel_flanges,
-      'reducing-flange': img_nickel_flanges,
-      'expander-flange': img_nickel_flanges,
-      'square-flange': img_nickel_flanges,
-      'elbow-flange': img_nickel_flanges,
-      'cast-flange': img_nickel_flanges
+      'threaded-flange': img_ni_threaded,
+      'weld-neck-flange': img_ni_weld_neck,
+      'slip-on-flange': img_ni_slip_on,
+      'blind-flange': img_ni_blind,
+      'socket-weld-flange': img_ni_socket_weld,
+      'lap-joint-flange': img_ni_lap_joint,
+      'orifice-flange': img_ni_orifice,
+      'long-weld-neck-flange': img_ni_long_weld_neck,
+      'spectacle-blind-flange': img_ni_spectacle_blind,
+      'reducing-flange': img_ni_reducing,
+      'expander-flange': img_ni_expander,
+      'square-flange': img_ni_square,
+      'elbow-flange': img_ni_elbow,
+      'cast-flange': img_ni_cast
     },
     grades: [
       {
@@ -1302,20 +1385,20 @@ export const FLANGE_MATERIALS = [
       'cast-flange'
     ],
     typeImages: {
-      'threaded-flange': img_cu_ni_flanges_new,
-      'weld-neck-flange': img_cu_ni_flanges,
-      'slip-on-flange': img_cu_ni_flanges_new,
-      'blind-flange': img_cu_ni_flanges,
-      'socket-weld-flange': img_cu_ni_flanges_new,
-      'lap-joint-flange': img_cu_ni_flanges,
-      'orifice-flange': img_cu_ni_flanges,
-      'long-weld-neck-flange': img_cu_ni_flanges,
-      'spectacle-blind-flange': img_cu_ni_flanges,
-      'reducing-flange': img_cu_ni_flanges_new,
-      'expander-flange': img_cu_ni_flanges,
-      'square-flange': img_cu_ni_flanges_new,
-      'elbow-flange': img_cu_ni_flanges,
-      'cast-flange': img_cu_ni_flanges
+      'threaded-flange': img_cuni_threaded,
+      'weld-neck-flange': img_cuni_weld_neck,
+      'slip-on-flange': img_cuni_slip_on,
+      'blind-flange': img_cuni_blind,
+      'socket-weld-flange': img_cuni_socket_weld,
+      'lap-joint-flange': img_cuni_lap_joint,
+      'orifice-flange': img_cuni_orifice,
+      'long-weld-neck-flange': img_cuni_long_weld_neck,
+      'spectacle-blind-flange': img_cuni_spectacle_blind,
+      'reducing-flange': img_cuni_reducing,
+      'expander-flange': img_cuni_expander,
+      'square-flange': img_cuni_square,
+      'elbow-flange': img_cuni_elbow,
+      'cast-flange': img_cuni_cast
     },
     grades: [
       {
@@ -1375,20 +1458,20 @@ export const FLANGE_MATERIALS = [
       'cast-flange'
     ],
     typeImages: {
-      'threaded-flange': img_titanium_flanges,
-      'weld-neck-flange': img_titanium_flanges,
-      'slip-on-flange': img_titanium_flanges,
-      'blind-flange': img_titanium_blind,
-      'socket-weld-flange': img_titanium_flanges,
-      'lap-joint-flange': img_titanium_flanges,
-      'orifice-flange': img_titanium_flanges,
-      'long-weld-neck-flange': img_titanium_flanges,
-      'spectacle-blind-flange': img_titanium_blind,
-      'reducing-flange': img_titanium_flanges,
-      'expander-flange': img_titanium_flanges,
-      'square-flange': img_titanium_flanges,
-      'elbow-flange': img_titanium_flanges,
-      'cast-flange': img_titanium_flanges
+      'threaded-flange': img_ti_threaded,
+      'weld-neck-flange': img_ti_weld_neck,
+      'slip-on-flange': img_ti_slip_on,
+      'blind-flange': img_ti_blind,
+      'socket-weld-flange': img_ti_socket_weld,
+      'lap-joint-flange': img_ti_lap_joint,
+      'orifice-flange': img_ti_orifice,
+      'long-weld-neck-flange': img_ti_long_weld_neck,
+      'spectacle-blind-flange': img_ti_spectacle_blind,
+      'reducing-flange': img_ti_reducing,
+      'expander-flange': img_ti_expander,
+      'square-flange': img_ti_square,
+      'elbow-flange': img_ti_elbow,
+      'cast-flange': img_ti_cast
     },
     grades: [
       {
@@ -1540,7 +1623,7 @@ export function getFlangeTypesForMaterial(materialSlug) {
       materialName: mat.name,
       materialFullTitle: `${mat.name} ${type.name}s`,
       displayImage: matImage,
-      routeUrl: `/products/flanges/${mat.slug}/${type.slug}`
+      routeUrl: `/products/flanges/${mat.slug}/${type.slug}-manufactured-in-mumbai`
     };
   });
 }
@@ -1556,7 +1639,7 @@ export function getFlangeGradesForMaterial(materialSlug) {
     materialId: mat.id,
     materialSlug: mat.slug,
     materialName: mat.name,
-    routeUrl: `/products/flanges/${mat.slug}/grades/${grade.slug}`
+    routeUrl: `/products/flanges/${mat.slug}/grades/${grade.slug}-manufactured-in-mumbai`
   }));
 }
 
@@ -1581,7 +1664,7 @@ export function getFlangeGradesForType(materialSlug, typeSlug) {
     ...grade,
     materialSlug: mat.slug,
     typeSlug: type.slug,
-    routeUrl: `/products/flanges/${mat.slug}/${type.slug}/${grade.slug}`
+    routeUrl: `/products/flanges/${mat.slug}/${type.slug}/${grade.slug}-manufactured-in-mumbai`
   }));
 }
 
@@ -1603,9 +1686,37 @@ export function getFlangeTypesForGrade(materialSlug, gradeSlug) {
       gradeName: grade.shortName,
       materialFullTitle: `${grade.shortName} ${mat.name} ${type.name}s`,
       displayImage: matImage,
-      routeUrl: `/products/flanges/${mat.slug}/${type.slug}/${grade.slug}`
+      routeUrl: `/products/flanges/${mat.slug}/${type.slug}/${grade.slug}-manufactured-in-mumbai`
     };
   });
+}
+
+/**
+ * Matches composite flange type and grade slug, e.g. "threaded-flange-316l"
+ */
+export function matchFlangeTypeAndGrade(materialSlug, slug) {
+  if (!slug) return null;
+  const clean = slug.toLowerCase().replace(/-manufactured-in-mumbai$/i, '').trim();
+  const mat = getFlangeMaterialBySlug(materialSlug);
+  if (!mat) return null;
+
+  for (const type of CORE_FLANGE_TYPES) {
+    const candidates = [type.slug, ...(type.aliases || [])];
+    for (const cand of candidates) {
+      if (clean === cand) {
+        return { typeSlug: type.slug, gradeSlug: null };
+      }
+      if (clean.startsWith(cand + '-')) {
+        const gradePart = clean.slice(cand.length + 1);
+        const normGrade = normalizeFlangeGradeSlug(mat.slug, gradePart);
+        return {
+          typeSlug: type.slug,
+          gradeSlug: normGrade || gradePart
+        };
+      }
+    }
+  }
+  return null;
 }
 
 /**
@@ -1629,8 +1740,8 @@ export function getFlangeTypeDetail(materialSlug, typeSlug, gradeSlug = null) {
     : `${mat.name} ${type.name}s`;
 
   const canonicalUrl = grade
-    ? `/products/flanges/${mat.slug}/${type.slug}/${grade.slug}`
-    : `/products/flanges/${mat.slug}/${type.slug}`;
+    ? `/products/flanges/${mat.slug}/${type.slug}/${grade.slug}-manufactured-in-mumbai`
+    : `/products/flanges/${mat.slug}/${type.slug}-manufactured-in-mumbai`;
 
   return {
     id: grade ? `${mat.slug}-${type.slug}-${grade.slug}` : `${mat.slug}-${type.slug}`,
