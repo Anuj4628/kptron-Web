@@ -388,7 +388,7 @@ export default function Footer({ onNavigate }) {
                 rel="noopener noreferrer"
                 className="footer-credit-link"
               >
-                Sunmark India
+                Sunmarg India
               </a>
             </p>
           </div>
