@@ -1,16 +1,55 @@
-import React, { useState, useMemo } from 'react';
-import { SHEETS_PLATES_COILS_CATEGORIES } from '../../../data/sheetsPlatesCoilsData';
-import { Search, X, Layers, ShieldCheck, ChevronDown, ChevronUp, Sparkles, CheckCircle2 } from 'lucide-react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { 
+  SHEETS_PLATES_COILS_CATEGORIES, 
+  getSheetsPlatesCategoryBySlug, 
+  getSheetsPlatesMaterialList 
+} from '../../../data/sheetsPlatesCoilsData';
+import ProductMaterialFilterBar from '../ProductMaterialFilterBar';
+import { Search, X, Layers, ShieldCheck, ChevronDown, ChevronUp, Sparkles, CheckCircle2, MapPin } from 'lucide-react';
 import './SheetsPlatesProductPage.css';
 
 /**
  * Dedicated Sheets, Plates & Coils Product Catalog Page
- * High-performance industrial design with 3-column desktop grid,
- * verified grade catalog, dark navy typography, and genuine mill specifications.
+ * Supports 3-level material hierarchy, material-specific visuals, and direct SEO URLs.
  */
-export default function SheetsPlatesProductPage({ onNavigate }) {
+export default function SheetsPlatesProductPage({ 
+  materialSlug = null, 
+  isManufacturedInMumbai = false, 
+  onNavigate,
+  _onOpenQuoteModal 
+}) {
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedCards, setExpandedCards] = useState({});
+  const [selectedMaterial, setSelectedMaterial] = useState(
+    materialSlug ? materialSlug.toLowerCase().trim() : 'all'
+  );
+
+  useEffect(() => {
+    if (materialSlug) {
+      setSelectedMaterial(materialSlug.toLowerCase().trim());
+    } else {
+      setSelectedMaterial('all');
+    }
+  }, [materialSlug]);
+
+  const materialsList = useMemo(() => {
+    return getSheetsPlatesMaterialList();
+  }, []);
+
+  const activeMaterialObj = useMemo(() => {
+    if (!selectedMaterial || selectedMaterial === 'all') return null;
+    const cat = getSheetsPlatesCategoryBySlug(selectedMaterial);
+    if (cat) return { slug: cat.materialSlug || selectedMaterial, name: cat.materialName || cat.name };
+    const found = materialsList.find(m => m.slug === selectedMaterial);
+    return found || null;
+  }, [selectedMaterial, materialsList]);
+
+  useEffect(() => {
+    const matName = activeMaterialObj ? activeMaterialObj.name : 'Sheets, Plates & Coils';
+    document.title = isManufacturedInMumbai
+      ? `${matName} Manufactured in Mumbai | Redcore Steels`
+      : `${matName} | ASTM A240 / A516 Mill Supplier | Redcore Steels`;
+  }, [isManufacturedInMumbai, activeMaterialObj]);
 
   const toggleExpand = (catId, e) => {
     e.stopPropagation();
@@ -20,11 +59,33 @@ export default function SheetsPlatesProductPage({ onNavigate }) {
     }));
   };
 
+  const handleSelectMaterial = (matSlug) => {
+    setSelectedMaterial(matSlug);
+    if (onNavigate) {
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      if (matSlug === 'all') {
+        onNavigate(`/products/sheets-and-plates${suffix}`);
+      } else {
+        onNavigate(`/products/sheets-and-plates/${matSlug}${suffix}`);
+      }
+    }
+  };
+
   const filteredCategories = useMemo(() => {
-    if (!searchQuery.trim()) return SHEETS_PLATES_COILS_CATEGORIES;
+    let list = SHEETS_PLATES_COILS_CATEGORIES;
+
+    if (selectedMaterial && selectedMaterial !== 'all') {
+      const targetCat = getSheetsPlatesCategoryBySlug(selectedMaterial);
+      if (targetCat) {
+        list = list.filter(cat => cat.id === targetCat.id || cat.slug === targetCat.slug);
+      }
+    }
+
+    if (!searchQuery.trim()) return list;
     const q = searchQuery.toLowerCase().trim();
 
-    return SHEETS_PLATES_COILS_CATEGORIES.map(cat => {
+    return list.map(cat => {
       const matchCat = cat.name.toLowerCase().includes(q) ||
                        cat.shortDesc.toLowerCase().includes(q) ||
                        (cat.standards && cat.standards.toLowerCase().includes(q)) ||
@@ -46,18 +107,22 @@ export default function SheetsPlatesProductPage({ onNavigate }) {
       }
       return null;
     }).filter(Boolean);
-  }, [searchQuery]);
+  }, [searchQuery, selectedMaterial]);
 
   const handleCardClick = (catSlug) => {
     if (onNavigate) {
-      onNavigate(`/products/sheets-plates-coils/${catSlug}`);
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      onNavigate(`/products/sheets-and-plates/${catSlug}${suffix}`);
     }
   };
 
   const handleGradeClick = (e, catSlug, gradeSlug) => {
     e.stopPropagation();
     if (onNavigate) {
-      onNavigate(`/products/sheets-plates-coils/${catSlug}/${gradeSlug}`);
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      onNavigate(`/products/sheets-and-plates/${catSlug}/${gradeSlug}${suffix}`);
     }
   };
 
@@ -72,15 +137,35 @@ export default function SheetsPlatesProductPage({ onNavigate }) {
             <span className="crumb-sep">/</span>
             <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products')}>Products</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-current">Sheets, Plates &amp; Coils</span>
+            <span 
+              className={activeMaterialObj ? "crumb-link" : "crumb-current"} 
+              onClick={() => activeMaterialObj && handleSelectMaterial('all')}
+            >
+              Sheets, Plates &amp; Coils
+            </span>
+            {activeMaterialObj && (
+              <>
+                <span className="crumb-sep">/</span>
+                <span className="crumb-current">{activeMaterialObj.name}</span>
+              </>
+            )}
           </nav>
 
           <div className="sheets-header-badge-row">
             <span className="sheets-badge-tag">FLAT ROLLED STEEL &amp; HIGH ALLOY DIVISION</span>
+            {isManufacturedInMumbai && (
+              <span className="sheets-badge-mumbai" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: '#FF5B26', color: '#fff', padding: '0.2rem 0.6rem', borderRadius: '3px', fontWeight: '800', fontSize: '0.72rem', letterSpacing: '0.04em' }}>
+                <MapPin size={12} />
+                MANUFACTURED IN MUMBAI
+              </span>
+            )}
             <span className="sheets-badge-count">{SHEETS_PLATES_COILS_CATEGORIES.length} Core Material Lines</span>
           </div>
 
-          <h1 className="sheets-main-title">Sheets, Plates &amp; Coils</h1>
+          <h1 className="sheets-main-title">
+            {activeMaterialObj ? `${activeMaterialObj.name} Sheets, Plates & Coils` : 'Sheets, Plates & Coils'}
+            {isManufacturedInMumbai && ' — Manufactured in Mumbai'}
+          </h1>
 
           <p className="sheets-lead-text">
             Extensive mill supply of cold-rolled sheets, heavy hot-rolled pressure vessel plates, and precision slit coils in Stainless Steel, Super &amp; Duplex, Carbon Steel, Alloy Steel, Inconel, Hastelloy, and Titanium. Conforming strictly to ASTM, ASME, EN 10028, and IS specifications with EN 10204 3.1 &amp; 3.2 mill test certifications.
@@ -101,6 +186,14 @@ export default function SheetsPlatesProductPage({ onNavigate }) {
               <strong>Verification:</strong> 100% PMI &amp; Ultrasonic Tested
             </div>
           </div>
+
+          {/* Material Filter Bar */}
+          <ProductMaterialFilterBar
+            materials={materialsList}
+            selectedMaterial={selectedMaterial}
+            onSelectMaterial={handleSelectMaterial}
+            categoryName="Sheets, Plates & Coils"
+          />
 
           {/* Search Bar */}
           <div className="sheets-search-wrapper">

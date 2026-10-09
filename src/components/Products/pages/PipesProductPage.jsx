@@ -1,21 +1,55 @@
-import React, { useState, useMemo } from 'react';
-import { PIPE_CATEGORIES } from '../../../data/pipesData';
-import { Search, X, ArrowRight, Layers, ShieldCheck, ChevronDown, ChevronUp } from 'lucide-react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { 
+  PIPE_CATEGORIES, 
+  getPipeCategoryBySlug, 
+  getPipeMaterialList 
+} from '../../../data/pipesData';
+import ProductMaterialFilterBar from '../ProductMaterialFilterBar';
+import { Search, X, ArrowRight, Layers, ShieldCheck, ChevronDown, ChevronUp, MapPin } from 'lucide-react';
 import './PipesProductPage.css';
 
 /**
  * Clean, Dedicated Pipes Product Listing Page
- * Features exactly the 6 required pipe categories:
- * 1. Alloy Steel Pipe
- * 2. Inconel Pipe
- * 3. Monel Pipe
- * 4. Stainless Steel Pipe
- * 5. Super & Duplex Steel Pipe
- * 6. Carbon Steel Pipe
+ * Supports material-specific filtering, genuine product images, and SEO URLs.
  */
-export default function PipesProductPage({ onNavigate, onOpenQuoteModal }) {
+export default function PipesProductPage({ 
+  materialSlug = null, 
+  isManufacturedInMumbai = false, 
+  onNavigate, 
+  onOpenQuoteModal 
+}) {
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedCards, setExpandedCards] = useState({});
+  const [selectedMaterial, setSelectedMaterial] = useState(
+    materialSlug ? materialSlug.toLowerCase().trim() : 'all'
+  );
+
+  useEffect(() => {
+    if (materialSlug) {
+      setSelectedMaterial(materialSlug.toLowerCase().trim());
+    } else {
+      setSelectedMaterial('all');
+    }
+  }, [materialSlug]);
+
+  const materialsList = useMemo(() => {
+    return getPipeMaterialList();
+  }, []);
+
+  const activeMaterialObj = useMemo(() => {
+    if (!selectedMaterial || selectedMaterial === 'all') return null;
+    const cat = getPipeCategoryBySlug(selectedMaterial);
+    if (cat) return { slug: cat.materialSlug || selectedMaterial, name: cat.materialName || cat.name };
+    const found = materialsList.find(m => m.slug === selectedMaterial);
+    return found || null;
+  }, [selectedMaterial, materialsList]);
+
+  useEffect(() => {
+    const matName = activeMaterialObj ? activeMaterialObj.name : 'Seamless & Welded';
+    document.title = isManufacturedInMumbai
+      ? `${matName} Pipes & Tubes Manufactured in Mumbai | Redcore Steels`
+      : `${matName} Pipes & Tubes | ASTM / ASME Line Pipes | Redcore Steels`;
+  }, [isManufacturedInMumbai, activeMaterialObj]);
 
   const toggleExpand = (catId, e) => {
     e.stopPropagation();
@@ -25,11 +59,33 @@ export default function PipesProductPage({ onNavigate, onOpenQuoteModal }) {
     }));
   };
 
+  const handleSelectMaterial = (matSlug) => {
+    setSelectedMaterial(matSlug);
+    if (onNavigate) {
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      if (matSlug === 'all') {
+        onNavigate(`/products/pipes${suffix}`);
+      } else {
+        onNavigate(`/products/pipes/${matSlug}${suffix}`);
+      }
+    }
+  };
+
   const filteredCategories = useMemo(() => {
-    if (!searchQuery.trim()) return PIPE_CATEGORIES;
+    let list = PIPE_CATEGORIES;
+
+    if (selectedMaterial && selectedMaterial !== 'all') {
+      const targetCat = getPipeCategoryBySlug(selectedMaterial);
+      if (targetCat) {
+        list = list.filter(cat => cat.id === targetCat.id || cat.slug === targetCat.slug);
+      }
+    }
+
+    if (!searchQuery.trim()) return list;
     const q = searchQuery.toLowerCase().trim();
 
-    return PIPE_CATEGORIES.map(cat => {
+    return list.map(cat => {
       const matchCat = cat.name.toLowerCase().includes(q) ||
                        cat.shortDesc.toLowerCase().includes(q) ||
                        (cat.standards && cat.standards.toLowerCase().includes(q));
@@ -49,18 +105,22 @@ export default function PipesProductPage({ onNavigate, onOpenQuoteModal }) {
       }
       return null;
     }).filter(Boolean);
-  }, [searchQuery]);
+  }, [searchQuery, selectedMaterial]);
 
   const handleCardClick = (catSlug) => {
     if (onNavigate) {
-      onNavigate(`/products/pipes/${catSlug}`);
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      onNavigate(`/products/pipes/${catSlug}${suffix}`);
     }
   };
 
   const handleGradeClick = (e, catSlug, gradeSlug) => {
     e.stopPropagation();
     if (onNavigate) {
-      onNavigate(`/products/pipes/${catSlug}/${gradeSlug}`);
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      onNavigate(`/products/pipes/${catSlug}/${gradeSlug}${suffix}`);
     }
   };
 
@@ -75,19 +135,47 @@ export default function PipesProductPage({ onNavigate, onOpenQuoteModal }) {
             <span className="crumb-sep">/</span>
             <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products')}>Products</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-current">Pipes</span>
+            <span 
+              className={activeMaterialObj ? "crumb-link" : "crumb-current"} 
+              onClick={() => activeMaterialObj && handleSelectMaterial('all')}
+            >
+              Pipes
+            </span>
+            {activeMaterialObj && (
+              <>
+                <span className="crumb-sep">/</span>
+                <span className="crumb-current">{activeMaterialObj.name}</span>
+              </>
+            )}
           </nav>
 
           <div className="pipes-header-badge-row">
             <span className="pipes-badge-tag">INDUSTRIAL PIPING DIVISION</span>
+            {isManufacturedInMumbai && (
+              <span className="pipes-badge-mumbai" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: '#FF5B26', color: '#fff', padding: '0.2rem 0.6rem', borderRadius: '3px', fontWeight: '800', fontSize: '0.72rem', letterSpacing: '0.04em' }}>
+                <MapPin size={12} />
+                MANUFACTURED IN MUMBAI
+              </span>
+            )}
             <span className="pipes-badge-count">{PIPE_CATEGORIES.length} Core Product Categories</span>
           </div>
 
-          <h1 className="pipes-main-title">Pipes &amp; Tubes</h1>
+          <h1 className="pipes-main-title">
+            {activeMaterialObj ? `${activeMaterialObj.name} Pipes & Tubes` : 'Pipes & Tubes'}
+            {isManufacturedInMumbai && ' — Manufactured in Mumbai'}
+          </h1>
 
           <p className="pipes-lead-text">
             Extensive mill inventory and precision manufactured industrial pipes conforming strictly to ASTM, ASME, DIN, EN, and API 5L specifications. Supplied in seamless, ERW, and EFW configurations with 100% PMI verification and complete EN 10204 3.1 &amp; 3.2 certification.
           </p>
+
+          {/* Material Filter Bar */}
+          <ProductMaterialFilterBar
+            materials={materialsList}
+            selectedMaterial={selectedMaterial}
+            onSelectMaterial={handleSelectMaterial}
+            categoryName="Pipes & Tubes"
+          />
 
           {/* Search Bar */}
           <div className="pipes-search-wrapper">

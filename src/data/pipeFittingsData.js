@@ -17,6 +17,9 @@ export const PIPE_FITTINGS_CATEGORIES = [
   {
     id: 'stainless-steel-pipe-fittings',
     slug: 'stainless-steel-pipe-fittings',
+    materialSlug: 'stainless-steel',
+    materialName: 'Stainless Steel',
+    aliases: ["stainless-steel","stainless","ss-fittings","ss-pipe-fittings"],
     name: 'Stainless Steel Pipe Fittings',
     title: 'Stainless Steel Pipe Fittings',
     image: img_ss_fittings,
@@ -156,6 +159,9 @@ export const PIPE_FITTINGS_CATEGORIES = [
   {
     id: 'carbon-steel-pipe-fittings',
     slug: 'carbon-steel-pipe-fittings',
+    materialSlug: 'carbon-steel',
+    materialName: 'Carbon Steel',
+    aliases: ["carbon-steel","carbon","cs-fittings","cs-pipe-fittings"],
     name: 'Carbon Steel Pipe Fittings',
     title: 'Carbon Steel Pipe Fittings',
     image: img_cs_fittings,
@@ -229,6 +235,9 @@ export const PIPE_FITTINGS_CATEGORIES = [
   {
     id: 'alloy-steel-pipe-fittings',
     slug: 'alloy-steel-pipe-fittings',
+    materialSlug: 'alloy-steel',
+    materialName: 'Alloy Steel',
+    aliases: ["alloy-steel","alloy-fittings","alloy-steel-pipe-fittings"],
     name: 'Alloy Steel Pipe Fittings',
     title: 'Alloy Steel Pipe Fittings',
     image: img_alloy_fittings,
@@ -341,6 +350,9 @@ export const PIPE_FITTINGS_CATEGORIES = [
   {
     id: 'inconel-pipe-fittings',
     slug: 'inconel-pipe-fittings',
+    materialSlug: 'inconel',
+    materialName: 'Inconel',
+    aliases: ["inconel","inconel-pipe-fittings"],
     name: 'Inconel Pipe Fittings',
     title: 'Inconel Pipe Fittings',
     image: img_inconel_fittings,
@@ -374,6 +386,9 @@ export const PIPE_FITTINGS_CATEGORIES = [
   {
     id: 'monel-pipe-fittings',
     slug: 'monel-pipe-fittings',
+    materialSlug: 'monel',
+    materialName: 'Monel',
+    aliases: ["monel","monel-pipe-fittings"],
     name: 'Monel Pipe Fittings',
     title: 'Monel Pipe Fittings',
     image: img_monel_fittings,
@@ -407,6 +422,9 @@ export const PIPE_FITTINGS_CATEGORIES = [
   {
     id: 'hastelloy-pipe-fittings',
     slug: 'hastelloy-pipe-fittings',
+    materialSlug: 'hastelloy',
+    materialName: 'Hastelloy',
+    aliases: ["hastelloy","hastelloy-pipe-fittings"],
     name: 'Hastelloy Pipe Fittings',
     title: 'Hastelloy Pipe Fittings',
     image: img_hastelloy_fittings,
@@ -440,6 +458,9 @@ export const PIPE_FITTINGS_CATEGORIES = [
   {
     id: 'nickel-pipe-fittings',
     slug: 'nickel-pipe-fittings',
+    materialSlug: 'nickel',
+    materialName: 'Nickel Alloy',
+    aliases: ["nickel","nickel-alloy","nickel-pipe-fittings"],
     name: 'Nickel Pipe Fittings',
     title: 'Nickel Pipe Fittings',
     image: img_nickel_fittings,
@@ -473,6 +494,9 @@ export const PIPE_FITTINGS_CATEGORIES = [
   {
     id: 'copper-nickel-pipe-fittings',
     slug: 'copper-nickel-pipe-fittings',
+    materialSlug: 'copper-nickel',
+    materialName: 'Copper Nickel',
+    aliases: ["copper-nickel","cu-ni","copper-nickel-pipe-fittings"],
     name: 'Copper Nickel Pipe Fittings',
     title: 'Copper Nickel Pipe Fittings',
     image: img_cu_ni_fittings,
@@ -506,6 +530,9 @@ export const PIPE_FITTINGS_CATEGORIES = [
   {
     id: 'titanium-pipe-fittings',
     slug: 'titanium-pipe-fittings',
+    materialSlug: 'titanium',
+    materialName: 'Titanium',
+    aliases: ["titanium","titanium-pipe-fittings"],
     name: 'Titanium Pipe Fittings',
     title: 'Titanium Pipe Fittings',
     image: img_titanium_fittings,
@@ -541,7 +568,24 @@ export const PIPE_FITTINGS_CATEGORIES = [
 export function getPipeFittingsCategoryBySlug(slug) {
   if (!slug) return null;
   const clean = slug.toLowerCase().trim();
-  return PIPE_FITTINGS_CATEGORIES.find(cat => cat.slug === clean || cat.id === clean) || null;
+  return PIPE_FITTINGS_CATEGORIES.find(cat => 
+    cat.slug === clean || 
+    cat.id === clean || 
+    cat.materialSlug === clean ||
+    (cat.aliases && cat.aliases.includes(clean))
+  ) || null;
+}
+
+export function getPipeFittingsMaterialList() {
+  return [
+    { slug: 'all', name: 'All Materials' },
+    ...PIPE_FITTINGS_CATEGORIES.map(c => ({
+      slug: c.materialSlug,
+      name: c.materialName,
+      catSlug: c.slug,
+      count: c.grades.length
+    }))
+  ];
 }
 
 export function getPipeFittingsGradeBySlug(catSlug, gradeSlug) {

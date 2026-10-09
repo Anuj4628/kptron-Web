@@ -46,28 +46,34 @@ export default function FlangesSidebarNav({
 
   const handleMaterialClick = (matSlug) => {
     if (!onNavigate) return;
+    const isMumbai = typeof window !== 'undefined' && window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
     if (currentTypeSlug) {
-      onNavigate(`/products/flanges/${matSlug}/${currentTypeSlug}`);
+      onNavigate(`/products/flanges/${matSlug}/${currentTypeSlug}${suffix}`);
     } else {
-      onNavigate(`/products/flanges/${matSlug}`);
+      onNavigate(`/products/flanges/${matSlug}${suffix}`);
     }
   };
 
   const handleTypeClick = (typeSlug) => {
     if (!onNavigate) return;
+    const isMumbai = typeof window !== 'undefined' && window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
     if (normalizedCurrentGrade) {
-      onNavigate(`/products/flanges/${currentMaterial.slug}/${typeSlug}/${normalizedCurrentGrade}`);
+      onNavigate(`/products/flanges/${currentMaterial.slug}/${typeSlug}/${normalizedCurrentGrade}${suffix}`);
     } else {
-      onNavigate(`/products/flanges/${currentMaterial.slug}/${typeSlug}`);
+      onNavigate(`/products/flanges/${currentMaterial.slug}/${typeSlug}${suffix}`);
     }
   };
 
   const handleGradeClick = (gradeSlug) => {
     if (!onNavigate) return;
+    const isMumbai = typeof window !== 'undefined' && window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
     if (currentTypeSlug) {
-      onNavigate(`/products/flanges/${currentMaterial.slug}/${currentTypeSlug}/${gradeSlug}`);
+      onNavigate(`/products/flanges/${currentMaterial.slug}/${currentTypeSlug}/${gradeSlug}${suffix}`);
     } else {
-      onNavigate(`/products/flanges/${currentMaterial.slug}/grades/${gradeSlug}`);
+      onNavigate(`/products/flanges/${currentMaterial.slug}/grades/${gradeSlug}${suffix}`);
     }
   };
 

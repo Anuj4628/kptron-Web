@@ -1,23 +1,55 @@
-import React, { useState, useMemo } from 'react';
-import { PIPE_FITTINGS_CATEGORIES } from '../../../data/pipeFittingsData';
-import { Search, X, Layers, ChevronDown, ChevronUp, FileText, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { 
+  PIPE_FITTINGS_CATEGORIES, 
+  getPipeFittingsCategoryBySlug, 
+  getPipeFittingsMaterialList 
+} from '../../../data/pipeFittingsData';
+import ProductMaterialFilterBar from '../ProductMaterialFilterBar';
+import { Search, X, Layers, ChevronDown, ChevronUp, FileText, ArrowRight, ShieldCheck, CheckCircle2, MapPin } from 'lucide-react';
 import './PipeFittingsProductPage.css';
 
 /**
  * Dedicated Pipe Fittings Product Collection Page
- * Strictly adheres to the established design system:
- * - 3-column grid on desktop, 2 on tablet, 1 on mobile
- * - Top product image with crisp object-cover treatment
- * - Product Title & Standards metadata block
- * - Technical description snippet
- * - AVAILABLE GRADES (count) with Layers icon
- * - Individual grade pills with orange square bullet and uppercase text
- * - "+ X More Grades ∨" natural expander toggle
- * - Bottom full-width "View All Specifications" action button
+ * Supports 3-level material hierarchy, material-specific visuals, and direct SEO URLs.
  */
-export default function PipeFittingsProductPage({ onNavigate, onOpenQuoteModal }) {
+export default function PipeFittingsProductPage({ 
+  materialSlug = null, 
+  isManufacturedInMumbai = false, 
+  onNavigate, 
+  onOpenQuoteModal 
+}) {
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedCards, setExpandedCards] = useState({});
+  const [selectedMaterial, setSelectedMaterial] = useState(
+    materialSlug ? materialSlug.toLowerCase().trim() : 'all'
+  );
+
+  useEffect(() => {
+    if (materialSlug) {
+      setSelectedMaterial(materialSlug.toLowerCase().trim());
+    } else {
+      setSelectedMaterial('all');
+    }
+  }, [materialSlug]);
+
+  const materialsList = useMemo(() => {
+    return getPipeFittingsMaterialList();
+  }, []);
+
+  const activeMaterialObj = useMemo(() => {
+    if (!selectedMaterial || selectedMaterial === 'all') return null;
+    const cat = getPipeFittingsCategoryBySlug(selectedMaterial);
+    if (cat) return { slug: cat.materialSlug || selectedMaterial, name: cat.materialName || cat.name };
+    const found = materialsList.find(m => m.slug === selectedMaterial);
+    return found || null;
+  }, [selectedMaterial, materialsList]);
+
+  useEffect(() => {
+    const matName = activeMaterialObj ? activeMaterialObj.name : 'Buttweld & Forged';
+    document.title = isManufacturedInMumbai
+      ? `${matName} Pipe Fittings Manufactured in Mumbai | Redcore Steels`
+      : `${matName} Pipe Fittings | ASME B16.9 / B16.11 | Redcore Steels`;
+  }, [isManufacturedInMumbai, activeMaterialObj]);
 
   const toggleExpand = (catId, e) => {
     e.stopPropagation();
@@ -27,12 +59,34 @@ export default function PipeFittingsProductPage({ onNavigate, onOpenQuoteModal }
     }));
   };
 
-  // Filter categories and grades based on real-time search
+  const handleSelectMaterial = (matSlug) => {
+    setSelectedMaterial(matSlug);
+    if (onNavigate) {
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      if (matSlug === 'all') {
+        onNavigate(`/products/pipe-fittings${suffix}`);
+      } else {
+        onNavigate(`/products/pipe-fittings/${matSlug}${suffix}`);
+      }
+    }
+  };
+
+  // Filter categories and grades based on selected material & real-time search
   const filteredCategories = useMemo(() => {
-    if (!searchQuery.trim()) return PIPE_FITTINGS_CATEGORIES;
+    let list = PIPE_FITTINGS_CATEGORIES;
+
+    if (selectedMaterial && selectedMaterial !== 'all') {
+      const targetCat = getPipeFittingsCategoryBySlug(selectedMaterial);
+      if (targetCat) {
+        list = list.filter(cat => cat.id === targetCat.id || cat.slug === targetCat.slug);
+      }
+    }
+
+    if (!searchQuery.trim()) return list;
     const q = searchQuery.toLowerCase().trim();
 
-    return PIPE_FITTINGS_CATEGORIES.map(cat => {
+    return list.map(cat => {
       const matchTitle = cat.title.toLowerCase().includes(q) ||
                          cat.name.toLowerCase().includes(q) ||
                          (cat.standards && cat.standards.toLowerCase().includes(q)) ||
@@ -51,18 +105,22 @@ export default function PipeFittingsProductPage({ onNavigate, onOpenQuoteModal }
       }
       return null;
     }).filter(Boolean);
-  }, [searchQuery]);
+  }, [searchQuery, selectedMaterial]);
 
   const handleCardClick = (catSlug) => {
     if (onNavigate) {
-      onNavigate(`/products/pipe-fittings/${catSlug}`);
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      onNavigate(`/products/pipe-fittings/${catSlug}${suffix}`);
     }
   };
 
   const handleGradeClick = (e, catSlug, gradeSlug) => {
     e.stopPropagation();
     if (onNavigate) {
-      onNavigate(`/products/pipe-fittings/${catSlug}/${gradeSlug}`);
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      onNavigate(`/products/pipe-fittings/${catSlug}/${gradeSlug}${suffix}`);
     }
   };
 
@@ -77,15 +135,35 @@ export default function PipeFittingsProductPage({ onNavigate, onOpenQuoteModal }
             <span className="crumb-sep">/</span>
             <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products')}>Products</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-current">Pipe Fittings</span>
+            <span 
+              className={activeMaterialObj ? "crumb-link" : "crumb-current"} 
+              onClick={() => activeMaterialObj && handleSelectMaterial('all')}
+            >
+              Pipe Fittings
+            </span>
+            {activeMaterialObj && (
+              <>
+                <span className="crumb-sep">/</span>
+                <span className="crumb-current">{activeMaterialObj.name}</span>
+              </>
+            )}
           </nav>
 
           <div className="fittings-header-badge-row">
             <span className="fittings-badge-tag">PRESSURE PIPING &amp; FORGED FITTINGS DIVISION</span>
+            {isManufacturedInMumbai && (
+              <span className="fittings-badge-mumbai" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: '#FF5B26', color: '#fff', padding: '0.2rem 0.6rem', borderRadius: '3px', fontWeight: '800', fontSize: '0.72rem', letterSpacing: '0.04em' }}>
+                <MapPin size={12} />
+                MANUFACTURED IN MUMBAI
+              </span>
+            )}
             <span className="fittings-badge-count">{PIPE_FITTINGS_CATEGORIES.length} Core Material Lines</span>
           </div>
 
-          <h1 className="fittings-main-title">Pipe Fittings</h1>
+          <h1 className="fittings-main-title">
+            {activeMaterialObj ? `${activeMaterialObj.name} Pipe Fittings` : 'Pipe Fittings'}
+            {isManufacturedInMumbai && ' — Manufactured in Mumbai'}
+          </h1>
 
           <p className="fittings-lead-text">
             Precision factory-manufactured butt-weld and high-pressure forged pipe fittings in Stainless Steel, Carbon Steel, Alloy Steel, Inconel, Monel, Hastelloy, Nickel, Copper Nickel, and Titanium. Conforming strictly to ASME B16.9, ASME B16.11, MSS SP-75, and ASTM A234 / A403 with EN 10204 3.1 &amp; 3.2 mill test certifications.
@@ -106,6 +184,14 @@ export default function PipeFittingsProductPage({ onNavigate, onOpenQuoteModal }
               <strong>Configurations:</strong> 45°/90° Elbows, Tees, Reducers, End Caps, Stub Ends, Unions
             </div>
           </div>
+
+          {/* Material Filter Bar */}
+          <ProductMaterialFilterBar
+            materials={materialsList}
+            selectedMaterial={selectedMaterial}
+            onSelectMaterial={handleSelectMaterial}
+            categoryName="Pipe Fittings"
+          />
 
           {/* Search Bar */}
           <div className="fittings-search-wrapper">

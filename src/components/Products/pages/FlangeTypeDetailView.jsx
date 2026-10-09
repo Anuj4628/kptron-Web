@@ -21,7 +21,8 @@ import {
   User, 
   ArrowLeft,
   Sparkles,
-  Check
+  Check,
+  MapPin
 } from 'lucide-react';
 import './FlangeTypeDetailView.css';
 
@@ -36,6 +37,7 @@ export default function FlangeTypeDetailView({
   materialSlug = 'stainless-steel', 
   typeSlug = 'weld-neck-flange', 
   gradeSlug = null,
+  isManufacturedInMumbai = false,
   onNavigate,
   onOpenQuoteModal 
 }) {
@@ -73,16 +75,20 @@ export default function FlangeTypeDetailView({
   // SEO Update on component render
   useEffect(() => {
     if (detail) {
-      document.title = detail.seo.title;
+      document.title = isManufacturedInMumbai
+        ? `${detail.fullName} Manufactured in Mumbai | Redcore Steels`
+        : detail.seo.title;
       let metaDesc = document.querySelector('meta[name="description"]');
       if (!metaDesc) {
         metaDesc = document.createElement('meta');
         metaDesc.name = 'description';
         document.head.appendChild(metaDesc);
       }
-      metaDesc.content = detail.seo.description;
+      metaDesc.content = isManufacturedInMumbai
+        ? `${detail.fullName} manufactured in Mumbai, India conforming strictly to ASME B16.5 and international standards. Available in sizes ${detail.technicalSpecs.sizeRange} with mill test certs.`
+        : detail.seo.description;
     }
-  }, [detail]);
+  }, [detail, isManufacturedInMumbai]);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -128,19 +134,23 @@ export default function FlangeTypeDetailView({
 
   const handleSelectGrade = (targetGradeSlug) => {
     if (!onNavigate) return;
+    const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
     if (targetGradeSlug) {
-      onNavigate(`/products/flanges/${normMatSlug}/${normTypeSlug}/${targetGradeSlug}`);
+      onNavigate(`/products/flanges/${normMatSlug}/${normTypeSlug}/${targetGradeSlug}${suffix}`);
     } else {
-      onNavigate(`/products/flanges/${normMatSlug}/${normTypeSlug}`);
+      onNavigate(`/products/flanges/${normMatSlug}/${normTypeSlug}${suffix}`);
     }
   };
 
   const handleSelectRelatedType = (relTypeSlug) => {
     if (!onNavigate) return;
+    const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+    const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
     if (normGradeSlug) {
-      onNavigate(`/products/flanges/${normMatSlug}/${relTypeSlug}/${normGradeSlug}`);
+      onNavigate(`/products/flanges/${normMatSlug}/${relTypeSlug}/${normGradeSlug}${suffix}`);
     } else {
-      onNavigate(`/products/flanges/${normMatSlug}/${relTypeSlug}`);
+      onNavigate(`/products/flanges/${normMatSlug}/${relTypeSlug}${suffix}`);
     }
   };
 
@@ -233,11 +243,18 @@ export default function FlangeTypeDetailView({
                   <span className="type-grade-pill">GRADE {detail.grade.shortName}</span>
                 )}
                 <span className="type-index-pill">TYPE {detail.typeNumber}</span>
+                {isManufacturedInMumbai && (
+                  <span className="type-mumbai-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: '#FF5B26', color: '#fff', padding: '0.2rem 0.6rem', borderRadius: '4px', fontWeight: '800', fontSize: '0.72rem', letterSpacing: '0.04em' }}>
+                    <MapPin size={12} />
+                    MANUFACTURED IN MUMBAI
+                  </span>
+                )}
               </div>
 
               {/* Single Main H1 per SEO requirement */}
               <h1 className="type-main-h1">
                 {detail.fullName}
+                {isManufacturedInMumbai && ' — Manufactured in Mumbai'}
               </h1>
 
               <div className="type-designation-strip">

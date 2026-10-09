@@ -23,6 +23,8 @@ export const PIPE_CATEGORIES = [
   {
     id: 'alloy-steel-pipe',
     slug: 'alloy-steel-pipe',
+    materialSlug: 'alloy-steel',
+    materialName: 'Alloy Steel',
     aliases: ['alloy-steel', 'seamless-alloy-steel-pipes-a335', 'a335-pipes'],
     name: 'Alloy Steel Pipe',
     headline: 'High-Temperature Chrome-Moly Seamless Line Pipes & Boiler Tubes',
@@ -194,6 +196,8 @@ export const PIPE_CATEGORIES = [
   {
     id: 'inconel-pipe',
     slug: 'inconel-pipe',
+    materialSlug: 'inconel',
+    materialName: 'Inconel',
     aliases: ['inconel', 'incoloy', 'inconel-products'],
     name: 'Inconel Pipe',
     headline: 'High-Nickel Superalloy Seamless Pipes for Extreme Temperature & Sour Gas',
@@ -287,6 +291,8 @@ export const PIPE_CATEGORIES = [
   {
     id: 'monel-pipe',
     slug: 'monel-pipe',
+    materialSlug: 'monel',
+    materialName: 'Monel',
     aliases: ['monel', 'monel-products'],
     name: 'Monel Pipe',
     headline: 'Nickel-Copper Alloy Seamless Piping for Marine & Hydrofluoric Acid Service',
@@ -328,6 +334,8 @@ export const PIPE_CATEGORIES = [
   {
     id: 'stainless-steel-pipe',
     slug: 'stainless-steel-pipe',
+    materialSlug: 'stainless-steel',
+    materialName: 'Stainless Steel',
     aliases: ['stainless-steel', 'ss-pipe'],
     name: 'Stainless Steel Pipe',
     headline: 'Austenitic & Martensitic Stainless Steel Seamless & Welded Industrial Piping',
@@ -605,6 +613,8 @@ export const PIPE_CATEGORIES = [
   {
     id: 'carbon-steel-pipe',
     slug: 'carbon-steel-pipe',
+    materialSlug: 'carbon-steel',
+    materialName: 'Carbon Steel',
     aliases: ['carbon-steel', 'cs-pipe'],
     name: 'Carbon Steel Pipe',
     headline: 'High-Pressure, Boiler, Low-Temp & API 5L Pipeline Carbon Steel Piping',
@@ -854,6 +864,8 @@ export const PIPE_CATEGORIES = [
   {
     id: 'hastelloy-pipe',
     slug: 'hastelloy-pipe',
+    materialSlug: 'hastelloy',
+    materialName: 'Hastelloy',
     aliases: ['hastelloy', 'hastelloy-pipes'],
     name: 'Hastelloy Pipe',
     headline: 'Corrosion-Resistant Nickel-Chromium-Molybdenum Alloy Line Pipe & Tubes',
@@ -908,6 +920,8 @@ export const PIPE_CATEGORIES = [
   {
     id: 'nickel-pipe',
     slug: 'nickel-pipe',
+    materialSlug: 'nickel',
+    materialName: 'Nickel Alloy',
     aliases: ['nickel', 'nickel-pipes'],
     name: 'Nickel Pipe',
     headline: 'Commercially Pure Nickel Seamless & Welded Industrial Piping',
@@ -962,6 +976,8 @@ export const PIPE_CATEGORIES = [
   {
     id: 'copper-nickel-pipe',
     slug: 'copper-nickel-pipe',
+    materialSlug: 'copper-nickel',
+    materialName: 'Copper Nickel',
     aliases: ['copper-nickel', 'cupro-nickel', 'cu-ni-pipe'],
     name: 'Copper Nickel Pipe',
     headline: 'Marine Seawater & Offshore Cu-Ni 90/10 and 70/30 Corrosion-Resistant Piping',
@@ -1016,6 +1032,8 @@ export const PIPE_CATEGORIES = [
   {
     id: 'titanium-pipe',
     slug: 'titanium-pipe',
+    materialSlug: 'titanium',
+    materialName: 'Titanium',
     aliases: ['titanium', 'titanium-pipes'],
     name: 'Titanium Pipe',
     headline: 'High-Strength Lightweight Titanium Seamless & Welded Industrial Piping',
@@ -1070,6 +1088,8 @@ export const PIPE_CATEGORIES = [
   {
     id: 'is-grades-pipe',
     slug: 'is-grades-pipe',
+    materialSlug: 'is-grades',
+    materialName: 'IS Grades',
     aliases: ['is-grades', 'is-pipe', 'is-standard-pipes'],
     name: 'IS Grades Pipe',
     headline: 'BIS Certified Structural & Fluid Line Steel Pipes to Indian Standards',
@@ -1163,6 +1183,8 @@ export const PIPE_CATEGORIES = [
   {
     id: 'api-5l-pipe',
     slug: 'api-5l-pipe',
+    materialSlug: 'api-5l',
+    materialName: 'API 5L Pipeline',
     aliases: ['api-5l', 'api5l', 'line-pipe'],
     name: 'API 5L Pipe',
     headline: 'API Spec 5L PSL1 & PSL2 High-Pressure Oil & Gas Transmission Line Pipes',
@@ -1321,6 +1343,8 @@ export const PIPE_CATEGORIES = [
   {
     id: 'en-standards-pipe',
     slug: 'en-standards-pipe',
+    materialSlug: 'en-standards',
+    materialName: 'EN Standards',
     aliases: ['en-standards', 'en-pipe', 'european-standard-pipes'],
     name: 'EN Standards Pipe',
     headline: 'European Standard (Euronorm) Precision Pressure Tubes & Hollow Bars',
@@ -1683,6 +1707,9 @@ const _gradeBySlugMap = new Map();
 PIPE_CATEGORIES.forEach(cat => {
   _categoriesMap.set(cat.slug, cat);
   _categoriesMap.set(cat.id, cat);
+  if (cat.materialSlug) {
+    _categoriesMap.set(cat.materialSlug, cat);
+  }
   if (cat.aliases) {
     cat.aliases.forEach(a => _categoriesMap.set(a, cat));
   }
@@ -1719,4 +1746,17 @@ export function getPipeGradeBySlug(categorySlug, gradeSlug) {
     }
   }
   return _gradeBySlugMap.get(cleanGrade) || null;
+}
+
+
+export function getPipeMaterialList() {
+  return [
+    { slug: 'all', name: 'All Materials' },
+    ...PIPE_CATEGORIES.map(c => ({
+      slug: c.materialSlug,
+      name: c.materialName,
+      catSlug: c.slug,
+      count: c.grades.length
+    }))
+  ];
 }

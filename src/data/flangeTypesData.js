@@ -30,18 +30,53 @@ import img_socket_weld from '../assets/flanges/types/socket-weld-flanges.jpg';
 import img_cast from '../assets/flanges/types/cast-flanges.jpg';
 import img_blind from '../assets/flanges/types/blind-flanges.jpg';
 import img_long_weld_neck from '../assets/flanges/types/long-weld-neck-flanges.jpg';
+import img_lap_joint from '../assets/flanges/types/lap-joint-flanges.jpg';
+import img_spectacle_blind from '../assets/flanges/types/spectacle-blind-flanges.jpg';
 
-// Material-specific product imagery
-import img_cs_weld_neck from '../assets/flanges/types/cs-weld-neck-flanges.jpg';
-import img_cs_blind from '../assets/flanges/types/cs-blind-flanges.jpg';
-import img_cs_slip_on from '../assets/flanges/types/cs-slip-on-flanges.jpg';
+// Authentic Carbon Steel product imagery
 import img_cs_threaded from '../assets/flanges/types/carbon-steel-flanges.jpg';
-import img_alloy_flanges from '../assets/Product Section/Manufacturer division/Flanges/alloy steel.jpg';
-import img_inconel_flanges from '../assets/flanges/types/inconel-600-flange.jpg';
-import img_monel_flanges from '../assets/New Product img/flanges/monel-flanges.jpg';
+import img_cs_weld_neck from '../assets/flanges/types/cs-weld-neck-flanges.jpg';
+import img_cs_slip_on from '../assets/flanges/types/cs-slip-on-flanges.jpg';
+import img_cs_blind from '../assets/flanges/types/cs-blind-flanges.jpg';
+import img_cs_socket_weld from '../assets/flanges/types/cs-socket-weld-flanges.jpg';
+import img_cs_lap_joint from '../assets/flanges/types/cs-lap-joint-flanges.jpg';
+import img_cs_orifice from '../assets/flanges/types/cs-orifice-flanges.jpg';
+import img_cs_long_weld_neck from '../assets/flanges/types/cs-long-weld-neck-flanges.jpg';
+import img_cs_spectacle_blind from '../assets/flanges/types/cs-spectacle-blind-flanges.jpg';
+import img_cs_reducing from '../assets/flanges/types/cs-reducing-flanges.jpg';
+import img_cs_expander from '../assets/flanges/types/cs-expander-flanges.jpg';
+import img_cs_square from '../assets/flanges/types/cs-square-flanges.jpg';
+import img_cs_elbow from '../assets/flanges/types/cs-elbow-flanges.jpg';
+
+// Authentic Hastelloy product imagery
 import img_hastelloy_flanges from '../assets/flanges/types/hastelloy-alloy-flanges.jpg';
+import img_hastelloy_blind from '../assets/flanges/types/hastelloy-blind-flanges.jpg';
+import img_hastelloy_slip_on from '../assets/flanges/types/hastelloy-slip-on-flanges.jpg';
+import img_hastelloy_threaded from '../assets/flanges/types/hastelloy-threaded-flanges.jpg';
+import img_hastelloy_socket_weld from '../assets/flanges/types/hastelloy-socket-weld-flanges.jpg';
+
+// Authentic Alloy Steel product imagery
+import img_alloy_flanges from '../assets/Product Section/Manufacturer division/Flanges/alloy steel.jpg';
+import img_steel_flanges_types from '../assets/flanges/types/steel-flanges-types.jpg';
+
+// Authentic Inconel product imagery
+import img_inconel_flanges from '../assets/flanges/types/inconel-600-flange.jpg';
+import img_inconel_flanges_new from '../assets/New Product img/flanges/inconel-flanges.jpg';
+import img_incoloy_800 from '../assets/flanges/types/incoloy-800-flanges.jpg';
+import img_inconel_threaded from '../assets/Product Images/Flanges/iconel.jpeg';
+
+// Authentic Monel product imagery
+import img_monel_flanges from '../assets/New Product img/flanges/monel-flanges.jpg';
+import img_monel_blind from '../assets/Product Images/Flanges/monel.jpeg';
+
+// Authentic Copper Nickel product imagery
 import img_cu_ni_flanges from '../assets/flanges/types/copper-nickel-flange-500x500.jpg';
+import img_cu_ni_flanges_new from '../assets/New Product img/flanges/copper-nickel-flanges.jpg';
+
+// Authentic Titanium & Nickel product imagery
 import img_titanium_flanges from '../assets/New Product img/flanges/titanium-flanges.jpg';
+import img_titanium_blind from '../assets/Product Section/Manufacturer division/Flanges/titainium.avif';
+import img_nickel_flanges from '../assets/Product Section/Manufacturer division/Flanges/nikle.jpg';
 
 /**
  * 12 Core Flange Types Metadata
@@ -358,6 +393,58 @@ export const CORE_FLANGE_TYPES = [
     standardPressures: 'Class 150#, 300#, 600#, 900#, 1500#, 2500#',
     applicableStandards: 'ASME B16.5, ASME Section VIII Div 1 & 2 Nozzle Rules',
     manufacturingMethod: 'Monolithic closed-die forging with gun-drilled or deep CNC bored barrel'
+  },
+  {
+    number: '13',
+    id: 'lap-joint-flange',
+    slug: 'lap-joint-flange',
+    aliases: ['lap-joint', 'ljrf', 'lap-flange', 'loose-flange', 'van-stone-flange'],
+    name: 'Lap Joint Flange',
+    shortCode: 'LJRF',
+    technicalDesignation: 'Lap Joint Flange (LJRF) with Matching Stub End',
+    categoryClassification: 'Standard ASME B16.5 Loose Backing Flange',
+    defaultImage: img_lap_joint,
+    shortDesc: 'Loose backing companion flange featuring a precision radiused bore shoulder engineered to clamp over ASME B16.9 lap joint stub end fittings without welding to the pipe.',
+    whatIs: 'A Lap Joint Flange (LJRF) slides directly over the pipe and is paired with a Lap Joint Stub End fitting. The flange itself is never welded to the pipe, remaining free to rotate for rapid bolt hole alignment.',
+    designAndFeatures: 'Manufactured with a curved internal radius at the bore corner to fit smoothly against the matching radiused hub of the stub end. Because only the stub end comes into contact with the process fluid, an economical carbon steel lap joint flange can be paired with high-alloy or stainless steel stub ends.',
+    howItConnects: 'The matching stub end is butt-welded to the pipe run, while the lap joint flange slips freely behind the stub end shoulder and is clamped against the mating flange with standard perimeter bolting.',
+    purpose: 'Engineered for piping systems requiring frequent dismantling for inspection, cleaning, or maintenance, and for reducing project costs in expensive stainless steel and exotic nickel alloy pipelines.',
+    applications: [
+      'Chemical processing lines requiring rapid maintenance dismantling',
+      'Food, beverage, and pharmaceutical sanitary CIP washdown lines',
+      'Corrosive slurry pipelines where frequent pipe rotation is required to distribute wall wear',
+      'Confined space module tie-ins where aligning bolt holes is challenging'
+    ],
+    standardSizes: '1/2" NB to 24" NB (DN15 to DN600)',
+    standardPressures: 'Class 150#, 300#, 600#',
+    applicableStandards: 'ASME B16.5, ASME B16.9 (Stub End), EN 1092-1 Type 02, DIN 2642',
+    manufacturingMethod: 'Closed-die drop forging with precision CNC bore radiusing and face turning'
+  },
+  {
+    number: '14',
+    id: 'spectacle-blind-flange',
+    slug: 'spectacle-blind-flange',
+    aliases: ['spectacle-blind', 'figure-8-blind', 'spbf', 'figure-8', 'paddle-blind', 'line-blind'],
+    name: 'Spectacle Blind Flange',
+    shortCode: 'SPBF',
+    technicalDesignation: 'Spectacle Blind / Figure-8 Line Blanking Device (ASME B16.48)',
+    categoryClassification: 'Piping Line Blinding Device',
+    defaultImage: img_spectacle_blind,
+    shortDesc: 'Figure-8 mechanical safety line blinding device combining a solid blank disk and an open spacer ring connected by a steel web handle for positive, visual pipeline isolation.',
+    whatIs: 'A Spectacle Blind (standardized under ASME B16.48) is a safety device named for its resemblance to a pair of eyeglasses (figure-8). It consists of two circular steel disks—one solid blank disk and one open spacer ring—connected by a center bridge.',
+    designAndFeatures: 'Precision machined with raised faces on both the blank and spacer sections. A handle hole in the center of the web bridge facilitates pivoting the blind to change piping flow status from open to positive shut-off.',
+    howItConnects: 'Sandwiched between two ASME B16.5 companion flanges with gaskets. To isolate flow, the bolts are loosened, the flange joint is jacked open, and the blind is rotated so the solid blank disk blocks the line.',
+    purpose: 'Provides 100% positive, visual, and tamper-proof mechanical line isolation during turnaround maintenance, inspections, and emergency shutdowns without removing pipe spools.',
+    applications: [
+      'Refinery turnaround positive isolation headers',
+      'Petrochemical chemical reactor feed and discharge lines',
+      'Crude oil storage tank farm loading/unloading manifolds',
+      'Offshore export manifold maintenance isolation'
+    ],
+    standardSizes: '1/2" NB to 24" NB (DN15 to DN600)',
+    standardPressures: 'Class 150#, 300#, 600#, 900#, 1500#, 2500#',
+    applicableStandards: 'ASME B16.48, ASME B16.5, API 598',
+    manufacturingMethod: 'Precision CNC waterjet profiling from heavy forged plate followed by multi-pass CNC facing'
   }
 ];
 
@@ -375,35 +462,39 @@ export const FLANGE_MATERIALS = [
     standard: 'ASTM A182 / ASME SA182',
     primaryGrades: 'F304, F304L, F316, F316L, F316Ti, F310, F317L, F321, 904L',
     materialDesc: 'Austenitic and refractory stainless steel flanges delivering superior corrosion resistance in acidic, chloride, and sanitary media.',
-    // All 12 types genuinely supported for Stainless Steel
+    // All 14 types genuinely supported for Stainless Steel
     supportedTypeSlugs: [
       'threaded-flange',
       'weld-neck-flange',
       'slip-on-flange',
-      'square-flange',
+      'blind-flange',
+      'socket-weld-flange',
+      'lap-joint-flange',
       'orifice-flange',
-      'elbow-flange',
+      'long-weld-neck-flange',
+      'spectacle-blind-flange',
       'reducing-flange',
       'expander-flange',
-      'socket-weld-flange',
-      'cast-flange',
-      'blind-flange',
-      'long-weld-neck-flange'
+      'square-flange',
+      'elbow-flange',
+      'cast-flange'
     ],
     // Material-specific image overrides per type
     typeImages: {
       'threaded-flange': img_threaded,
       'weld-neck-flange': img_weld_neck,
       'slip-on-flange': img_slip_on,
-      'square-flange': img_square,
+      'blind-flange': img_blind,
+      'socket-weld-flange': img_socket_weld,
+      'lap-joint-flange': img_lap_joint,
       'orifice-flange': img_orifice,
-      'elbow-flange': img_elbow,
+      'long-weld-neck-flange': img_long_weld_neck,
+      'spectacle-blind-flange': img_spectacle_blind,
       'reducing-flange': img_reducing,
       'expander-flange': img_expander,
-      'socket-weld-flange': img_socket_weld,
-      'cast-flange': img_cast,
-      'blind-flange': img_blind,
-      'long-weld-neck-flange': img_long_weld_neck
+      'square-flange': img_square,
+      'elbow-flange': img_elbow,
+      'cast-flange': img_cast
     },
     // Authentic Material Grades from Existing Project Catalog
     grades: [
@@ -563,34 +654,38 @@ export const FLANGE_MATERIALS = [
     standard: 'ASTM A105, ASTM A350 LF2, ASTM A694, ASTM A181',
     primaryGrades: 'A105, A350 LF2 Class 1, A694 F42/F52/F60/F65/F70, A181 Class 60/70',
     materialDesc: 'Forged high-strength carbon steel flanges designed for ambient, high-temperature, and low-temperature impact service.',
-    // All 12 types supported for Carbon Steel
+    // All 14 types genuinely supported for Carbon Steel
     supportedTypeSlugs: [
       'threaded-flange',
       'weld-neck-flange',
       'slip-on-flange',
-      'square-flange',
+      'blind-flange',
+      'socket-weld-flange',
+      'lap-joint-flange',
       'orifice-flange',
-      'elbow-flange',
+      'long-weld-neck-flange',
+      'spectacle-blind-flange',
       'reducing-flange',
       'expander-flange',
-      'socket-weld-flange',
-      'cast-flange',
-      'blind-flange',
-      'long-weld-neck-flange'
+      'square-flange',
+      'elbow-flange',
+      'cast-flange'
     ],
     typeImages: {
       'threaded-flange': img_cs_threaded,
       'weld-neck-flange': img_cs_weld_neck,
       'slip-on-flange': img_cs_slip_on,
-      'square-flange': img_square,
-      'orifice-flange': img_orifice,
-      'elbow-flange': img_elbow,
-      'reducing-flange': img_reducing,
-      'expander-flange': img_expander,
-      'socket-weld-flange': img_socket_weld,
-      'cast-flange': img_cast,
       'blind-flange': img_cs_blind,
-      'long-weld-neck-flange': img_long_weld_neck
+      'socket-weld-flange': img_cs_socket_weld,
+      'lap-joint-flange': img_cs_lap_joint,
+      'orifice-flange': img_cs_orifice,
+      'long-weld-neck-flange': img_cs_long_weld_neck,
+      'spectacle-blind-flange': img_cs_spectacle_blind,
+      'reducing-flange': img_cs_reducing,
+      'expander-flange': img_cs_expander,
+      'square-flange': img_cs_square,
+      'elbow-flange': img_cs_elbow,
+      'cast-flange': img_cs_threaded
     },
     grades: [
       {
@@ -702,17 +797,33 @@ export const FLANGE_MATERIALS = [
       'threaded-flange',
       'weld-neck-flange',
       'slip-on-flange',
+      'blind-flange',
+      'socket-weld-flange',
+      'lap-joint-flange',
       'orifice-flange',
-      'elbow-flange',
+      'long-weld-neck-flange',
+      'spectacle-blind-flange',
       'reducing-flange',
       'expander-flange',
-      'socket-weld-flange',
-      'blind-flange',
-      'long-weld-neck-flange'
+      'square-flange',
+      'elbow-flange',
+      'cast-flange'
     ],
     typeImages: {
+      'threaded-flange': img_steel_flanges_types,
       'weld-neck-flange': img_alloy_flanges,
-      'blind-flange': img_alloy_flanges
+      'slip-on-flange': img_steel_flanges_types,
+      'blind-flange': img_alloy_flanges,
+      'socket-weld-flange': img_steel_flanges_types,
+      'lap-joint-flange': img_steel_flanges_types,
+      'orifice-flange': img_alloy_flanges,
+      'long-weld-neck-flange': img_alloy_flanges,
+      'spectacle-blind-flange': img_alloy_flanges,
+      'reducing-flange': img_steel_flanges_types,
+      'expander-flange': img_steel_flanges_types,
+      'square-flange': img_steel_flanges_types,
+      'elbow-flange': img_alloy_flanges,
+      'cast-flange': img_steel_flanges_types
     },
     grades: [
       {
@@ -858,17 +969,33 @@ export const FLANGE_MATERIALS = [
       'threaded-flange',
       'weld-neck-flange',
       'slip-on-flange',
+      'blind-flange',
+      'socket-weld-flange',
+      'lap-joint-flange',
       'orifice-flange',
-      'elbow-flange',
+      'long-weld-neck-flange',
+      'spectacle-blind-flange',
       'reducing-flange',
       'expander-flange',
-      'socket-weld-flange',
-      'blind-flange',
-      'long-weld-neck-flange'
+      'square-flange',
+      'elbow-flange',
+      'cast-flange'
     ],
     typeImages: {
+      'threaded-flange': img_inconel_threaded,
       'weld-neck-flange': img_inconel_flanges,
-      'blind-flange': img_inconel_flanges
+      'slip-on-flange': img_inconel_flanges_new,
+      'blind-flange': img_inconel_flanges,
+      'socket-weld-flange': img_incoloy_800,
+      'lap-joint-flange': img_inconel_flanges_new,
+      'orifice-flange': img_inconel_flanges,
+      'long-weld-neck-flange': img_incoloy_800,
+      'spectacle-blind-flange': img_inconel_flanges,
+      'reducing-flange': img_inconel_flanges_new,
+      'expander-flange': img_inconel_flanges,
+      'square-flange': img_inconel_flanges_new,
+      'elbow-flange': img_inconel_flanges,
+      'cast-flange': img_inconel_flanges
     },
     grades: [
       {
@@ -943,17 +1070,33 @@ export const FLANGE_MATERIALS = [
       'threaded-flange',
       'weld-neck-flange',
       'slip-on-flange',
+      'blind-flange',
+      'socket-weld-flange',
+      'lap-joint-flange',
       'orifice-flange',
-      'elbow-flange',
+      'long-weld-neck-flange',
+      'spectacle-blind-flange',
       'reducing-flange',
       'expander-flange',
-      'socket-weld-flange',
-      'blind-flange',
-      'long-weld-neck-flange'
+      'square-flange',
+      'elbow-flange',
+      'cast-flange'
     ],
     typeImages: {
+      'threaded-flange': img_monel_flanges,
       'weld-neck-flange': img_monel_flanges,
-      'blind-flange': img_monel_flanges
+      'slip-on-flange': img_monel_flanges,
+      'blind-flange': img_monel_blind,
+      'socket-weld-flange': img_monel_flanges,
+      'lap-joint-flange': img_monel_flanges,
+      'orifice-flange': img_monel_flanges,
+      'long-weld-neck-flange': img_monel_flanges,
+      'spectacle-blind-flange': img_monel_blind,
+      'reducing-flange': img_monel_flanges,
+      'expander-flange': img_monel_flanges,
+      'square-flange': img_monel_flanges,
+      'elbow-flange': img_monel_flanges,
+      'cast-flange': img_monel_flanges
     },
     grades: [
       {
@@ -1000,17 +1143,33 @@ export const FLANGE_MATERIALS = [
       'threaded-flange',
       'weld-neck-flange',
       'slip-on-flange',
+      'blind-flange',
+      'socket-weld-flange',
+      'lap-joint-flange',
       'orifice-flange',
-      'elbow-flange',
+      'long-weld-neck-flange',
+      'spectacle-blind-flange',
       'reducing-flange',
       'expander-flange',
-      'socket-weld-flange',
-      'blind-flange',
-      'long-weld-neck-flange'
+      'square-flange',
+      'elbow-flange',
+      'cast-flange'
     ],
     typeImages: {
+      'threaded-flange': img_hastelloy_threaded,
       'weld-neck-flange': img_hastelloy_flanges,
-      'blind-flange': img_hastelloy_flanges
+      'slip-on-flange': img_hastelloy_slip_on,
+      'blind-flange': img_hastelloy_blind,
+      'socket-weld-flange': img_hastelloy_socket_weld,
+      'lap-joint-flange': img_hastelloy_slip_on,
+      'orifice-flange': img_hastelloy_flanges,
+      'long-weld-neck-flange': img_hastelloy_flanges,
+      'spectacle-blind-flange': img_hastelloy_blind,
+      'reducing-flange': img_hastelloy_slip_on,
+      'expander-flange': img_hastelloy_flanges,
+      'square-flange': img_hastelloy_flanges,
+      'elbow-flange': img_hastelloy_flanges,
+      'cast-flange': img_hastelloy_flanges
     },
     grades: [
       {
@@ -1057,12 +1216,34 @@ export const FLANGE_MATERIALS = [
       'threaded-flange',
       'weld-neck-flange',
       'slip-on-flange',
-      'orifice-flange',
-      'reducing-flange',
-      'socket-weld-flange',
       'blind-flange',
-      'long-weld-neck-flange'
+      'socket-weld-flange',
+      'lap-joint-flange',
+      'orifice-flange',
+      'long-weld-neck-flange',
+      'spectacle-blind-flange',
+      'reducing-flange',
+      'expander-flange',
+      'square-flange',
+      'elbow-flange',
+      'cast-flange'
     ],
+    typeImages: {
+      'threaded-flange': img_nickel_flanges,
+      'weld-neck-flange': img_nickel_flanges,
+      'slip-on-flange': img_nickel_flanges,
+      'blind-flange': img_nickel_flanges,
+      'socket-weld-flange': img_nickel_flanges,
+      'lap-joint-flange': img_nickel_flanges,
+      'orifice-flange': img_nickel_flanges,
+      'long-weld-neck-flange': img_nickel_flanges,
+      'spectacle-blind-flange': img_nickel_flanges,
+      'reducing-flange': img_nickel_flanges,
+      'expander-flange': img_nickel_flanges,
+      'square-flange': img_nickel_flanges,
+      'elbow-flange': img_nickel_flanges,
+      'cast-flange': img_nickel_flanges
+    },
     grades: [
       {
         id: 'ni-200',
@@ -1108,14 +1289,33 @@ export const FLANGE_MATERIALS = [
       'threaded-flange',
       'weld-neck-flange',
       'slip-on-flange',
-      'reducing-flange',
+      'blind-flange',
       'socket-weld-flange',
-      'blind-flange'
+      'lap-joint-flange',
+      'orifice-flange',
+      'long-weld-neck-flange',
+      'spectacle-blind-flange',
+      'reducing-flange',
+      'expander-flange',
+      'square-flange',
+      'elbow-flange',
+      'cast-flange'
     ],
     typeImages: {
+      'threaded-flange': img_cu_ni_flanges_new,
       'weld-neck-flange': img_cu_ni_flanges,
-      'slip-on-flange': img_cu_ni_flanges,
-      'blind-flange': img_cu_ni_flanges
+      'slip-on-flange': img_cu_ni_flanges_new,
+      'blind-flange': img_cu_ni_flanges,
+      'socket-weld-flange': img_cu_ni_flanges_new,
+      'lap-joint-flange': img_cu_ni_flanges,
+      'orifice-flange': img_cu_ni_flanges,
+      'long-weld-neck-flange': img_cu_ni_flanges,
+      'spectacle-blind-flange': img_cu_ni_flanges,
+      'reducing-flange': img_cu_ni_flanges_new,
+      'expander-flange': img_cu_ni_flanges,
+      'square-flange': img_cu_ni_flanges_new,
+      'elbow-flange': img_cu_ni_flanges,
+      'cast-flange': img_cu_ni_flanges
     },
     grades: [
       {
@@ -1162,14 +1362,33 @@ export const FLANGE_MATERIALS = [
       'threaded-flange',
       'weld-neck-flange',
       'slip-on-flange',
-      'orifice-flange',
-      'socket-weld-flange',
       'blind-flange',
-      'long-weld-neck-flange'
+      'socket-weld-flange',
+      'lap-joint-flange',
+      'orifice-flange',
+      'long-weld-neck-flange',
+      'spectacle-blind-flange',
+      'reducing-flange',
+      'expander-flange',
+      'square-flange',
+      'elbow-flange',
+      'cast-flange'
     ],
     typeImages: {
+      'threaded-flange': img_titanium_flanges,
       'weld-neck-flange': img_titanium_flanges,
-      'blind-flange': img_titanium_flanges
+      'slip-on-flange': img_titanium_flanges,
+      'blind-flange': img_titanium_blind,
+      'socket-weld-flange': img_titanium_flanges,
+      'lap-joint-flange': img_titanium_flanges,
+      'orifice-flange': img_titanium_flanges,
+      'long-weld-neck-flange': img_titanium_flanges,
+      'spectacle-blind-flange': img_titanium_blind,
+      'reducing-flange': img_titanium_flanges,
+      'expander-flange': img_titanium_flanges,
+      'square-flange': img_titanium_flanges,
+      'elbow-flange': img_titanium_flanges,
+      'cast-flange': img_titanium_flanges
     },
     grades: [
       {

@@ -20,36 +20,320 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://www.kptronpipingsolutions.com/products/pipes</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
+
+  <!-- 1. FLANGES -->
   <url>
     <loc>https://www.kptronpipingsolutions.com/products/flanges</loc>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/flanges/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/flanges/carbon-steel</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/flanges/carbon-steel/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/flanges/stainless-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/flanges/stainless-steel/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/flanges/alloy-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/flanges/inconel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/flanges/hastelloy</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/flanges/titanium</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 2. FASTENERS -->
   <url>
     <loc>https://www.kptronpipingsolutions.com/products/fasteners</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.kptronpipingsolutions.com/products/pipe-fittings</loc>
+    <loc>https://www.kptronpipingsolutions.com/products/fasteners/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/fasteners/carbon-steel</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.kptronpipingsolutions.com/products/sheets-plates-coils</loc>
+    <loc>https://www.kptronpipingsolutions.com/products/fasteners/carbon-steel/manufactured-in-mumbai</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/fasteners/stainless-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/fasteners/stainless-steel/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/fasteners/alloy-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/fasteners/inconel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/fasteners/hastelloy</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/fasteners/titanium</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 3. PIPES & TUBES -->
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipes</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipes/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipes/carbon-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipes/carbon-steel/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipes/stainless-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipes/stainless-steel/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipes/alloy-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipes/inconel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipes/hastelloy</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipes/titanium</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 4. SHEETS, PLATES & COILS -->
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/sheets-and-plates</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/sheets-and-plates/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/sheets-and-plates/carbon-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/sheets-and-plates/carbon-steel/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/sheets-and-plates/stainless-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/sheets-and-plates/stainless-steel/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/sheets-and-plates/alloy-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/sheets-and-plates/inconel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/sheets-and-plates/hastelloy</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/sheets-and-plates/titanium</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 5. BARS & RODS -->
   <url>
     <loc>https://www.kptronpipingsolutions.com/products/bars</loc>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/bars/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/bars/carbon-steel</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/bars/carbon-steel/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/bars/stainless-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/bars/stainless-steel/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/bars/alloy-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/bars/inconel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/bars/hastelloy</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/bars/titanium</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 6. PIPE FITTINGS -->
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipe-fittings</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipe-fittings/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipe-fittings/carbon-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipe-fittings/carbon-steel/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipe-fittings/stainless-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipe-fittings/stainless-steel/manufactured-in-mumbai</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipe-fittings/alloy-steel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipe-fittings/inconel</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipe-fittings/hastelloy</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.kptronpipingsolutions.com/products/pipe-fittings/titanium</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- MATERIALS ROOT -->
   <url>
     <loc>https://www.kptronpipingsolutions.com/materials</loc>
     <changefreq>weekly</changefreq>

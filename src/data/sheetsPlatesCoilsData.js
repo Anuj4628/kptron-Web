@@ -16,6 +16,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
   {
     id: 'ss-sheets-plates-coils',
     slug: 'ss-sheets-plates-coils',
+    materialSlug: 'stainless-steel',
+    materialName: 'Stainless Steel',
     aliases: ['stainless-steel-sheets', 'ss-sheets', 'stainless-steel-plates-coils', 'ss-sheet-plate-coil'],
     name: 'SS Sheets, Plates, Coils',
     headline: 'Austenitic, Ferritic & Martensitic Cold Rolled Sheets, Heavy Plates & Precision Slit Coils',
@@ -174,6 +176,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
   {
     id: 'super-duplex-sheets-plates-coils',
     slug: 'super-duplex-sheets-plates-coils',
+    materialSlug: 'duplex-steel',
+    materialName: 'Duplex & Super Duplex',
     aliases: ['duplex-sheets', 'super-duplex-plates', 'duplex-steel-sheet-plate-coil'],
     name: 'Super & Duplex Sheets, Plates, Coils',
     headline: 'High-Strength Dual-Phase Austenitic-Ferritic Marine & Chemical Process Plates',
@@ -241,6 +245,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
   {
     id: 'carbon-steel-sheets-plates-coils',
     slug: 'carbon-steel-sheets-plates-coils',
+    materialSlug: 'carbon-steel',
+    materialName: 'Carbon Steel',
     aliases: ['carbon-steel-plates', 'cs-plates', 'carbon-steel-sheet-plate-coil'],
     name: 'Carbon Steel Sheets, Plates, Coils',
     headline: 'Certified Boiler Quality (BQ), High-Tensile Structural & Pressure Vessel Heavy Steel Plates',
@@ -438,6 +444,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
   {
     id: 'alloy-steel-sheets-plates-coils',
     slug: 'alloy-steel-sheets-plates-coils',
+    materialSlug: 'alloy-steel',
+    materialName: 'Alloy Steel',
     aliases: ['alloy-steel-plates', 'chrome-moly-plates', 'alloy-steel-sheet-plate-coil'],
     name: 'Alloy Steel Sheets, Plates, Coils',
     headline: 'High-Temperature Chrome-Moly (Cr-Mo) Creep-Resistant Pressure Vessel Steel Plates',
@@ -544,6 +552,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
   {
     id: 'inconel-sheets-plates-coils',
     slug: 'inconel-sheets-plates-coils',
+    materialSlug: 'inconel',
+    materialName: 'Inconel',
     aliases: ['inconel-plates', 'inconel-sheet-plate-coil', 'nickel-alloy-plates'],
     name: 'Inconel Sheets, Plates, Coils',
     headline: 'Nickel-Chromium High-Temperature Superalloy Sheets, Heavy Plates & Strip Coils',
@@ -650,6 +660,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
   {
     id: 'hastelloy-sheets-plates-coils',
     slug: 'hastelloy-sheets-plates-coils',
+    materialSlug: 'hastelloy',
+    materialName: 'Hastelloy',
     aliases: ['hastelloy-plates', 'hastelloy-sheet-plate-coil'],
     name: 'Hastelloy Sheets, Plates, Coils',
     headline: 'Corrosion-Resistant Nickel-Molybdenum-Chromium Alloy Heavy Plates & Slit Strip Coils',
@@ -704,6 +716,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
   {
     id: 'titanium-sheets-plates-coils',
     slug: 'titanium-sheets-plates-coils',
+    materialSlug: 'titanium',
+    materialName: 'Titanium',
     aliases: ['titanium-plates', 'titanium-sheet-plate-coil', 'ti-plates'],
     name: 'Titanium Sheets, Plates, Coils',
     headline: 'High-Strength Lightweight & Seawater-Immune Titanium Sheets, Heavy Plates & Strip Coils',
@@ -764,6 +778,9 @@ const _gradeMap = new Map();
 SHEETS_PLATES_COILS_CATEGORIES.forEach(cat => {
   _catMap.set(cat.slug, cat);
   _catMap.set(cat.id, cat);
+  if (cat.materialSlug) {
+    _catMap.set(cat.materialSlug, cat);
+  }
   if (cat.aliases) {
     cat.aliases.forEach(a => _catMap.set(a, cat));
   }
@@ -798,4 +815,17 @@ export function getSheetsPlatesGradeBySlug(categorySlug, gradeSlug) {
     }
   }
   return _gradeMap.get(cleanGrade) || null;
+}
+
+
+export function getSheetsPlatesMaterialList() {
+  return [
+    { slug: 'all', name: 'All Materials' },
+    ...SHEETS_PLATES_COILS_CATEGORIES.map(c => ({
+      slug: c.materialSlug,
+      name: c.materialName,
+      catSlug: c.slug,
+      count: c.grades.length
+    }))
+  ];
 }

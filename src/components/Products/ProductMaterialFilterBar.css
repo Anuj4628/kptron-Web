@@ -1,0 +1,106 @@
+/* Product Material Filter Bar */
+.product-mat-filter-wrapper {
+  margin-top: 1.5rem;
+  padding: 0.65rem 0.85rem;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-left: 4px solid #FF5B26;
+  border-radius: 6px;
+}
+
+.product-mat-filter-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.product-mat-filter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #1F3862;
+  white-space: nowrap;
+}
+
+.mat-filter-icon {
+  color: #FF5B26;
+}
+
+.product-mat-pills-scroll {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mat-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.mat-pill-btn:hover {
+  background: #EEF2F6;
+  border-color: #94A3B8;
+  color: #0F172A;
+}
+
+.mat-pill-btn.is-active {
+  background: #1F3862;
+  border-color: #1F3862;
+  color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(31, 56, 98, 0.2);
+}
+
+.mat-pill-btn.is-active .mat-pill-dot {
+  color: #FF5B26;
+}
+
+.mat-pill-dot {
+  font-size: 0.65rem;
+  color: #94A3B8;
+  line-height: 1;
+}
+
+.mat-pill-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.1rem 0.35rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.06);
+  color: inherit;
+  margin-left: 0.15rem;
+}
+
+.mat-pill-btn.is-active .mat-pill-count {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .product-mat-pills-scroll {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 0.25rem;
+  }
+}

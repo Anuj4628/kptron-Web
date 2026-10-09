@@ -3,6 +3,7 @@
  * Conforming strictly to ASTM A193, ASTM A194, ASTM A320, DIN 933, DIN 934, ISO 4014, and ASME B18.2.1.
  */
 
+import img_cs_fasteners from '../assets/Product Images/Fasteners/carbon.jpeg';
 import img_ss_fasteners from '../assets/New Product img/fasteners/ss-fasteners.jpg';
 import img_duplex_fasteners from '../assets/New Product img/fasteners/duplex-steel-fasteners.jpg';
 import img_alloy_fasteners from '../assets/New Product img/fasteners/alloy-steel-fasteners.jpg';
@@ -16,8 +17,47 @@ import img_refractory_anchors from '../assets/Product Section/Manufacturer divis
 
 export const FASTENERS_CATEGORIES = [
   {
+    id: 'carbon-steel-fasteners',
+    slug: 'carbon-steel-fasteners',
+    materialSlug: 'carbon-steel',
+    materialName: 'Carbon Steel',
+    aliases: ["carbon-steel","carbon","carbon-steel-fasteners","cs-fasteners"],
+    name: 'Carbon Steel Fasteners',
+    title: 'Carbon Steel Fasteners',
+    image: img_cs_fasteners,
+    standards: 'ASTM A194 2H, ASTM A307 Grade A/B, ASTM A325, ASTM A394, DIN 933, ISO 898-1 Class 8.8, 10.9',
+    sizeRange: 'M6 to M100 | 1/4" to 4" Diameter',
+    threadTypes: 'UNC, UNF, Metric 6g/6H, 8-UN Heavy Bolting Series',
+    availableForms: [
+      'Heavy Hex Head High-Tensile Bolts & Screws',
+      'Continuous Threaded Stud Bolts with Grade 2H Nuts',
+      'Structural Bolts (ASTM A325 / A490)',
+      'Black Oxide, Zinc Plated & Hot Dip Galvanized Studs',
+      'Foundation Anchor Bolts & Heavy Hex Nuts'
+    ],
+    shortDesc: 'High-strength quenched and tempered carbon steel bolts, studs, and heavy hex nuts engineered for structural joints, piping connections, and industrial equipment.',
+    grades: [
+      {
+        id: 'cs-fasteners-general',
+        slug: 'carbon-steel-fasteners',
+        name: 'Carbon Steel Fasteners',
+        code: 'ASTM A194 Grade 2H / ASTM A307 / A325 High Tensile',
+        standard: 'ASTM A194, ASTM A307, ASTM A325, ISO 898-1',
+        uns: 'UNS G10450 / AISI 1045',
+        din: 'DIN 933 / DIN 934 / EN 14399',
+        shortDesc: 'High-tensile carbon steel threaded studs and heavy structural bolts with black oxide and galvanized finishes.',
+        fullDesc: 'Heavy-duty carbon steel structural fasteners manufactured from selected medium-carbon steels, heat-treated to achieve optimum yield strength and ductility for pressure equipment and infrastructure.',
+        specs: { diameter: 'M6 to M100 (1/4" to 4")', tensileStrength: 'Min 600 to 1040 MPa', finish: 'Black Oxide / Phosphated / Hot Dip Galvanized' },
+        applications: ['Structural steel framing bolting', 'Industrial pressure vessel and flange connections', 'Heavy automotive and railway track fasteners', 'General construction and anchor bolt installations']
+      }
+    ]
+  },
+  {
     id: 'stainless-steel-fasteners',
     slug: 'stainless-steel-fasteners',
+    materialSlug: 'stainless-steel',
+    materialName: 'Stainless Steel',
+    aliases: ["stainless-steel","stainless","ss-fasteners","stainless-steel-fasteners"],
     name: 'Stainless Steel Fasteners',
     title: 'Stainless Steel Fasteners',
     image: img_ss_fasteners,
@@ -52,6 +92,9 @@ export const FASTENERS_CATEGORIES = [
   {
     id: 'duplex-steel-fasteners',
     slug: 'duplex-steel-fasteners',
+    materialSlug: 'duplex-steel',
+    materialName: 'Duplex & Super Duplex',
+    aliases: ["duplex-steel","duplex","super-duplex","duplex-steel-fasteners"],
     name: 'Duplex Steel Fasteners',
     title: 'Duplex Steel Fasteners',
     image: img_duplex_fasteners,
@@ -85,6 +128,9 @@ export const FASTENERS_CATEGORIES = [
   {
     id: 'alloy-steel-fasteners',
     slug: 'alloy-steel-fasteners',
+    materialSlug: 'alloy-steel',
+    materialName: 'Alloy Steel',
+    aliases: ["alloy-steel","alloy-steel-fasteners","b7-fasteners","b16-fasteners"],
     name: 'Alloy Steel Fasteners',
     title: 'Alloy Steel Fasteners',
     image: img_alloy_fasteners,
@@ -157,6 +203,9 @@ export const FASTENERS_CATEGORIES = [
   {
     id: 'inconel-fasteners',
     slug: 'inconel-fasteners',
+    materialSlug: 'inconel',
+    materialName: 'Inconel',
+    aliases: ["inconel","inconel-fasteners","inconel-625-fasteners"],
     name: 'Inconel Fasteners',
     title: 'Inconel Fasteners',
     image: img_inconel_fasteners,
@@ -202,6 +251,9 @@ export const FASTENERS_CATEGORIES = [
   {
     id: 'monel-fasteners',
     slug: 'monel-fasteners',
+    materialSlug: 'monel',
+    materialName: 'Monel',
+    aliases: ["monel","monel-fasteners"],
     name: 'Monel Fasteners',
     title: 'Monel Fasteners',
     image: img_monel_fasteners,
@@ -234,6 +286,9 @@ export const FASTENERS_CATEGORIES = [
   {
     id: 'hastelloy-fasteners',
     slug: 'hastelloy-fasteners',
+    materialSlug: 'hastelloy',
+    materialName: 'Hastelloy',
+    aliases: ["hastelloy","hastelloy-fasteners"],
     name: 'Hastelloy Fasteners',
     title: 'Hastelloy Fasteners',
     image: img_hastelloy_fasteners,
@@ -266,6 +321,9 @@ export const FASTENERS_CATEGORIES = [
   {
     id: 'nickel-alloy-fasteners',
     slug: 'nickel-alloy-fasteners',
+    materialSlug: 'nickel',
+    materialName: 'Nickel Alloy',
+    aliases: ["nickel","nickel-alloy","nickel-fasteners","nickel-alloy-fasteners"],
     name: 'Nickel Alloy Fasteners',
     title: 'Nickel Alloy Fasteners',
     image: img_nickel_fasteners,
@@ -298,6 +356,9 @@ export const FASTENERS_CATEGORIES = [
   {
     id: 'copper-nickel-fasteners',
     slug: 'copper-nickel-fasteners',
+    materialSlug: 'copper-nickel',
+    materialName: 'Copper Nickel',
+    aliases: ["copper-nickel","cu-ni","copper-nickel-fasteners"],
     name: 'Copper Nickel Fasteners',
     title: 'Copper Nickel Fasteners',
     image: img_cu_ni_fasteners,
@@ -330,6 +391,9 @@ export const FASTENERS_CATEGORIES = [
   {
     id: 'titanium-fasteners',
     slug: 'titanium-fasteners',
+    materialSlug: 'titanium',
+    materialName: 'Titanium',
+    aliases: ["titanium","titanium-fasteners"],
     name: 'Titanium Fasteners',
     title: 'Titanium Fasteners',
     image: img_titanium_fasteners,
@@ -362,6 +426,9 @@ export const FASTENERS_CATEGORIES = [
   {
     id: 'refractory-anchor',
     slug: 'refractory-anchor',
+    materialSlug: 'refractory',
+    materialName: 'Refractory Anchors',
+    aliases: ["refractory","refractory-anchor","refractory-anchors","high-alloy"],
     name: 'Refractory Anchor',
     title: 'Refractory Anchor',
     image: img_refractory_anchors,
@@ -397,7 +464,12 @@ export const FASTENERS_CATEGORIES = [
 export function getFastenersCategoryBySlug(slug) {
   if (!slug) return null;
   const clean = slug.toLowerCase().trim();
-  return FASTENERS_CATEGORIES.find(cat => cat.slug === clean || cat.id === clean) || null;
+  return FASTENERS_CATEGORIES.find(cat => 
+    cat.slug === clean || 
+    cat.id === clean || 
+    cat.materialSlug === clean || 
+    (cat.aliases && cat.aliases.includes(clean))
+  ) || null;
 }
 
 export function getFastenersGradeBySlug(catSlug, gradeSlug) {
@@ -405,5 +477,22 @@ export function getFastenersGradeBySlug(catSlug, gradeSlug) {
   if (!cat) return null;
   if (!gradeSlug) return cat.grades[0] || null;
   const clean = gradeSlug.toLowerCase().trim();
-  return cat.grades.find(g => g.slug === clean || g.id === clean) || cat.grades[0] || null;
+  return cat.grades.find(g => 
+    g.slug === clean || 
+    g.id === clean || 
+    (g.aliases && g.aliases.includes(clean)) ||
+    g.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === clean
+  ) || cat.grades[0] || null;
+}
+
+export function getFastenersMaterialList() {
+  return [
+    { slug: 'all', name: 'All Materials' },
+    ...FASTENERS_CATEGORIES.map(c => ({
+      slug: c.materialSlug,
+      name: c.materialName,
+      catSlug: c.slug,
+      count: c.grades.length
+    }))
+  ];
 }

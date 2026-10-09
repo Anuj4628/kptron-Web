@@ -1,23 +1,55 @@
-import React, { useState, useMemo } from 'react';
-import { FASTENERS_CATEGORIES } from '../../../data/fastenersData';
-import { Search, X, Layers, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { 
+  FASTENERS_CATEGORIES, 
+  getFastenersCategoryBySlug, 
+  getFastenersMaterialList 
+} from '../../../data/fastenersData';
+import ProductMaterialFilterBar from '../ProductMaterialFilterBar';
+import { Search, X, Layers, ChevronDown, ChevronUp, ArrowRight, MapPin } from 'lucide-react';
 import './FastenersProductPage.css';
 
 /**
  * Dedicated Fasteners Product Collection Page
- * Strictly adheres to the established design system:
- * - 3-column grid on desktop, 2 on tablet, 1 on mobile
- * - Top product image with crisp object-cover treatment
- * - Product Title & Standards metadata block
- * - Technical description snippet
- * - AVAILABLE GRADES (count) with Layers icon
- * - Individual grade pills with orange square bullet and uppercase text
- * - "+ X More Grades ∨" natural expander toggle
- * - Bottom full-width "View All Specifications" action button
+ * Supports 3-level material hierarchy, material-specific visuals, and direct SEO URLs.
  */
-export default function FastenersProductPage({ onNavigate, onOpenQuoteModal }) {
+export default function FastenersProductPage({ 
+  materialSlug = null, 
+  isManufacturedInMumbai = false, 
+  onNavigate, 
+  onOpenQuoteModal 
+}) {
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedCards, setExpandedCards] = useState({});
+  const [selectedMaterial, setSelectedMaterial] = useState(
+    materialSlug ? materialSlug.toLowerCase().trim() : 'all'
+  );
+
+  useEffect(() => {
+    if (materialSlug) {
+      setSelectedMaterial(materialSlug.toLowerCase().trim());
+    } else {
+      setSelectedMaterial('all');
+    }
+  }, [materialSlug]);
+
+  const materialsList = useMemo(() => {
+    return getFastenersMaterialList();
+  }, []);
+
+  const activeMaterialObj = useMemo(() => {
+    if (!selectedMaterial || selectedMaterial === 'all') return null;
+    const cat = getFastenersCategoryBySlug(selectedMaterial);
+    if (cat) return { slug: cat.materialSlug || selectedMaterial, name: cat.materialName || cat.name };
+    const found = materialsList.find(m => m.slug === selectedMaterial);
+    return found || null;
+  }, [selectedMaterial, materialsList]);
+
+  useEffect(() => {
+    const matName = activeMaterialObj ? activeMaterialObj.name : 'High-Tensile & Stainless Steel';
+    document.title = isManufacturedInMumbai
+      ? `${matName} Fasteners Manufactured in Mumbai | Redcore Steels`
+      : `${matName} Fasteners | ASME B18.2.1 | Redcore Steels`;
+  }, [isManufacturedInMumbai, activeMaterialObj]);
 
   const toggleExpand = (catId, e) => {
     e.stopPropagation();
@@ -27,12 +59,34 @@ export default function FastenersProductPage({ onNavigate, onOpenQuoteModal }) {
     }));
   };
 
-  // Filter categories and grades based on real-time search
+  const handleSelectMaterial = (matSlug) => {
+    setSelectedMaterial(matSlug);
+    if (onNavigate) {
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      if (matSlug === 'all') {
+        onNavigate(`/products/fasteners${suffix}`);
+      } else {
+        onNavigate(`/products/fasteners/${matSlug}${suffix}`);
+      }
+    }
+  };
+
+  // Filter categories and grades based on selected material & real-time search
   const filteredCategories = useMemo(() => {
-    if (!searchQuery.trim()) return FASTENERS_CATEGORIES;
+    let list = FASTENERS_CATEGORIES;
+
+    if (selectedMaterial && selectedMaterial !== 'all') {
+      const targetCat = getFastenersCategoryBySlug(selectedMaterial);
+      if (targetCat) {
+        list = list.filter(cat => cat.id === targetCat.id || cat.slug === targetCat.slug);
+      }
+    }
+
+    if (!searchQuery.trim()) return list;
     const q = searchQuery.toLowerCase().trim();
 
-    return FASTENERS_CATEGORIES.map(cat => {
+    return list.map(cat => {
       const matchTitle = cat.title.toLowerCase().includes(q) ||
                          cat.name.toLowerCase().includes(q) ||
                          (cat.standards && cat.standards.toLowerCase().includes(q)) ||
@@ -51,18 +105,22 @@ export default function FastenersProductPage({ onNavigate, onOpenQuoteModal }) {
       }
       return null;
     }).filter(Boolean);
-  }, [searchQuery]);
+  }, [searchQuery, selectedMaterial]);
 
   const handleCardClick = (catSlug) => {
     if (onNavigate) {
-      onNavigate(`/products/fasteners/${catSlug}`);
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      onNavigate(`/products/fasteners/${catSlug}${suffix}`);
     }
   };
 
   const handleGradeClick = (e, catSlug, gradeSlug) => {
     e.stopPropagation();
     if (onNavigate) {
-      onNavigate(`/products/fasteners/${catSlug}/${gradeSlug}`);
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      onNavigate(`/products/fasteners/${catSlug}/${gradeSlug}${suffix}`);
     }
   };
 
@@ -77,15 +135,35 @@ export default function FastenersProductPage({ onNavigate, onOpenQuoteModal }) {
             <span className="crumb-sep">/</span>
             <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products')}>Products</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-current">Fasteners</span>
+            <span 
+              className={activeMaterialObj ? "crumb-link" : "crumb-current"} 
+              onClick={() => activeMaterialObj && handleSelectMaterial('all')}
+            >
+              Fasteners
+            </span>
+            {activeMaterialObj && (
+              <>
+                <span className="crumb-sep">/</span>
+                <span className="crumb-current">{activeMaterialObj.name}</span>
+              </>
+            )}
           </nav>
 
           <div className="fasteners-header-badge-row">
             <span className="fasteners-badge-tag">HIGH TENSILE BOLTING &amp; FASTENERS DIVISION</span>
+            {isManufacturedInMumbai && (
+              <span className="fasteners-badge-mumbai" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: '#FF5B26', color: '#fff', padding: '0.2rem 0.6rem', borderRadius: '3px', fontWeight: '800', fontSize: '0.72rem', letterSpacing: '0.04em' }}>
+                <MapPin size={12} />
+                MANUFACTURED IN MUMBAI
+              </span>
+            )}
             <span className="fasteners-badge-count">{FASTENERS_CATEGORIES.length} Core Material Lines</span>
           </div>
 
-          <h1 className="fasteners-main-title">Fasteners</h1>
+          <h1 className="fasteners-main-title">
+            {activeMaterialObj ? `${activeMaterialObj.name} Fasteners` : 'Fasteners'}
+            {isManufacturedInMumbai && ' — Manufactured in Mumbai'}
+          </h1>
 
           <p className="fasteners-lead-text">
             High-tensile industrial fasteners, continuous-threaded stud bolts, heavy hex nuts, socket screws, and refractory anchors in Stainless Steel, Duplex &amp; Super Duplex, Alloy Steel (B7, B16, 8.8), Inconel, Monel, Hastelloy, Nickel, Copper Nickel, Titanium, and Heat-Resistant Refractory Alloys. Conforming strictly to ASTM A193, ASTM A194, ASTM A320, DIN, and ISO specifications with EN 10204 3.1 &amp; 3.2 mill test certifications.
@@ -106,6 +184,14 @@ export default function FastenersProductPage({ onNavigate, onOpenQuoteModal }) {
               <strong>Coating Options:</strong> PTFE / Xylan Blue, Hot Dip Galvanized, Cadmium, Zinc-Nickel
             </div>
           </div>
+
+          {/* Material Filter Bar */}
+          <ProductMaterialFilterBar
+            materials={materialsList}
+            selectedMaterial={selectedMaterial}
+            onSelectMaterial={handleSelectMaterial}
+            categoryName="Fasteners"
+          />
 
           {/* Search Bar */}
           <div className="fasteners-search-wrapper">

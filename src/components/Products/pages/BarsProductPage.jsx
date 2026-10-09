@@ -1,24 +1,55 @@
-import React, { useState, useMemo } from 'react';
-import { BARS_CATEGORIES } from '../../../data/barsData';
-import { Search, X, Layers, ChevronDown, ChevronUp } from 'lucide-react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { 
+  BARS_CATEGORIES, 
+  getBarsCategoryBySlug, 
+  getBarsMaterialList 
+} from '../../../data/barsData';
+import ProductMaterialFilterBar from '../ProductMaterialFilterBar';
+import { Search, X, Layers, ChevronDown, ChevronUp, MapPin } from 'lucide-react';
 import './BarsProductPage.css';
 
 /**
  * Dedicated Bars Product Collection Page
- * Matches the exact card design system from the Sheets, Plates & Coils reference screenshot:
- * - Clean full-width product image
- * - Product Title
- * - STANDARDS: metadata block
- * - Technical description snippet
- * - AVAILABLE GRADES (count) with orange Layers icon
- * - Clean individual grade pills with orange square dot and uppercase text
- * - Direct navigation to grade description pages
- * - "+ X More Grades ∨" expander toggle
- * - Full-width "View All Specifications" bottom action button
+ * Supports 3-level material hierarchy, material-specific visuals, and direct SEO URLs.
  */
-export default function BarsProductPage({ onNavigate, onOpenQuoteModal }) {
+export default function BarsProductPage({ 
+  materialSlug = null, 
+  isManufacturedInMumbai = false, 
+  onNavigate, 
+  onOpenQuoteModal 
+}) {
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedCards, setExpandedCards] = useState({});
+  const [selectedMaterial, setSelectedMaterial] = useState(
+    materialSlug ? materialSlug.toLowerCase().trim() : 'all'
+  );
+
+  useEffect(() => {
+    if (materialSlug) {
+      setSelectedMaterial(materialSlug.toLowerCase().trim());
+    } else {
+      setSelectedMaterial('all');
+    }
+  }, [materialSlug]);
+
+  const materialsList = useMemo(() => {
+    return getBarsMaterialList();
+  }, []);
+
+  const activeMaterialObj = useMemo(() => {
+    if (!selectedMaterial || selectedMaterial === 'all') return null;
+    const cat = getBarsCategoryBySlug(selectedMaterial);
+    if (cat) return { slug: cat.materialSlug || selectedMaterial, name: cat.materialName || cat.name };
+    const found = materialsList.find(m => m.slug === selectedMaterial);
+    return found || null;
+  }, [selectedMaterial, materialsList]);
+
+  useEffect(() => {
+    const matName = activeMaterialObj ? activeMaterialObj.name : 'Precision Solid';
+    document.title = isManufacturedInMumbai
+      ? `${matName} Bars & Rods Manufactured in Mumbai | Redcore Steels`
+      : `${matName} Round Bars, Hex & Flat Bars | ASTM A276 | Redcore Steels`;
+  }, [isManufacturedInMumbai, activeMaterialObj]);
 
   const toggleExpand = (catId, e) => {
     e.stopPropagation();
@@ -28,12 +59,34 @@ export default function BarsProductPage({ onNavigate, onOpenQuoteModal }) {
     }));
   };
 
-  // Filter categories and grades based on real-time search
+  const handleSelectMaterial = (matSlug) => {
+    setSelectedMaterial(matSlug);
+    if (onNavigate) {
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      if (matSlug === 'all') {
+        onNavigate(`/products/bars${suffix}`);
+      } else {
+        onNavigate(`/products/bars/${matSlug}${suffix}`);
+      }
+    }
+  };
+
+  // Filter categories and grades based on selected material & real-time search
   const filteredCategories = useMemo(() => {
-    if (!searchQuery.trim()) return BARS_CATEGORIES;
+    let list = BARS_CATEGORIES;
+
+    if (selectedMaterial && selectedMaterial !== 'all') {
+      const targetCat = getBarsCategoryBySlug(selectedMaterial);
+      if (targetCat) {
+        list = list.filter(cat => cat.id === targetCat.id || cat.slug === targetCat.slug);
+      }
+    }
+
+    if (!searchQuery.trim()) return list;
     const q = searchQuery.toLowerCase().trim();
 
-    return BARS_CATEGORIES.map(cat => {
+    return list.map(cat => {
       const matchTitle = cat.title.toLowerCase().includes(q) ||
                          cat.name.toLowerCase().includes(q) ||
                          (cat.standards && cat.standards.toLowerCase().includes(q)) ||
@@ -52,18 +105,22 @@ export default function BarsProductPage({ onNavigate, onOpenQuoteModal }) {
       }
       return null;
     }).filter(Boolean);
-  }, [searchQuery]);
+  }, [searchQuery, selectedMaterial]);
 
   const handleCardClick = (catSlug) => {
     if (onNavigate) {
-      onNavigate(`/products/bars/${catSlug}`);
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      onNavigate(`/products/bars/${catSlug}${suffix}`);
     }
   };
 
   const handleGradeClick = (e, catSlug, gradeSlug) => {
     e.stopPropagation();
     if (onNavigate) {
-      onNavigate(`/products/bars/${catSlug}/${gradeSlug}`);
+      const isMumbai = isManufacturedInMumbai || window.location.pathname.toLowerCase().includes('manufactured-in-mumbai');
+      const suffix = isMumbai ? '/manufactured-in-mumbai' : '';
+      onNavigate(`/products/bars/${catSlug}/${gradeSlug}${suffix}`);
     }
   };
 
@@ -78,15 +135,35 @@ export default function BarsProductPage({ onNavigate, onOpenQuoteModal }) {
             <span className="crumb-sep">/</span>
             <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products')}>Products</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-current">Bars</span>
+            <span 
+              className={activeMaterialObj ? "crumb-link" : "crumb-current"} 
+              onClick={() => activeMaterialObj && handleSelectMaterial('all')}
+            >
+              Bars
+            </span>
+            {activeMaterialObj && (
+              <>
+                <span className="crumb-sep">/</span>
+                <span className="crumb-current">{activeMaterialObj.name}</span>
+              </>
+            )}
           </nav>
 
           <div className="bars-header-badge-row">
             <span className="bars-badge-tag">PRECISION SOLID BARS &amp; SHAFTING DIVISION</span>
+            {isManufacturedInMumbai && (
+              <span className="bars-badge-mumbai" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: '#FF5B26', color: '#fff', padding: '0.2rem 0.6rem', borderRadius: '3px', fontWeight: '800', fontSize: '0.72rem', letterSpacing: '0.04em' }}>
+                <MapPin size={12} />
+                MANUFACTURED IN MUMBAI
+              </span>
+            )}
             <span className="bars-badge-count">{BARS_CATEGORIES.length} Core Material Lines</span>
           </div>
 
-          <h1 className="bars-main-title">Bars</h1>
+          <h1 className="bars-main-title">
+            {activeMaterialObj ? `${activeMaterialObj.name} Bars & Rods` : 'Bars & Rods'}
+            {isManufacturedInMumbai && ' — Manufactured in Mumbai'}
+          </h1>
 
           <p className="bars-lead-text">
             Extensive mill inventory and precision manufactured solid round bars, hex bars, and square bars in Stainless Steel, Super &amp; Duplex Steel, Carbon Steel, Alloy Steel, Inconel, Monel, Hastelloy, Nickel, Copper Nickel, Titanium, and Maraging steel grades. Conforming strictly to ASTM A276, ASTM A479, ASTM A182, DIN 1013, and EN 10088-3 with complete EN 10204 3.1 &amp; 3.2 mill test certifications.
@@ -107,6 +184,14 @@ export default function BarsProductPage({ onNavigate, onOpenQuoteModal }) {
               <strong>Quality Assurance:</strong> 100% Ultrasonic &amp; PMI Tested, EN 10204 3.1 MTC
             </div>
           </div>
+
+          {/* Material Filter Bar */}
+          <ProductMaterialFilterBar
+            materials={materialsList}
+            selectedMaterial={selectedMaterial}
+            onSelectMaterial={handleSelectMaterial}
+            categoryName="Bars & Rods"
+          />
 
           {/* Search Bar */}
           <div className="bars-search-wrapper">

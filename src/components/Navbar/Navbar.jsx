@@ -138,7 +138,10 @@ export default function Navbar({ currentPage = 'home', onNavigate, onSelectCerti
     if (link.id === 'products') {
       setMaterialsMenuOpen(false);
       setCertificatesMenuOpen(false);
-      setMegaMenuOpen((prev) => !prev);
+      setMegaMenuOpen(false);
+      if (onNavigate) {
+        onNavigate('/products');
+      }
       return;
     }
 

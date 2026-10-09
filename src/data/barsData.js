@@ -19,6 +19,9 @@ export const BARS_CATEGORIES = [
   {
     id: 'stainless-steel-bars',
     slug: 'stainless-steel-bars',
+    materialSlug: 'stainless-steel',
+    materialName: 'Stainless Steel',
+    aliases: ["stainless-steel","stainless","ss-bars","stainless-steel-bars"],
     name: 'Stainless Steel Bars',
     title: 'Stainless Steel Bars',
     image: img_ss_bars,
@@ -907,8 +910,22 @@ export const getBarsCategoryBySlug = (slug) => {
   return BARS_CATEGORIES.find(c => 
     c.slug === s || 
     c.id === s || 
+    c.materialSlug === s ||
+    (c.aliases && c.aliases.includes(s)) ||
     c.slug.replace(/-/g, '') === s.replace(/-/g, '')
   ) || null;
+};
+
+export const getBarsMaterialList = () => {
+  return [
+    { slug: 'all', name: 'All Materials' },
+    ...BARS_CATEGORIES.map(c => ({
+      slug: c.materialSlug,
+      name: c.materialName,
+      catSlug: c.slug,
+      count: c.grades.length
+    }))
+  ];
 };
 
 export const getBarsGradeBySlug = (categorySlug, gradeSlug) => {

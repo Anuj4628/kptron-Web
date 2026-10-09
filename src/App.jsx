@@ -48,6 +48,11 @@ import {
   isFlangeGradeSlug,
   normalizeFlangeGradeSlug 
 } from './data/flangeTypesData';
+import { getFastenersCategoryBySlug } from './data/fastenersData';
+import { getPipeCategoryBySlug } from './data/pipesData';
+import { getSheetsPlatesCategoryBySlug } from './data/sheetsPlatesCoilsData';
+import { getBarsCategoryBySlug } from './data/barsData';
+import { getPipeFittingsCategoryBySlug } from './data/pipeFittingsData';
 
 import './App.css';
 
@@ -79,10 +84,12 @@ function parseRoute(pathname = window.location.pathname) {
 
   if (clean.startsWith('/products')) {
     const raw = cleanPath.replace(/^\/products\/?/i, '');
-    const parts = raw.split('/').filter(Boolean);
+    const rawParts = raw.split('/').filter(Boolean);
+    const isManufacturedInMumbai = rawParts.some(p => p.toLowerCase() === 'manufactured-in-mumbai');
+    const parts = rawParts.filter(p => p.toLowerCase() !== 'manufactured-in-mumbai');
 
     if (parts.length === 0) {
-      return { page: 'products', view: 'landing' };
+      return { page: 'products', view: 'landing', isManufacturedInMumbai };
     }
 
     const p0 = parts[0].toLowerCase();
@@ -90,14 +97,25 @@ function parseRoute(pathname = window.location.pathname) {
     // Dedicated Pipes Product Page & Grade Detail Routes
     if (p0 === 'pipes' || p0 === 'pipe' || p0 === 'pipes-and-tubes' || p0 === 'pipes-tubes') {
       if (parts.length === 1) {
-        return { page: 'products', view: 'pipes-listing' };
+        return { page: 'products', view: 'pipes-listing', materialSlug: null, isManufacturedInMumbai };
       }
       if (parts.length === 2) {
+        const p1 = parts[1].toLowerCase();
+        if (p1 === 'all') {
+          return { page: 'products', view: 'pipes-listing', materialSlug: null, isManufacturedInMumbai };
+        }
+        const cat = getPipeCategoryBySlug(p1);
+        if (cat) {
+          if (p1 === cat.materialSlug || (cat.aliases && cat.aliases.includes(p1) && p1 !== cat.slug)) {
+            return { page: 'products', view: 'pipes-listing', materialSlug: cat.materialSlug || p1, isManufacturedInMumbai };
+          }
+        }
         return { 
           page: 'products', 
           view: 'pipe-grade-detail', 
-          categorySlug: parts[1].toLowerCase(),
-          gradeSlug: null 
+          categorySlug: p1,
+          gradeSlug: null,
+          isManufacturedInMumbai 
         };
       }
       if (parts.length >= 3) {
@@ -105,7 +123,8 @@ function parseRoute(pathname = window.location.pathname) {
           page: 'products', 
           view: 'pipe-grade-detail', 
           categorySlug: parts[1].toLowerCase(), 
-          gradeSlug: parts[2].toLowerCase() 
+          gradeSlug: parts[2].toLowerCase(),
+          isManufacturedInMumbai 
         };
       }
     }
@@ -122,14 +141,25 @@ function parseRoute(pathname = window.location.pathname) {
       p0 === 'coils'
     ) {
       if (parts.length === 1) {
-        return { page: 'products', view: 'sheets-plates-listing' };
+        return { page: 'products', view: 'sheets-plates-listing', materialSlug: null, isManufacturedInMumbai };
       }
       if (parts.length === 2) {
+        const p1 = parts[1].toLowerCase();
+        if (p1 === 'all') {
+          return { page: 'products', view: 'sheets-plates-listing', materialSlug: null, isManufacturedInMumbai };
+        }
+        const cat = getSheetsPlatesCategoryBySlug(p1);
+        if (cat) {
+          if (p1 === cat.materialSlug || (cat.aliases && cat.aliases.includes(p1) && p1 !== cat.slug)) {
+            return { page: 'products', view: 'sheets-plates-listing', materialSlug: cat.materialSlug || p1, isManufacturedInMumbai };
+          }
+        }
         return { 
           page: 'products', 
           view: 'sheet-plate-grade-detail', 
-          categorySlug: parts[1].toLowerCase(),
-          gradeSlug: null 
+          categorySlug: p1,
+          gradeSlug: null,
+          isManufacturedInMumbai 
         };
       }
       if (parts.length >= 3) {
@@ -137,7 +167,8 @@ function parseRoute(pathname = window.location.pathname) {
           page: 'products', 
           view: 'sheet-plate-grade-detail', 
           categorySlug: parts[1].toLowerCase(), 
-          gradeSlug: parts[2].toLowerCase() 
+          gradeSlug: parts[2].toLowerCase(),
+          isManufacturedInMumbai 
         };
       }
     }
@@ -151,14 +182,25 @@ function parseRoute(pathname = window.location.pathname) {
       p0 === 'rods-and-bar'
     ) {
       if (parts.length === 1) {
-        return { page: 'products', view: 'bars-listing' };
+        return { page: 'products', view: 'bars-listing', materialSlug: null, isManufacturedInMumbai };
       }
       if (parts.length === 2) {
+        const p1 = parts[1].toLowerCase();
+        if (p1 === 'all') {
+          return { page: 'products', view: 'bars-listing', materialSlug: null, isManufacturedInMumbai };
+        }
+        const cat = getBarsCategoryBySlug(p1);
+        if (cat) {
+          if (p1 === cat.materialSlug || (cat.aliases && cat.aliases.includes(p1) && p1 !== cat.slug)) {
+            return { page: 'products', view: 'bars-listing', materialSlug: cat.materialSlug || p1, isManufacturedInMumbai };
+          }
+        }
         return { 
           page: 'products', 
           view: 'bar-grade-detail', 
-          categorySlug: parts[1].toLowerCase(),
-          gradeSlug: null 
+          categorySlug: p1,
+          gradeSlug: null,
+          isManufacturedInMumbai 
         };
       }
       if (parts.length >= 3) {
@@ -166,7 +208,8 @@ function parseRoute(pathname = window.location.pathname) {
           page: 'products', 
           view: 'bar-grade-detail', 
           categorySlug: parts[1].toLowerCase(), 
-          gradeSlug: parts[2].toLowerCase() 
+          gradeSlug: parts[2].toLowerCase(),
+          isManufacturedInMumbai 
         };
       }
     }
@@ -180,14 +223,25 @@ function parseRoute(pathname = window.location.pathname) {
       p0 === 'buttweld-fittings'
     ) {
       if (parts.length === 1) {
-        return { page: 'products', view: 'pipe-fittings-listing' };
+        return { page: 'products', view: 'pipe-fittings-listing', materialSlug: null, isManufacturedInMumbai };
       }
       if (parts.length === 2) {
+        const p1 = parts[1].toLowerCase();
+        if (p1 === 'all') {
+          return { page: 'products', view: 'pipe-fittings-listing', materialSlug: null, isManufacturedInMumbai };
+        }
+        const cat = getPipeFittingsCategoryBySlug(p1);
+        if (cat) {
+          if (p1 === cat.materialSlug || (cat.aliases && cat.aliases.includes(p1) && p1 !== cat.slug)) {
+            return { page: 'products', view: 'pipe-fittings-listing', materialSlug: cat.materialSlug || p1, isManufacturedInMumbai };
+          }
+        }
         return { 
           page: 'products', 
           view: 'pipe-fitting-grade-detail', 
-          categorySlug: parts[1].toLowerCase(),
-          gradeSlug: null 
+          categorySlug: p1,
+          gradeSlug: null,
+          isManufacturedInMumbai 
         };
       }
       if (parts.length >= 3) {
@@ -195,7 +249,8 @@ function parseRoute(pathname = window.location.pathname) {
           page: 'products', 
           view: 'pipe-fitting-grade-detail', 
           categorySlug: parts[1].toLowerCase(), 
-          gradeSlug: parts[2].toLowerCase() 
+          gradeSlug: parts[2].toLowerCase(),
+          isManufacturedInMumbai 
         };
       }
     }
@@ -203,7 +258,7 @@ function parseRoute(pathname = window.location.pathname) {
     // Dedicated Flanges Product Page, Types of Flanges & Grade Detail Routes
     if (p0 === 'flanges' || p0 === 'flange') {
       if (parts.length === 1) {
-        return { page: 'products', view: 'flanges-listing', materialSlug: null };
+        return { page: 'products', view: 'flanges-listing', materialSlug: 'carbon-steel', isManufacturedInMumbai };
       }
 
       if (parts.length === 2) {
@@ -212,16 +267,18 @@ function parseRoute(pathname = window.location.pathname) {
           return { 
             page: 'products', 
             view: 'flange-type-detail', 
-            materialSlug: 'stainless-steel', 
+            materialSlug: 'carbon-steel', 
             typeSlug: normalizeFlangeTypeSlug(p1),
-            gradeSlug: null
+            gradeSlug: null,
+            isManufacturedInMumbai
           };
         }
         if (isFlangeMaterialSlug(p1)) {
           return { 
             page: 'products', 
             view: 'flanges-listing', 
-            materialSlug: normalizeMaterialSlug(p1) 
+            materialSlug: normalizeMaterialSlug(p1),
+            isManufacturedInMumbai
           };
         }
         return { 
@@ -229,7 +286,8 @@ function parseRoute(pathname = window.location.pathname) {
           view: 'flange-grade-detail', 
           categorySlug: p1,
           materialSlug: normalizeMaterialSlug(p1),
-          gradeSlug: null 
+          gradeSlug: null,
+          isManufacturedInMumbai
         };
       }
 
@@ -243,7 +301,8 @@ function parseRoute(pathname = window.location.pathname) {
           return { 
             page: 'products', 
             view: 'flanges-listing', 
-            materialSlug: normMat 
+            materialSlug: normMat,
+            isManufacturedInMumbai
           };
         }
 
@@ -252,7 +311,8 @@ function parseRoute(pathname = window.location.pathname) {
           return { 
             page: 'products', 
             view: 'flanges-listing', 
-            materialSlug: normMat 
+            materialSlug: normMat,
+            isManufacturedInMumbai
           };
         }
 
@@ -263,7 +323,8 @@ function parseRoute(pathname = window.location.pathname) {
             view: 'flange-type-detail', 
             materialSlug: normMat, 
             typeSlug: normalizeFlangeTypeSlug(p2),
-            gradeSlug: null
+            gradeSlug: null,
+            isManufacturedInMumbai
           };
         }
 
@@ -274,7 +335,8 @@ function parseRoute(pathname = window.location.pathname) {
             view: 'flange-grade-detail', 
             materialSlug: normMat,
             categorySlug: p1, 
-            gradeSlug: normalizeFlangeGradeSlug(normMat, p2) 
+            gradeSlug: normalizeFlangeGradeSlug(normMat, p2),
+            isManufacturedInMumbai
           };
         }
 
@@ -284,7 +346,8 @@ function parseRoute(pathname = window.location.pathname) {
           view: 'flange-grade-detail', 
           materialSlug: normMat,
           categorySlug: p1, 
-          gradeSlug: p2 
+          gradeSlug: p2,
+          isManufacturedInMumbai
         };
       }
 
@@ -302,7 +365,8 @@ function parseRoute(pathname = window.location.pathname) {
             view: 'flange-type-detail', 
             materialSlug: normMat, 
             typeSlug: normalizeFlangeTypeSlug(p3),
-            gradeSlug: p4 ? normalizeFlangeGradeSlug(normMat, p4) : null
+            gradeSlug: p4 ? normalizeFlangeGradeSlug(normMat, p4) : null,
+            isManufacturedInMumbai
           };
         }
 
@@ -313,19 +377,20 @@ function parseRoute(pathname = window.location.pathname) {
             view: 'flange-grade-detail', 
             materialSlug: normMat,
             categorySlug: p1, 
-            gradeSlug: normalizeFlangeGradeSlug(normMat, p3)
+            gradeSlug: normalizeFlangeGradeSlug(normMat, p3),
+            isManufacturedInMumbai
           };
         }
 
         // Case: /products/flanges/:material/:typeSlug/:gradeSlug (Level 4 Combination!)
-        // e.g. /products/flanges/stainless-steel/weld-neck-flange/316l or /products/flanges/stainless-steel/weld-neck/316l
         if (isFlangeTypeSlug(p2)) {
           return { 
             page: 'products', 
             view: 'flange-type-detail', 
             materialSlug: normMat, 
             typeSlug: normalizeFlangeTypeSlug(p2),
-            gradeSlug: normalizeFlangeGradeSlug(normMat, p3) || p3
+            gradeSlug: normalizeFlangeGradeSlug(normMat, p3) || p3,
+            isManufacturedInMumbai
           };
         }
 
@@ -335,7 +400,8 @@ function parseRoute(pathname = window.location.pathname) {
           view: 'flange-grade-detail', 
           materialSlug: normMat,
           categorySlug: p1, 
-          gradeSlug: p2 
+          gradeSlug: p2,
+          isManufacturedInMumbai
         };
       }
     }
@@ -343,14 +409,25 @@ function parseRoute(pathname = window.location.pathname) {
     // Dedicated Fasteners Product Page & Grade Detail Routes
     if (p0 === 'fasteners' || p0 === 'fastener') {
       if (parts.length === 1) {
-        return { page: 'products', view: 'fasteners-listing' };
+        return { page: 'products', view: 'fasteners-listing', materialSlug: null, isManufacturedInMumbai };
       }
       if (parts.length === 2) {
+        const p1 = parts[1].toLowerCase();
+        if (p1 === 'all') {
+          return { page: 'products', view: 'fasteners-listing', materialSlug: null, isManufacturedInMumbai };
+        }
+        const cat = getFastenersCategoryBySlug(p1);
+        if (cat) {
+          if (p1 === cat.materialSlug || (cat.aliases && cat.aliases.includes(p1) && p1 !== cat.slug)) {
+            return { page: 'products', view: 'fasteners-listing', materialSlug: cat.materialSlug || p1, isManufacturedInMumbai };
+          }
+        }
         return { 
           page: 'products', 
           view: 'fastener-grade-detail', 
-          categorySlug: parts[1].toLowerCase(),
-          gradeSlug: null 
+          categorySlug: p1,
+          gradeSlug: null,
+          isManufacturedInMumbai
         };
       }
       if (parts.length >= 3) {
@@ -358,7 +435,8 @@ function parseRoute(pathname = window.location.pathname) {
           page: 'products', 
           view: 'fastener-grade-detail', 
           categorySlug: parts[1].toLowerCase(), 
-          gradeSlug: parts[2].toLowerCase() 
+          gradeSlug: parts[2].toLowerCase(),
+          isManufacturedInMumbai
         };
       }
     }
@@ -684,12 +762,14 @@ export default function App() {
                 materialSlug={route.materialSlug}
                 typeSlug={route.typeSlug}
                 gradeSlug={route.gradeSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />
             ) : route.view === 'flanges-listing' ? (
               <FlangesProductPage 
                 materialSlug={route.materialSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai}
                 onNavigate={navigateTo} 
                 onOpenQuoteModal={openQuoteModal} 
               />
@@ -698,51 +778,82 @@ export default function App() {
                 categorySlug={route.categorySlug}
                 materialSlug={route.materialSlug}
                 gradeSlug={route.gradeSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />
             ) : route.view === 'fasteners-listing' ? (
-              <FastenersProductPage onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
+              <FastenersProductPage 
+                materialSlug={route.materialSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai} 
+                onNavigate={navigateTo} 
+                onOpenQuoteModal={openQuoteModal} 
+              />
             ) : route.view === 'fastener-grade-detail' ? (
               <FastenerGradeDetailView
                 categorySlug={route.categorySlug}
                 gradeSlug={route.gradeSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />
             ) : route.view === 'pipe-fittings-listing' ? (
-              <PipeFittingsProductPage onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
+              <PipeFittingsProductPage 
+                materialSlug={route.materialSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai} 
+                onNavigate={navigateTo} 
+                onOpenQuoteModal={openQuoteModal} 
+              />
             ) : route.view === 'pipe-fitting-grade-detail' ? (
               <PipeFittingGradeDetailView
                 categorySlug={route.categorySlug}
                 gradeSlug={route.gradeSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />
             ) : route.view === 'bars-listing' ? (
-              <BarsProductPage onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
+              <BarsProductPage 
+                materialSlug={route.materialSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai} 
+                onNavigate={navigateTo} 
+                onOpenQuoteModal={openQuoteModal} 
+              />
             ) : route.view === 'bar-grade-detail' ? (
               <BarGradeDetailView
                 categorySlug={route.categorySlug}
                 gradeSlug={route.gradeSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />
             ) : route.view === 'pipes-listing' ? (
-              <PipesProductPage onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
+              <PipesProductPage 
+                materialSlug={route.materialSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai} 
+                onNavigate={navigateTo} 
+                onOpenQuoteModal={openQuoteModal} 
+              />
             ) : route.view === 'pipe-grade-detail' ? (
               <PipeGradeDetailView
                 categorySlug={route.categorySlug}
                 gradeSlug={route.gradeSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />
             ) : route.view === 'sheets-plates-listing' ? (
-              <SheetsPlatesProductPage onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
+              <SheetsPlatesProductPage 
+                materialSlug={route.materialSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai} 
+                onNavigate={navigateTo} 
+                onOpenQuoteModal={openQuoteModal} 
+              />
             ) : route.view === 'sheet-plate-grade-detail' ? (
               <SheetPlateGradeDetailView
                 categorySlug={route.categorySlug}
                 gradeSlug={route.gradeSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />
