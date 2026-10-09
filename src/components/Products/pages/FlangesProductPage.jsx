@@ -9,6 +9,7 @@ import {
   normalizeMaterialSlug 
 } from '../../../data/flangeTypesData';
 import FlangesSidebarNav from '../FlangesSidebarNav';
+import CategoryMaterialListingView from '../CategoryMaterialListingView';
 import { 
   Search, 
   X, 
