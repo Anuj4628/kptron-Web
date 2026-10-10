@@ -369,17 +369,88 @@ export const PIPE_FITTINGS_CATEGORIES = [
     shortDesc: 'Nickel-Chromium superalloy butt-weld and forged fittings engineered for exceptional resistance to high-temperature oxidation, carburization, and severe chloride-induced stress corrosion cracking in extreme marine, aerospace, and nuclear environments.',
     grades: [
       {
-        id: 'inconel-pipe-fittings-general',
-        slug: 'inconel-pipe-fittings',
-        name: 'Inconel Pipe Fittings',
-        code: 'ASTM B366 WPNCMC (Inconel 600 / 625 / 718 / 825)',
-        standard: 'ASTM B366, ASME SB366, ASME B16.9, ASME B16.11',
-        uns: 'UNS N06600 / N06625 / N07718 / N08825',
-        din: '2.4816 / 2.4856 / 2.4668 / 2.4858',
-        shortDesc: 'High-performance Nickel-Chromium superalloy fittings for extreme chemical and elevated heat service.',
-        fullDesc: 'Precision-formed Inconel butt-weld and forged fittings offering virtually complete immunity to chloride-ion stress corrosion cracking, high resistance to reducing and oxidizing mineral acids, and superior strength at elevated temperatures up to 1093°C (2000°F).',
-        specs: { size: '1/2" to 24" NB', schedule: 'SCH 10S to SCH XXS', connection: 'Butt-Weld (BW) / Socket Weld (SW) / Threaded (NPT)' },
-        applications: ['Subsea manifolds and riser connections', 'Sour gas production pipelines (NACE MR0175)', 'Nuclear reactor control rod & coolant piping', 'Chemical processing reactors and flaring systems']
+        id: 'inconel-625-pipe-fittings',
+        slug: 'inconel-625-pipe-fittings',
+        aliases: ['inconel-625', '625', 'alloy-625', 'wpnicmc', 'n06625', 'inconel-pipe-fittings'],
+        name: 'Inconel 625 Pipe Fittings',
+        code: 'ASTM B366 WPNICMC (UNS N06625)',
+        standard: 'ASTM B366 / ASME SB366, ASME B16.9, ASME B16.11, MSS SP-43',
+        uns: 'UNS N06625',
+        din: '2.4856 (NiCr22Mo9Nb)',
+        shortDesc: 'Solid-solution nickel-chromium-molybdenum alloy fittings offering supreme pitting and sour corrosion resistance.',
+        fullDesc: 'Precision butt-weld Inconel 625 elbows, tees, and reducers fortified with 9% Mo and 3.6% Nb. Delivers high mechanical strength from cryogenic temperatures to 982°C and virtual immunity to chloride stress corrosion cracking.',
+        specs: { size: '1/2" to 24" NB', schedule: 'SCH 10S to SCH XXS', connection: 'Butt-Weld (BW) / Socket Weld (SW)' },
+        applications: ['Subsea manifolds and riser connections', 'Sour gas production pipelines (NACE MR0175)', 'Chemical plant reaction vessels and flaring loops', 'Marine seawater cooling piping']
+      },
+      {
+        id: 'inconel-600-pipe-fittings',
+        slug: 'inconel-600-pipe-fittings',
+        aliases: ['inconel-600', '600', 'alloy-600', 'wpnci', 'n06600'],
+        name: 'Inconel 600 Pipe Fittings',
+        code: 'ASTM B366 WPNCI (UNS N06600)',
+        standard: 'ASTM B366, ASME SB366, ASME B16.9',
+        uns: 'UNS N06600',
+        din: '2.4816 (NiCr15Fe)',
+        shortDesc: 'High-temperature nickel-chromium butt weld fittings resisting oxidation and carburization up to 1093°C.',
+        fullDesc: 'Inconel 600 buttweld elbows, tees, reducers, and caps engineered for furnace retorts, heat treatment fixtures, and chemical processing reaction loops operating under elevated thermal atmospheres.',
+        specs: { size: '1/2" to 24" NB', schedule: 'SCH 10S to SCH XXS', connection: 'Butt-Weld (BW) / Socket Weld (SW)' },
+        applications: ['Furnace components and heat-treating fixtures', 'Ethylene dichloride crackers', 'Nuclear steam generator piping', 'Chemical processing reactors']
+      },
+      {
+        id: 'inconel-601-pipe-fittings',
+        slug: 'inconel-601-pipe-fittings',
+        aliases: ['inconel-601', '601', 'alloy-601', 'n06601'],
+        name: 'Inconel 601 Pipe Fittings',
+        code: 'ASTM B366 WPNIC (UNS N06601)',
+        standard: 'ASTM B366, ASME B16.9',
+        uns: 'UNS N06601',
+        din: '2.4851 (NiCr23Fe)',
+        shortDesc: 'Aluminum-bearing high-temperature alloy fittings with exceptional resistance to cyclic thermal oxidation.',
+        fullDesc: 'Nickel-Chromium-Aluminum alloy pipe fittings delivering extraordinary scaling resistance and mechanical stability in cyclic oxidizing atmospheres up to 1200°C.',
+        specs: { size: '1/2" to 20" NB', schedule: 'SCH 10S to SCH 160', connection: 'Butt-Weld (BW)' },
+        applications: ['Thermal oxidizer duct fittings', 'Petrochemical cracking coils', 'Industrial incinerator piping', 'Nitric acid ammonia burning baskets']
+      },
+      {
+        id: 'inconel-718-pipe-fittings',
+        slug: 'inconel-718-pipe-fittings',
+        aliases: ['inconel-718', '718', 'alloy-718', 'n07718'],
+        name: 'Inconel 718 Pipe Fittings',
+        code: 'ASTM B366 WPNIC718 (UNS N07718)',
+        standard: 'ASTM B366, API 6A, ASME B16.9',
+        uns: 'UNS N07718',
+        din: '2.4668 (NiCr19Fe19Nb5Mo3)',
+        shortDesc: 'Precipitation-hardenable ultra-high-strength nickel superalloy fittings for extreme HPHT environments.',
+        fullDesc: 'Precipitation-hardened superalloy fittings providing yield strengths exceeding 120,000 PSI, high fatigue resistance, and excellent weldability for subsea wellheads, space exploration, and nuclear systems.',
+        specs: { size: '1/2" to 16" NB', schedule: 'SCH 40S to SCH XXS', connection: 'Butt-Weld / High-Pressure Forged' },
+        applications: ['Deepwater subsea wellhead manifolds', 'Gas turbine high-pressure fuel loops', 'HPHT sour gas gathering pipelines', 'Rocket engine propulsion assemblies']
+      },
+      {
+        id: 'incoloy-800-800h-800ht-pipe-fittings',
+        slug: 'incoloy-800-800h-800ht-pipe-fittings',
+        aliases: ['incoloy-800', '800h', '800ht', 'n08800', 'n08810'],
+        name: 'Incoloy 800 / 800H / 800HT Pipe Fittings',
+        code: 'ASTM B366 WPNIC (Incoloy 800/800H/800HT)',
+        standard: 'ASTM B366, ASME SB366, ASME B16.9',
+        uns: 'UNS N08800 / N08810 / N08811',
+        din: '1.4876 (X10NiCrAlTi32-20)',
+        shortDesc: 'Iron-nickel-chromium alloy fittings engineered for high-temperature creep rupture resistance up to 925°C.',
+        fullDesc: 'Controlled carbon, aluminum, and titanium formulation providing optimum creep and stress rupture properties in steam hydrocarbon reforming and industrial ethylene cracking furnaces.',
+        specs: { size: '1/2" to 24" NB', schedule: 'SCH 10S to SCH 160', connection: 'Butt-Weld (BW)' },
+        applications: ['Ethylene pyrolysis cracking furnace piping', 'Hydrocarbon steam methane reformers', 'Ammonia effluent headers', 'Thermal power superheater connections']
+      },
+      {
+        id: 'incoloy-825-pipe-fittings',
+        slug: 'incoloy-825-pipe-fittings',
+        aliases: ['incoloy-825', '825', 'n08825'],
+        name: 'Incoloy 825 Pipe Fittings',
+        code: 'ASTM B366 WPNICMC (UNS N08825)',
+        standard: 'ASTM B366, ASME SB366, ASME B16.9',
+        uns: 'UNS N08825',
+        din: '2.4858 (NiCr21Mo)',
+        shortDesc: 'Titanium-stabilized nickel-iron-chromium-molybdenum alloy fittings resisting sulfuric and phosphoric acids.',
+        fullDesc: 'Nickel-iron-chromium-molybdenum alloy with copper and titanium additions, providing exceptional resistance to sulfuric acid, phosphoric acid, and localized pitting in sour hydrocarbon environments.',
+        specs: { size: '1/2" to 24" NB', schedule: 'SCH 10S to SCH XXS', connection: 'Butt-Weld (BW)' },
+        applications: ['Sulfuric acid pickling heating coils', 'Phosphoric acid manufacturing plants', 'Sour oil & gas production lines', 'Nuclear fuel reprocessing piping']
       }
     ]
   },
@@ -405,17 +476,32 @@ export const PIPE_FITTINGS_CATEGORIES = [
     shortDesc: 'Nickel-Copper alloy butt-weld and forged fittings providing extraordinary resistance to rapidly flowing seawater, marine biofouling, hydrofluoric acid, sulfuric acid, and alkaline brine environments.',
     grades: [
       {
-        id: 'monel-pipe-fittings-general',
-        slug: 'monel-pipe-fittings',
-        name: 'Monel Pipe Fittings',
-        code: 'ASTM B366 WPNC (Monel 400 / Monel K500)',
-        standard: 'ASTM B366, ASME SB366, ASME B16.9, ASME B16.11',
-        uns: 'UNS N04400 / UNS N05500',
-        din: '2.4360 / 2.4375',
-        shortDesc: 'Nickel-Copper solid solution alloy fittings exhibiting peerless corrosion resistance in marine and HF acid media.',
-        fullDesc: 'Monel 400 and age-hardenable Monel K500 pipe fittings designed for zero cavitation damage and exceptional corrosion resistance in high-velocity seawater, brackish water, and hydrofluoric acid alkylation units in petrochemical refineries.',
-        specs: { size: '1/2" to 20" NB', schedule: 'SCH 10S to SCH XXS', connection: 'Butt-Weld (BW) & Socket Weld / NPT' },
+        id: 'monel-400-pipe-fittings',
+        slug: 'monel-400-pipe-fittings',
+        aliases: ['monel-400', '400', 'alloy-400', 'n04400', 'monel-pipe-fittings'],
+        name: 'Monel 400 Pipe Fittings',
+        code: 'ASTM B366 WPNC (UNS N04400)',
+        standard: 'ASTM B366, ASME SB366, ASME B16.9, MSS SP-43',
+        uns: 'UNS N04400',
+        din: '2.4360 (NiCu30Fe)',
+        shortDesc: 'Solid-solution nickel-copper butt weld fittings providing zero cavitation damage in fast seawater and HF acid.',
+        fullDesc: 'Monel 400 seamless and welded elbows, tees, reducers, and caps engineered for extreme resistance to rapidly flowing seawater, marine biofouling, and hydrofluoric acid alkylation media in petrochemical refineries.',
+        specs: { size: '1/2" to 20" NB', schedule: 'SCH 10S to SCH XXS', connection: 'Butt-Weld (BW) / Socket Weld (SW)' },
         applications: ['HF acid alkylation units in oil refineries', 'Marine salt extraction and desalination loops', 'Subsea offshore splash zone piping', 'Propeller shafting fluid sleeves & marine fittings']
+      },
+      {
+        id: 'monel-k500-pipe-fittings',
+        slug: 'monel-k500-pipe-fittings',
+        aliases: ['monel-k500', 'k500', 'alloy-k500', 'n05500'],
+        name: 'Monel K500 Pipe Fittings',
+        code: 'ASTM B366 WPNC (UNS N05500)',
+        standard: 'ASTM B366, ASME SB366, ASME B16.9, ASME B16.11',
+        uns: 'UNS N05500',
+        din: '2.4375 (NiCu30Al)',
+        shortDesc: 'Age-hardenable high-strength nickel-copper alloy fittings for heavy marine and subsea service.',
+        fullDesc: 'Precipitation-hardened nickel-copper fittings combining Monel 400 corrosion immunity with triple the yield strength and double the tensile strength for high-pressure marine pumps and offshore manifolds.',
+        specs: { size: '1/2" to 16" NB', schedule: 'SCH 40S, SCH 80S, SCH 160', connection: 'Butt-Weld / High-Pressure Forged' },
+        applications: ['Offshore drill collar subsea manifolds', 'Marine valve trim and pump impellers', 'Naval ordnance non-magnetic piping', 'High-strength marine fasteners & flange unions']
       }
     ]
   },
@@ -441,17 +527,46 @@ export const PIPE_FITTINGS_CATEGORIES = [
     shortDesc: 'Nickel-Chromium-Molybdenum superalloy fittings providing unmatched resistance to localized pitting, crevice attack, hot contaminated mineral acids, wet chlorine gas, and severe chemical processing reagents.',
     grades: [
       {
-        id: 'hastelloy-pipe-fittings-general',
-        slug: 'hastelloy-pipe-fittings',
-        name: 'Hastelloy Pipe Fittings',
-        code: 'ASTM B366 WPHC276 / WPHC22 / WPHB (Hastelloy C276 / C22 / B2)',
+        id: 'hastelloy-c276-pipe-fittings',
+        slug: 'hastelloy-c276-pipe-fittings',
+        aliases: ['hastelloy-c276', 'c276', 'alloy-c276', 'n10276', 'hastelloy-pipe-fittings'],
+        name: 'Hastelloy C276 Pipe Fittings',
+        code: 'ASTM B366 WPHC276 (UNS N10276)',
         standard: 'ASTM B366, ASME SB366, ASME B16.9, ASME B16.11',
-        uns: 'UNS N10276 / UNS N06022 / UNS N10665',
-        din: '2.4819 / 2.4602 / 2.4617',
-        shortDesc: 'The premier corrosion-resistant superalloy fittings for aggressive wet chlorine, sulfuric, and hydrochloric environments.',
-        fullDesc: 'Hastelloy C276 / C22 pipe fittings formulated with heavy concentrations of molybdenum and tungsten, preventing grain boundary precipitate formation in weld heat-affected zones and providing outstanding resistance to strong oxidizers and mineral acids.',
-        specs: { size: '1/2" to 20" NB', schedule: 'SCH 10S to SCH 80S / SCH 160', connection: 'Butt-Weld (BW) & Socket Weld (SW)' },
+        uns: 'UNS N10276',
+        din: '2.4819 (NiMo16Cr15W)',
+        shortDesc: 'Premier corrosion-resistant superalloy fittings for aggressive wet chlorine, sulfuric, and hydrochloric environments.',
+        fullDesc: 'Hastelloy C276 buttweld elbows, tees, and reducers formulated with heavy concentrations of molybdenum and tungsten, preventing grain boundary precipitate formation in weld heat-affected zones and resisting strong oxidizers and mineral acids.',
+        specs: { size: '1/2" to 20" NB', schedule: 'SCH 10S to SCH 160', connection: 'Butt-Weld (BW) / Socket Weld (SW)' },
         applications: ['Flue-gas desulfurization (FGD) scrubber systems', 'Waste incineration chemical recovery piping', 'Pharmaceutical active ingredient processing', 'Pesticide and herbicide acid delivery loops']
+      },
+      {
+        id: 'hastelloy-c22-pipe-fittings',
+        slug: 'hastelloy-c22-pipe-fittings',
+        aliases: ['hastelloy-c22', 'c22', 'alloy-c22', 'n06022'],
+        name: 'Hastelloy C22 Pipe Fittings',
+        code: 'ASTM B366 WPHC22 (UNS N06022)',
+        standard: 'ASTM B366, ASME SB366, ASME B16.9',
+        uns: 'UNS N06022',
+        din: '2.4602 (NiCr21Mo14W)',
+        shortDesc: 'Enhanced chromium-molybdenum-tungsten superalloy fittings with universal resistance to mixed acid media.',
+        fullDesc: 'Optimized Cr-Mo-W nickel alloy fittings delivering superior resistance to pitting, crevice attack, and stress corrosion cracking in aggressive oxidizing and reducing acid environments with high free-chloride levels.',
+        specs: { size: '1/2" to 20" NB', schedule: 'SCH 10S to SCH 160', connection: 'Butt-Weld (BW)' },
+        applications: ['Chlorination systems and bleaching lines', 'Waste chemical incineration scrubbers', 'Pharmaceutical reaction vessels', 'Nuclear fuel processing flow loops']
+      },
+      {
+        id: 'hastelloy-b2-pipe-fittings',
+        slug: 'hastelloy-b2-pipe-fittings',
+        aliases: ['hastelloy-b2', 'b2', 'alloy-b2', 'n10665'],
+        name: 'Hastelloy B2 Pipe Fittings',
+        code: 'ASTM B366 WPHB (UNS N10665)',
+        standard: 'ASTM B366, ASME SB366, ASME B16.9',
+        uns: 'UNS N10665',
+        din: '2.4617 (NiMo28)',
+        shortDesc: 'Nickel-molybdenum fittings offering supreme resistance to hydrochloric acid at all concentrations.',
+        fullDesc: 'Solid-solution nickel-molybdenum alloy pipe fittings designed specifically for pure reducing environments, offering outstanding resistance to hydrochloric, sulfuric, and acetic acids.',
+        specs: { size: '1/2" to 16" NB', schedule: 'SCH 10S to SCH 80S', connection: 'Butt-Weld (BW)' },
+        applications: ['Hydrochloric acid synthesis and distribution', 'Acetic acid and formic acid manufacturing', 'Alkylation and polymerization reactions', 'Pure reducing chemical synthesis']
       }
     ]
   },
@@ -477,17 +592,32 @@ export const PIPE_FITTINGS_CATEGORIES = [
     shortDesc: 'Commercially pure nickel butt-weld and forged fittings delivering exceptional resistance to reducing chemicals, caustic alkalis, anhydrous ammonia, and molten caustic soda up to extreme concentrations.',
     grades: [
       {
-        id: 'nickel-pipe-fittings-general',
-        slug: 'nickel-pipe-fittings',
-        name: 'Nickel Pipe Fittings',
-        code: 'ASTM B366 WPN / WPNL (Nickel 200 / Nickel 201)',
+        id: 'nickel-200-pipe-fittings',
+        slug: 'nickel-200-pipe-fittings',
+        aliases: ['nickel-200', '200', 'alloy-200', 'n02200', 'nickel-pipe-fittings'],
+        name: 'Nickel 200 Pipe Fittings',
+        code: 'ASTM B366 WPN (UNS N02200)',
         standard: 'ASTM B366, ASME SB366, ASME B16.9',
-        uns: 'UNS N02200 / UNS N02201',
-        din: '2.4066 / 2.4068',
+        uns: 'UNS N02200',
+        din: '2.4066 (Ni99.2)',
         shortDesc: 'Commercially pure wrought nickel fittings offering superior resistance to caustic alkalis and dry halogen gases.',
-        fullDesc: 'Commercially pure nickel fittings providing outstanding resistance to hot concentrated sodium hydroxide (caustic soda) solutions, anhydrous ammonia, and non-oxidizing halide acids. Nickel 201 low-carbon formulation eliminates graphitization above 315°C.',
+        fullDesc: 'Commercially pure nickel fittings providing outstanding resistance to hot concentrated sodium hydroxide (caustic soda) solutions, anhydrous ammonia, and non-oxidizing halide acids.',
         specs: { size: '1/2" to 18" NB', schedule: 'SCH 10S, SCH 40S, SCH 80S', connection: 'Butt-Weld (BW)' },
         applications: ['Caustic soda evaporator manifolds', 'Chlor-alkali plant fluid transfer', 'Synthetic fiber and soap manufacturing', 'Fluorine and hydrogen chloride handling lines']
+      },
+      {
+        id: 'nickel-201-pipe-fittings',
+        slug: 'nickel-201-pipe-fittings',
+        aliases: ['nickel-201', '201', 'alloy-201', 'n02201'],
+        name: 'Nickel 201 Pipe Fittings',
+        code: 'ASTM B366 WPNL (UNS N02201)',
+        standard: 'ASTM B366, ASME SB366, ASME B16.9',
+        uns: 'UNS N02201',
+        din: '2.4068 (LC-Ni99.2)',
+        shortDesc: 'Low-carbon commercially pure nickel fittings preventing graphitization above 315°C.',
+        fullDesc: 'Ultra-low carbon nickel formulation eliminating graphitization in caustic evaporators and halogen manufacturing operating continuously above 315°C.',
+        specs: { size: '1/2" to 18" NB', schedule: 'SCH 10S, SCH 40S, SCH 80S', connection: 'Butt-Weld (BW)' },
+        applications: ['High-temperature caustic concentration units', 'Halogen generation equipment', 'Vinyl chloride monomer (VCM) production', 'Molten caustic handling piping']
       }
     ]
   },
@@ -513,17 +643,32 @@ export const PIPE_FITTINGS_CATEGORIES = [
     shortDesc: 'Cupro-Nickel butt-weld and socket fittings delivering superior resistance to marine biofouling, macro-algae attachment, impingement attack, and stress corrosion in high-salinity seawater systems.',
     grades: [
       {
-        id: 'copper-nickel-pipe-fittings-general',
-        slug: 'copper-nickel-pipe-fittings',
-        name: 'Copper Nickel Pipe Fittings',
-        code: 'Cu-Ni 90/10 (C70600) & Cu-Ni 70/30 (C71500)',
-        standard: 'DIN 86019, EEMUA 146, ASME B16.9',
-        uns: 'UNS C70600 / UNS C71500',
-        din: '2.0872 (CuNi10Fe1Mn) / 2.0882 (CuNi30Mn1Fe)',
-        shortDesc: 'Marine-grade 90/10 and 70/30 cupro-nickel fittings for seawater cooling and naval plumbing loops.',
-        fullDesc: 'Engineered specifically for naval shipbuilding, offshore oil platforms, and desalination facilities. CuNi 90/10 and CuNi 70/30 fittings form an adherent protective copper oxide passivation layer providing natural antifouling and erosion-corrosion resistance.',
+        id: 'cu-ni-90-10-pipe-fittings',
+        slug: 'cu-ni-90-10-pipe-fittings',
+        aliases: ['cu-ni-90-10', 'cuni-90-10', '90-10', 'c70600', 'copper-nickel-pipe-fittings'],
+        name: 'Cu-Ni 90/10 Pipe Fittings',
+        code: 'Cu-Ni 90/10 (UNS C70600) / DIN 86019 / EEMUA 146',
+        standard: 'DIN 86019, EEMUA 146, ASME B16.9, ASTM B466 / B366',
+        uns: 'UNS C70600',
+        din: '2.0872 (CuNi10Fe1Mn)',
+        shortDesc: 'Marine-grade 90/10 cupro-nickel fittings for seawater cooling and naval plumbing loops.',
+        fullDesc: 'Engineered specifically for naval shipbuilding, offshore oil platforms, and desalination facilities. Forms an adherent protective copper oxide passivation layer providing natural antifouling and erosion-corrosion resistance.',
         specs: { size: '1/2" to 24" NB (16mm to 419mm)', pressureClass: '10 Bar, 14 Bar, 16 Bar', connection: 'Butt-Weld & Composite Collar Ends' },
         applications: ['Seawater cooling systems in naval vessels', 'Multi-stage flash desalination plants', 'Offshore firewater ring mains', 'Commercial ship ballast and bilge piping']
+      },
+      {
+        id: 'cu-ni-70-30-pipe-fittings',
+        slug: 'cu-ni-70-30-pipe-fittings',
+        aliases: ['cu-ni-70-30', 'cuni-70-30', '70-30', 'c71500'],
+        name: 'Cu-Ni 70/30 Pipe Fittings',
+        code: 'Cu-Ni 70/30 (UNS C71500) / EEMUA 146',
+        standard: 'DIN 86019, EEMUA 146, ASME B16.9, ASTM B466 / B366',
+        uns: 'UNS C71500',
+        din: '2.0882 (CuNi30Mn1Fe)',
+        shortDesc: 'Higher-strength 70/30 cupro-nickel fittings for high-velocity seawater piping systems.',
+        fullDesc: 'Iron- and manganese-fortified 70/30 copper nickel alloy delivering higher permissible flow velocities (up to 4.5 m/s) and supreme impingement corrosion resistance in naval marine loops.',
+        specs: { size: '1/2" to 24" NB', pressureClass: '14 Bar to 20 Bar Rating / SCH 40S', connection: 'Butt-Weld (BW)' },
+        applications: ['High-velocity naval submarine cooling loops', 'Desalination brine heaters and ejectors', 'Offshore platform deluge manifolds', 'Shipboard condenser tube headers']
       }
     ]
   },
@@ -549,17 +694,46 @@ export const PIPE_FITTINGS_CATEGORIES = [
     shortDesc: 'Ultra-lightweight, high-strength titanium butt-weld fittings delivering permanent immunity to raw seawater corrosion, chlor-alkali brine, wet chlorine, and organic acid environments.',
     grades: [
       {
-        id: 'titanium-pipe-fittings-general',
-        slug: 'titanium-pipe-fittings',
-        name: 'Titanium Pipe Fittings',
-        code: 'ASTM B363 WPT1 / WPT2 / WPT5 / WPT7 (Grades 1, 2, 5, 7)',
-        standard: 'ASTM B363, ASME SB363, ASME B16.9',
-        uns: 'UNS R50250 / UNS R50400 / UNS R56400 / UNS R52400',
-        din: '3.7025 / 3.7035 / 3.7165 / 3.7235',
-        shortDesc: 'Commercially pure and palladium-stabilized titanium fittings offering absolute resistance to chloride corrosion.',
-        fullDesc: 'ASTM B363 Titanium Grade 2 (unalloyed CP) and Grade 7 (0.15% Palladium) pipe fittings providing extraordinary strength-to-weight ratio and self-healing titanium dioxide (TiO2) oxide film that remains completely impervious to aerated seawater, bleaching oxidizers, and boiling nitric acid.',
+        id: 'titanium-grade-2-pipe-fittings',
+        slug: 'titanium-grade-2-pipe-fittings',
+        aliases: ['titanium-grade-2', 'grade-2', 'gr2', 'r50400', 'titanium-pipe-fittings'],
+        name: 'Titanium Grade 2 Pipe Fittings',
+        code: 'ASTM B363 WPT2 (Grade 2 CP)',
+        standard: 'ASTM B363, ASME SB363, ASME B16.9, MSS SP-43',
+        uns: 'UNS R50400',
+        din: '3.7035',
+        shortDesc: 'Commercially pure Grade 2 titanium butt-weld fittings delivering permanent immunity to seawater corrosion.',
+        fullDesc: 'ASTM B363 Titanium Grade 2 (unalloyed CP) pipe fittings providing extraordinary strength-to-weight ratio and self-healing TiO2 passive film that remains completely impervious to aerated seawater, bleaching oxidizers, and boiling nitric acid.',
         specs: { size: '1/2" to 24" NB', schedule: 'SCH 10S, SCH 40S, SCH 80S', connection: 'Butt-Weld (BW)' },
         applications: ['Seawater intake loops on offshore platforms', 'Chlor-alkali and chlorine dioxide bleaching', 'Desalination high-pressure reverse osmosis loops', 'Aerospace and marine defense cooling manifolds']
+      },
+      {
+        id: 'titanium-grade-5-pipe-fittings',
+        slug: 'titanium-grade-5-pipe-fittings',
+        aliases: ['titanium-grade-5', 'grade-5', 'gr5', 'ti-6al-4v', 'r56400'],
+        name: 'Titanium Grade 5 Pipe Fittings',
+        code: 'ASTM B363 WPT5 / Ti-6Al-4V (Grade 5)',
+        standard: 'ASTM B363, ASME SB363, ASME B16.9',
+        uns: 'UNS R56400',
+        din: '3.7165 (TiAl6V4)',
+        shortDesc: 'High-strength alpha-beta titanium alloy butt weld fittings with 895 MPa tensile strength.',
+        fullDesc: 'Alpha-beta titanium alloy fittings delivering extreme strength-to-density ratio, high fatigue strength, and excellent corrosion resistance for subsea aerospace and marine racing piping.',
+        specs: { size: '1/2" to 20" NB', schedule: 'SCH 40S, SCH 80S', connection: 'Butt-Weld (BW)' },
+        applications: ['Deepwater subsea hydrocarbon lines', 'Aerospace hydraulic and propulsion cooling', 'High-performance marine racing exhaust', 'Offshore lightweight topside manifolds']
+      },
+      {
+        id: 'titanium-grade-7-pipe-fittings',
+        slug: 'titanium-grade-7-pipe-fittings',
+        aliases: ['titanium-grade-7', 'grade-7', 'gr7', 'r52400'],
+        name: 'Titanium Grade 7 Pipe Fittings',
+        code: 'ASTM B363 WPT7 / Ti-0.15Pd (Grade 7)',
+        standard: 'ASTM B363, ASME SB363, ASME B16.9',
+        uns: 'UNS R52400',
+        din: '3.7235',
+        shortDesc: 'Palladium-stabilized titanium fittings offering absolute resistance to hot reducing acid chlorides.',
+        fullDesc: 'Grade 2 titanium fortified with 0.15% Palladium, drastically improving resistance to localized crevice corrosion in hot concentrated chlorides and dilute reducing acids.',
+        specs: { size: '1/2" to 20" NB', schedule: 'SCH 10S, SCH 40S, SCH 80S', connection: 'Butt-Weld (BW)' },
+        applications: ['Hot concentrated chlor-alkali brine piping', 'Chemical processing with mixed acids', 'Geothermal energy fluid extraction', 'Hydrochloric and sulfuric acid handling loops']
       }
     ]
   }
@@ -593,5 +767,22 @@ export function getPipeFittingsGradeBySlug(catSlug, gradeSlug) {
   if (!cat) return null;
   if (!gradeSlug) return cat.grades[0] || null;
   const clean = gradeSlug.toLowerCase().trim();
-  return cat.grades.find(g => g.slug === clean || g.id === clean) || cat.grades[0] || null;
+  const cleanNoFittings = clean.replace(/-(pipe-fittings|fittings)$/, '');
+
+  // 1. Direct match on slug, id, or aliases
+  const direct = cat.grades.find(g => 
+    g.slug === clean || 
+    g.id === clean || 
+    (g.aliases && g.aliases.includes(clean)) ||
+    (g.aliases && g.aliases.includes(cleanNoFittings))
+  );
+  if (direct) return direct;
+
+  // 2. Fuzzy match
+  const matched = cat.grades.find(g => {
+    const s = g.slug.toLowerCase().replace(/-(pipe-fittings|fittings)$/, '');
+    const n = g.name.toLowerCase();
+    return s === cleanNoFittings || s.includes(cleanNoFittings) || cleanNoFittings.includes(s) || n.includes(cleanNoFittings);
+  });
+  return matched || cat.grades[0] || null;
 }

@@ -39,17 +39,44 @@ export default function FlangeTypeDetailView({
   typeSlug = 'weld-neck-flange', 
   gradeSlug = null,
   isManufacturedInMumbai = false,
+  isStockistInMumbai = false,
   onNavigate,
   onOpenQuoteModal 
 }) {
   const normMatSlug = normalizeMaterialSlug(materialSlug);
   const normTypeSlug = normalizeFlangeTypeSlug(typeSlug) || 'weld-neck-flange';
-  const normGradeSlug = gradeSlug ? normalizeFlangeGradeSlug(normMatSlug, gradeSlug) : null;
+
+  // Reactive Grade Selection State (initialized from gradeSlug prop or ?grade=... query param)
+  const [selectedGradeSlug, setSelectedGradeSlug] = useState(() => {
+    if (gradeSlug) return normalizeFlangeGradeSlug(normMatSlug, gradeSlug);
+    if (typeof window !== 'undefined') {
+      const q = new URLSearchParams(window.location.search).get('grade');
+      if (q) return normalizeFlangeGradeSlug(normMatSlug, q);
+    }
+    return null;
+  });
+
+  // Keep state in sync if gradeSlug prop updates
+  useEffect(() => {
+    setSelectedGradeSlug(gradeSlug ? normalizeFlangeGradeSlug(normMatSlug, gradeSlug) : null);
+  }, [gradeSlug, normMatSlug]);
+
+  // Support browser Back/Forward navigation for grade state
+  useEffect(() => {
+    const handlePop = () => {
+      const q = new URLSearchParams(window.location.search).get('grade');
+      setSelectedGradeSlug(q ? normalizeFlangeGradeSlug(normMatSlug, q) : null);
+    };
+    window.addEventListener('popstate', handlePop);
+    return () => window.removeEventListener('popstate', handlePop);
+  }, [normMatSlug]);
+
+  const activeGradeSlug = selectedGradeSlug;
 
   // Get full combined detail data
   const detail = useMemo(() => {
-    return getFlangeTypeDetail(normMatSlug, normTypeSlug, normGradeSlug);
-  }, [normMatSlug, normTypeSlug, normGradeSlug]);
+    return getFlangeTypeDetail(normMatSlug, normTypeSlug, activeGradeSlug);
+  }, [normMatSlug, normTypeSlug, activeGradeSlug]);
 
   const material = useMemo(() => {
     return getFlangeMaterialBySlug(normMatSlug);
@@ -77,7 +104,9 @@ export default function FlangeTypeDetailView({
   useEffect(() => {
     if (detail) {
       document.title = isManufacturedInMumbai
-        ? `${detail.fullName} Manufactured in Mumbai | Redcore Steels`
+        ? `${detail.fullName} Manufactured in Mumbai | KPTRON`
+        : isStockistInMumbai
+        ? `${detail.fullName} Stockist in Mumbai | KPTRON`
         : detail.seo.title;
       let metaDesc = document.querySelector('meta[name="description"]');
       if (!metaDesc) {
@@ -87,9 +116,11 @@ export default function FlangeTypeDetailView({
       }
       metaDesc.content = isManufacturedInMumbai
         ? `${detail.fullName} manufactured in Mumbai, India conforming strictly to ASME B16.5 and international standards. Available in sizes ${detail.technicalSpecs.sizeRange} with mill test certs.`
+        : isStockistInMumbai
+        ? `${detail.fullName} stockist and supplier in Mumbai, India conforming strictly to ASME B16.5 and international standards. Available in sizes ${detail.technicalSpecs.sizeRange}.`
         : detail.seo.description;
     }
-  }, [detail, isManufacturedInMumbai]);
+  }, [detail, isManufacturedInMumbai, isStockistInMumbai]);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -134,18 +165,24 @@ export default function FlangeTypeDetailView({
   };
 
   const handleSelectGrade = (targetGradeSlug) => {
-    if (!onNavigate) return;
-    if (targetGradeSlug) {
-      onNavigate(formatProductUrl(`/products/flanges/${normMatSlug}/${normTypeSlug}/${targetGradeSlug}`));
-    } else {
-      onNavigate(formatProductUrl(`/products/flanges/${normMatSlug}/${normTypeSlug}`));
+    const next = targetGradeSlug ? normalizeFlangeGradeSlug(normMatSlug, targetGradeSlug) : null;
+    setSelectedGradeSlug(next);
+
+    if (typeof window !== 'undefined') {
+      const currentUrl = new URL(window.location.href);
+      if (next) {
+        currentUrl.searchParams.set('grade', next);
+      } else {
+        currentUrl.searchParams.delete('grade');
+      }
+      window.history.pushState({ grade: next }, '', currentUrl.pathname + currentUrl.search + currentUrl.hash);
     }
   };
 
   const handleSelectRelatedType = (relTypeSlug) => {
     if (!onNavigate) return;
-    if (normGradeSlug) {
-      onNavigate(formatProductUrl(`/products/flanges/${normMatSlug}/${relTypeSlug}/${normGradeSlug}`));
+    if (activeGradeSlug) {
+      onNavigate(formatProductUrl(`/products/flanges/${normMatSlug}/${relTypeSlug}?grade=${activeGradeSlug}`));
     } else {
       onNavigate(formatProductUrl(`/products/flanges/${normMatSlug}/${relTypeSlug}`));
     }
@@ -263,6 +300,23 @@ export default function FlangeTypeDetailView({
                 {detail.shortDesc}
               </p>
 
+              {/* Active Certified Grade Metallurgy Banner */}
+              {detail.grade && (
+                <div className="active-grade-meta-banner">
+                  <div className="meta-banner-left">
+                    <Sparkles size={16} className="meta-banner-icon" />
+                    <div>
+                      <strong>Verified Metallurgy: {detail.grade.name} ({detail.grade.code})</strong>
+                      <p>{detail.grade.fullDesc || detail.grade.shortDesc}</p>
+                    </div>
+                  </div>
+                  <div className="meta-banner-badges">
+                    <span className="meta-badge">UNS: {detail.grade.uns || 'Standard'}</span>
+                    <span className="meta-badge">DIN: {detail.grade.din || 'Standard'}</span>
+                  </div>
+                </div>
+              )}
+
               {/* Interactive 3-Level Grade Selector for this Flange Type */}
               {detail.availableGrades && detail.availableGrades.length > 0 && (
                 <div className="type-grade-selector-bar">
@@ -276,13 +330,13 @@ export default function FlangeTypeDetailView({
                   <div className="grade-selector-pills">
                     <button
                       type="button"
-                      className={`grade-select-pill ${!normGradeSlug ? 'active' : ''}`}
+                      className={`grade-select-pill ${!activeGradeSlug ? 'active' : ''}`}
                       onClick={() => handleSelectGrade(null)}
                     >
                       All Grades
                     </button>
                     {detail.availableGrades.map(g => {
-                      const isCurrent = g.slug === normGradeSlug;
+                      const isCurrent = g.slug === activeGradeSlug;
                       return (
                         <button
                           key={g.id}
@@ -352,7 +406,8 @@ export default function FlangeTypeDetailView({
               <FlangesSidebarNav
                 currentMaterialSlug={normMatSlug}
                 currentTypeSlug={normTypeSlug}
-                currentGradeSlug={normGradeSlug}
+                currentGradeSlug={activeGradeSlug}
+                onSelectGrade={handleSelectGrade}
                 onNavigate={onNavigate}
               />
             </div>

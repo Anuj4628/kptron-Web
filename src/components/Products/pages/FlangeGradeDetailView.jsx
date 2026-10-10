@@ -163,7 +163,7 @@ export default function FlangeGradeDetailView({
             />
           </div>
 
-          <div className="detail-layout-container">
+          <div className="detail-layout-container flange-grade-layout-container">
             {/* Main Technical Column */}
             <main className="detail-main-column">
             
@@ -388,14 +388,14 @@ export default function FlangeGradeDetailView({
                   <p>Our sales engineer will send your formal quote proforma shortly.</p>
                 </div>
               ) : (
-                <form onSubmit={handleFormSubmit} className="sidebar-rfq-form">
+                <form onSubmit={handleFormSubmit} className="sidebar-rfq-form rfq-form-compact">
                   {submitError && (
                     <div className="sidebar-rfq-error">{submitError}</div>
                   )}
 
-                  <div className="form-field-group">
+                  <div className="form-field-group form-field">
                     <label htmlFor="user-rfq-name">Your Full Name *</label>
-                    <div className="field-input-wrap">
+                    <div className="field-input-wrap input-with-icon">
                       <User size={15} className="field-icon" />
                       <input
                         type="text"
@@ -408,9 +408,9 @@ export default function FlangeGradeDetailView({
                     </div>
                   </div>
 
-                  <div className="form-field-group">
+                  <div className="form-field-group form-field">
                     <label htmlFor="user-rfq-email">Corporate Email *</label>
-                    <div className="field-input-wrap">
+                    <div className="field-input-wrap input-with-icon">
                       <Mail size={15} className="field-icon" />
                       <input
                         type="email"
@@ -423,9 +423,9 @@ export default function FlangeGradeDetailView({
                     </div>
                   </div>
 
-                  <div className="form-field-group">
+                  <div className="form-field-group form-field">
                     <label htmlFor="user-rfq-phone">Contact Number *</label>
-                    <div className="field-input-wrap">
+                    <div className="field-input-wrap input-with-icon">
                       <PhoneCall size={15} className="field-icon" />
                       <input
                         type="tel"
@@ -438,9 +438,9 @@ export default function FlangeGradeDetailView({
                     </div>
                   </div>
 
-                  <div className="form-field-group">
+                  <div className="form-field-group form-field">
                     <label htmlFor="user-rfq-qty">Estimated Quantity / Sizes</label>
-                    <div className="field-input-wrap">
+                    <div className="field-input-wrap input-with-icon">
                       <Layers size={15} className="field-icon" />
                       <input
                         type="text"
@@ -452,7 +452,7 @@ export default function FlangeGradeDetailView({
                     </div>
                   </div>
 
-                  <div className="form-field-group">
+                  <div className="form-field-group form-field">
                     <label htmlFor="user-rfq-notes">Project Notes / Destination</label>
                     <textarea
                       id="user-rfq-notes"
@@ -465,11 +465,11 @@ export default function FlangeGradeDetailView({
 
                   <button
                     type="submit"
-                    className="btn-submit-sidebar-rfq"
+                    className="btn-submit-sidebar-rfq btn-submit-rfq"
                     disabled={isSubmitting}
                   >
-                    <Send size={15} />
                     <span>{isSubmitting ? 'Transmitting...' : 'Send Quote Request'}</span>
+                    <Send size={15} />
                   </button>
                 </form>
               )}

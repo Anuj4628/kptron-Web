@@ -30,6 +30,7 @@ const FlangeGradeDetailView = lazy(() => import('./components/Products/pages/Fla
 const FlangeTypeDetailView = lazy(() => import('./components/Products/pages/FlangeTypeDetailView'));
 const FastenersProductPage = lazy(() => import('./components/Products/pages/FastenersProductPage'));
 const FastenerGradeDetailView = lazy(() => import('./components/Products/pages/FastenerGradeDetailView'));
+const FastenerTypeDetailView = lazy(() => import('./components/Products/pages/FastenerTypeDetailView'));
 const ProductsLandingView = lazy(() => import('./components/Products/pages/ProductsLandingView'));
 const DivisionView = lazy(() => import('./components/Products/pages/DivisionView'));
 const ProductFamilyView = lazy(() => import('./components/Products/pages/ProductFamilyView'));
@@ -49,7 +50,21 @@ import {
   normalizeFlangeGradeSlug,
   matchFlangeTypeAndGrade
 } from './data/flangeTypesData';
+import {
+  isFastenerMaterialSlug,
+  isFastenerTypeSlug,
+  normalizeFastenerMaterialSlug,
+  normalizeFastenerTypeSlug,
+  isFastenerGradeSlug,
+  normalizeFastenerGradeSlug,
+  matchFastenerTypeAndGrade
+} from './data/fastenerTypesData';
 import { formatProductUrl, cleanProductSlug } from './utils/urlUtils';
+import { 
+  resolveProductFromPath, 
+  SUFFIX_MANUFACTURED, 
+  SUFFIX_STOCKIST 
+} from './data/productSeoRegistry';
 import { getFastenersCategoryBySlug } from './data/fastenersData';
 import { getPipeCategoryBySlug } from './data/pipesData';
 import { getSheetsPlatesCategoryBySlug } from './data/sheetsPlatesCoilsData';
@@ -93,6 +108,121 @@ function parseRoute(pathname = (typeof window !== 'undefined' ? window.location.
   }
 
   if (clean.startsWith('/products')) {
+    // Extract query parameters like ?grade=...
+    let queryGrade = null;
+    if (activePath.includes('?')) {
+      const q = activePath.split('?')[1].split('#')[0];
+      queryGrade = new URLSearchParams(q).get('grade');
+    } else if (typeof window !== 'undefined' && window.location.search) {
+      queryGrade = new URLSearchParams(window.location.search).get('grade');
+    }
+
+    // 0. Primary SEO Registry Resolution: Check if path matches any clean alternating SEO URL or alias
+    const resolvedProduct = resolveProductFromPath(cleanPath);
+    if (resolvedProduct) {
+      const isManufactured = resolvedProduct.suffix === SUFFIX_MANUFACTURED;
+      const isStockist = resolvedProduct.suffix === SUFFIX_STOCKIST;
+
+      if (resolvedProduct.division === 'pipes') {
+        return {
+          page: 'products',
+          view: 'pipe-grade-detail',
+          categorySlug: resolvedProduct.categorySlug,
+          gradeSlug: resolvedProduct.gradeSlug || queryGrade,
+          canonicalUrl: resolvedProduct.canonicalUrl,
+          isManufacturedInMumbai: isManufactured,
+          isStockistInMumbai: isStockist
+        };
+      }
+      if (resolvedProduct.division === 'flanges') {
+        if (resolvedProduct.typeSlug) {
+          const pathSegments = cleanPath.replace(/^\/products\/?/i, '').split('/').filter(Boolean);
+          const segmentGrade = (pathSegments.length >= 4 && pathSegments[0] === 'flanges') ? pathSegments[3] : null;
+
+          return {
+            page: 'products',
+            view: 'flange-type-detail',
+            materialSlug: resolvedProduct.materialSlug,
+            typeSlug: resolvedProduct.typeSlug,
+            gradeSlug: queryGrade || segmentGrade || resolvedProduct.gradeSlug || null,
+            canonicalUrl: resolvedProduct.canonicalUrl,
+            isManufacturedInMumbai: isManufactured,
+            isStockistInMumbai: isStockist
+          };
+        }
+        return {
+          page: 'products',
+          view: 'flange-grade-detail',
+          categorySlug: resolvedProduct.categorySlug,
+          materialSlug: resolvedProduct.materialSlug,
+          gradeSlug: resolvedProduct.gradeSlug || queryGrade,
+          canonicalUrl: resolvedProduct.canonicalUrl,
+          isManufacturedInMumbai: isManufactured,
+          isStockistInMumbai: isStockist
+        };
+      }
+      if (resolvedProduct.division === 'fasteners') {
+        if (resolvedProduct.typeSlug) {
+          const pathSegments = cleanPath.replace(/^\/products\/?/i, '').split('/').filter(Boolean);
+          const segmentGrade = (pathSegments.length >= 4 && pathSegments[0] === 'fasteners') ? pathSegments[3] : null;
+
+          return {
+            page: 'products',
+            view: 'fastener-type-detail',
+            materialSlug: resolvedProduct.materialSlug,
+            typeSlug: resolvedProduct.typeSlug,
+            gradeSlug: queryGrade || segmentGrade || resolvedProduct.gradeSlug || null,
+            canonicalUrl: resolvedProduct.canonicalUrl,
+            isManufacturedInMumbai: isManufactured,
+            isStockistInMumbai: isStockist
+          };
+        }
+        return {
+          page: 'products',
+          view: 'fastener-grade-detail',
+          categorySlug: resolvedProduct.categorySlug,
+          materialSlug: resolvedProduct.materialSlug,
+          gradeSlug: resolvedProduct.gradeSlug || queryGrade,
+          canonicalUrl: resolvedProduct.canonicalUrl,
+          isManufacturedInMumbai: isManufactured,
+          isStockistInMumbai: isStockist
+        };
+      }
+      if (resolvedProduct.division === 'sheets-plates') {
+        return {
+          page: 'products',
+          view: 'sheet-plate-grade-detail',
+          categorySlug: resolvedProduct.categorySlug,
+          gradeSlug: resolvedProduct.gradeSlug,
+          canonicalUrl: resolvedProduct.canonicalUrl,
+          isManufacturedInMumbai: isManufactured,
+          isStockistInMumbai: isStockist
+        };
+      }
+      if (resolvedProduct.division === 'bars') {
+        return {
+          page: 'products',
+          view: 'bar-grade-detail',
+          categorySlug: resolvedProduct.categorySlug,
+          gradeSlug: resolvedProduct.gradeSlug,
+          canonicalUrl: resolvedProduct.canonicalUrl,
+          isManufacturedInMumbai: isManufactured,
+          isStockistInMumbai: isStockist
+        };
+      }
+      if (resolvedProduct.division === 'pipe-fittings') {
+        return {
+          page: 'products',
+          view: 'pipe-fitting-grade-detail',
+          categorySlug: resolvedProduct.categorySlug,
+          gradeSlug: resolvedProduct.gradeSlug,
+          canonicalUrl: resolvedProduct.canonicalUrl,
+          isManufacturedInMumbai: isManufactured,
+          isStockistInMumbai: isStockist
+        };
+      }
+    }
+
     const raw = cleanPath.replace(/^\/products\/?/i, '');
     let rawParts = raw.split('/').filter(Boolean);
 
@@ -102,8 +232,9 @@ function parseRoute(pathname = (typeof window !== 'undefined' ? window.location.
     }
 
     const isManufacturedInMumbai = clean.includes('manufactured-in-mumbai');
+    const isStockistInMumbai = clean.includes('stockist-in-mumbai');
     const parts = rawParts
-      .filter(p => p.toLowerCase() !== 'manufactured-in-mumbai')
+      .filter(p => p.toLowerCase() !== 'manufactured-in-mumbai' && p.toLowerCase() !== 'stockist-in-mumbai')
       .map(p => cleanProductSlug(p));
 
     if (parts.length === 0) {
@@ -432,34 +563,168 @@ function parseRoute(pathname = (typeof window !== 'undefined' ? window.location.
       }
     }
 
-    // Dedicated Fasteners Product Page & Grade Detail Routes
+    // Dedicated Fasteners Product Page, Types of Fasteners & Grade Detail Routes
     if (p0 === 'fasteners' || p0 === 'fastener') {
       if (parts.length === 1) {
         return { page: 'products', view: 'fasteners-listing', materialSlug: null, isManufacturedInMumbai };
       }
+
       if (parts.length === 2) {
         const p1 = parts[1].toLowerCase();
         if (p1 === 'all') {
           return { page: 'products', view: 'fasteners-listing', materialSlug: null, isManufacturedInMumbai };
         }
-        const cat = getFastenersCategoryBySlug(p1);
-        if (cat) {
-          return { page: 'products', view: 'fasteners-listing', materialSlug: cat.materialSlug || cat.slug || p1, isManufacturedInMumbai };
+        if (isFastenerMaterialSlug(p1)) {
+          return { 
+            page: 'products', 
+            view: 'fasteners-listing', 
+            materialSlug: normalizeFastenerMaterialSlug(p1),
+            isManufacturedInMumbai
+          };
+        }
+        if (isFastenerTypeSlug(p1)) {
+          return { 
+            page: 'products', 
+            view: 'fastener-type-detail', 
+            materialSlug: 'stainless-steel', 
+            typeSlug: normalizeFastenerTypeSlug(p1),
+            gradeSlug: null,
+            isManufacturedInMumbai
+          };
         }
         return { 
           page: 'products', 
           view: 'fastener-grade-detail', 
           categorySlug: p1,
+          materialSlug: normalizeFastenerMaterialSlug(p1),
           gradeSlug: null,
           isManufacturedInMumbai
         };
       }
-      if (parts.length >= 3) {
+
+      if (parts.length === 3) {
+        const p1 = parts[1].toLowerCase();
+        const p2 = parts[2].toLowerCase();
+        const normMat = normalizeFastenerMaterialSlug(p1);
+
+        // Case: /products/fasteners/:material/types
+        if (p2 === 'types' || p2 === 'type') {
+          return { 
+            page: 'products', 
+            view: 'fasteners-listing', 
+            materialSlug: normMat,
+            isManufacturedInMumbai
+          };
+        }
+
+        // Case: /products/fasteners/:material/grades
+        if (p2 === 'grades' || p2 === 'grade') {
+          return { 
+            page: 'products', 
+            view: 'fasteners-listing', 
+            materialSlug: normMat,
+            isManufacturedInMumbai
+          };
+        }
+
+        // Case: /products/fasteners/:material/:typeSlug
+        if (isFastenerTypeSlug(p2)) {
+          return { 
+            page: 'products', 
+            view: 'fastener-type-detail', 
+            materialSlug: normMat, 
+            typeSlug: normalizeFastenerTypeSlug(p2),
+            gradeSlug: null,
+            isManufacturedInMumbai
+          };
+        }
+
+        // Case: /products/fasteners/:material/:gradeSlug
+        if (isFastenerGradeSlug(normMat, p2)) {
+          return { 
+            page: 'products', 
+            view: 'fastener-grade-detail', 
+            materialSlug: normMat,
+            categorySlug: p1, 
+            gradeSlug: normalizeFastenerGradeSlug(normMat, p2),
+            isManufacturedInMumbai
+          };
+        }
+
+        // Case: /products/fasteners/:material/:typeSlug-:gradeSlug
+        const combo = matchFastenerTypeAndGrade(normMat, p2);
+        if (combo) {
+          return {
+            page: 'products',
+            view: 'fastener-type-detail',
+            materialSlug: normMat,
+            typeSlug: combo.typeSlug,
+            gradeSlug: combo.gradeSlug,
+            isManufacturedInMumbai
+          };
+        }
+
+        // Default legacy: /products/fasteners/:categorySlug/:gradeSlug
         return { 
           page: 'products', 
           view: 'fastener-grade-detail', 
-          categorySlug: parts[1].toLowerCase(), 
-          gradeSlug: parts[2].toLowerCase(),
+          materialSlug: normMat,
+          categorySlug: p1, 
+          gradeSlug: p2,
+          isManufacturedInMumbai
+        };
+      }
+
+      if (parts.length >= 4) {
+        const p1 = parts[1].toLowerCase();
+        const p2 = parts[2].toLowerCase();
+        const p3 = parts[3].toLowerCase();
+        const normMat = normalizeFastenerMaterialSlug(p1);
+
+        // Case: /products/fasteners/:material/types/:typeSlug
+        if ((p2 === 'types' || p2 === 'type') && isFastenerTypeSlug(p3)) {
+          const p4 = parts[4] ? parts[4].toLowerCase() : null;
+          return { 
+            page: 'products', 
+            view: 'fastener-type-detail', 
+            materialSlug: normMat, 
+            typeSlug: normalizeFastenerTypeSlug(p3),
+            gradeSlug: p4 ? normalizeFastenerGradeSlug(normMat, p4) : null,
+            isManufacturedInMumbai
+          };
+        }
+
+        // Case: /products/fasteners/:material/grades/:gradeSlug
+        if ((p2 === 'grades' || p2 === 'grade') && isFastenerGradeSlug(normMat, p3)) {
+          return { 
+            page: 'products', 
+            view: 'fastener-grade-detail', 
+            materialSlug: normMat,
+            categorySlug: p1, 
+            gradeSlug: normalizeFastenerGradeSlug(normMat, p3),
+            isManufacturedInMumbai
+          };
+        }
+
+        // Case: /products/fasteners/:material/:typeSlug/:gradeSlug (Level 4 Combination!)
+        if (isFastenerTypeSlug(p2)) {
+          return { 
+            page: 'products', 
+            view: 'fastener-type-detail', 
+            materialSlug: normMat, 
+            typeSlug: normalizeFastenerTypeSlug(p2),
+            gradeSlug: normalizeFastenerGradeSlug(normMat, p3) || p3,
+            isManufacturedInMumbai
+          };
+        }
+
+        // Default legacy
+        return { 
+          page: 'products', 
+          view: 'fastener-grade-detail', 
+          materialSlug: normMat,
+          categorySlug: p1, 
+          gradeSlug: p2,
           isManufacturedInMumbai
         };
       }
@@ -720,11 +985,39 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // Handle canonical permanent client-side redirects and canonical link updates (Requirement 9 & 10)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const canonicalPath = route?.canonicalUrl || window.location.pathname;
+      const currentPath = window.location.pathname.toLowerCase();
+
+      // Permanent redirect if current path differs from canonicalUrl
+      if (route?.canonicalUrl && currentPath !== route.canonicalUrl.toLowerCase() && !window.location.hash) {
+        const search = window.location.search || '';
+        window.history.replaceState(null, '', `${route.canonicalUrl}${search}`);
+      }
+
+      // Update <link rel="canonical"> in document head
+      let canonicalLink = document.querySelector('link[rel="canonical"]');
+      if (!canonicalLink) {
+        canonicalLink = document.createElement('link');
+        canonicalLink.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonicalLink);
+      }
+      canonicalLink.setAttribute('href', `${window.location.origin}${canonicalPath}`);
+    }
+  }, [route]);
+
   // Normalize initial address bar URL to SEO format if landing on a product route
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const currentPath = window.location.pathname;
-      if (currentPath.startsWith('/products') && currentPath !== '/products' && !currentPath.includes('manufactured-in-mumbai')) {
+      if (
+        currentPath.startsWith('/products') &&
+        currentPath !== '/products' &&
+        !currentPath.includes('manufactured-in-mumbai') &&
+        !currentPath.includes('stockist-in-mumbai')
+      ) {
         const formatted = formatProductUrl(currentPath + window.location.search + window.location.hash);
         if (formatted !== currentPath) {
           window.history.replaceState({}, '', formatted);
@@ -802,6 +1095,7 @@ export default function App() {
                 typeSlug={route.typeSlug}
                 gradeSlug={route.gradeSlug}
                 isManufacturedInMumbai={route.isManufacturedInMumbai}
+                isStockistInMumbai={route.isStockistInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />
@@ -809,6 +1103,7 @@ export default function App() {
               <FlangesProductPage 
                 materialSlug={route.materialSlug}
                 isManufacturedInMumbai={route.isManufacturedInMumbai}
+                isStockistInMumbai={route.isStockistInMumbai}
                 onNavigate={navigateTo} 
                 onOpenQuoteModal={openQuoteModal} 
               />
@@ -818,6 +1113,17 @@ export default function App() {
                 materialSlug={route.materialSlug}
                 gradeSlug={route.gradeSlug}
                 isManufacturedInMumbai={route.isManufacturedInMumbai}
+                isStockistInMumbai={route.isStockistInMumbai}
+                onNavigate={navigateTo}
+                onOpenQuoteModal={openQuoteModal}
+              />
+            ) : route.view === 'fastener-type-detail' ? (
+              <FastenerTypeDetailView
+                materialSlug={route.materialSlug}
+                typeSlug={route.typeSlug}
+                gradeSlug={route.gradeSlug}
+                isManufacturedInMumbai={route.isManufacturedInMumbai}
+                isStockistInMumbai={route.isStockistInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />
@@ -825,14 +1131,17 @@ export default function App() {
               <FastenersProductPage 
                 materialSlug={route.materialSlug}
                 isManufacturedInMumbai={route.isManufacturedInMumbai} 
+                isStockistInMumbai={route.isStockistInMumbai} 
                 onNavigate={navigateTo} 
                 onOpenQuoteModal={openQuoteModal} 
               />
             ) : route.view === 'fastener-grade-detail' ? (
               <FastenerGradeDetailView
                 categorySlug={route.categorySlug}
+                materialSlug={route.materialSlug}
                 gradeSlug={route.gradeSlug}
                 isManufacturedInMumbai={route.isManufacturedInMumbai}
+                isStockistInMumbai={route.isStockistInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />
@@ -840,6 +1149,7 @@ export default function App() {
               <PipeFittingsProductPage 
                 materialSlug={route.materialSlug}
                 isManufacturedInMumbai={route.isManufacturedInMumbai} 
+                isStockistInMumbai={route.isStockistInMumbai} 
                 onNavigate={navigateTo} 
                 onOpenQuoteModal={openQuoteModal} 
               />
@@ -848,6 +1158,7 @@ export default function App() {
                 categorySlug={route.categorySlug}
                 gradeSlug={route.gradeSlug}
                 isManufacturedInMumbai={route.isManufacturedInMumbai}
+                isStockistInMumbai={route.isStockistInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />
@@ -855,6 +1166,7 @@ export default function App() {
               <BarsProductPage 
                 materialSlug={route.materialSlug}
                 isManufacturedInMumbai={route.isManufacturedInMumbai} 
+                isStockistInMumbai={route.isStockistInMumbai} 
                 onNavigate={navigateTo} 
                 onOpenQuoteModal={openQuoteModal} 
               />
@@ -863,6 +1175,7 @@ export default function App() {
                 categorySlug={route.categorySlug}
                 gradeSlug={route.gradeSlug}
                 isManufacturedInMumbai={route.isManufacturedInMumbai}
+                isStockistInMumbai={route.isStockistInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />
@@ -870,6 +1183,7 @@ export default function App() {
               <PipesProductPage 
                 materialSlug={route.materialSlug}
                 isManufacturedInMumbai={route.isManufacturedInMumbai} 
+                isStockistInMumbai={route.isStockistInMumbai} 
                 onNavigate={navigateTo} 
                 onOpenQuoteModal={openQuoteModal} 
               />
@@ -878,6 +1192,7 @@ export default function App() {
                 categorySlug={route.categorySlug}
                 gradeSlug={route.gradeSlug}
                 isManufacturedInMumbai={route.isManufacturedInMumbai}
+                isStockistInMumbai={route.isStockistInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />
@@ -885,6 +1200,7 @@ export default function App() {
               <SheetsPlatesProductPage 
                 materialSlug={route.materialSlug}
                 isManufacturedInMumbai={route.isManufacturedInMumbai} 
+                isStockistInMumbai={route.isStockistInMumbai} 
                 onNavigate={navigateTo} 
                 onOpenQuoteModal={openQuoteModal} 
               />
@@ -893,6 +1209,7 @@ export default function App() {
                 categorySlug={route.categorySlug}
                 gradeSlug={route.gradeSlug}
                 isManufacturedInMumbai={route.isManufacturedInMumbai}
+                isStockistInMumbai={route.isStockistInMumbai}
                 onNavigate={navigateTo}
                 onOpenQuoteModal={openQuoteModal}
               />

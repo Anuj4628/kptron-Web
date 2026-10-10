@@ -1,12 +1,10 @@
 /* ===================================================
-   MATERIALS NAVBAR DROPDOWN / MEGA-MENU
-   Designed for KPTRON Industrial Engineering:
+   MATERIALS NAVBAR DROPDOWN / MENU
+   Dedicated Metallurgical Alloys List:
    - Clean, pure white background (#FFFFFF)
    - Professional industrial look & typography
-   - 12 Material Categories (2 balanced columns of 6)
-   - Representative industrial metal image showcase on the right
+   - Balanced 2 columns of Certified Material Alloys
    - Subtle shadow, proper spacing, smooth hover transitions
-   - Perfectly aligned with the navbar
    =================================================== */
 
 .materials-dropdown-menu {
@@ -14,7 +12,7 @@
   top: calc(100% + 2px);
   left: 50%;
   transform: translateX(-50%) translateY(6px);
-  width: 820px;
+  width: 500px;
   max-width: calc(100vw - 32px);
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
@@ -54,21 +52,20 @@
 
 /* Main Inner Container */
 .materials-dropdown-inner {
-  display: flex;
-  align-items: stretch;
+  display: block;
   background: #FFFFFF;
 }
 
 /* ===================================================
-   LEFT PANEL: 2 Columns of 6 Material Categories
+   MATERIALS LIST PANEL: 2 Columns of Material Categories
    =================================================== */
 
 .materials-dropdown-left-panel {
-  flex: 1 1 63%;
-  min-width: 0;
-  padding: 1.15rem 1.15rem 0.95rem 1.25rem;
+  width: 100%;
+  padding: 1.15rem 1.25rem 1rem 1.25rem;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .materials-dropdown-header {
@@ -99,7 +96,7 @@
 .materials-dropdown-columns {
   display: flex;
   align-items: stretch;
-  gap: 0.35rem;
+  gap: 0.5rem;
   flex: 1;
 }
 
@@ -116,7 +113,7 @@
 .materials-dropdown-col-divider {
   width: 1px;
   background-color: #F1F5F9;
-  margin: 0.2rem 0.4rem;
+  margin: 0.2rem 0.35rem;
 }
 
 .materials-dropdown-item {
@@ -192,251 +189,6 @@
 }
 
 /* ===================================================
-   RIGHT PANEL: Industrial Metal Representative Showcase
-   =================================================== */
-
-.materials-dropdown-right-panel {
-  flex: 0 0 310px;
-  border-left: 1px solid #F1F5F9;
-  padding: 0.95rem;
-  background: #FAFAFA;
-  display: flex;
-  flex-direction: column;
-}
-
-.materials-dynamic-showcase {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.materials-media-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  border-radius: 4px;
-  overflow: hidden;
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  text-decoration: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
-}
-
-.materials-media-img-wrap {
-  position: relative;
-  width: 100%;
-  height: 100px;
-  overflow: hidden;
-  background: #0F172A;
-}
-
-.materials-media-banner-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.materials-media-card:hover .materials-media-banner-img {
-  transform: scale(1.04);
-}
-
-.materials-media-img-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.02) 0%, rgba(15, 23, 42, 0.65) 100%);
-  pointer-events: none;
-}
-
-.materials-media-badge {
-  position: absolute;
-  bottom: 6px;
-  left: 6px;
-  background: rgba(15, 23, 42, 0.88);
-  backdrop-filter: blur(4px);
-  color: #FFFFFF;
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  padding: 2px 6px;
-  border-radius: 2px;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.materials-badge-icon {
-  color: #FF5B26;
-}
-
-.materials-media-content {
-  padding: 0.75rem 0.85rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.materials-media-header-line {
-  margin-bottom: 2px;
-}
-
-.materials-media-kicker {
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.6rem;
-  font-weight: 750;
-  color: #FF5B26;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  display: block;
-}
-
-.materials-media-heading {
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.84rem;
-  font-weight: 700;
-  color: #0F172A;
-  margin: 1px 0 3px 0;
-  line-height: 1.25;
-}
-
-.materials-media-caption {
-  font-size: 0.7rem;
-  color: #64748B;
-  margin: 0 0 6px 0;
-  line-height: 1.35;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Available Products in this Material Box */
-.materials-available-products-box {
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  border-radius: 3px;
-  padding: 6px 8px;
-  margin-bottom: 8px;
-}
-
-.available-products-heading {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.62rem;
-  font-weight: 750;
-  color: #475569;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-
-.available-products-list {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  max-height: 115px;
-  overflow-y: auto;
-  padding-right: 2px;
-}
-
-.available-product-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4px 6px;
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: all 0.15s ease;
-}
-
-.available-product-link:hover {
-  background: #0F172A;
-  border-color: #0F172A;
-}
-
-.prod-type-label {
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.62rem;
-  font-weight: 750;
-  color: #FF5B26;
-  white-space: nowrap;
-}
-
-.available-product-link:hover .prod-type-label {
-  color: #FF8A50;
-}
-
-.prod-name-label {
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: #1E293B;
-  margin: 0 6px;
-  flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: left;
-}
-
-.available-product-link:hover .prod-name-label {
-  color: #FFFFFF;
-}
-
-.prod-arrow {
-  color: #94A3B8;
-  flex-shrink: 0;
-  transition: transform 0.15s ease, color 0.15s ease;
-}
-
-.available-product-link:hover .prod-arrow {
-  color: #FF5B26;
-  transform: translateX(2px);
-}
-
-.no-products-hint {
-  font-size: 0.68rem;
-  color: #94A3B8;
-  margin: 4px 0;
-  font-style: italic;
-}
-
-/* Actions */
-.materials-showcase-actions {
-  margin-top: auto;
-}
-
-.materials-view-all-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  width: 100%;
-  padding: 6px 8px;
-  background: #0F172A;
-  color: #FFFFFF;
-  border-radius: 3px;
-  font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-decoration: none;
-  box-sizing: border-box;
-  transition: background-color 0.15s ease;
-}
-
-.materials-view-all-btn:hover {
-  background: #FF5B26;
-  color: #FFFFFF;
-}
-
-/* ===================================================
    BOTTOM ACTION FOOTER
    =================================================== */
 
@@ -455,9 +207,9 @@
   align-items: center;
   gap: 6px;
   font-family: var(--font-primary, 'Sora', sans-serif);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 750;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: #FF5B26;
   text-decoration: none;
   text-transform: uppercase;
@@ -487,19 +239,6 @@
 /* ===================================================
    RESPONSIVENESS & ALIGNMENT SAFEGUARDS
    =================================================== */
-
-@media (max-width: 1200px) {
-  .materials-dropdown-menu {
-    left: auto;
-    right: -100px;
-    transform: translateY(6px);
-  }
-
-  .materials-item:hover .materials-dropdown-menu,
-  .materials-dropdown-menu.is-open {
-    transform: translateY(0);
-  }
-}
 
 @media (max-width: 980px) {
   /* On mobile and tablet, the navbar uses MobileMenu drawer */

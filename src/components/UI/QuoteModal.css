@@ -55,7 +55,7 @@
 .quote-modal-top-bar {
   height: 5px;
   width: 100%;
-  background: linear-gradient(90deg, #1f3862 0%, #c41e24 50%, #dc2626 100%);
+  background: linear-gradient(90deg, #1f3862 0%, #FF5B26 50%, #FF7748 100%);
 }
 
 /* Close Button */
@@ -78,9 +78,9 @@
 }
 
 .quote-modal-close:hover {
-  background: #fee2e2;
-  color: #dc2626;
-  border-color: #fca5a5;
+  background: #FFF1EE;
+  color: #FF5B26;
+  border-color: #FFC0B0;
   transform: rotate(90deg);
 }
 
@@ -131,10 +131,8 @@
   margin: 0 0 0.5rem;
   line-height: 1.25;
   letter-spacing: -0.02em;
-}
-
-.quote-modal-title .text-red {
-  color: #dc2626;
+}.quote-modal-title .text-red {
+  color: #FF5B26;
 }
 
 .quote-modal-subtitle {
@@ -170,14 +168,14 @@
 
 .quote-label {
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 750;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #334155;
 }
 
 .quote-label .req {
-  color: #dc2626;
+  color: #FF5B26;
   margin-left: 2px;
 }
 
@@ -202,7 +200,7 @@
 .quote-input-wrapper .input-icon {
   position: absolute;
   left: 0.85rem;
-  color: #94a3b8;
+  color: #FF5B26;
   pointer-events: none;
 }
 
@@ -214,7 +212,7 @@
   font-size: 0.875rem;
   color: #0f172a;
   background: #ffffff;
-  border: 1px solid #cbd5e1;
+  border: 1.5px solid #cbd5e1;
   border-radius: 6px;
   padding: 0.65rem 0.85rem 0.65rem 2.5rem;
   transition: all 0.2s ease;
@@ -239,8 +237,8 @@
 .quote-select:focus,
 .quote-textarea:focus {
   outline: none;
-  border-color: #1f3862;
-  box-shadow: 0 0 0 3px rgba(31, 56, 98, 0.12);
+  border-color: #FF5B26;
+  box-shadow: 0 0 0 3px rgba(255, 91, 38, 0.16);
 }
 
 .quote-form-group.has-error .quote-input,
@@ -308,9 +306,9 @@
 
 .btn-modal-submit {
   width: 100%;
-  background: linear-gradient(135deg, #1f3862 0%, #152744 100%);
+  background: linear-gradient(135deg, #1f3862 0%, #0B192C 100%);
   color: #ffffff;
-  border: none;
+  border: 1px solid rgba(255, 91, 38, 0.3);
   border-radius: 6px;
   padding: 0.85rem 1.5rem;
   font-family: inherit;
@@ -327,8 +325,9 @@
 }
 
 .btn-modal-submit:hover:not(:disabled) {
-  background: linear-gradient(135deg, #c41e24 0%, #991b1b 100%);
-  box-shadow: 0 6px 18px rgba(196, 30, 36, 0.35);
+  background: linear-gradient(135deg, #FF5B26 0%, #E04818 100%);
+  border-color: #FF5B26;
+  box-shadow: 0 6px 18px rgba(255, 91, 38, 0.35);
   transform: translateY(-1px);
 }
 

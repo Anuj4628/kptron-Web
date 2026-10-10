@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { getPipeCategoryBySlug, getPipeGradeBySlug } from '../../../data/pipesData';
 import { submitQuoteRequest } from '../../../services/quoteService';
+import QuoteModal from '../../UI/QuoteModal';
 import { 
   ShieldCheck, 
   Layers, 
@@ -22,6 +23,7 @@ import './PipeGradeDetailView.css';
  * ASTM / ASME standards, industrial applications, and quote inquiry CTAs.
  */
 export default function PipeGradeDetailView({ categorySlug, gradeSlug, onNavigate }) {
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
@@ -271,6 +273,15 @@ export default function PipeGradeDetailView({ categorySlug, gradeSlug, onNavigat
                 Need immediate mill pricing, cut-to-length pipes, or MTC documentation? Reach our sales desk directly.
               </p>
 
+              <button
+                type="button"
+                className="btn-sidebar-instant-quote"
+                onClick={() => setIsQuoteModalOpen(true)}
+              >
+                <Send size={15} />
+                <span>Request Instant Formal Quote</span>
+              </button>
+
               <a
                 href={`https://wa.me/919967616124?text=${whatsappMessage}`}
                 target="_blank"
@@ -405,6 +416,17 @@ export default function PipeGradeDetailView({ categorySlug, gradeSlug, onNavigat
 
         </div>
       </div>
+
+      {/* Instant Formal Quote Modal */}
+      <QuoteModal
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+        initialContext={{
+          product: `${grade.name} (${category.name})`,
+          grade: grade.name,
+          category: category.name
+        }}
+      />
     </div>
   );
 }

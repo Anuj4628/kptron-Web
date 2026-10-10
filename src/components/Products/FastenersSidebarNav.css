@@ -1,0 +1,505 @@
+/* ===================================================
+   FASTENERS SIDEBAR NAVIGATION CSS
+   Industrial Blueprint Design Matching KPTRON Aesthetic
+   Engineered for Compact Alignment & Non-Overlapping Labels
+   =================================================== */
+
+.fasteners-sidebar-nav {
+  width: 100%;
+}
+
+/* Mobile Toggle Bar */
+.sidebar-mobile-bar {
+  display: none;
+  margin-bottom: 1rem;
+}
+
+.sidebar-mobile-toggle-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.15rem;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-left: 4px solid var(--color-navy, #1F3862);
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-mobile-toggle-btn:hover {
+  background: #F8FAFC;
+  border-color: #94A3B8;
+}
+
+.mobile-toggle-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.mobile-toggle-left .toggle-icon {
+  color: var(--color-navy, #1F3862);
+}
+
+.mobile-toggle-left .toggle-label {
+  font-size: 0.88rem;
+  color: #1E293B;
+}
+
+.mobile-toggle-right {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: #64748B;
+  font-weight: 600;
+}
+
+/* Sidebar Inner Container */
+.sidebar-inner-content {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 1.25rem 1rem;
+  box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.06);
+  box-sizing: border-box;
+}
+
+/* Header */
+.sidebar-catalog-header {
+  border-bottom: 1px solid #E2E8F0;
+  padding-bottom: 1rem;
+  margin-bottom: 1.15rem;
+}
+
+.sidebar-title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.64rem;
+  font-weight: 750;
+  color: #1E40AF;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.45rem;
+}
+
+.sidebar-title-badge .badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #2563EB;
+}
+
+.sidebar-catalog-heading {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.25;
+}
+
+.sidebar-catalog-sub {
+  font-size: 0.75rem;
+  color: #64748B;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.35;
+}
+
+.sidebar-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #FFF1EE;
+  border: 1px solid #FFD0C5;
+  color: #FF5B26;
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.sidebar-reset-btn:hover {
+  background: #FF5B26;
+  color: #FFFFFF;
+  border-color: #FF5B26;
+}
+
+/* Sections */
+.sidebar-section {
+  margin-bottom: 1.15rem;
+  border-bottom: 1px solid #F1F5F9;
+  padding-bottom: 1rem;
+}
+
+.sidebar-section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0.5rem;
+}
+
+.sidebar-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+  cursor: default;
+}
+
+.section-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.section-step-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #FF5B26;
+  background: #FFF1EE;
+  padding: 0.12rem 0.35rem;
+  border-radius: 3px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.section-title-text {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #1E293B;
+  white-space: nowrap;
+}
+
+.section-active-val {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #64748B;
+  background: #F8FAFC;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  border: 1px solid #E2E8F0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  max-width: 95px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+}
+
+/* Options Lists */
+.sidebar-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Material Buttons */
+.sidebar-material-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.48rem 0.6rem;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-material-btn:hover {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+.sidebar-material-btn.is-active {
+  background: #0F172A;
+  border-color: #0F172A;
+  color: #FFFFFF;
+}
+
+.btn-indicator-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #FF5B26;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.sidebar-material-btn.is-active .btn-indicator-bar {
+  opacity: 1;
+}
+
+.btn-label-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.mat-btn-name {
+  font-family: var(--font-primary, 'Sora', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 650;
+  color: #1E293B;
+  line-height: 1.2;
+}
+
+.sidebar-material-btn.is-active .mat-btn-name {
+  color: #FFFFFF;
+}
+
+.mat-btn-spec {
+  font-size: 0.66rem;
+  color: #64748B;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sidebar-material-btn.is-active .mat-btn-spec {
+  color: #94A3B8;
+}
+
+.mat-active-check {
+  font-size: 0.65rem;
+  font-weight: 750;
+  color: #FF5B26;
+  background: rgba(255, 91, 38, 0.15);
+  padding: 0.15rem 0.4rem;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.btn-arrow {
+  color: #94A3B8;
+  transition: transform 0.15s ease;
+}
+
+.sidebar-material-btn:hover .btn-arrow {
+  transform: translateX(2px);
+  color: #FF5B26;
+}
+
+/* Type Buttons */
+.sidebar-type-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.55rem;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.sidebar-type-btn:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.sidebar-type-btn.is-active {
+  background: #EFF6FF;
+  border-color: #2563EB;
+}
+
+.type-btn-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #64748B;
+  background: #F1F5F9;
+  padding: 0.12rem 0.35rem;
+  border-radius: 2px;
+}
+
+.sidebar-type-btn.is-active .type-btn-num {
+  background: #2563EB;
+  color: #FFFFFF;
+}
+
+.type-btn-content {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
+  gap: 0.35rem;
+}
+
+.type-btn-title {
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: #1E293B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-type-btn.is-active .type-btn-title {
+  color: #1E40AF;
+  font-weight: 750;
+}
+
+.type-btn-code {
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: #94A3B8;
+  font-family: var(--font-mono, monospace);
+}
+
+.type-active-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2563EB;
+  flex-shrink: 0;
+}
+
+/* Grades Grid */
+.sidebar-grades-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.sidebar-grade-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.42rem 0.55rem;
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sidebar-grade-pill:hover {
+  background: #0F172A;
+  border-color: #0F172A;
+  color: #FFFFFF;
+}
+
+.sidebar-grade-pill:hover .grade-pill-name {
+  color: #FFFFFF;
+}
+
+.sidebar-grade-pill.is-active {
+  background: #0F172A;
+  border-color: #0F172A;
+  color: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18);
+}
+
+.grade-pill-name {
+  font-size: 0.72rem;
+  font-weight: 650;
+  color: #1E293B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 1;
+}
+
+.sidebar-grade-pill.is-active .grade-pill-name {
+  color: #FFFFFF;
+}
+
+.grade-active-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #FF5B26;
+  flex-shrink: 0;
+  margin-left: 0.35rem;
+}
+
+.sidebar-grade-pill.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Quality Box */
+.sidebar-quality-box {
+  margin-top: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.quality-icon {
+  color: #16A34A;
+  flex-shrink: 0;
+}
+
+.quality-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.quality-text strong {
+  font-size: 0.74rem;
+  color: #166534;
+  font-weight: 750;
+}
+
+.quality-text span {
+  font-size: 0.68rem;
+  color: #15803D;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .sidebar-mobile-bar {
+    display: block;
+  }
+
+  .sidebar-inner-content {
+    display: none;
+  }
+
+  .sidebar-inner-content.mobile-show {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+}

@@ -473,7 +473,8 @@ function buildDynamicCatalog() {
     let matKeys = [];
     if (slug === 'carbon-steel-fasteners') matKeys = ['carbon-steel'];
     else if (slug === 'stainless-steel-fasteners') matKeys = ['stainless-steel'];
-    else if (slug === 'duplex-steel-fasteners') matKeys = ['duplex-steel', 'super-duplex-steel'];
+    else if (slug === 'duplex-steel-fasteners') matKeys = ['duplex-steel'];
+    else if (slug === 'super-duplex-steel-fasteners') matKeys = ['super-duplex-steel'];
     else if (slug === 'alloy-steel-fasteners') matKeys = ['alloy-steel'];
     else if (slug === 'inconel-fasteners') matKeys = ['inconel'];
     else if (slug === 'monel-fasteners') matKeys = ['monel'];
@@ -481,6 +482,7 @@ function buildDynamicCatalog() {
     else if (slug === 'nickel-alloy-fasteners') matKeys = ['nickel-alloys'];
     else if (slug === 'copper-nickel-fasteners') matKeys = ['copper-nickel'];
     else if (slug === 'titanium-fasteners') matKeys = ['titanium'];
+    else if (slug === 'aluminum-fasteners') matKeys = ['aluminum'];
     else if (slug === 'refractory-anchor') matKeys = ['refractory-anchor'];
 
     if (matKeys.length > 0) {

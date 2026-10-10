@@ -18,6 +18,7 @@ export const preloadRoute = (target) => {
     import('../components/Products/pages/FlangeTypeDetailView');
     import('../components/Products/pages/FastenersProductPage');
     import('../components/Products/pages/FastenerGradeDetailView');
+    import('../components/Products/pages/FastenerTypeDetailView');
     import('../components/Products/pages/ProductsLandingView');
     import('../components/Products/pages/DivisionView');
     import('../components/Products/pages/ProductFamilyView');

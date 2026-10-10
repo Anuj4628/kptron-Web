@@ -31,6 +31,7 @@ export default function FlangesSidebarNav({
   currentMaterialSlug = 'stainless-steel', 
   currentTypeSlug = null, 
   currentGradeSlug = null,
+  onSelectGrade = null,
   onNavigate 
 }) {
   const [mobileExpanded, setMobileExpanded] = useState(false);
@@ -64,6 +65,10 @@ export default function FlangesSidebarNav({
   };
 
   const handleGradeClick = (gradeSlug) => {
+    if (onSelectGrade) {
+      onSelectGrade(gradeSlug);
+      return;
+    }
     if (!onNavigate) return;
     if (currentTypeSlug) {
       onNavigate(formatProductUrl(`/products/flanges/${currentMaterial.slug}/${currentTypeSlug}/${gradeSlug}`));
@@ -73,6 +78,10 @@ export default function FlangesSidebarNav({
   };
 
   const handleResetFilters = () => {
+    if (onSelectGrade) {
+      onSelectGrade(null);
+      return;
+    }
     if (onNavigate) {
       onNavigate(formatProductUrl(`/products/flanges/${currentMaterial.slug}`));
     }

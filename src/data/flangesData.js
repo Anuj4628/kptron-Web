@@ -350,17 +350,60 @@ export const FLANGES_CATEGORIES = [
     shortDesc: 'Nickel-Chromium superalloy forged flanges delivering complete immunity to chloride stress corrosion cracking and extreme oxidation resistance up to 1093°C.',
     grades: [
       {
-        id: 'inconel-flanges-general',
-        slug: 'inconel-flanges',
-        name: 'Inconel Flanges',
-        code: 'ASTM B564 UNS N06600, N06625, N07718, N08825',
+        id: 'inconel-625',
+        slug: 'inconel-625',
+        aliases: ['inconel-625', '625', 'alloy-625', 'inconel-625-flanges', 'n06625'],
+        name: 'Inconel 625 Flanges',
+        code: 'ASTM B564 UNS N06625',
+        standard: 'ASTM B564, ASME SB564, ASME B16.5, ASME B16.47',
+        uns: 'UNS N06625',
+        din: '2.4856 (NiCr22Mo9Nb)',
+        shortDesc: 'Supreme pitting and chloride stress corrosion cracking immunity with extreme tensile strength.',
+        fullDesc: 'Nickel-Chromium-Molybdenum-Niobium superalloy flanges engineered for offshore risers, subsea manifolds, and chemical reactors. Delivers outstanding mechanical strength from cryogenic temperatures to 982°C.',
+        specs: { size: '1/2" to 24" NB', pressureClass: 'Class 150# to 2500#', facing: 'Raised Face (RF 125-250 RMS), Ring Type Joint (RTJ)' },
+        applications: ['Offshore oil & gas riser tie-ins', 'Subsea production manifolds (NACE MR0175)', 'Chemical plant reaction vessels', 'Marine seawater piping loops']
+      },
+      {
+        id: 'inconel-600',
+        slug: 'inconel-600',
+        aliases: ['inconel-600', '600', 'alloy-600', 'inconel-600-flanges', 'n06600'],
+        name: 'Inconel 600 Flanges',
+        code: 'ASTM B564 UNS N06600',
         standard: 'ASTM B564, ASME SB564, ASME B16.5',
-        uns: 'UNS N06600 / N06625 / N07718',
-        din: '2.4816 / 2.4856 / 2.4668',
-        shortDesc: 'High-strength Nickel-Chromium superalloy flanges for extreme subsea and high-temperature service.',
-        fullDesc: 'Precision closed-die forged Inconel flanges providing virtual immunity to chloride stress corrosion cracking, superior resistance to reducing and oxidizing mineral acids, and exceptional tensile strength in aerospace, subsea, and nuclear loops.',
-        specs: { size: '1/2" to 24" NB', pressureClass: '150# to 2500# (RTJ & RF)', facing: 'RF, RTJ' },
-        applications: ['Subsea wellhead manifolds and riser tie-ins', 'Sour gas production pipelines (NACE MR0175)', 'Nuclear reactor control rod & coolant piping', 'Chemical processing reactors and flaring systems']
+        uns: 'UNS N06600',
+        din: '2.4816 (NiCr15Fe)',
+        shortDesc: 'Outstanding resistance to high-temperature oxidation and carburization up to 1093°C.',
+        fullDesc: 'Solid-solution nickel-chromium alloy flanges designed for furnace components and chemical processing reactors operating under severe thermal atmospheres.',
+        specs: { size: '1/2" to 24" NB', pressureClass: 'Class 150# to 1500#', facing: 'RF, RTJ' },
+        applications: ['Thermal processing and furnace hardware', 'Nuclear steam generator tube sheet connections', 'Chemical synthesis manifolds', 'Ethylene dichloride cracking furnaces']
+      },
+      {
+        id: 'inconel-718',
+        slug: 'inconel-718',
+        aliases: ['inconel-718', '718', 'alloy-718', 'inconel-718-flanges', 'n07718'],
+        name: 'Inconel 718 Flanges',
+        code: 'ASTM B564 UNS N07718',
+        standard: 'ASTM B564, API 6A, ASME B16.5',
+        uns: 'UNS N07718',
+        din: '2.4668 (NiCr19Fe19Nb5Mo3)',
+        shortDesc: 'Precipitation-hardenable high-strength superalloy flange for severe subsea wellheads.',
+        fullDesc: 'High-yield superalloy forged flanges delivering yield strengths exceeding 120,000 PSI for high-pressure oil & gas wellhead trees and cryogenic spacecraft joints.',
+        specs: { size: '1/2" to 20" NB', pressureClass: 'Class 150# to 2500# (API 10,000 PSI)', facing: 'RTJ, RF' },
+        applications: ['Deepwater subsea wellhead Christmas trees', 'HPHT sour gas manifolds', 'Gas turbine exhaust headers', 'Cryogenic rocket motor connections']
+      },
+      {
+        id: 'inconel-825',
+        slug: 'inconel-825',
+        aliases: ['inconel-825', 'incoloy-825', '825', 'inconel-825-flanges', 'n08825'],
+        name: 'Incoloy 825 Flanges',
+        code: 'ASTM B564 UNS N08825',
+        standard: 'ASTM B564, ASME B16.5',
+        uns: 'UNS N08825',
+        din: '2.4858 (NiCr21Mo)',
+        shortDesc: 'Outstanding resistance to reducing and oxidizing acids, particularly sulfuric acid.',
+        fullDesc: 'Nickel-Iron-Chromium-Molybdenum-Copper alloy flanges providing exceptional resistance to acid attack, pitting, and intergranular corrosion.',
+        specs: { size: '1/2" to 24" NB', pressureClass: 'Class 150# to 1500#', facing: 'RF, RTJ' },
+        applications: ['Sulfuric acid pickling heating coils', 'Phosphoric acid manufacturing plants', 'Sour oil & gas production lines', 'Nuclear waste reprocessing piping']
       }
     ]
   },
@@ -384,17 +427,32 @@ export const FLANGES_CATEGORIES = [
     shortDesc: 'Nickel-Copper alloy forged flanges providing extraordinary resistance to rapidly flowing seawater, marine biofouling, and hydrofluoric acid alkylation media.',
     grades: [
       {
-        id: 'monel-flanges-general',
-        slug: 'monel-flanges',
-        name: 'Monel Flanges',
-        code: 'ASTM B564 UNS N04400 (Monel 400) / N05500 (K500)',
+        id: 'monel-400',
+        slug: 'monel-400',
+        aliases: ['monel-400', '400', 'alloy-400', 'monel-400-flanges', 'n04400'],
+        name: 'Monel 400 Flanges',
+        code: 'ASTM B564 UNS N04400',
         standard: 'ASTM B564, ASME SB564, ASME B16.5',
-        uns: 'UNS N04400 / UNS N05500',
-        din: '2.4360 / 2.4375',
+        uns: 'UNS N04400',
+        din: '2.4360 (NiCu30Fe)',
         shortDesc: 'Solid-solution Nickel-Copper forged flanges engineered for marine and HF acid environments.',
-        fullDesc: 'Forged Monel 400 and age-hardened Monel K500 pipe flanges exhibiting zero cavitation damage and exceptional corrosion resistance in high-velocity seawater, brackish brine, and hydrofluoric acid alkylation units.',
+        fullDesc: 'Forged Monel 400 flanges exhibiting zero cavitation damage and exceptional corrosion resistance in high-velocity seawater, brackish brine, and hydrofluoric acid alkylation units.',
         specs: { size: '1/2" to 20" NB', pressureClass: 'Class 150# to 1500#', facing: 'Raised Face, Flat Face' },
         applications: ['HF acid alkylation units in oil refineries', 'Marine salt extraction and desalination loops', 'Subsea offshore splash zone piping', 'Propeller shafting fluid sleeves & marine fittings']
+      },
+      {
+        id: 'monel-k500',
+        slug: 'monel-k500',
+        aliases: ['monel-k500', 'k500', 'alloy-k500', 'monel-k500-flanges', 'n05500'],
+        name: 'Monel K500 Flanges',
+        code: 'ASTM B564 UNS N05500',
+        standard: 'ASTM B564, ASME B16.5',
+        uns: 'UNS N05500',
+        din: '2.4375 (NiCu30Al)',
+        shortDesc: 'Age-hardened high-strength Nickel-Copper flange for marine shafting and subsea equipment.',
+        fullDesc: 'Precipitation-strengthened alloy combining Monel 400 corrosion immunity with triple the yield strength for severe marine pumps, valves, and offshore bolting manifolds.',
+        specs: { size: '1/2" to 18" NB', pressureClass: 'Class 150# to 1500#', facing: 'RF, RTJ' },
+        applications: ['Offshore drill collar subsea manifolds', 'Marine valve trim and pump impellers', 'Naval ordnance non-magnetic piping', 'High-strength marine fasteners & flange unions']
       }
     ]
   },
@@ -418,17 +476,46 @@ export const FLANGES_CATEGORIES = [
     shortDesc: 'Nickel-Chromium-Molybdenum superalloy forged flanges delivering unmatched resistance to pitting, crevice corrosion, hot mineral acids, and wet chlorine gas.',
     grades: [
       {
-        id: 'hastelloy-flanges-general',
-        slug: 'hastelloy-flanges',
-        name: 'Hastelloy Flanges',
-        code: 'ASTM B564 UNS N10276 (C276) / N06022 (C22)',
+        id: 'hastelloy-c276',
+        slug: 'hastelloy-c276',
+        aliases: ['hastelloy-c276', 'c276', 'alloy-c276', 'hastelloy-c276-flanges', 'n10276'],
+        name: 'Hastelloy C276 Flanges',
+        code: 'ASTM B564 UNS N10276',
         standard: 'ASTM B564, ASME SB564, ASME B16.5',
-        uns: 'UNS N10276 / UNS N06022',
-        din: '2.4819 / 2.4602',
+        uns: 'UNS N10276',
+        din: '2.4819 (NiMo16Cr15W)',
         shortDesc: 'Premier corrosion-resistant superalloy flanges for aggressive chemical and wet chlorine systems.',
-        fullDesc: 'Hastelloy C276 and C22 forged flanges formulated with high molybdenum and tungsten content. Prevents intergranular precipitate formation in weld heat-affected zones and provides supreme resistance to strong oxidizers and mineral acids.',
-        specs: { size: '1/2" to 20" NB', pressureClass: 'Class 150# to 1500#', facing: 'RF, RTJ' },
-        applications: ['Flue-gas desulfurization (FGD) scrubber systems', 'Waste incineration chemical recovery piping', 'Pharmaceutical active ingredient processing', 'Pesticide and herbicide acid delivery loops']
+        fullDesc: 'High molybdenum and tungsten nickel superalloy flanges preventing intergranular precipitate formation in weld heat-affected zones and resisting strong oxidizers, wet chlorine, and hypochlorites.',
+        specs: { size: '1/2" to 20" NB', pressureClass: 'Class 150# to 1500#', facing: 'Raised Face, RTJ' },
+        applications: ['Flue-gas desulfurization (FGD) scrubbers', 'Sour gas well piping', 'Waste incineration chemical recovery', 'Pharmaceutical synthesis reactors']
+      },
+      {
+        id: 'hastelloy-c22',
+        slug: 'hastelloy-c22',
+        aliases: ['hastelloy-c22', 'c22', 'alloy-c22', 'hastelloy-c22-flanges', 'n06022'],
+        name: 'Hastelloy C22 Flanges',
+        code: 'ASTM B564 UNS N06022',
+        standard: 'ASTM B564, ASME B16.5',
+        uns: 'UNS N06022',
+        din: '2.4602 (NiCr21Mo14W)',
+        shortDesc: 'Enhanced chromium-molybdenum-tungsten alloy with universal resistance to mixed acid media.',
+        fullDesc: 'Superior resistance to pitting, crevice corrosion, and stress corrosion cracking in aggressive oxidizing and reducing acid environments with high free-chloride levels.',
+        specs: { size: '1/2" to 20" NB', pressureClass: 'Class 150# to 1500#', facing: 'Raised Face, RTJ' },
+        applications: ['Bleaching circuits in pulp and paper plants', 'Pesticide manufacturing reaction vessels', 'Waste water treatment systems', 'Nuclear fuel reprocessing lines']
+      },
+      {
+        id: 'hastelloy-b2',
+        slug: 'hastelloy-b2',
+        aliases: ['hastelloy-b2', 'b2', 'alloy-b2', 'hastelloy-b2-flanges', 'n10665'],
+        name: 'Hastelloy B2 Flanges',
+        code: 'ASTM B564 UNS N10665',
+        standard: 'ASTM B564, ASME B16.5',
+        uns: 'UNS N10665',
+        din: '2.4617 (NiMo28)',
+        shortDesc: 'Nickel-molybdenum alloy flanges offering significant resistance to hydrochloric acid at all concentrations.',
+        fullDesc: 'Solid-solution nickel-molybdenum alloy with supreme immunity to pure hydrochloric, sulfuric, and acetic acids in reducing atmospheres.',
+        specs: { size: '1/2" to 16" NB', pressureClass: 'Class 150# to 600#', facing: 'RF, Flat Face' },
+        applications: ['Hydrochloric acid synthesis and distribution', 'Acetic acid and formic acid manufacturing', 'Alkylation and polymerization reactions', 'Pure reducing chemical synthesis']
       }
     ]
   },
@@ -451,17 +538,32 @@ export const FLANGES_CATEGORIES = [
     shortDesc: 'Commercially pure nickel forged flanges delivering exceptional resistance to reducing chemicals, caustic alkalis, and molten caustic soda up to high concentrations.',
     grades: [
       {
-        id: 'nickel-flanges-general',
-        slug: 'nickel-flanges',
-        name: 'Nickel Flanges',
-        code: 'ASTM B564 UNS N02200 (Nickel 200) / N02201 (Nickel 201)',
+        id: 'nickel-200',
+        slug: 'nickel-200',
+        aliases: ['nickel-200', '200', 'alloy-200', 'nickel-200-flanges', 'n02200'],
+        name: 'Nickel 200 Flanges',
+        code: 'ASTM B564 UNS N02200',
         standard: 'ASTM B564, ASME SB564, ASME B16.5',
-        uns: 'UNS N02200 / UNS N02201',
-        din: '2.4066 / 2.4068',
+        uns: 'UNS N02200',
+        din: '2.4066 (Ni99.2)',
         shortDesc: 'Commercially pure wrought nickel flanges offering exceptional resistance to caustic alkalis.',
-        fullDesc: 'Commercially pure nickel forged flanges delivering extraordinary resistance to hot concentrated sodium hydroxide (caustic soda) solutions, anhydrous ammonia, and non-oxidizing halide acids. Nickel 201 eliminates graphitization above 315°C.',
-        specs: { size: '1/2" to 18" NB', pressureClass: 'Class 150# to 600#', facing: 'RF, FF' },
+        fullDesc: 'Commercially pure nickel forged flanges delivering extraordinary resistance to hot concentrated sodium hydroxide (caustic soda) solutions, anhydrous ammonia, and non-oxidizing halide acids.',
+        specs: { size: '1/2" to 18" NB', pressureClass: 'Class 150# to 600#', facing: 'Raised Face, Flat Face' },
         applications: ['Caustic soda evaporator manifolds', 'Chlor-alkali plant fluid transfer', 'Synthetic fiber and soap manufacturing', 'Fluorine and hydrogen chloride handling lines']
+      },
+      {
+        id: 'nickel-201',
+        slug: 'nickel-201',
+        aliases: ['nickel-201', '201', 'alloy-201', 'nickel-201-flanges', 'n02201'],
+        name: 'Nickel 201 Flanges',
+        code: 'ASTM B564 UNS N02201',
+        standard: 'ASTM B564, ASME B16.5',
+        uns: 'UNS N02201',
+        din: '2.4068 (LC-Ni99.2)',
+        shortDesc: 'Low carbon commercially pure nickel preventing graphitization in services above 315°C.',
+        fullDesc: 'Ultra-low carbon nickel formulation engineered for caustic evaporators and halogen manufacturing above 315°C, preventing embrittlement by intergranular carbon segregation.',
+        specs: { size: '1/2" to 18" NB', pressureClass: 'Class 150# to 600#', facing: 'Raised Face, Flat Face' },
+        applications: ['High-temperature caustic concentration units', 'Halogen generation equipment', 'Vinyl chloride monomer (VCM) production', 'Molten caustic handling piping']
       }
     ]
   },
@@ -485,17 +587,32 @@ export const FLANGES_CATEGORIES = [
     shortDesc: 'Cupro-Nickel forged and composite flanges delivering superior resistance to marine biofouling, macro-algae attachment, impingement attack, and stress corrosion in high-salinity seawater systems.',
     grades: [
       {
-        id: 'copper-nickel-flanges-general',
-        slug: 'copper-nickel-flanges',
-        name: 'Copper Nickel Flanges',
-        code: 'Cu-Ni 90/10 (UNS C70600) & Cu-Ni 70/30 (UNS C71500)',
+        id: 'cu-ni-90-10',
+        slug: 'cu-ni-90-10',
+        aliases: ['cu-ni-90-10', 'cuni-90-10', '90-10', 'c70600', 'copper-nickel-flanges', 'cu-ni-90-10-flanges'],
+        name: 'Cu-Ni 90/10 Flanges',
+        code: 'Cu-Ni 90/10 (UNS C70600) / DIN 86037',
         standard: 'DIN 86037, EEMUA 145, ASME B16.5',
-        uns: 'UNS C70600 / UNS C71500',
-        din: '2.0872 / 2.0882',
-        shortDesc: 'Marine-grade 90/10 and 70/30 cupro-nickel flanges for naval shipbuilding and offshore water lines.',
-        fullDesc: 'Engineered specifically for naval shipbuilding, offshore oil platforms, and desalination facilities. CuNi 90/10 and CuNi 70/30 flanges form an adherent protective copper oxide passivation layer providing natural antifouling and erosion-corrosion resistance.',
-        specs: { size: '1/2" to 24" NB', pressureClass: '10 Bar, 14 Bar, 16 Bar, 20 Bar (Class 150#)', facing: 'Composite Collar & Loose Flange' },
+        uns: 'UNS C70600',
+        din: '2.0872 (CuNi10Fe1Mn)',
+        shortDesc: 'Marine-grade 90/10 cupro-nickel flanges for naval shipbuilding and offshore seawater cooling lines.',
+        fullDesc: 'Natural antifouling protective copper oxide passivation layer providing outstanding erosion-corrosion resistance in seawater and high-salinity flow circuits.',
+        specs: { size: '1/2" to 24" NB', pressureClass: '10 Bar, 14 Bar, 16 Bar, 20 Bar (Class 150#)', facing: 'Composite Collar & Loose Flange, RF' },
         applications: ['Seawater cooling systems in naval vessels', 'Multi-stage flash desalination plants', 'Offshore firewater ring mains', 'Commercial ship ballast and bilge piping']
+      },
+      {
+        id: 'cu-ni-70-30',
+        slug: 'cu-ni-70-30',
+        aliases: ['cu-ni-70-30', 'cuni-70-30', '70-30', 'c71500', 'cu-ni-70-30-flanges'],
+        name: 'Cu-Ni 70/30 Flanges',
+        code: 'Cu-Ni 70/30 (UNS C71500) / EEMUA 145',
+        standard: 'DIN 86037, EEMUA 145, ASME B16.5',
+        uns: 'UNS C71500',
+        din: '2.0882 (CuNi30Mn1Fe)',
+        shortDesc: 'Higher strength 70/30 cupro-nickel flanges engineered for high-velocity seawater piping systems.',
+        fullDesc: 'Iron and manganese reinforced 70/30 copper nickel alloy delivering superior velocity limits, impingement resistance, and stress corrosion cracking immunity.',
+        specs: { size: '1/2" to 24" NB', pressureClass: '10 Bar to 20 Bar & Class 150# / 300#', facing: 'Composite Collar, Flat Face, Raised Face' },
+        applications: ['Naval submarine cooling systems', 'High-velocity shipboard seawater lines', 'Desalination brine heaters and ejectors', 'Offshore platform deluge piping']
       }
     ]
   },
@@ -519,17 +636,46 @@ export const FLANGES_CATEGORIES = [
     shortDesc: 'Ultra-lightweight, high-strength titanium forged flanges delivering permanent immunity to raw seawater corrosion, chlor-alkali brine, wet chlorine, and organic acid environments.',
     grades: [
       {
-        id: 'titanium-flanges-general',
-        slug: 'titanium-flanges',
-        name: 'Titanium Flanges',
-        code: 'ASTM B381 Grade 1, Grade 2, Grade 5, Grade 7',
+        id: 'titanium-grade-2',
+        slug: 'titanium-grade-2',
+        aliases: ['titanium-grade-2', 'grade-2', 'gr2', 'r50400', 'titanium-flanges', 'titanium-grade-2-flanges'],
+        name: 'Titanium Grade 2 Flanges',
+        code: 'ASTM B381 Grade F-2 (UNS R50400)',
         standard: 'ASTM B381, ASME SB381, ASME B16.5',
-        uns: 'UNS R50250 / UNS R50400 / UNS R56400 / UNS R52400',
-        din: '3.7025 / 3.7035 / 3.7165 / 3.7235',
-        shortDesc: 'Commercially pure and palladium-stabilized titanium forged flanges offering absolute resistance to chloride corrosion.',
-        fullDesc: 'ASTM B381 Titanium Grade 2 (unalloyed CP) and Grade 7 (0.15% Palladium) forged flanges providing extraordinary strength-to-weight ratio and self-healing titanium dioxide (TiO2) oxide film that remains completely impervious to aerated seawater, bleaching oxidizers, and boiling nitric acid.',
-        specs: { size: '1/2" to 24" NB', pressureClass: 'Class 150# to 1500#', facing: 'RF, RTJ' },
-        applications: ['Seawater intake loops on offshore platforms', 'Chlor-alkali and chlorine dioxide bleaching', 'Desalination high-pressure reverse osmosis loops', 'Aerospace and marine defense cooling manifolds']
+        uns: 'UNS R50400',
+        din: '3.7035',
+        shortDesc: 'Commercially pure titanium forged flanges offering complete immunity to marine seawater pitting.',
+        fullDesc: 'Hot-forged unalloyed commercially pure Grade F-2 titanium flange providing moderate mechanical strength and dense self-healing TiO2 passive film that remains completely impervious to seawater, wet chlorine, and organic acids.',
+        specs: { size: '1/2" to 24" NB', pressureClass: 'Class 150# to 600#', facing: 'Raised Face (RF), Flat Face (FF), Lap Joint' },
+        applications: ['Seawater intake loops on offshore platforms', 'Chlor-alkali and chlorine dioxide bleaching', 'Desalination reverse osmosis loops', 'Aerospace defense fluid manifolds']
+      },
+      {
+        id: 'titanium-grade-5',
+        slug: 'titanium-grade-5',
+        aliases: ['titanium-grade-5', 'grade-5', 'gr5', 'ti-6al-4v', 'r56400', 'titanium-grade-5-flanges'],
+        name: 'Titanium Grade 5 Flanges',
+        code: 'ASTM B381 Grade F-5 / Ti-6Al-4V (UNS R56400)',
+        standard: 'ASTM B381, ASME B16.5',
+        uns: 'UNS R56400',
+        din: '3.7165 (TiAl6V4)',
+        shortDesc: 'High-strength alpha-beta titanium alloy forged flanges for aerospace and subsea deepwater lines.',
+        fullDesc: 'Alpha-beta titanium alloy combining 895 MPa tensile strength with exceptional corrosion resistance and 45% weight savings for high-pressure deepwater drilling and aerospace.',
+        specs: { size: '1/2" to 20" NB', pressureClass: 'Class 150# to 1500#', facing: 'Raised Face, RTJ' },
+        applications: ['Subsea deepwater drilling risers', 'Aerospace engine hydraulic connections', 'High-performance marine racing exhaust', 'Offshore lightweight topside manifolds']
+      },
+      {
+        id: 'titanium-grade-7',
+        slug: 'titanium-grade-7',
+        aliases: ['titanium-grade-7', 'grade-7', 'gr7', 'r52400', 'titanium-grade-7-flanges'],
+        name: 'Titanium Grade 7 Flanges',
+        code: 'ASTM B381 Grade F-7 / Ti-0.15Pd (UNS R52400)',
+        standard: 'ASTM B381, ASME B16.5',
+        uns: 'UNS R52400',
+        din: '3.7235',
+        shortDesc: 'Palladium-enhanced titanium forged flanges resisting crevice corrosion in reducing acid media.',
+        fullDesc: 'Commercially pure titanium fortified with 0.15% Palladium, drastically increasing resistance to localized crevice corrosion in hot concentrated chlorides and dilute reducing acids.',
+        specs: { size: '1/2" to 20" NB', pressureClass: 'Class 150# to 600#', facing: 'Raised Face, Lap Joint' },
+        applications: ['Hot concentrated brine headers', 'Chemical reactors with mixed oxidizing/reducing acids', 'Geothermal energy fluid extraction', 'Hydrochloric and sulfuric acid handling skids']
       }
     ]
   }
@@ -556,8 +702,13 @@ export function getFlangesGradeBySlug(catSlug, gradeSlug) {
   if (!gradeSlug) return cat.grades[0] || null;
   const clean = gradeSlug.toLowerCase().trim();
 
-  // 1. Direct match on slug or id
-  const direct = cat.grades.find(g => g.slug === clean || g.id === clean);
+  // 1. Direct match on slug, id, or aliases
+  const direct = cat.grades.find(g => 
+    g.slug === clean || 
+    g.id === clean || 
+    (g.aliases && g.aliases.includes(clean)) ||
+    (g.aliases && g.aliases.includes(clean.replace(/-flanges$/, '')))
+  );
   if (direct) return direct;
 
   // 2. Normalize and check partial/code matches

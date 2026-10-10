@@ -1,27 +1,13 @@
-import React, { useState, useMemo } from 'react';
-import { 
-  NAVBAR_MATERIALS_OPTIONS, 
-  getMaterialBySlug, 
-  getProductsByMaterial 
-} from '../../data/materialsData';
-import materialsMenuBanner from '../../assets/materials-menu-banner.jpg';
-import { ChevronRight, ArrowRight, ShieldCheck, Layers, Package } from 'lucide-react';
+import React from 'react';
+import { NAVBAR_MATERIALS_OPTIONS } from '../../data/materialsData';
+import { ChevronRight, ArrowRight } from 'lucide-react';
 import './MaterialsMegaMenu.css';
 
 /**
- * Materials Navbar Dropdown / Mega-Menu
- * 
- * Interactive Material Navigation:
- * - Left Panel: Lists certified industrial metals (Stainless Steel, Carbon Steel, Alloy Steel, Inconel, Aluminium, Titanium, etc.)
- * - Hover Interaction: Hovering over any material dynamically displays the exact products made from that metal
- *   (e.g., Selecting Aluminium displays Aluminium Pipes & Tubes; Selecting Stainless Steel displays Flanges, Pipes, Sheets, Bars, Fittings, Fasteners).
- * - Direct Navigation:
- *   - Clicking a product pill opens that category's material detail page (/products/:category/:material)
- *   - Clicking the material link or "View All" opens the full material catalog (/materials/:material)
+ * Materials Navbar Dropdown Menu
+ * Clean, dedicated materials list showing certified metallurgical alloys.
  */
 export default function MaterialsMegaMenu({ isOpen, onSelect, onClose }) {
-  const [hoveredSlug, setHoveredSlug] = useState('stainless-steel');
-
   const handleItemClick = (e, url) => {
     e.preventDefault();
     if (onSelect) {
@@ -31,16 +17,6 @@ export default function MaterialsMegaMenu({ isOpen, onSelect, onClose }) {
       onClose();
     }
   };
-
-  // Active Material & Available Products in Catalog
-  const activeMaterial = useMemo(() => {
-    return getMaterialBySlug(hoveredSlug) || getMaterialBySlug('stainless-steel');
-  }, [hoveredSlug]);
-
-  const activeProducts = useMemo(() => {
-    if (!activeMaterial) return [];
-    return getProductsByMaterial(activeMaterial.slug);
-  }, [activeMaterial]);
 
   // Split materials evenly across 2 columns
   const midPoint = Math.ceil(NAVBAR_MATERIALS_OPTIONS.length / 2);
@@ -54,7 +30,7 @@ export default function MaterialsMegaMenu({ isOpen, onSelect, onClose }) {
       aria-label="Materials Navigation Menu"
     >
       <div className="materials-dropdown-inner">
-        {/* LEFT & CENTER: 2 Columns of Material items */}
+        {/* Materials List Columns */}
         <div className="materials-dropdown-left-panel">
           <div className="materials-dropdown-header">
             <span className="materials-dropdown-header-tag">MILL SPECIFICATIONS</span>
@@ -67,9 +43,8 @@ export default function MaterialsMegaMenu({ isOpen, onSelect, onClose }) {
               {col1.map((item) => (
                 <li 
                   key={item.id} 
-                  className={`materials-dropdown-item ${activeMaterial?.slug === item.slug ? 'is-active-item' : ''}`} 
+                  className="materials-dropdown-item" 
                   role="none"
-                  onMouseEnter={() => setHoveredSlug(item.slug)}
                 >
                   <a
                     href={item.url}
@@ -93,9 +68,8 @@ export default function MaterialsMegaMenu({ isOpen, onSelect, onClose }) {
               {col2.map((item) => (
                 <li 
                   key={item.id} 
-                  className={`materials-dropdown-item ${activeMaterial?.slug === item.slug ? 'is-active-item' : ''}`} 
+                  className="materials-dropdown-item" 
                   role="none"
-                  onMouseEnter={() => setHoveredSlug(item.slug)}
                 >
                   <a
                     href={item.url}
@@ -111,83 +85,6 @@ export default function MaterialsMegaMenu({ isOpen, onSelect, onClose }) {
               ))}
             </ul>
           </div>
-        </div>
-
-        {/* RIGHT SIDE: Dynamic Material Products Showcase */}
-        <div className="materials-dropdown-right-panel">
-          {activeMaterial && (
-            <div className="materials-dynamic-showcase">
-              {/* Media Card */}
-              <div className="materials-media-card">
-                <div className="materials-media-img-wrap">
-                  <img
-                    src={activeMaterial.image || activeMaterial.heroImage || materialsMenuBanner}
-                    alt={`${activeMaterial.name} industrial metals`}
-                    className="materials-media-banner-img"
-                    loading="eager"
-                  />
-                  <div className="materials-media-img-gradient" />
-                  <div className="materials-media-badge">
-                    <ShieldCheck size={12} className="materials-badge-icon" />
-                    <span>{activeMaterial.badge || 'MILL CERTIFIED'}</span>
-                  </div>
-                </div>
-
-                <div className="materials-media-content">
-                  <div className="materials-media-header-line">
-                    <span className="materials-media-kicker">AVAILABLE IN {activeMaterial.name.toUpperCase()}</span>
-                    <h4 className="materials-media-heading">{activeMaterial.name} Products</h4>
-                  </div>
-                  
-                  <p className="materials-media-caption">
-                    {activeMaterial.shortDesc}
-                  </p>
-
-                  {/* Available Products Made From This Material */}
-                  <div className="materials-available-products-box">
-                    <span className="available-products-heading">
-                      <Layers size={12} />
-                      AVAILABLE DIVISIONS ({activeProducts.length})
-                    </span>
-                    
-                    {activeProducts.length > 0 ? (
-                      <div className="available-products-list">
-                        {activeProducts.map((p) => {
-                          const targetUrl = `/products/${p.productTypeSlug}/${activeMaterial.slug}`;
-                          return (
-                            <a
-                              key={p.id}
-                              href={targetUrl}
-                              className="available-product-link"
-                              onClick={(e) => handleItemClick(e, targetUrl)}
-                              title={`View ${activeMaterial.name} in ${p.productType}`}
-                            >
-                              <span className="prod-type-label">{p.productType}</span>
-                              <span className="prod-name-label">{p.name || p.title}</span>
-                              <ChevronRight size={12} className="prod-arrow" />
-                            </a>
-                          );
-                        })}
-                      </div>
-                    ) : (
-                      <p className="no-products-hint">Custom forging &amp; milling available on request.</p>
-                    )}
-                  </div>
-
-                  <div className="materials-showcase-actions">
-                    <a
-                      href={`/materials/${activeMaterial.slug}`}
-                      className="materials-view-all-btn"
-                      onClick={(e) => handleItemClick(e, `/materials/${activeMaterial.slug}`)}
-                    >
-                      <span>Explore All {activeMaterial.name} Products</span>
-                      <ArrowRight size={13} />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
 
