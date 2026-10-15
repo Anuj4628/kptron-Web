@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { getBarsCategoryBySlug, getBarsGradeBySlug } from '../../../data/barsData';
+import { getBarsCategoryBySlug, getBarsGradeBySlug, getBarGradeImage } from '../../../data/barsData';
 import { submitQuoteRequest } from '../../../services/quoteService';
 import { 
   ShieldCheck, 
@@ -152,7 +152,7 @@ export default function BarGradeDetailView({ categorySlug, gradeSlug, onNavigate
               {/* Media Visual Frame with Parent Category Image */}
               <div className="hero-media-wrapper">
                 <img
-                  src={category.image}
+                  src={grade.image || getBarGradeImage(grade.slug) || category.image}
                   alt={`${grade.name} - ${category.name}`}
                   className="hero-product-img"
                 />

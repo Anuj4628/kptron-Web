@@ -154,78 +154,6 @@ export const ALL_SEO_PRODUCTS = [
     ]
   },
   {
-    "id": "pipes-alloy-steel-pipe-16mo3-pipe",
-    "division": "pipes",
-    "categorySlug": "alloy-steel-pipe",
-    "materialSlug": "alloy-steel",
-    "gradeSlug": "16mo3-pipe",
-    "name": "16Mo3 European Standard Pipe",
-    "seoSlug": "alloy-steel-16mo3-pipes-tubes",
-    "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/alloy-steel-16mo3-pipes-tubes-manufactured-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/alloy-steel-pipe/16mo3-pipe",
-      "/products/pipes-and-tubes/alloy-steel-pipe/16mo3-pipe",
-      "/products/pipes-tubes/alloy-steel-pipe/16mo3-pipe",
-      "/products/pipes/alloy-steel-pipe/16mo3-pipe-manufactured-in-mumbai",
-      "/products/pipes/alloy-steel-pipe/16mo3-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-alloy-steel-pipe-astm-a334-gr-6",
-    "division": "pipes",
-    "categorySlug": "alloy-steel-pipe",
-    "materialSlug": "alloy-steel",
-    "gradeSlug": "astm-a334-gr-6",
-    "name": "ASTM A334 Grade 6 Low-Temp Pipe",
-    "seoSlug": "alloy-steel-astm-a334-gr-6-pipes-tubes",
-    "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/alloy-steel-astm-a334-gr-6-pipes-tubes-stockist-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/alloy-steel-pipe/astm-a334-gr-6",
-      "/products/pipes-and-tubes/alloy-steel-pipe/astm-a334-gr-6",
-      "/products/pipes-tubes/alloy-steel-pipe/astm-a334-gr-6",
-      "/products/pipes/alloy-steel-pipe/astm-a334-gr-6-manufactured-in-mumbai",
-      "/products/pipes/alloy-steel-pipe/astm-a334-gr-6-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-alloy-steel-pipe-chromoly-pipe",
-    "division": "pipes",
-    "categorySlug": "alloy-steel-pipe",
-    "materialSlug": "alloy-steel",
-    "gradeSlug": "chromoly-pipe",
-    "name": "Chromoly Industrial Piping",
-    "seoSlug": "alloy-steel-chromoly-pipes-tubes",
-    "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/alloy-steel-chromoly-pipes-tubes-manufactured-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/alloy-steel-pipe/chromoly-pipe",
-      "/products/pipes-and-tubes/alloy-steel-pipe/chromoly-pipe",
-      "/products/pipes-tubes/alloy-steel-pipe/chromoly-pipe",
-      "/products/pipes/alloy-steel-pipe/chromoly-pipe-manufactured-in-mumbai",
-      "/products/pipes/alloy-steel-pipe/chromoly-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-alloy-steel-pipe-12cr1mov-pipe",
-    "division": "pipes",
-    "categorySlug": "alloy-steel-pipe",
-    "materialSlug": "alloy-steel",
-    "gradeSlug": "12cr1mov-pipe",
-    "name": "12Cr1MoV High-Temp Alloy Pipe",
-    "seoSlug": "alloy-steel-12cr1mov-pipes-tubes",
-    "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/alloy-steel-12cr1mov-pipes-tubes-stockist-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/alloy-steel-pipe/12cr1mov-pipe",
-      "/products/pipes-and-tubes/alloy-steel-pipe/12cr1mov-pipe",
-      "/products/pipes-tubes/alloy-steel-pipe/12cr1mov-pipe",
-      "/products/pipes/alloy-steel-pipe/12cr1mov-pipe-manufactured-in-mumbai",
-      "/products/pipes/alloy-steel-pipe/12cr1mov-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
     "id": "pipes-inconel-pipe-inconel-600-pipe",
     "division": "pipes",
     "categorySlug": "inconel-pipe",
@@ -874,150 +802,6 @@ export const ALL_SEO_PRODUCTS = [
     ]
   },
   {
-    "id": "pipes-carbon-steel-pipe-astm-a333-grade-3-pipe",
-    "division": "pipes",
-    "categorySlug": "carbon-steel-pipe",
-    "materialSlug": "carbon-steel",
-    "gradeSlug": "astm-a333-grade-3-pipe",
-    "name": "ASTM A333 Grade 3 Pipe",
-    "seoSlug": "carbon-steel-astm-a333-grade-3-pipes-tubes",
-    "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/carbon-steel-astm-a333-grade-3-pipes-tubes-manufactured-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/carbon-steel-pipe/astm-a333-grade-3-pipe",
-      "/products/pipes-and-tubes/carbon-steel-pipe/astm-a333-grade-3-pipe",
-      "/products/pipes-tubes/carbon-steel-pipe/astm-a333-grade-3-pipe",
-      "/products/pipes/carbon-steel-pipe/astm-a333-grade-3-pipe-manufactured-in-mumbai",
-      "/products/pipes/carbon-steel-pipe/astm-a333-grade-3-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-carbon-steel-pipe-astm-a333-grade-6-pipe",
-    "division": "pipes",
-    "categorySlug": "carbon-steel-pipe",
-    "materialSlug": "carbon-steel",
-    "gradeSlug": "astm-a333-grade-6-pipe",
-    "name": "ASTM A333 Grade 6 Pipe",
-    "seoSlug": "carbon-steel-astm-a333-grade-6-pipes-tubes",
-    "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/carbon-steel-astm-a333-grade-6-pipes-tubes-stockist-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/carbon-steel-pipe/astm-a333-grade-6-pipe",
-      "/products/pipes-and-tubes/carbon-steel-pipe/astm-a333-grade-6-pipe",
-      "/products/pipes-tubes/carbon-steel-pipe/astm-a333-grade-6-pipe",
-      "/products/pipes/carbon-steel-pipe/astm-a333-grade-6-pipe-manufactured-in-mumbai",
-      "/products/pipes/carbon-steel-pipe/astm-a333-grade-6-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-carbon-steel-pipe-astm-a334-gr-1-tube",
-    "division": "pipes",
-    "categorySlug": "carbon-steel-pipe",
-    "materialSlug": "carbon-steel",
-    "gradeSlug": "astm-a334-gr-1-tube",
-    "name": "ASTM A334 GR.1 Tube",
-    "seoSlug": "carbon-steel-astm-a334-gr-1-tube-pipes-tubes",
-    "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/carbon-steel-astm-a334-gr-1-tube-pipes-tubes-manufactured-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/carbon-steel-pipe/astm-a334-gr-1-tube",
-      "/products/pipes-and-tubes/carbon-steel-pipe/astm-a334-gr-1-tube",
-      "/products/pipes-tubes/carbon-steel-pipe/astm-a334-gr-1-tube",
-      "/products/pipes/carbon-steel-pipe/astm-a334-gr-1-tube-manufactured-in-mumbai",
-      "/products/pipes/carbon-steel-pipe/astm-a334-gr-1-tube-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-carbon-steel-pipe-astm-a572-grade-50-pipe",
-    "division": "pipes",
-    "categorySlug": "carbon-steel-pipe",
-    "materialSlug": "carbon-steel",
-    "gradeSlug": "astm-a572-grade-50-pipe",
-    "name": "ASTM A572 Grade 50 Pipe",
-    "seoSlug": "carbon-steel-astm-a572-grade-50-pipes-tubes",
-    "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/carbon-steel-astm-a572-grade-50-pipes-tubes-stockist-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/carbon-steel-pipe/astm-a572-grade-50-pipe",
-      "/products/pipes-and-tubes/carbon-steel-pipe/astm-a572-grade-50-pipe",
-      "/products/pipes-tubes/carbon-steel-pipe/astm-a572-grade-50-pipe",
-      "/products/pipes/carbon-steel-pipe/astm-a572-grade-50-pipe-manufactured-in-mumbai",
-      "/products/pipes/carbon-steel-pipe/astm-a572-grade-50-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-carbon-steel-pipe-astm-a671-pipe",
-    "division": "pipes",
-    "categorySlug": "carbon-steel-pipe",
-    "materialSlug": "carbon-steel",
-    "gradeSlug": "astm-a671-pipe",
-    "name": "ASTM A671 EFW Pipe",
-    "seoSlug": "carbon-steel-astm-a671-pipes-tubes",
-    "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/carbon-steel-astm-a671-pipes-tubes-manufactured-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/carbon-steel-pipe/astm-a671-pipe",
-      "/products/pipes-and-tubes/carbon-steel-pipe/astm-a671-pipe",
-      "/products/pipes-tubes/carbon-steel-pipe/astm-a671-pipe",
-      "/products/pipes/carbon-steel-pipe/astm-a671-pipe-manufactured-in-mumbai",
-      "/products/pipes/carbon-steel-pipe/astm-a671-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-carbon-steel-pipe-astm-a671-cc60-pipe",
-    "division": "pipes",
-    "categorySlug": "carbon-steel-pipe",
-    "materialSlug": "carbon-steel",
-    "gradeSlug": "astm-a671-cc60-pipe",
-    "name": "ASTM A671 CC60 Pipe",
-    "seoSlug": "carbon-steel-astm-a671-cc60-pipes-tubes",
-    "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/carbon-steel-astm-a671-cc60-pipes-tubes-stockist-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/carbon-steel-pipe/astm-a671-cc60-pipe",
-      "/products/pipes-and-tubes/carbon-steel-pipe/astm-a671-cc60-pipe",
-      "/products/pipes-tubes/carbon-steel-pipe/astm-a671-cc60-pipe",
-      "/products/pipes/carbon-steel-pipe/astm-a671-cc60-pipe-manufactured-in-mumbai",
-      "/products/pipes/carbon-steel-pipe/astm-a671-cc60-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-carbon-steel-pipe-astm-a671-cc65-pipe",
-    "division": "pipes",
-    "categorySlug": "carbon-steel-pipe",
-    "materialSlug": "carbon-steel",
-    "gradeSlug": "astm-a671-cc65-pipe",
-    "name": "ASTM A671 CC65 Pipe",
-    "seoSlug": "carbon-steel-astm-a671-cc65-pipes-tubes",
-    "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/carbon-steel-astm-a671-cc65-pipes-tubes-manufactured-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/carbon-steel-pipe/astm-a671-cc65-pipe",
-      "/products/pipes-and-tubes/carbon-steel-pipe/astm-a671-cc65-pipe",
-      "/products/pipes-tubes/carbon-steel-pipe/astm-a671-cc65-pipe",
-      "/products/pipes/carbon-steel-pipe/astm-a671-cc65-pipe-manufactured-in-mumbai",
-      "/products/pipes/carbon-steel-pipe/astm-a671-cc65-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-carbon-steel-pipe-astm-a671-cc70-pipe",
-    "division": "pipes",
-    "categorySlug": "carbon-steel-pipe",
-    "materialSlug": "carbon-steel",
-    "gradeSlug": "astm-a671-cc70-pipe",
-    "name": "ASTM A671 CC70 Pipe",
-    "seoSlug": "carbon-steel-astm-a671-cc70-pipes-tubes",
-    "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/carbon-steel-astm-a671-cc70-pipes-tubes-stockist-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/carbon-steel-pipe/astm-a671-cc70-pipe",
-      "/products/pipes-and-tubes/carbon-steel-pipe/astm-a671-cc70-pipe",
-      "/products/pipes-tubes/carbon-steel-pipe/astm-a671-cc70-pipe",
-      "/products/pipes/carbon-steel-pipe/astm-a671-cc70-pipe-manufactured-in-mumbai",
-      "/products/pipes/carbon-steel-pipe/astm-a671-cc70-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
     "id": "pipes-carbon-steel-pipe-api-5l-grade-b-x70-pipe",
     "division": "pipes",
     "categorySlug": "carbon-steel-pipe",
@@ -1360,24 +1144,6 @@ export const ALL_SEO_PRODUCTS = [
     ]
   },
   {
-    "id": "pipes-api-5l-pipe-api-5l-pipe",
-    "division": "pipes",
-    "categorySlug": "api-5l-pipe",
-    "materialSlug": "api-5l",
-    "gradeSlug": "api-5l-pipe",
-    "name": "API 5L Pipe",
-    "seoSlug": "api-5l-api-5l-pipes-tubes",
-    "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/api-5l-api-5l-pipes-tubes-stockist-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/api-5l-pipe/api-5l-pipe",
-      "/products/pipes-and-tubes/api-5l-pipe/api-5l-pipe",
-      "/products/pipes-tubes/api-5l-pipe/api-5l-pipe",
-      "/products/pipes/api-5l-pipe/api-5l-pipe-manufactured-in-mumbai",
-      "/products/pipes/api-5l-pipe/api-5l-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
     "id": "pipes-api-5l-pipe-api-5l-grade-b-pipe",
     "division": "pipes",
     "categorySlug": "api-5l-pipe",
@@ -1522,60 +1288,6 @@ export const ALL_SEO_PRODUCTS = [
     ]
   },
   {
-    "id": "pipes-api-5l-pipe-api-5ct-l80-n80-pipe",
-    "division": "pipes",
-    "categorySlug": "api-5l-pipe",
-    "materialSlug": "api-5l",
-    "gradeSlug": "api-5ct-l80-n80-pipe",
-    "name": "API 5CT L80/N80 Pipe",
-    "seoSlug": "api-5l-api-5ct-l80-n80-pipes-tubes",
-    "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/api-5l-api-5ct-l80-n80-pipes-tubes-manufactured-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/api-5l-pipe/api-5ct-l80-n80-pipe",
-      "/products/pipes-and-tubes/api-5l-pipe/api-5ct-l80-n80-pipe",
-      "/products/pipes-tubes/api-5l-pipe/api-5ct-l80-n80-pipe",
-      "/products/pipes/api-5l-pipe/api-5ct-l80-n80-pipe-manufactured-in-mumbai",
-      "/products/pipes/api-5l-pipe/api-5ct-l80-n80-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-api-5l-pipe-api-5l-erw-pipe",
-    "division": "pipes",
-    "categorySlug": "api-5l-pipe",
-    "materialSlug": "api-5l",
-    "gradeSlug": "api-5l-erw-pipe",
-    "name": "API 5L ERW Pipe",
-    "seoSlug": "api-5l-api-5l-erw-pipes-tubes",
-    "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/api-5l-api-5l-erw-pipes-tubes-stockist-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/api-5l-pipe/api-5l-erw-pipe",
-      "/products/pipes-and-tubes/api-5l-pipe/api-5l-erw-pipe",
-      "/products/pipes-tubes/api-5l-pipe/api-5l-erw-pipe",
-      "/products/pipes/api-5l-pipe/api-5l-erw-pipe-manufactured-in-mumbai",
-      "/products/pipes/api-5l-pipe/api-5l-erw-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-en-standards-pipe-en-standards-pipe",
-    "division": "pipes",
-    "categorySlug": "en-standards-pipe",
-    "materialSlug": "en-standards",
-    "gradeSlug": "en-standards-pipe",
-    "name": "EN Standards Pipe",
-    "seoSlug": "en-standards-en-standards-pipes-tubes",
-    "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/en-standards-en-standards-pipes-tubes-manufactured-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/en-standards-pipe/en-standards-pipe",
-      "/products/pipes-and-tubes/en-standards-pipe/en-standards-pipe",
-      "/products/pipes-tubes/en-standards-pipe/en-standards-pipe",
-      "/products/pipes/en-standards-pipe/en-standards-pipe-manufactured-in-mumbai",
-      "/products/pipes/en-standards-pipe/en-standards-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
     "id": "pipes-en-standards-pipe-en-10025-pipe",
     "division": "pipes",
     "categorySlug": "en-standards-pipe",
@@ -1648,96 +1360,6 @@ export const ALL_SEO_PRODUCTS = [
     ]
   },
   {
-    "id": "pipes-en-standards-pipe-en-10294-1-grade-e355-ar",
-    "division": "pipes",
-    "categorySlug": "en-standards-pipe",
-    "materialSlug": "en-standards",
-    "gradeSlug": "en-10294-1-grade-e355-ar",
-    "name": "EN 10294-1 Grade E355+AR",
-    "seoSlug": "en-standards-en-10294-1-grade-e355-ar-pipes-tubes",
-    "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/en-standards-en-10294-1-grade-e355-ar-pipes-tubes-stockist-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e355-ar",
-      "/products/pipes-and-tubes/en-standards-pipe/en-10294-1-grade-e355-ar",
-      "/products/pipes-tubes/en-standards-pipe/en-10294-1-grade-e355-ar",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e355-ar-manufactured-in-mumbai",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e355-ar-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-en-standards-pipe-en-10294-1-grade-e355-n",
-    "division": "pipes",
-    "categorySlug": "en-standards-pipe",
-    "materialSlug": "en-standards",
-    "gradeSlug": "en-10294-1-grade-e355-n",
-    "name": "EN 10294-1 Grade E355+N",
-    "seoSlug": "en-standards-en-10294-1-grade-e355-n-pipes-tubes",
-    "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/en-standards-en-10294-1-grade-e355-n-pipes-tubes-manufactured-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e355-n",
-      "/products/pipes-and-tubes/en-standards-pipe/en-10294-1-grade-e355-n",
-      "/products/pipes-tubes/en-standards-pipe/en-10294-1-grade-e355-n",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e355-n-manufactured-in-mumbai",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e355-n-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-en-standards-pipe-en-10294-1-grade-e235",
-    "division": "pipes",
-    "categorySlug": "en-standards-pipe",
-    "materialSlug": "en-standards",
-    "gradeSlug": "en-10294-1-grade-e235",
-    "name": "EN 10294-1 Grade E235",
-    "seoSlug": "en-standards-en-10294-1-grade-e235-pipes-tubes",
-    "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/en-standards-en-10294-1-grade-e235-pipes-tubes-stockist-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e235",
-      "/products/pipes-and-tubes/en-standards-pipe/en-10294-1-grade-e235",
-      "/products/pipes-tubes/en-standards-pipe/en-10294-1-grade-e235",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e235-manufactured-in-mumbai",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e235-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-en-standards-pipe-en-10294-1-grade-e275",
-    "division": "pipes",
-    "categorySlug": "en-standards-pipe",
-    "materialSlug": "en-standards",
-    "gradeSlug": "en-10294-1-grade-e275",
-    "name": "EN 10294-1 Grade E275",
-    "seoSlug": "en-standards-en-10294-1-grade-e275-pipes-tubes",
-    "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/en-standards-en-10294-1-grade-e275-pipes-tubes-manufactured-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e275",
-      "/products/pipes-and-tubes/en-standards-pipe/en-10294-1-grade-e275",
-      "/products/pipes-tubes/en-standards-pipe/en-10294-1-grade-e275",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e275-manufactured-in-mumbai",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e275-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-en-standards-pipe-en-10294-1-grade-e315",
-    "division": "pipes",
-    "categorySlug": "en-standards-pipe",
-    "materialSlug": "en-standards",
-    "gradeSlug": "en-10294-1-grade-e315",
-    "name": "EN 10294-1 Grade E315",
-    "seoSlug": "en-standards-en-10294-1-grade-e315-pipes-tubes",
-    "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/en-standards-en-10294-1-grade-e315-pipes-tubes-stockist-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e315",
-      "/products/pipes-and-tubes/en-standards-pipe/en-10294-1-grade-e315",
-      "/products/pipes-tubes/en-standards-pipe/en-10294-1-grade-e315",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e315-manufactured-in-mumbai",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e315-stockist-in-mumbai"
-    ]
-  },
-  {
     "id": "pipes-en-standards-pipe-en-10294-1-grade-e355",
     "division": "pipes",
     "categorySlug": "en-standards-pipe",
@@ -1753,42 +1375,6 @@ export const ALL_SEO_PRODUCTS = [
       "/products/pipes-tubes/en-standards-pipe/en-10294-1-grade-e355",
       "/products/pipes/en-standards-pipe/en-10294-1-grade-e355-manufactured-in-mumbai",
       "/products/pipes/en-standards-pipe/en-10294-1-grade-e355-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-en-standards-pipe-en-10294-1-grade-e275k2",
-    "division": "pipes",
-    "categorySlug": "en-standards-pipe",
-    "materialSlug": "en-standards",
-    "gradeSlug": "en-10294-1-grade-e275k2",
-    "name": "EN 10294-1 Grade E275K2",
-    "seoSlug": "en-standards-en-10294-1-grade-e275k2-pipes-tubes",
-    "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/en-standards-en-10294-1-grade-e275k2-pipes-tubes-stockist-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e275k2",
-      "/products/pipes-and-tubes/en-standards-pipe/en-10294-1-grade-e275k2",
-      "/products/pipes-tubes/en-standards-pipe/en-10294-1-grade-e275k2",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e275k2-manufactured-in-mumbai",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e275k2-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-en-standards-pipe-en-10294-1-grade-e355k2",
-    "division": "pipes",
-    "categorySlug": "en-standards-pipe",
-    "materialSlug": "en-standards",
-    "gradeSlug": "en-10294-1-grade-e355k2",
-    "name": "EN 10294-1 Grade E355K2",
-    "seoSlug": "en-standards-en-10294-1-grade-e355k2-pipes-tubes",
-    "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/en-standards-en-10294-1-grade-e355k2-pipes-tubes-manufactured-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e355k2",
-      "/products/pipes-and-tubes/en-standards-pipe/en-10294-1-grade-e355k2",
-      "/products/pipes-tubes/en-standards-pipe/en-10294-1-grade-e355k2",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e355k2-manufactured-in-mumbai",
-      "/products/pipes/en-standards-pipe/en-10294-1-grade-e355k2-stockist-in-mumbai"
     ]
   },
   {
@@ -1843,24 +1429,6 @@ export const ALL_SEO_PRODUCTS = [
       "/products/pipes-tubes/en-standards-pipe/en-10219-s355j0h-pipe",
       "/products/pipes/en-standards-pipe/en-10219-s355j0h-pipe-manufactured-in-mumbai",
       "/products/pipes/en-standards-pipe/en-10219-s355j0h-pipe-stockist-in-mumbai"
-    ]
-  },
-  {
-    "id": "pipes-en-standards-pipe-en-10219-structure-pipe",
-    "division": "pipes",
-    "categorySlug": "en-standards-pipe",
-    "materialSlug": "en-standards",
-    "gradeSlug": "en-10219-structure-pipe",
-    "name": "EN 10219 Structure Pipe",
-    "seoSlug": "en-standards-en-10219-structure-pipes-tubes",
-    "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipes-tubes/en-standards-en-10219-structure-pipes-tubes-manufactured-in-mumbai",
-    "legacyUrls": [
-      "/products/pipes/en-standards-pipe/en-10219-structure-pipe",
-      "/products/pipes-and-tubes/en-standards-pipe/en-10219-structure-pipe",
-      "/products/pipes-tubes/en-standards-pipe/en-10219-structure-pipe",
-      "/products/pipes/en-standards-pipe/en-10219-structure-pipe-manufactured-in-mumbai",
-      "/products/pipes/en-standards-pipe/en-10219-structure-pipe-stockist-in-mumbai"
     ]
   },
   {
@@ -8537,768 +8105,970 @@ export const ALL_SEO_PRODUCTS = [
   },
   {
     "id": "fittings-stainless-steel-pipe-fittings-ss-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "stainless-steel-pipe-fittings",
     "materialSlug": "stainless-steel",
     "gradeSlug": "ss-pipe-fittings",
-    "name": "SS Pipe Fittings",
-    "seoSlug": "stainless-steel-ss-pipe-pipe-fittings",
+    "name": "SS Buttweld Fittings",
+    "seoSlug": "stainless-steel-ss-pipe-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/stainless-steel-ss-pipe-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/stainless-steel-ss-pipe-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-pipe-fittings",
       "/products/butt-weld-fittings/stainless-steel-pipe-fittings/ss-pipe-fittings",
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/stainless-steel-pipe-fittings/ss-pipe-fittings",
+      "/products/buttweld-fittings/ss-pipe-fittings",
+      "/products/pipe-fittings/ss-pipe-fittings"
     ]
   },
   {
     "id": "fittings-stainless-steel-pipe-fittings-ss-304-304l-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "stainless-steel-pipe-fittings",
     "materialSlug": "stainless-steel",
     "gradeSlug": "ss-304-304l-pipe-fittings",
-    "name": "SS 304 / 304L Pipe Fittings",
-    "seoSlug": "stainless-steel-ss-304-304l-pipe-pipe-fittings",
+    "name": "SS 304 / 304L Buttweld Fittings",
+    "seoSlug": "stainless-steel-ss-304-304l-pipe-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/stainless-steel-ss-304-304l-pipe-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/stainless-steel-ss-304-304l-pipe-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-304-304l-pipe-fittings",
       "/products/butt-weld-fittings/stainless-steel-pipe-fittings/ss-304-304l-pipe-fittings",
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-304-304l-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-304-304l-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-304-304l-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-304-304l-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-304-304l-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/stainless-steel-pipe-fittings/ss-304-304l-pipe-fittings",
+      "/products/buttweld-fittings/ss-304-304l-pipe-fittings",
+      "/products/pipe-fittings/ss-304-304l-pipe-fittings"
     ]
   },
   {
     "id": "fittings-stainless-steel-pipe-fittings-ss-316-316l-316h-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "stainless-steel-pipe-fittings",
     "materialSlug": "stainless-steel",
     "gradeSlug": "ss-316-316l-316h-pipe-fittings",
-    "name": "SS 316 / 316L / 316H Pipe Fittings",
-    "seoSlug": "stainless-steel-ss-316-316l-316h-pipe-pipe-fittings",
+    "name": "SS 316 / 316L / 316H Buttweld Fittings",
+    "seoSlug": "stainless-steel-ss-316-316l-316h-pipe-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/stainless-steel-ss-316-316l-316h-pipe-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/stainless-steel-ss-316-316l-316h-pipe-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-316-316l-316h-pipe-fittings",
       "/products/butt-weld-fittings/stainless-steel-pipe-fittings/ss-316-316l-316h-pipe-fittings",
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-316-316l-316h-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-316-316l-316h-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-316-316l-316h-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-316-316l-316h-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-316-316l-316h-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/stainless-steel-pipe-fittings/ss-316-316l-316h-pipe-fittings",
+      "/products/buttweld-fittings/ss-316-316l-316h-pipe-fittings",
+      "/products/pipe-fittings/ss-316-316l-316h-pipe-fittings"
     ]
   },
   {
     "id": "fittings-stainless-steel-pipe-fittings-ss-316ti-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "stainless-steel-pipe-fittings",
     "materialSlug": "stainless-steel",
     "gradeSlug": "ss-316ti-pipe-fittings",
-    "name": "SS 316Ti Pipe Fittings",
-    "seoSlug": "stainless-steel-ss-316ti-pipe-pipe-fittings",
+    "name": "SS 316Ti Buttweld Fittings",
+    "seoSlug": "stainless-steel-ss-316ti-pipe-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/stainless-steel-ss-316ti-pipe-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/stainless-steel-ss-316ti-pipe-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-316ti-pipe-fittings",
       "/products/butt-weld-fittings/stainless-steel-pipe-fittings/ss-316ti-pipe-fittings",
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-316ti-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-316ti-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-316ti-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-316ti-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-316ti-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/stainless-steel-pipe-fittings/ss-316ti-pipe-fittings",
+      "/products/buttweld-fittings/ss-316ti-pipe-fittings",
+      "/products/pipe-fittings/ss-316ti-pipe-fittings"
     ]
   },
   {
     "id": "fittings-stainless-steel-pipe-fittings-ss-310-310s-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "stainless-steel-pipe-fittings",
     "materialSlug": "stainless-steel",
     "gradeSlug": "ss-310-310s-pipe-fittings",
-    "name": "SS 310 / 310S Pipe Fittings",
-    "seoSlug": "stainless-steel-ss-310-310s-pipe-pipe-fittings",
+    "name": "SS 310 / 310S Buttweld Fittings",
+    "seoSlug": "stainless-steel-ss-310-310s-pipe-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/stainless-steel-ss-310-310s-pipe-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/stainless-steel-ss-310-310s-pipe-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-310-310s-pipe-fittings",
       "/products/butt-weld-fittings/stainless-steel-pipe-fittings/ss-310-310s-pipe-fittings",
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-310-310s-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-310-310s-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-310-310s-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-310-310s-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-310-310s-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/stainless-steel-pipe-fittings/ss-310-310s-pipe-fittings",
+      "/products/buttweld-fittings/ss-310-310s-pipe-fittings",
+      "/products/pipe-fittings/ss-310-310s-pipe-fittings"
     ]
   },
   {
     "id": "fittings-stainless-steel-pipe-fittings-ss-317-317l-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "stainless-steel-pipe-fittings",
     "materialSlug": "stainless-steel",
     "gradeSlug": "ss-317-317l-pipe-fittings",
-    "name": "SS 317 / 317L Pipe Fittings",
-    "seoSlug": "stainless-steel-ss-317-317l-pipe-pipe-fittings",
+    "name": "SS 317 / 317L Buttweld Fittings",
+    "seoSlug": "stainless-steel-ss-317-317l-pipe-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/stainless-steel-ss-317-317l-pipe-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/stainless-steel-ss-317-317l-pipe-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-317-317l-pipe-fittings",
       "/products/butt-weld-fittings/stainless-steel-pipe-fittings/ss-317-317l-pipe-fittings",
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-317-317l-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-317-317l-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-317-317l-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-317-317l-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-317-317l-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/stainless-steel-pipe-fittings/ss-317-317l-pipe-fittings",
+      "/products/buttweld-fittings/ss-317-317l-pipe-fittings",
+      "/products/pipe-fittings/ss-317-317l-pipe-fittings"
     ]
   },
   {
     "id": "fittings-stainless-steel-pipe-fittings-ss-321-321h-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "stainless-steel-pipe-fittings",
     "materialSlug": "stainless-steel",
     "gradeSlug": "ss-321-321h-pipe-fittings",
-    "name": "SS 321 / 321H Pipe Fittings",
-    "seoSlug": "stainless-steel-ss-321-321h-pipe-pipe-fittings",
+    "name": "SS 321 / 321H Buttweld Fittings",
+    "seoSlug": "stainless-steel-ss-321-321h-pipe-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/stainless-steel-ss-321-321h-pipe-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/stainless-steel-ss-321-321h-pipe-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-321-321h-pipe-fittings",
       "/products/butt-weld-fittings/stainless-steel-pipe-fittings/ss-321-321h-pipe-fittings",
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-321-321h-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-321-321h-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-321-321h-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-321-321h-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-321-321h-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/stainless-steel-pipe-fittings/ss-321-321h-pipe-fittings",
+      "/products/buttweld-fittings/ss-321-321h-pipe-fittings",
+      "/products/pipe-fittings/ss-321-321h-pipe-fittings"
     ]
   },
   {
     "id": "fittings-stainless-steel-pipe-fittings-ss-347-347h-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "stainless-steel-pipe-fittings",
     "materialSlug": "stainless-steel",
     "gradeSlug": "ss-347-347h-pipe-fittings",
-    "name": "SS 347 / 347H Pipe Fittings",
-    "seoSlug": "stainless-steel-ss-347-347h-pipe-pipe-fittings",
+    "name": "SS 347 / 347H Buttweld Fittings",
+    "seoSlug": "stainless-steel-ss-347-347h-pipe-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/stainless-steel-ss-347-347h-pipe-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/stainless-steel-ss-347-347h-pipe-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-347-347h-pipe-fittings",
       "/products/butt-weld-fittings/stainless-steel-pipe-fittings/ss-347-347h-pipe-fittings",
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-347-347h-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-347-347h-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-347-347h-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-347-347h-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-347-347h-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/stainless-steel-pipe-fittings/ss-347-347h-pipe-fittings",
+      "/products/buttweld-fittings/ss-347-347h-pipe-fittings",
+      "/products/pipe-fittings/ss-347-347h-pipe-fittings"
     ]
   },
   {
     "id": "fittings-stainless-steel-pipe-fittings-ss-forged-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "stainless-steel-pipe-fittings",
     "materialSlug": "stainless-steel",
     "gradeSlug": "ss-forged-fittings",
     "name": "SS Forged Fittings",
-    "seoSlug": "stainless-steel-ss-forged-pipe-fittings",
+    "seoSlug": "stainless-steel-ss-forged-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/stainless-steel-ss-forged-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/stainless-steel-ss-forged-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-forged-fittings",
       "/products/butt-weld-fittings/stainless-steel-pipe-fittings/ss-forged-fittings",
       "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-forged-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-forged-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/stainless-steel-pipe-fittings/ss-forged-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-forged-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/stainless-steel-ss-forged-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/stainless-steel-pipe-fittings/ss-forged-fittings",
+      "/products/buttweld-fittings/ss-forged-fittings",
+      "/products/pipe-fittings/ss-forged-fittings"
     ]
   },
   {
     "id": "fittings-carbon-steel-pipe-fittings-carbon-steel-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "carbon-steel-pipe-fittings",
     "materialSlug": "carbon-steel",
     "gradeSlug": "carbon-steel-pipe-fittings",
-    "name": "Carbon Steel Pipe Fittings",
-    "seoSlug": "carbon-steel-carbon-steel-pipe-pipe-fittings",
+    "name": "Carbon Steel Buttweld Fittings",
+    "seoSlug": "carbon-steel-carbon-steel-pipe-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/carbon-steel-carbon-steel-pipe-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/carbon-steel-carbon-steel-pipe-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/carbon-steel-pipe-fittings/carbon-steel-pipe-fittings",
       "/products/butt-weld-fittings/carbon-steel-pipe-fittings/carbon-steel-pipe-fittings",
       "/products/pipe-fittings/carbon-steel-pipe-fittings/carbon-steel-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/carbon-steel-pipe-fittings/carbon-steel-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/carbon-steel-pipe-fittings/carbon-steel-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/carbon-steel-carbon-steel-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/carbon-steel-carbon-steel-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/carbon-steel-pipe-fittings/carbon-steel-pipe-fittings",
+      "/products/buttweld-fittings/carbon-steel-pipe-fittings",
+      "/products/pipe-fittings/carbon-steel-pipe-fittings"
     ]
   },
   {
     "id": "fittings-carbon-steel-pipe-fittings-astm-a234-gr-wpb",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "carbon-steel-pipe-fittings",
     "materialSlug": "carbon-steel",
     "gradeSlug": "astm-a234-gr-wpb",
     "name": "ASTM A234 Gr WPB",
-    "seoSlug": "carbon-steel-astm-a234-gr-wpb-pipe-fittings",
+    "seoSlug": "carbon-steel-astm-a234-gr-wpb-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/carbon-steel-astm-a234-gr-wpb-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/carbon-steel-astm-a234-gr-wpb-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/carbon-steel-pipe-fittings/astm-a234-gr-wpb",
       "/products/butt-weld-fittings/carbon-steel-pipe-fittings/astm-a234-gr-wpb",
       "/products/pipe-fittings/carbon-steel-pipe-fittings/astm-a234-gr-wpb-manufactured-in-mumbai",
-      "/products/pipe-fittings/carbon-steel-pipe-fittings/astm-a234-gr-wpb-stockist-in-mumbai"
+      "/products/pipe-fittings/carbon-steel-pipe-fittings/astm-a234-gr-wpb-stockist-in-mumbai",
+      "/products/pipe-fittings/carbon-steel-astm-a234-gr-wpb-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/carbon-steel-astm-a234-gr-wpb-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/carbon-steel-pipe-fittings/astm-a234-gr-wpb",
+      "/products/buttweld-fittings/astm-a234-gr-wpb",
+      "/products/pipe-fittings/astm-a234-gr-wpb"
     ]
   },
   {
     "id": "fittings-carbon-steel-pipe-fittings-astm-a420-grade-wpl6",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "carbon-steel-pipe-fittings",
     "materialSlug": "carbon-steel",
     "gradeSlug": "astm-a420-grade-wpl6",
     "name": "ASTM A420 Grade WPL6",
-    "seoSlug": "carbon-steel-astm-a420-grade-wpl6-pipe-fittings",
+    "seoSlug": "carbon-steel-astm-a420-grade-wpl6-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/carbon-steel-astm-a420-grade-wpl6-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/carbon-steel-astm-a420-grade-wpl6-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/carbon-steel-pipe-fittings/astm-a420-grade-wpl6",
       "/products/butt-weld-fittings/carbon-steel-pipe-fittings/astm-a420-grade-wpl6",
       "/products/pipe-fittings/carbon-steel-pipe-fittings/astm-a420-grade-wpl6-manufactured-in-mumbai",
-      "/products/pipe-fittings/carbon-steel-pipe-fittings/astm-a420-grade-wpl6-stockist-in-mumbai"
+      "/products/pipe-fittings/carbon-steel-pipe-fittings/astm-a420-grade-wpl6-stockist-in-mumbai",
+      "/products/pipe-fittings/carbon-steel-astm-a420-grade-wpl6-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/carbon-steel-astm-a420-grade-wpl6-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/carbon-steel-pipe-fittings/astm-a420-grade-wpl6",
+      "/products/buttweld-fittings/astm-a420-grade-wpl6",
+      "/products/pipe-fittings/astm-a420-grade-wpl6"
     ]
   },
   {
     "id": "fittings-carbon-steel-pipe-fittings-astm-a105-forged-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "carbon-steel-pipe-fittings",
     "materialSlug": "carbon-steel",
     "gradeSlug": "astm-a105-forged-fittings",
     "name": "ASTM A105 Forged Fittings",
-    "seoSlug": "carbon-steel-astm-a105-forged-pipe-fittings",
+    "seoSlug": "carbon-steel-astm-a105-forged-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/carbon-steel-astm-a105-forged-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/carbon-steel-astm-a105-forged-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/carbon-steel-pipe-fittings/astm-a105-forged-fittings",
       "/products/butt-weld-fittings/carbon-steel-pipe-fittings/astm-a105-forged-fittings",
       "/products/pipe-fittings/carbon-steel-pipe-fittings/astm-a105-forged-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/carbon-steel-pipe-fittings/astm-a105-forged-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/carbon-steel-pipe-fittings/astm-a105-forged-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/carbon-steel-astm-a105-forged-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/carbon-steel-astm-a105-forged-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/carbon-steel-pipe-fittings/astm-a105-forged-fittings",
+      "/products/buttweld-fittings/astm-a105-forged-fittings",
+      "/products/pipe-fittings/astm-a105-forged-fittings"
     ]
   },
   {
     "id": "fittings-alloy-steel-pipe-fittings-alloy-steel-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "alloy-steel-pipe-fittings",
     "materialSlug": "alloy-steel",
     "gradeSlug": "alloy-steel-pipe-fittings",
-    "name": "Alloy Steel Pipe Fittings",
-    "seoSlug": "alloy-steel-alloy-steel-pipe-pipe-fittings",
+    "name": "Alloy Steel Buttweld Fittings",
+    "seoSlug": "alloy-steel-alloy-steel-pipe-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/alloy-steel-alloy-steel-pipe-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/alloy-steel-alloy-steel-pipe-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/alloy-steel-pipe-fittings/alloy-steel-pipe-fittings",
       "/products/butt-weld-fittings/alloy-steel-pipe-fittings/alloy-steel-pipe-fittings",
       "/products/pipe-fittings/alloy-steel-pipe-fittings/alloy-steel-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/alloy-steel-pipe-fittings/alloy-steel-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/alloy-steel-pipe-fittings/alloy-steel-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-alloy-steel-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-alloy-steel-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/alloy-steel-pipe-fittings/alloy-steel-pipe-fittings",
+      "/products/buttweld-fittings/alloy-steel-pipe-fittings",
+      "/products/pipe-fittings/alloy-steel-pipe-fittings"
     ]
   },
   {
     "id": "fittings-alloy-steel-pipe-fittings-astm-a234-gr-wp1-alloy-steel-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "alloy-steel-pipe-fittings",
     "materialSlug": "alloy-steel",
     "gradeSlug": "astm-a234-gr-wp1-alloy-steel-pipe-fittings",
-    "name": "ASTM A234 Gr WP1 Alloy Steel Pipe Fittings",
-    "seoSlug": "alloy-steel-astm-a234-gr-wp1-alloy-steel-pipe-pipe-fittings",
+    "name": "ASTM A234 Gr WP1 Alloy Steel Buttweld Fittings",
+    "seoSlug": "alloy-steel-astm-a234-gr-wp1-alloy-steel-pipe-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp1-alloy-steel-pipe-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/alloy-steel-astm-a234-gr-wp1-alloy-steel-pipe-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp1-alloy-steel-pipe-fittings",
       "/products/butt-weld-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp1-alloy-steel-pipe-fittings",
       "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp1-alloy-steel-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp1-alloy-steel-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp1-alloy-steel-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp1-alloy-steel-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp1-alloy-steel-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp1-alloy-steel-pipe-fittings",
+      "/products/buttweld-fittings/astm-a234-gr-wp1-alloy-steel-pipe-fittings",
+      "/products/pipe-fittings/astm-a234-gr-wp1-alloy-steel-pipe-fittings"
     ]
   },
   {
     "id": "fittings-alloy-steel-pipe-fittings-astm-a234-gr-wp5-alloy-steel-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "alloy-steel-pipe-fittings",
     "materialSlug": "alloy-steel",
     "gradeSlug": "astm-a234-gr-wp5-alloy-steel-pipe-fittings",
-    "name": "ASTM A234 Gr WP5 Alloy Steel Pipe Fittings",
-    "seoSlug": "alloy-steel-astm-a234-gr-wp5-alloy-steel-pipe-pipe-fittings",
+    "name": "ASTM A234 Gr WP5 Alloy Steel Buttweld Fittings",
+    "seoSlug": "alloy-steel-astm-a234-gr-wp5-alloy-steel-pipe-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp5-alloy-steel-pipe-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/alloy-steel-astm-a234-gr-wp5-alloy-steel-pipe-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp5-alloy-steel-pipe-fittings",
       "/products/butt-weld-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp5-alloy-steel-pipe-fittings",
       "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp5-alloy-steel-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp5-alloy-steel-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp5-alloy-steel-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp5-alloy-steel-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp5-alloy-steel-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp5-alloy-steel-pipe-fittings",
+      "/products/buttweld-fittings/astm-a234-gr-wp5-alloy-steel-pipe-fittings",
+      "/products/pipe-fittings/astm-a234-gr-wp5-alloy-steel-pipe-fittings"
     ]
   },
   {
     "id": "fittings-alloy-steel-pipe-fittings-astm-a234-gr-wp9-alloy-steel-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "alloy-steel-pipe-fittings",
     "materialSlug": "alloy-steel",
     "gradeSlug": "astm-a234-gr-wp9-alloy-steel-pipe-fittings",
-    "name": "ASTM A234 Gr WP9 Alloy Steel Pipe Fittings",
-    "seoSlug": "alloy-steel-astm-a234-gr-wp9-alloy-steel-pipe-pipe-fittings",
+    "name": "ASTM A234 Gr WP9 Alloy Steel Buttweld Fittings",
+    "seoSlug": "alloy-steel-astm-a234-gr-wp9-alloy-steel-pipe-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp9-alloy-steel-pipe-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/alloy-steel-astm-a234-gr-wp9-alloy-steel-pipe-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp9-alloy-steel-pipe-fittings",
       "/products/butt-weld-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp9-alloy-steel-pipe-fittings",
       "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp9-alloy-steel-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp9-alloy-steel-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp9-alloy-steel-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp9-alloy-steel-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp9-alloy-steel-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp9-alloy-steel-pipe-fittings",
+      "/products/buttweld-fittings/astm-a234-gr-wp9-alloy-steel-pipe-fittings",
+      "/products/pipe-fittings/astm-a234-gr-wp9-alloy-steel-pipe-fittings"
     ]
   },
   {
     "id": "fittings-alloy-steel-pipe-fittings-astm-a234-gr-wp11-alloy-steel-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "alloy-steel-pipe-fittings",
     "materialSlug": "alloy-steel",
     "gradeSlug": "astm-a234-gr-wp11-alloy-steel-pipe-fittings",
-    "name": "ASTM A234 Gr WP11 Alloy Steel Pipe Fittings",
-    "seoSlug": "alloy-steel-astm-a234-gr-wp11-alloy-steel-pipe-pipe-fittings",
+    "name": "ASTM A234 Gr WP11 Alloy Steel Buttweld Fittings",
+    "seoSlug": "alloy-steel-astm-a234-gr-wp11-alloy-steel-pipe-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp11-alloy-steel-pipe-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/alloy-steel-astm-a234-gr-wp11-alloy-steel-pipe-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp11-alloy-steel-pipe-fittings",
       "/products/butt-weld-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp11-alloy-steel-pipe-fittings",
       "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp11-alloy-steel-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp11-alloy-steel-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp11-alloy-steel-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp11-alloy-steel-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp11-alloy-steel-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp11-alloy-steel-pipe-fittings",
+      "/products/buttweld-fittings/astm-a234-gr-wp11-alloy-steel-pipe-fittings",
+      "/products/pipe-fittings/astm-a234-gr-wp11-alloy-steel-pipe-fittings"
     ]
   },
   {
     "id": "fittings-alloy-steel-pipe-fittings-astm-a234-gr-wp22-alloy-steel-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "alloy-steel-pipe-fittings",
     "materialSlug": "alloy-steel",
     "gradeSlug": "astm-a234-gr-wp22-alloy-steel-pipe-fittings",
-    "name": "ASTM A234 Gr WP22 Alloy Steel Pipe Fittings",
-    "seoSlug": "alloy-steel-astm-a234-gr-wp22-alloy-steel-pipe-pipe-fittings",
+    "name": "ASTM A234 Gr WP22 Alloy Steel Buttweld Fittings",
+    "seoSlug": "alloy-steel-astm-a234-gr-wp22-alloy-steel-pipe-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp22-alloy-steel-pipe-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/alloy-steel-astm-a234-gr-wp22-alloy-steel-pipe-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp22-alloy-steel-pipe-fittings",
       "/products/butt-weld-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp22-alloy-steel-pipe-fittings",
       "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp22-alloy-steel-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp22-alloy-steel-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp22-alloy-steel-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp22-alloy-steel-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp22-alloy-steel-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp22-alloy-steel-pipe-fittings",
+      "/products/buttweld-fittings/astm-a234-gr-wp22-alloy-steel-pipe-fittings",
+      "/products/pipe-fittings/astm-a234-gr-wp22-alloy-steel-pipe-fittings"
     ]
   },
   {
     "id": "fittings-alloy-steel-pipe-fittings-astm-a234-gr-wp91-alloy-steel-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "alloy-steel-pipe-fittings",
     "materialSlug": "alloy-steel",
     "gradeSlug": "astm-a234-gr-wp91-alloy-steel-pipe-fittings",
-    "name": "ASTM A234 Gr WP91 Alloy Steel Pipe Fittings",
-    "seoSlug": "alloy-steel-astm-a234-gr-wp91-alloy-steel-pipe-pipe-fittings",
+    "name": "ASTM A234 Gr WP91 Alloy Steel Buttweld Fittings",
+    "seoSlug": "alloy-steel-astm-a234-gr-wp91-alloy-steel-pipe-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp91-alloy-steel-pipe-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/alloy-steel-astm-a234-gr-wp91-alloy-steel-pipe-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp91-alloy-steel-pipe-fittings",
       "/products/butt-weld-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp91-alloy-steel-pipe-fittings",
       "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp91-alloy-steel-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp91-alloy-steel-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp91-alloy-steel-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp91-alloy-steel-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/alloy-steel-astm-a234-gr-wp91-alloy-steel-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/alloy-steel-pipe-fittings/astm-a234-gr-wp91-alloy-steel-pipe-fittings",
+      "/products/buttweld-fittings/astm-a234-gr-wp91-alloy-steel-pipe-fittings",
+      "/products/pipe-fittings/astm-a234-gr-wp91-alloy-steel-pipe-fittings"
     ]
   },
   {
     "id": "fittings-inconel-pipe-fittings-inconel-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "inconel-pipe-fittings",
     "materialSlug": "inconel",
     "gradeSlug": "inconel-pipe-fittings",
-    "name": "Inconel Pipe Fittings",
-    "seoSlug": "inconel-inconel-pipe-pipe-fittings",
+    "name": "Inconel Buttweld Fittings",
+    "seoSlug": "inconel-inconel-pipe-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/inconel-inconel-pipe-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/inconel-inconel-pipe-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/inconel-pipe-fittings/inconel-pipe-fittings",
       "/products/butt-weld-fittings/inconel-pipe-fittings/inconel-pipe-fittings",
       "/products/pipe-fittings/inconel-pipe-fittings/inconel-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/inconel-pipe-fittings/inconel-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/inconel-pipe-fittings/inconel-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/inconel-inconel-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/inconel-inconel-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/inconel-pipe-fittings/inconel-pipe-fittings",
+      "/products/buttweld-fittings/inconel-pipe-fittings",
+      "/products/pipe-fittings/inconel-pipe-fittings"
     ]
   },
   {
     "id": "fittings-monel-pipe-fittings-monel-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "monel-pipe-fittings",
     "materialSlug": "monel",
     "gradeSlug": "monel-pipe-fittings",
-    "name": "Monel Pipe Fittings",
-    "seoSlug": "monel-monel-pipe-pipe-fittings",
+    "name": "Monel Buttweld Fittings",
+    "seoSlug": "monel-monel-pipe-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/monel-monel-pipe-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/monel-monel-pipe-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/monel-pipe-fittings/monel-pipe-fittings",
       "/products/butt-weld-fittings/monel-pipe-fittings/monel-pipe-fittings",
       "/products/pipe-fittings/monel-pipe-fittings/monel-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/monel-pipe-fittings/monel-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/monel-pipe-fittings/monel-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/monel-monel-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/monel-monel-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/monel-pipe-fittings/monel-pipe-fittings",
+      "/products/buttweld-fittings/monel-pipe-fittings",
+      "/products/pipe-fittings/monel-pipe-fittings"
     ]
   },
   {
     "id": "fittings-hastelloy-pipe-fittings-hastelloy-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "hastelloy-pipe-fittings",
     "materialSlug": "hastelloy",
     "gradeSlug": "hastelloy-pipe-fittings",
-    "name": "Hastelloy Pipe Fittings",
-    "seoSlug": "hastelloy-hastelloy-pipe-pipe-fittings",
+    "name": "Hastelloy Buttweld Fittings",
+    "seoSlug": "hastelloy-hastelloy-pipe-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/hastelloy-hastelloy-pipe-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/hastelloy-hastelloy-pipe-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/hastelloy-pipe-fittings/hastelloy-pipe-fittings",
       "/products/butt-weld-fittings/hastelloy-pipe-fittings/hastelloy-pipe-fittings",
       "/products/pipe-fittings/hastelloy-pipe-fittings/hastelloy-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/hastelloy-pipe-fittings/hastelloy-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/hastelloy-pipe-fittings/hastelloy-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/hastelloy-hastelloy-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/hastelloy-hastelloy-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/hastelloy-pipe-fittings/hastelloy-pipe-fittings",
+      "/products/buttweld-fittings/hastelloy-pipe-fittings",
+      "/products/pipe-fittings/hastelloy-pipe-fittings"
     ]
   },
   {
     "id": "fittings-nickel-pipe-fittings-nickel-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "nickel-pipe-fittings",
     "materialSlug": "nickel",
     "gradeSlug": "nickel-pipe-fittings",
-    "name": "Nickel Pipe Fittings",
-    "seoSlug": "nickel-nickel-pipe-pipe-fittings",
+    "name": "Nickel Buttweld Fittings",
+    "seoSlug": "nickel-nickel-pipe-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/nickel-nickel-pipe-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/nickel-nickel-pipe-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/nickel-pipe-fittings/nickel-pipe-fittings",
       "/products/butt-weld-fittings/nickel-pipe-fittings/nickel-pipe-fittings",
       "/products/pipe-fittings/nickel-pipe-fittings/nickel-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/nickel-pipe-fittings/nickel-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/nickel-pipe-fittings/nickel-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/nickel-nickel-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/nickel-nickel-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/nickel-pipe-fittings/nickel-pipe-fittings",
+      "/products/buttweld-fittings/nickel-pipe-fittings",
+      "/products/pipe-fittings/nickel-pipe-fittings"
     ]
   },
   {
     "id": "fittings-copper-nickel-pipe-fittings-copper-nickel-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "copper-nickel-pipe-fittings",
     "materialSlug": "copper-nickel",
     "gradeSlug": "copper-nickel-pipe-fittings",
-    "name": "Copper Nickel Pipe Fittings",
-    "seoSlug": "copper-nickel-copper-nickel-pipe-pipe-fittings",
+    "name": "Copper Nickel Buttweld Fittings",
+    "seoSlug": "copper-nickel-copper-nickel-pipe-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/copper-nickel-copper-nickel-pipe-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/copper-nickel-copper-nickel-pipe-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/copper-nickel-pipe-fittings/copper-nickel-pipe-fittings",
       "/products/butt-weld-fittings/copper-nickel-pipe-fittings/copper-nickel-pipe-fittings",
       "/products/pipe-fittings/copper-nickel-pipe-fittings/copper-nickel-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/copper-nickel-pipe-fittings/copper-nickel-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/copper-nickel-pipe-fittings/copper-nickel-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/copper-nickel-copper-nickel-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/copper-nickel-copper-nickel-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/copper-nickel-pipe-fittings/copper-nickel-pipe-fittings",
+      "/products/buttweld-fittings/copper-nickel-pipe-fittings",
+      "/products/pipe-fittings/copper-nickel-pipe-fittings"
     ]
   },
   {
     "id": "fittings-titanium-pipe-fittings-titanium-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "titanium-pipe-fittings",
     "materialSlug": "titanium",
     "gradeSlug": "titanium-pipe-fittings",
-    "name": "Titanium Pipe Fittings",
-    "seoSlug": "titanium-titanium-pipe-pipe-fittings",
+    "name": "Titanium Buttweld Fittings",
+    "seoSlug": "titanium-titanium-pipe-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/titanium-titanium-pipe-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/titanium-titanium-pipe-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/titanium-pipe-fittings/titanium-pipe-fittings",
       "/products/butt-weld-fittings/titanium-pipe-fittings/titanium-pipe-fittings",
       "/products/pipe-fittings/titanium-pipe-fittings/titanium-pipe-fittings-manufactured-in-mumbai",
-      "/products/pipe-fittings/titanium-pipe-fittings/titanium-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/titanium-pipe-fittings/titanium-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/titanium-titanium-pipe-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/titanium-titanium-pipe-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/titanium-pipe-fittings/titanium-pipe-fittings",
+      "/products/buttweld-fittings/titanium-pipe-fittings",
+      "/products/pipe-fittings/titanium-pipe-fittings"
     ]
   },
   {
     "id": "fittings-inconel-pipe-fittings-inconel-625-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "inconel-pipe-fittings",
     "materialSlug": "inconel",
     "gradeSlug": "inconel-625-pipe-fittings",
-    "name": "Inconel 625 Pipe Fittings",
-    "seoSlug": "inconel-625-pipe-fittings",
+    "name": "Inconel 625 Buttweld Fittings",
+    "seoSlug": "inconel-625-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/inconel-625-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/inconel-625-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/inconel-pipe-fittings/inconel-625-pipe-fittings",
       "/products/pipe-fittings/inconel/inconel-625-pipe-fittings",
       "/products/pipe-fittings/inconel/inconel-625",
       "/products/pipe-fittings/inconel-pipe-fittings/inconel-625",
-      "/products/pipe-fittings/inconel-625-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/inconel-625-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/inconel-625-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/inconel-pipe-fittings/inconel-625-pipe-fittings",
+      "/products/buttweld-fittings/inconel-625-pipe-fittings",
+      "/products/pipe-fittings/inconel-625-pipe-fittings"
     ]
   },
   {
     "id": "fittings-inconel-pipe-fittings-inconel-600-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "inconel-pipe-fittings",
     "materialSlug": "inconel",
     "gradeSlug": "inconel-600-pipe-fittings",
-    "name": "Inconel 600 Pipe Fittings",
-    "seoSlug": "inconel-600-pipe-fittings",
+    "name": "Inconel 600 Buttweld Fittings",
+    "seoSlug": "inconel-600-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/inconel-600-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/inconel-600-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/inconel-pipe-fittings/inconel-600-pipe-fittings",
       "/products/pipe-fittings/inconel/inconel-600-pipe-fittings",
       "/products/pipe-fittings/inconel/inconel-600",
       "/products/pipe-fittings/inconel-pipe-fittings/inconel-600",
-      "/products/pipe-fittings/inconel-600-pipe-fittings-manufactured-in-mumbai"
+      "/products/pipe-fittings/inconel-600-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/inconel-600-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/inconel-pipe-fittings/inconel-600-pipe-fittings",
+      "/products/buttweld-fittings/inconel-600-pipe-fittings",
+      "/products/pipe-fittings/inconel-600-pipe-fittings"
     ]
   },
   {
     "id": "fittings-inconel-pipe-fittings-inconel-601-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "inconel-pipe-fittings",
     "materialSlug": "inconel",
     "gradeSlug": "inconel-601-pipe-fittings",
-    "name": "Inconel 601 Pipe Fittings",
-    "seoSlug": "inconel-601-pipe-fittings",
+    "name": "Inconel 601 Buttweld Fittings",
+    "seoSlug": "inconel-601-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/inconel-601-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/inconel-601-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/inconel-pipe-fittings/inconel-601-pipe-fittings",
       "/products/pipe-fittings/inconel/inconel-601-pipe-fittings",
       "/products/pipe-fittings/inconel/inconel-601",
       "/products/pipe-fittings/inconel-pipe-fittings/inconel-601",
-      "/products/pipe-fittings/inconel-601-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/inconel-601-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/inconel-601-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/inconel-pipe-fittings/inconel-601-pipe-fittings",
+      "/products/buttweld-fittings/inconel-601-pipe-fittings",
+      "/products/pipe-fittings/inconel-601-pipe-fittings"
     ]
   },
   {
     "id": "fittings-inconel-pipe-fittings-inconel-718-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "inconel-pipe-fittings",
     "materialSlug": "inconel",
     "gradeSlug": "inconel-718-pipe-fittings",
-    "name": "Inconel 718 Pipe Fittings",
-    "seoSlug": "inconel-718-pipe-fittings",
+    "name": "Inconel 718 Buttweld Fittings",
+    "seoSlug": "inconel-718-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/inconel-718-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/inconel-718-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/inconel-pipe-fittings/inconel-718-pipe-fittings",
       "/products/pipe-fittings/inconel/inconel-718-pipe-fittings",
       "/products/pipe-fittings/inconel/inconel-718",
       "/products/pipe-fittings/inconel-pipe-fittings/inconel-718",
-      "/products/pipe-fittings/inconel-718-pipe-fittings-manufactured-in-mumbai"
+      "/products/pipe-fittings/inconel-718-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/inconel-718-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/inconel-pipe-fittings/inconel-718-pipe-fittings",
+      "/products/buttweld-fittings/inconel-718-pipe-fittings",
+      "/products/pipe-fittings/inconel-718-pipe-fittings"
     ]
   },
   {
     "id": "fittings-inconel-pipe-fittings-incoloy-800-800h-800ht-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "inconel-pipe-fittings",
     "materialSlug": "inconel",
     "gradeSlug": "incoloy-800-800h-800ht-pipe-fittings",
-    "name": "Incoloy 800 / 800H / 800HT Pipe Fittings",
-    "seoSlug": "incoloy-800-800h-800ht-pipe-fittings",
+    "name": "Incoloy 800 / 800H / 800HT Buttweld Fittings",
+    "seoSlug": "incoloy-800-800h-800ht-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/incoloy-800-800h-800ht-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/incoloy-800-800h-800ht-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/inconel-pipe-fittings/incoloy-800-800h-800ht-pipe-fittings",
       "/products/pipe-fittings/inconel/incoloy-800-800h-800ht-pipe-fittings",
       "/products/pipe-fittings/inconel/incoloy-800",
       "/products/pipe-fittings/inconel-pipe-fittings/incoloy-800",
-      "/products/pipe-fittings/incoloy-800-800h-800ht-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/incoloy-800-800h-800ht-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/incoloy-800-800h-800ht-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/inconel-pipe-fittings/incoloy-800-800h-800ht-pipe-fittings",
+      "/products/buttweld-fittings/incoloy-800-800h-800ht-pipe-fittings",
+      "/products/pipe-fittings/incoloy-800-800h-800ht-pipe-fittings"
     ]
   },
   {
     "id": "fittings-inconel-pipe-fittings-incoloy-825-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "inconel-pipe-fittings",
     "materialSlug": "inconel",
     "gradeSlug": "incoloy-825-pipe-fittings",
-    "name": "Incoloy 825 Pipe Fittings",
-    "seoSlug": "incoloy-825-pipe-fittings",
+    "name": "Incoloy 825 Buttweld Fittings",
+    "seoSlug": "incoloy-825-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/incoloy-825-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/incoloy-825-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/inconel-pipe-fittings/incoloy-825-pipe-fittings",
       "/products/pipe-fittings/inconel/incoloy-825-pipe-fittings",
       "/products/pipe-fittings/inconel/incoloy-825",
       "/products/pipe-fittings/inconel-pipe-fittings/incoloy-825",
-      "/products/pipe-fittings/incoloy-825-pipe-fittings-manufactured-in-mumbai"
+      "/products/pipe-fittings/incoloy-825-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/incoloy-825-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/inconel-pipe-fittings/incoloy-825-pipe-fittings",
+      "/products/buttweld-fittings/incoloy-825-pipe-fittings",
+      "/products/pipe-fittings/incoloy-825-pipe-fittings"
     ]
   },
   {
     "id": "fittings-monel-pipe-fittings-monel-400-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "monel-pipe-fittings",
     "materialSlug": "monel",
     "gradeSlug": "monel-400-pipe-fittings",
-    "name": "Monel 400 Pipe Fittings",
-    "seoSlug": "monel-400-pipe-fittings",
+    "name": "Monel 400 Buttweld Fittings",
+    "seoSlug": "monel-400-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/monel-400-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/monel-400-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/monel-pipe-fittings/monel-400-pipe-fittings",
       "/products/pipe-fittings/monel/monel-400-pipe-fittings",
       "/products/pipe-fittings/monel/monel-400",
       "/products/pipe-fittings/monel-pipe-fittings/monel-400",
-      "/products/pipe-fittings/monel-400-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/monel-400-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/monel-400-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/monel-pipe-fittings/monel-400-pipe-fittings",
+      "/products/buttweld-fittings/monel-400-pipe-fittings",
+      "/products/pipe-fittings/monel-400-pipe-fittings"
     ]
   },
   {
     "id": "fittings-monel-pipe-fittings-monel-k500-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "monel-pipe-fittings",
     "materialSlug": "monel",
     "gradeSlug": "monel-k500-pipe-fittings",
-    "name": "Monel K500 Pipe Fittings",
-    "seoSlug": "monel-k500-pipe-fittings",
+    "name": "Monel K500 Buttweld Fittings",
+    "seoSlug": "monel-k500-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/monel-k500-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/monel-k500-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/monel-pipe-fittings/monel-k500-pipe-fittings",
       "/products/pipe-fittings/monel/monel-k500-pipe-fittings",
       "/products/pipe-fittings/monel/monel-k500",
       "/products/pipe-fittings/monel-pipe-fittings/monel-k500",
-      "/products/pipe-fittings/monel-k500-pipe-fittings-manufactured-in-mumbai"
+      "/products/pipe-fittings/monel-k500-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/monel-k500-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/monel-pipe-fittings/monel-k500-pipe-fittings",
+      "/products/buttweld-fittings/monel-k500-pipe-fittings",
+      "/products/pipe-fittings/monel-k500-pipe-fittings"
     ]
   },
   {
     "id": "fittings-hastelloy-pipe-fittings-hastelloy-c276-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "hastelloy-pipe-fittings",
     "materialSlug": "hastelloy",
     "gradeSlug": "hastelloy-c276-pipe-fittings",
-    "name": "Hastelloy C276 Pipe Fittings",
-    "seoSlug": "hastelloy-c276-pipe-fittings",
+    "name": "Hastelloy C276 Buttweld Fittings",
+    "seoSlug": "hastelloy-c276-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/hastelloy-c276-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/hastelloy-c276-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/hastelloy-pipe-fittings/hastelloy-c276-pipe-fittings",
       "/products/pipe-fittings/hastelloy/hastelloy-c276-pipe-fittings",
       "/products/pipe-fittings/hastelloy/hastelloy-c276",
       "/products/pipe-fittings/hastelloy-pipe-fittings/hastelloy-c276",
-      "/products/pipe-fittings/hastelloy-c276-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/hastelloy-c276-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/hastelloy-c276-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/hastelloy-pipe-fittings/hastelloy-c276-pipe-fittings",
+      "/products/buttweld-fittings/hastelloy-c276-pipe-fittings",
+      "/products/pipe-fittings/hastelloy-c276-pipe-fittings"
     ]
   },
   {
     "id": "fittings-hastelloy-pipe-fittings-hastelloy-c22-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "hastelloy-pipe-fittings",
     "materialSlug": "hastelloy",
     "gradeSlug": "hastelloy-c22-pipe-fittings",
-    "name": "Hastelloy C22 Pipe Fittings",
-    "seoSlug": "hastelloy-c22-pipe-fittings",
+    "name": "Hastelloy C22 Buttweld Fittings",
+    "seoSlug": "hastelloy-c22-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/hastelloy-c22-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/hastelloy-c22-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/hastelloy-pipe-fittings/hastelloy-c22-pipe-fittings",
       "/products/pipe-fittings/hastelloy/hastelloy-c22-pipe-fittings",
       "/products/pipe-fittings/hastelloy/hastelloy-c22",
       "/products/pipe-fittings/hastelloy-pipe-fittings/hastelloy-c22",
-      "/products/pipe-fittings/hastelloy-c22-pipe-fittings-manufactured-in-mumbai"
+      "/products/pipe-fittings/hastelloy-c22-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/hastelloy-c22-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/hastelloy-pipe-fittings/hastelloy-c22-pipe-fittings",
+      "/products/buttweld-fittings/hastelloy-c22-pipe-fittings",
+      "/products/pipe-fittings/hastelloy-c22-pipe-fittings"
     ]
   },
   {
     "id": "fittings-hastelloy-pipe-fittings-hastelloy-b2-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "hastelloy-pipe-fittings",
     "materialSlug": "hastelloy",
     "gradeSlug": "hastelloy-b2-pipe-fittings",
-    "name": "Hastelloy B2 Pipe Fittings",
-    "seoSlug": "hastelloy-b2-pipe-fittings",
+    "name": "Hastelloy B2 Buttweld Fittings",
+    "seoSlug": "hastelloy-b2-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/hastelloy-b2-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/hastelloy-b2-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/hastelloy-pipe-fittings/hastelloy-b2-pipe-fittings",
       "/products/pipe-fittings/hastelloy/hastelloy-b2-pipe-fittings",
       "/products/pipe-fittings/hastelloy/hastelloy-b2",
       "/products/pipe-fittings/hastelloy-pipe-fittings/hastelloy-b2",
-      "/products/pipe-fittings/hastelloy-b2-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/hastelloy-b2-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/hastelloy-b2-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/hastelloy-pipe-fittings/hastelloy-b2-pipe-fittings",
+      "/products/buttweld-fittings/hastelloy-b2-pipe-fittings",
+      "/products/pipe-fittings/hastelloy-b2-pipe-fittings"
     ]
   },
   {
     "id": "fittings-nickel-pipe-fittings-nickel-200-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "nickel-pipe-fittings",
     "materialSlug": "nickel",
     "gradeSlug": "nickel-200-pipe-fittings",
-    "name": "Nickel 200 Pipe Fittings",
-    "seoSlug": "nickel-200-pipe-fittings",
+    "name": "Nickel 200 Buttweld Fittings",
+    "seoSlug": "nickel-200-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/nickel-200-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/nickel-200-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/nickel-pipe-fittings/nickel-200-pipe-fittings",
       "/products/pipe-fittings/nickel/nickel-200-pipe-fittings",
       "/products/pipe-fittings/nickel/nickel-200",
       "/products/pipe-fittings/nickel-pipe-fittings/nickel-200",
-      "/products/pipe-fittings/nickel-200-pipe-fittings-manufactured-in-mumbai"
+      "/products/pipe-fittings/nickel-200-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/nickel-200-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/nickel-pipe-fittings/nickel-200-pipe-fittings",
+      "/products/buttweld-fittings/nickel-200-pipe-fittings",
+      "/products/pipe-fittings/nickel-200-pipe-fittings"
     ]
   },
   {
     "id": "fittings-nickel-pipe-fittings-nickel-201-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "nickel-pipe-fittings",
     "materialSlug": "nickel",
     "gradeSlug": "nickel-201-pipe-fittings",
-    "name": "Nickel 201 Pipe Fittings",
-    "seoSlug": "nickel-201-pipe-fittings",
+    "name": "Nickel 201 Buttweld Fittings",
+    "seoSlug": "nickel-201-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/nickel-201-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/nickel-201-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/nickel-pipe-fittings/nickel-201-pipe-fittings",
       "/products/pipe-fittings/nickel/nickel-201-pipe-fittings",
       "/products/pipe-fittings/nickel/nickel-201",
       "/products/pipe-fittings/nickel-pipe-fittings/nickel-201",
-      "/products/pipe-fittings/nickel-201-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/nickel-201-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/nickel-201-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/nickel-pipe-fittings/nickel-201-pipe-fittings",
+      "/products/buttweld-fittings/nickel-201-pipe-fittings",
+      "/products/pipe-fittings/nickel-201-pipe-fittings"
     ]
   },
   {
     "id": "fittings-copper-nickel-pipe-fittings-cu-ni-90-10-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "copper-nickel-pipe-fittings",
     "materialSlug": "copper-nickel",
     "gradeSlug": "cu-ni-90-10-pipe-fittings",
-    "name": "Cu-Ni 90/10 Pipe Fittings",
-    "seoSlug": "cu-ni-90-10-pipe-fittings",
+    "name": "Cu-Ni 90/10 Buttweld Fittings",
+    "seoSlug": "cu-ni-90-10-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/cu-ni-90-10-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/cu-ni-90-10-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/copper-nickel-pipe-fittings/cu-ni-90-10-pipe-fittings",
       "/products/pipe-fittings/copper-nickel/cu-ni-90-10-pipe-fittings",
       "/products/pipe-fittings/copper-nickel/cu-ni-90-10",
       "/products/pipe-fittings/copper-nickel-pipe-fittings/cu-ni-90-10",
-      "/products/pipe-fittings/cu-ni-90-10-pipe-fittings-manufactured-in-mumbai"
+      "/products/pipe-fittings/cu-ni-90-10-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/cu-ni-90-10-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/copper-nickel-pipe-fittings/cu-ni-90-10-pipe-fittings",
+      "/products/buttweld-fittings/cu-ni-90-10-pipe-fittings",
+      "/products/pipe-fittings/cu-ni-90-10-pipe-fittings"
     ]
   },
   {
     "id": "fittings-copper-nickel-pipe-fittings-cu-ni-70-30-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "copper-nickel-pipe-fittings",
     "materialSlug": "copper-nickel",
     "gradeSlug": "cu-ni-70-30-pipe-fittings",
-    "name": "Cu-Ni 70/30 Pipe Fittings",
-    "seoSlug": "cu-ni-70-30-pipe-fittings",
+    "name": "Cu-Ni 70/30 Buttweld Fittings",
+    "seoSlug": "cu-ni-70-30-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/cu-ni-70-30-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/cu-ni-70-30-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/copper-nickel-pipe-fittings/cu-ni-70-30-pipe-fittings",
       "/products/pipe-fittings/copper-nickel/cu-ni-70-30-pipe-fittings",
       "/products/pipe-fittings/copper-nickel/cu-ni-70-30",
       "/products/pipe-fittings/copper-nickel-pipe-fittings/cu-ni-70-30",
-      "/products/pipe-fittings/cu-ni-70-30-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/cu-ni-70-30-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/cu-ni-70-30-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/copper-nickel-pipe-fittings/cu-ni-70-30-pipe-fittings",
+      "/products/buttweld-fittings/cu-ni-70-30-pipe-fittings",
+      "/products/pipe-fittings/cu-ni-70-30-pipe-fittings"
     ]
   },
   {
     "id": "fittings-titanium-pipe-fittings-titanium-grade-2-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "titanium-pipe-fittings",
     "materialSlug": "titanium",
     "gradeSlug": "titanium-grade-2-pipe-fittings",
-    "name": "Titanium Grade 2 Pipe Fittings",
-    "seoSlug": "titanium-grade-2-pipe-fittings",
+    "name": "Titanium Grade 2 Buttweld Fittings",
+    "seoSlug": "titanium-grade-2-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/titanium-grade-2-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/titanium-grade-2-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/titanium-pipe-fittings/titanium-grade-2-pipe-fittings",
       "/products/pipe-fittings/titanium/titanium-grade-2-pipe-fittings",
       "/products/pipe-fittings/titanium/titanium-grade-2",
       "/products/pipe-fittings/titanium-pipe-fittings/titanium-grade-2",
-      "/products/pipe-fittings/titanium-grade-2-pipe-fittings-manufactured-in-mumbai"
+      "/products/pipe-fittings/titanium-grade-2-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/titanium-grade-2-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/titanium-pipe-fittings/titanium-grade-2-pipe-fittings",
+      "/products/buttweld-fittings/titanium-grade-2-pipe-fittings",
+      "/products/pipe-fittings/titanium-grade-2-pipe-fittings"
     ]
   },
   {
     "id": "fittings-titanium-pipe-fittings-titanium-grade-5-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "titanium-pipe-fittings",
     "materialSlug": "titanium",
     "gradeSlug": "titanium-grade-5-pipe-fittings",
-    "name": "Titanium Grade 5 Pipe Fittings",
-    "seoSlug": "titanium-grade-5-pipe-fittings",
+    "name": "Titanium Grade 5 Buttweld Fittings",
+    "seoSlug": "titanium-grade-5-buttweld-fittings",
     "suffix": "manufactured-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/titanium-grade-5-pipe-fittings-manufactured-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/titanium-grade-5-buttweld-fittings-manufactured-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/titanium-pipe-fittings/titanium-grade-5-pipe-fittings",
       "/products/pipe-fittings/titanium/titanium-grade-5-pipe-fittings",
       "/products/pipe-fittings/titanium/titanium-grade-5",
       "/products/pipe-fittings/titanium-pipe-fittings/titanium-grade-5",
-      "/products/pipe-fittings/titanium-grade-5-pipe-fittings-stockist-in-mumbai"
+      "/products/pipe-fittings/titanium-grade-5-pipe-fittings-stockist-in-mumbai",
+      "/products/pipe-fittings/titanium-grade-5-pipe-fittings-manufactured-in-mumbai",
+      "/products/buttweld-fittings/titanium-pipe-fittings/titanium-grade-5-pipe-fittings",
+      "/products/buttweld-fittings/titanium-grade-5-pipe-fittings",
+      "/products/pipe-fittings/titanium-grade-5-pipe-fittings"
     ]
   },
   {
     "id": "fittings-titanium-pipe-fittings-titanium-grade-7-pipe-fittings",
-    "division": "pipe-fittings",
+    "division": "buttweld-fittings",
     "categorySlug": "titanium-pipe-fittings",
     "materialSlug": "titanium",
     "gradeSlug": "titanium-grade-7-pipe-fittings",
-    "name": "Titanium Grade 7 Pipe Fittings",
-    "seoSlug": "titanium-grade-7-pipe-fittings",
+    "name": "Titanium Grade 7 Buttweld Fittings",
+    "seoSlug": "titanium-grade-7-buttweld-fittings",
     "suffix": "stockist-in-mumbai",
-    "canonicalUrl": "/products/pipe-fittings/titanium-grade-7-pipe-fittings-stockist-in-mumbai",
+    "canonicalUrl": "/products/buttweld-fittings/titanium-grade-7-buttweld-fittings-stockist-in-mumbai",
     "legacyUrls": [
       "/products/pipe-fittings/titanium-pipe-fittings/titanium-grade-7-pipe-fittings",
       "/products/pipe-fittings/titanium/titanium-grade-7-pipe-fittings",
       "/products/pipe-fittings/titanium/titanium-grade-7",
       "/products/pipe-fittings/titanium-pipe-fittings/titanium-grade-7",
-      "/products/pipe-fittings/titanium-grade-7-pipe-fittings-manufactured-in-mumbai"
+      "/products/pipe-fittings/titanium-grade-7-pipe-fittings-manufactured-in-mumbai",
+      "/products/pipe-fittings/titanium-grade-7-pipe-fittings-stockist-in-mumbai",
+      "/products/buttweld-fittings/titanium-pipe-fittings/titanium-grade-7-pipe-fittings",
+      "/products/buttweld-fittings/titanium-grade-7-pipe-fittings",
+      "/products/pipe-fittings/titanium-grade-7-pipe-fittings"
     ]
   },
   {
@@ -9331,6 +9101,10 @@ ALL_SEO_PRODUCTS.forEach(p => {
   if (p.gradeSlug) {
     _productByCanonicalKey.set(`${p.division}:${p.gradeSlug}`, p);
     _productByCanonicalKey.set(`${p.division}:${p.categorySlug}:${p.gradeSlug}`, p);
+    if (p.division === 'buttweld-fittings') {
+      _productByCanonicalKey.set(`pipe-fittings:${p.gradeSlug}`, p);
+      _productByCanonicalKey.set(`pipe-fittings:${p.categorySlug}:${p.gradeSlug}`, p);
+    }
     if (p.materialSlug) {
       _productByCanonicalKey.set(`${p.division}:${p.materialSlug}:${p.gradeSlug}`, p);
     }

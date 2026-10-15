@@ -210,7 +210,7 @@ function parseRoute(pathname = (typeof window !== 'undefined' ? window.location.
           isStockistInMumbai: isStockist
         };
       }
-      if (resolvedProduct.division === 'pipe-fittings') {
+      if (resolvedProduct.division === 'pipe-fittings' || resolvedProduct.division === 'buttweld-fittings') {
         return {
           page: 'products',
           view: 'pipe-fitting-grade-detail',
@@ -357,13 +357,15 @@ function parseRoute(pathname = (typeof window !== 'undefined' ? window.location.
       }
     }
 
-    // Dedicated Pipe Fittings Product Page & Grade Detail Routes
+    // Dedicated Buttweld Fittings Product Page & Grade Detail Routes
     if (
+      p0 === 'buttweld-fittings' ||
+      p0 === 'buttweld-fitting' ||
+      p0 === 'butt-weld-fittings' ||
+      p0 === 'butt-weld-fitting' ||
       p0 === 'pipe-fittings' ||
       p0 === 'pipe-fitting' ||
-      p0 === 'fittings' ||
-      p0 === 'butt-weld-fittings' ||
-      p0 === 'buttweld-fittings'
+      p0 === 'fittings'
     ) {
       if (parts.length === 1) {
         return { page: 'products', view: 'pipe-fittings-listing', materialSlug: null, isManufacturedInMumbai };

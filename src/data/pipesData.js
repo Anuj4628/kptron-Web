@@ -4,20 +4,21 @@
  * Only genuine technical standards, ASTM/ASME specifications, and verified industrial applications.
  */
 
-import img_alloy_pipe from '../assets/New Product img/Pipes/alloy-steel-pipes.jpg';
-import img_inconel_pipe from '../assets/New Product img/Pipes/inconel-pipes.jpg';
-import img_monel_pipe from '../assets/New Product img/Pipes/monel-pipes.jpg';
-import img_stainless_pipe from '../assets/New Product img/Pipes/stainless steel pipes.jpg';
+import img_alloy_pipe from '../assets/Pipe Product new images/alloy steel.jpeg';
+import img_inconel_pipe from '../assets/Pipe Product new images/iconel.jpeg';
+import img_monel_pipe from '../assets/Pipe Product new images/monel.jpeg';
+import img_stainless_pipe from '../assets/Pipe Product new images/SS.jpeg';
 import img_duplex_pipe from '../assets/New Product img/Pipes/duplex-steel-pipes.jpg';
-import img_carbon_pipe from '../assets/New Product img/Pipes/carbon.jpg';
+import img_carbon_pipe from '../assets/Pipe Product new images/carbon.jpeg';
 import img_hastelloy_pipe from '../assets/New Product img/Pipes/hastelloy-pipes.jpg';
 import img_nickel_pipe from '../assets/New Product img/Pipes/nickel-pipes.jpg';
-import img_copper_nickel_pipe from '../assets/New Product img/Pipes/copper-nickel-pipes.jpg';
-import img_titanium_pipe from '../assets/New Product img/Pipes/titanium-pipes.jpg';
+import img_copper_nickel_pipe from '../assets/Pipe Product new images/copper.jpeg';
+import img_titanium_pipe from '../assets/Pipe Product new images/titanium.jpeg';
 import img_is_grades_pipe from '../assets/New Product img/Pipes/is-grades-pipes.jpg';
-import img_api_5l_pipe from '../assets/New Product img/Pipes/api-5l-pipes.jpg';
-import img_en_standards_pipe from '../assets/New Product img/Pipes/en-standards-pipes.jpg';
-import img_aluminum_pipe from '../assets/New Product img/Pipes/aluminium-pipes.jpg';
+import img_api_5l_pipe from '../assets/Pipe Product new images/api standard.jpeg';
+import img_en_standards_pipe from '../assets/Pipe Product new images/En standard.jpeg';
+import img_aluminum_pipe from '../assets/Pipe Product new images/aluminium.jpeg';
+import { getPipeGradeImage, PIPE_GRADE_IMAGES } from './pipeGradeImages';
 
 export const PIPE_CATEGORIES = [
   {
@@ -138,58 +139,6 @@ export const PIPE_CATEGORIES = [
         fullDesc: 'ASTM A691 covers heavy-wall electric-fusion-welded (EFW) pipe fabricated from pressure vessel quality plate. Available in Grade 1/2Cr, 1Cr, 1 1/4Cr, 2 1/4Cr, 5Cr, 9Cr, and 91.',
         specs: { size: '16" NB to 64" NB', schedule: 'Heavy Wall (10mm to 75mm)', ends: 'Beveled Ends' },
         applications: ['Large diameter steam distribution headers', 'Refinery high-temperature flare and reactor lines', 'Power plant balance-of-plant piping']
-      },
-      {
-        id: '16mo3-pipe',
-        slug: '16mo3-pipe',
-        name: '16Mo3 European Standard Pipe',
-        code: 'EN 10216-2 16Mo3',
-        standard: 'EN 10216-2 / DIN 17175',
-        uns: '1.5415',
-        din: '16Mo3 / 15Mo3',
-        shortDesc: 'European standard molybdenum alloy steel seamless pipe for boilers, heat exchangers, and elevated temperature vessels.',
-        fullDesc: '16Mo3 is an EN 10216-2 specified pressure vessel grade alloy pipe formulated with 0.3% Molybdenum for steam boilers and industrial heating systems operating up to 500°C.',
-        specs: { size: '21.3 mm to 610 mm OD', schedule: 'Standard to Heavy Wall', ends: 'Plain / Beveled' },
-        applications: ['Industrial steam boilers', 'District heating infrastructure', 'Heat exchanger coils', 'Power generation headers']
-      },
-      {
-        id: 'astm-a334-gr-6',
-        slug: 'astm-a334-gr-6',
-        name: 'ASTM A334 Grade 6 Low-Temp Pipe',
-        code: 'ASTM A334 Gr. 6',
-        standard: 'ASTM A334 / ASME SA334',
-        uns: 'UNS K03006',
-        din: '1.0456',
-        shortDesc: 'Seamless and welded carbon-alloy steel pipe and tube engineered for low-temperature service down to -45°C.',
-        fullDesc: 'ASTM A334 Grade 6 covers seamless and welded carbon and alloy steel tubes intended for use at low temperatures, with mandatory Charpy V-notch impact testing at -45°C.',
-        specs: { size: '1/2" to 6" OD', schedule: 'Standard Wall', ends: 'Plain Ends' },
-        applications: ['Cryogenic fluid transfer', 'Refrigeration piping', 'Low-temperature gas processing plants', 'Offshore cold service lines']
-      },
-      {
-        id: 'chromoly-pipe',
-        slug: 'chromoly-pipe',
-        name: 'Chromoly Industrial Piping',
-        code: 'Cr-Mo Commercial Alloy',
-        standard: 'ASTM A335 / DIN 17175',
-        uns: 'Chrome-Moly Series',
-        din: 'Cr-Mo Commercial',
-        shortDesc: 'General commercial chromium-molybdenum alloy steel pipe known for exceptional strength-to-weight ratio and heat endurance.',
-        fullDesc: 'Chromoly pipes offer superior tensile and yield strength compared to standard carbon steel, combined with good ductility and high resistance to oxidation at high temperatures.',
-        specs: { size: '1/2" to 24" NB', schedule: 'SCH 40 to SCH 160', ends: 'Plain / Beveled' },
-        applications: ['High-stress structural tubular frames', 'Industrial processing headers', 'Elevated temperature steam and flue lines']
-      },
-      {
-        id: '12cr1mov-pipe',
-        slug: '12cr1mov-pipe',
-        name: '12Cr1MoV High-Temp Alloy Pipe',
-        code: '12Cr1MoV Boiler Pipe',
-        standard: 'GB/T 5310 / GOST 12Kh1MF',
-        uns: '12Cr1MoV Series',
-        din: '1.7715 (14MoV6-3 Equivalent)',
-        shortDesc: 'Chromium-molybdenum-vanadium heat-resistant pearlitic steel pipe for high-temperature superheater steam lines.',
-        fullDesc: '12Cr1MoV is an advanced pearlite-type heat-resistant steel pipe featuring vanadium addition for high thermal strength and oxidation resistance up to 580°C.',
-        specs: { size: '1/2" to 24" NB', schedule: 'SCH 40 to SCH XXS', ends: 'Beveled Ends' },
-        applications: ['Boiler superheater steam pipes', 'High-pressure steam headers', 'Power plant steam turbine bypass lines']
       }
     ]
   },
@@ -743,110 +692,6 @@ export const PIPE_CATEGORIES = [
         applications: ['Cold climatic pipelines', 'Refrigeration processing plants', 'Low-temperature LPG terminal piping']
       },
       {
-        id: 'astm-a333-grade-3-pipe',
-        slug: 'astm-a333-grade-3-pipe',
-        name: 'ASTM A333 Grade 3 Pipe',
-        code: 'ASTM A333 Gr. 3 (3.5% Nickel)',
-        standard: 'ASTM A333 / ASME SA333',
-        uns: 'UNS K31918',
-        din: '1.5637 (10Ni14)',
-        shortDesc: '3.5% Nickel alloyed seamless steel pipe engineered for extreme sub-zero low-temperature operations down to -100°C.',
-        fullDesc: 'ASTM A333 Grade 3 incorporates 3.5% Nickel, delivering extraordinary low-temperature impact toughness down to -100°C. Ideal for ethylene synthesis, LPG handling, and cryogenic refrigeration systems.',
-        specs: { size: '1/2" to 20" NB', schedule: 'SCH 40 to SCH XXS', ends: 'Beveled Ends' },
-        applications: ['Ethylene plant piping and refrigeration systems', 'Liquid propane and butane transfer lines', 'Cryogenic gas processing facilities', 'Polar oilfield installations']
-      },
-      {
-        id: 'astm-a333-grade-6-pipe',
-        slug: 'astm-a333-grade-6-pipe',
-        name: 'ASTM A333 Grade 6 Pipe',
-        code: 'ASTM A333 Gr. 6 (-45°C)',
-        standard: 'ASTM A333 / ASME SA333',
-        uns: 'UNS K03022',
-        din: '1.0456',
-        shortDesc: 'Low-temperature seamless and welded carbon steel pipe with mandatory Charpy V-notch impact testing at -45°C.',
-        fullDesc: 'ASTM A333 Grade 6 is the standard low-temperature carbon steel pipe specification in the oil, gas, and chemical industries. Conforms to fine-grain practice and normalized heat treatment.',
-        specs: { size: '1/2" to 36" NB', schedule: 'SCH 20 to SCH XXS', ends: 'Beveled Ends (ASME B16.25)' },
-        applications: ['Liquefied petroleum gas (LPG) pipelines', 'Arctic and sub-zero oilfield piping', 'Refrigeration compression circuits', 'Compressed natural gas (CNG) handling']
-      },
-      {
-        id: 'astm-a334-gr-1-tube',
-        slug: 'astm-a334-gr-1-tube',
-        name: 'ASTM A334 GR.1 Tube',
-        code: 'ASTM A334 Gr. 1 Low Temp Tube',
-        standard: 'ASTM A334 / ASME SA334',
-        uns: 'UNS K03008',
-        din: '1.0456 Tube',
-        shortDesc: 'Seamless and welded carbon steel tube for low-temperature heat exchangers and process lines.',
-        fullDesc: 'ASTM A334 Grade 1 covers carbon and alloy steel tubing intended for use at low temperatures down to -45°C with guaranteed impact absorption.',
-        specs: { size: '1/2" to 5" OD', schedule: 'Standard Wall', ends: 'Plain Ends' },
-        applications: ['Low-temperature refrigeration exchangers', 'Petrochemical gas recovery condensers', 'Cryogenic vaporizer tubes']
-      },
-      {
-        id: 'astm-a572-grade-50-pipe',
-        slug: 'astm-a572-grade-50-pipe',
-        name: 'ASTM A572 Grade 50 Pipe',
-        code: 'ASTM A572 Gr. 50 HSLA',
-        standard: 'ASTM A572',
-        uns: 'UNS K02304',
-        din: 'EN 10025 S355JR',
-        shortDesc: 'High-strength low-alloy columbium-vanadium structural steel pipe offering minimum yield strength of 345 MPa (50 ksi).',
-        fullDesc: 'ASTM A572 Grade 50 is a high-strength low-alloy (HSLA) structural pipe that provides an optimal combination of high yield strength, weldability, and notch toughness for heavy structural frames and towers.',
-        specs: { size: '2" to 36" NB', schedule: 'SCH 40 to SCH 120', ends: 'Plain / Beveled' },
-        applications: ['Transmission tower tubular members', 'Heavy construction and crane booms', 'Bridge structural support arches', 'Offshore platform topside structural spools']
-      },
-      {
-        id: 'astm-a671-pipe',
-        slug: 'astm-a671-pipe',
-        name: 'ASTM A671 EFW Pipe',
-        code: 'ASTM A671 Heavy Wall EFW',
-        standard: 'ASTM A671 / ASME SA671',
-        uns: 'Various Carbon Grades',
-        din: 'EN 10217-1 Large EFW',
-        shortDesc: 'Electric-fusion-welded carbon steel pipe with filler metal added, engineered for atmospheric and lower temperatures.',
-        fullDesc: 'ASTM A671 covers electric-fusion-welded steel pipe with filler metal added, fabricated from pressure vessel quality plate for high-pressure service at atmospheric and lower temperatures.',
-        specs: { size: '16" NB to 64" NB', schedule: 'Wall: 10mm to 80mm', ends: 'Beveled Ends (100% X-Ray)' },
-        applications: ['High-pressure water supply penstocks', 'Refinery heavy-wall line pipe headers', 'Natural gas mainline trunk pipelines']
-      },
-      {
-        id: 'astm-a671-cc60-pipe',
-        slug: 'astm-a671-cc60-pipe',
-        name: 'ASTM A671 CC60 Pipe',
-        code: 'ASTM A671 Grade CC60',
-        standard: 'ASTM A671 / ASME SA671',
-        uns: 'UNS K02100 (A516 Gr 60)',
-        din: '1.0425 (P265GH EFW)',
-        shortDesc: 'Large diameter EFW pipe fabricated from ASTM A516 Gr. 60 plate, offering superior toughness at moderate to low temperatures.',
-        fullDesc: 'Fabricated from killed carbon steel plate ASTM A516 Grade 60, tested 100% by radiography (RT) to ensure zero weld defects in severe high-pressure service.',
-        specs: { size: '16" to 56" NB', schedule: 'Wall: 12mm to 65mm', ends: 'Beveled Ends' },
-        applications: ['Refinery low-temperature process lines', 'High-pressure cross-country gas pipelines', 'Power station steam condenser pipes']
-      },
-      {
-        id: 'astm-a671-cc65-pipe',
-        slug: 'astm-a671-cc65-pipe',
-        name: 'ASTM A671 CC65 Pipe',
-        code: 'ASTM A671 Grade CC65',
-        standard: 'ASTM A671 / ASME SA671',
-        uns: 'UNS K02403 (A516 Gr 65)',
-        din: '1.0481 (P295GH EFW)',
-        shortDesc: 'Large diameter EFW pipe fabricated from ASTM A516 Gr. 65 plate providing balanced tensile strength and notch toughness.',
-        fullDesc: 'Manufactured by precision longitudinal seam welding from normalized ASTM A516 Grade 65 plate with full volumetric ultrasonic and radiographic inspection.',
-        specs: { size: '16" to 56" NB', schedule: 'Wall: 12mm to 70mm', ends: 'Beveled Ends' },
-        applications: ['Gas gathering transmission lines', 'Industrial boiler steam distribution conduits', 'Petrochemical cracking unit balance piping']
-      },
-      {
-        id: 'astm-a671-cc70-pipe',
-        slug: 'astm-a671-cc70-pipe',
-        name: 'ASTM A671 CC70 Pipe',
-        code: 'ASTM A671 Grade CC70',
-        standard: 'ASTM A671 / ASME SA671',
-        uns: 'UNS K02700 (A516 Gr 70)',
-        din: '1.0473 (P355GH EFW)',
-        shortDesc: 'High-strength large diameter EFW pipe fabricated from ASTM A516 Gr. 70 plate for maximum allowable design pressure.',
-        fullDesc: 'ASTM A671 Grade CC70 delivers the highest tensile strength (485-620 MPa) among A516 plate-derived EFW pipes. Used where heavy-wall thickness and high pressure containment are essential.',
-        specs: { size: '16" to 64" NB', schedule: 'Wall: 12mm to 80mm', ends: 'Beveled Ends' },
-        applications: ['High-pressure gas storage and transfer', 'Refinery hydrocracker reactor effluent lines', 'Hydroelectric power plant penstocks']
-      },
-      {
         id: 'api-5l-grade-b-x70-pipe',
         slug: 'api-5l-grade-b-x70-pipe',
         name: 'API 5L Grade B to X70 Pipe',
@@ -1196,19 +1041,6 @@ export const PIPE_CATEGORIES = [
     availableForms: ['Seamless Line Pipe', 'HFW / ERW High Frequency Welded', 'LSAW Longitudinal Submerged Arc Welded', 'SSAW Spiral Welded'],
     grades: [
       {
-        id: 'api-5l-pipe',
-        slug: 'api-5l-pipe',
-        name: 'API 5L Pipe',
-        code: 'API Spec 5L PSL1 / PSL2 Standard',
-        standard: 'API Spec 5L / ISO 3183',
-        uns: 'API 5L Series',
-        din: 'EN 10208-2 Equivalent',
-        shortDesc: 'Standard petroleum line pipe specified for liquid hydrocarbons, refined fuels, and natural gas conveyance.',
-        fullDesc: 'Conforms strictly to API Spec 5L PSL1 and PSL2 requirements. Every length undergoes mandatory ultrasonic weld inspection, hydrostatic proof testing to 100% SMYS, and dimensional verification.',
-        specs: { size: '1/2" to 48" NB', schedule: 'SCH 40 to SCH 160, STD, XS, XXS', ends: 'Beveled Ends (30° ± 5° per API 5L)' },
-        applications: ['Crude oil cross-country pipelines', 'Natural gas transmission grids', 'Refinery interconnecting pipe bridges', 'Offshore production platform line pipes']
-      },
-      {
         id: 'api-5l-grade-b-pipe',
         slug: 'api-5l-grade-b-pipe',
         name: 'API 5L Grade B Pipe',
@@ -1311,32 +1143,6 @@ export const PIPE_CATEGORIES = [
         fullDesc: 'Provides maximum pipe wall weight savings in 48" to 56" diameter overland gas highways. Conforms to PSL2 with high Charpy energy absorbing toughness.',
         specs: { size: '8" to 64" OD', schedule: 'SCH 40 to SCH 160', ends: 'Beveled Ends' },
         applications: ['Transcontinental natural gas highways', 'Ultra-high pressure export gas transmission', 'Offshore deepwater trunklines', 'Major national energy grid lines']
-      },
-      {
-        id: 'api-5ct-l80-n80-pipe',
-        slug: 'api-5ct-l80-n80-pipe',
-        name: 'API 5CT L80/N80 Pipe',
-        code: 'API Spec 5CT Casing & Tubing (L80 / N80)',
-        standard: 'API Spec 5CT (10th Edition)',
-        uns: 'API 5CT Series',
-        din: 'Oil Country Tubular Goods (OCTG)',
-        shortDesc: 'High-strength oilfield OCTG casing and production tubing engineered for downhole well completion.',
-        fullDesc: 'API 5CT Grade L80 (controlled yield 80-95 ksi, max hardness 23 HRC) provides sour service resistance in wells containing H2S. Grade N80 delivers high burst and collapse resistance in conventional oil and gas wells.',
-        specs: { size: '2-3/8" to 20" OD', schedule: 'Heavy Wall OCTG Casing/Tubing', ends: 'API Buttress (BTC) / EUE / NUE / Premium Connections' },
-        applications: ['Oil and gas well production tubing', 'Deep oil well surface and intermediate casing', 'Geothermal high-temperature well completion', 'Downhole pump string conduits']
-      },
-      {
-        id: 'api-5l-erw-pipe',
-        slug: 'api-5l-erw-pipe',
-        name: 'API 5L ERW Pipe',
-        code: 'API 5L HFW / ERW Line Pipe',
-        standard: 'API Spec 5L PSL1 & PSL2',
-        uns: 'API 5L ERW Series',
-        din: 'Electric Resistance Welded Standard',
-        shortDesc: 'High-frequency electric resistance welded line pipe with full online seam heat treatment for defect-free welds.',
-        fullDesc: 'Manufactured from hot rolled coil using high-frequency induction welding followed by full-body or weld seam normalizing. Offers tight dimensional tolerances and uniform wall thickness for high-speed field pipelaying.',
-        specs: { size: '2" to 24" NB', schedule: 'SCH 20, 30, 40, 80, STD, XS', ends: 'Beveled Ends' },
-        applications: ['Medium-diameter gas distribution systems', 'Crude oil gathering pipelines', 'Water injection lines in secondary recovery', 'Industrial fuel delivery pipelines']
       }
     ]
   },
@@ -1355,19 +1161,6 @@ export const PIPE_CATEGORIES = [
     schedules: 'Metric Schedules, DIN/EN Standard Dimensions',
     availableForms: ['Seamless Boiler Tubes', 'Hollow Machining Bars (E355)', 'Cold Formed Structural Sections (CHS/SHS/RHS)', 'Precision Hydraulic Tubes'],
     grades: [
-      {
-        id: 'en-standards-pipe',
-        slug: 'en-standards-pipe',
-        name: 'EN Standards Pipe',
-        code: 'Euronorm Certified Steel Piping',
-        standard: 'EN 10216 / EN 10219 / EN 10294-1',
-        uns: 'European Norm Steel Series',
-        din: 'DIN EN Standards',
-        shortDesc: 'Comprehensive European Standard steel piping certified with CE marking and EN 10204 3.1 inspection.',
-        fullDesc: 'Manufactured in European certified mills conforming to Euronorm technical delivery conditions with full traceability, impact testing down to -50°C, and tight outer diameter tolerances.',
-        specs: { size: '21.3mm to 812mm OD', schedule: 'EN Standard Wall Series', ends: 'Plain Ends / Beveled (30°)' },
-        applications: ['Power plant steam boiler systems', 'Chemical and petrochem pressure conduits', 'Machined precision mechanical bushings', 'Architectural structural steel frameworks']
-      },
       {
         id: 'en-10025-pipe',
         slug: 'en-10025-pipe',
@@ -1411,79 +1204,14 @@ export const PIPE_CATEGORIES = [
         id: 'en-10253-pipe',
         slug: 'en-10253-pipe',
         name: 'EN 10253-1/2 Pipe',
-        code: 'EN 10253 Butt-Weld Fitting Tubulars',
+        code: 'EN 10253 Buttweld Fitting Tubulars',
         standard: 'EN 10253 (Part 1 & 2)',
         uns: 'EN 10253 Series',
         din: '1.0305 (P235GH) / 1.0405 (P265GH)',
-        shortDesc: 'Pipes and tubular raw materials engineered for the fabrication of EN 10253 seamless and welded butt-welding pipe fittings.',
+        shortDesc: 'Pipes and tubular raw materials engineered for the fabrication of EN 10253 seamless and welded buttweld fittings.',
         fullDesc: 'Specially formulated hot-formed tubular stock with controlled elongation and ductility required for hot-mandrel elbow extrusion and tee forming.',
         specs: { size: '21.3mm to 610mm OD', schedule: 'Wall: 2.0mm to 35mm', ends: 'Plain / Beveled' },
-        applications: ['Manufacture of EN butt-welding elbows and tees', 'Pressure equipment interconnecting spools', 'Process piping reducers and caps']
-      },
-      {
-        id: 'en-10294-1-grade-e355-ar',
-        slug: 'en-10294-1-grade-e355-ar',
-        name: 'EN 10294-1 Grade E355+AR',
-        code: 'EN 10294-1 E355+AR (As-Rolled)',
-        standard: 'EN 10294-1 / ISO 2938',
-        uns: 'EN 10294-1 E355+AR',
-        din: '1.0570 (St 52-3 As Rolled)',
-        shortDesc: 'Seamless steel hollow machining bar in as-rolled condition with guaranteed clean-up dimensions for mechanical engineering.',
-        fullDesc: 'EN 10294-1 Grade E355+AR is supplied in the hot-rolled condition. Specifically engineered to save machining time, tool wear, and material weight compared to solid round bars when producing hollow cylindrical components.',
-        specs: { size: '30mm OD x 20mm ID to 250mm OD x 150mm ID', schedule: 'Heavy Wall Machining Bar', ends: 'Square Cut / Centered' },
-        applications: ['Machined mechanical bushings and collars', 'Hydraulic cylinder outer barrels', 'Conveyor roll axles and spacers', 'Agricultural machine hollow shafts']
-      },
-      {
-        id: 'en-10294-1-grade-e355-n',
-        slug: 'en-10294-1-grade-e355-n',
-        name: 'EN 10294-1 Grade E355+N',
-        code: 'EN 10294-1 E355+N (Normalized)',
-        standard: 'EN 10294-1 / ISO 2938',
-        uns: 'EN 10294-1 E355+N',
-        din: '1.0570+N (St 52-3 Normalized)',
-        shortDesc: 'Normalized fine-grain seamless hollow bar delivering uniform grain structure, high toughness, and superior machinability.',
-        fullDesc: 'Supplied in the normalized (+N) condition, ensuring homogenous mechanical properties and low residual stress throughout the wall thickness. Yield strength minimum 355 MPa with excellent transverse impact resistance.',
-        specs: { size: '30mm to 300mm OD', schedule: 'Guaranteed Machining Clean-Up Size', ends: 'Square Cut Ends' },
-        applications: ['Precision hydraulic cylinders and rams', 'Crane swivel bushings and pivot pins', 'Heavy automotive drive shafts', 'Marine steering gear mechanical sleeves']
-      },
-      {
-        id: 'en-10294-1-grade-e235',
-        slug: 'en-10294-1-grade-e235',
-        name: 'EN 10294-1 Grade E235',
-        code: 'EN 10294-1 E235 Hollow Bar',
-        standard: 'EN 10294-1',
-        uns: 'EN 10294-1 E235',
-        din: '1.0308 (St 35)',
-        shortDesc: 'Mild carbon steel seamless hollow machining bar with minimum yield strength of 235 MPa and exceptional cold formability.',
-        fullDesc: 'E235 hollow bar provides high ductility, excellent weldability, and low hardness for high-speed automated turning and drilling of non-critical bushings and spacers.',
-        specs: { size: '25mm to 180mm OD', schedule: 'Wall: 3mm to 20mm', ends: 'Plain Square Cut' },
-        applications: ['Turned mechanical spacers and sleeves', 'Lightweight automotive suspension bushings', 'Apparatus manufacturing hollow components']
-      },
-      {
-        id: 'en-10294-1-grade-e275',
-        slug: 'en-10294-1-grade-e275',
-        name: 'EN 10294-1 Grade E275',
-        code: 'EN 10294-1 E275 Hollow Bar',
-        standard: 'EN 10294-1',
-        uns: 'EN 10294-1 E275',
-        din: '1.0440 (St 44)',
-        shortDesc: 'Intermediate strength (275 MPa yield) seamless hollow bar balancing high machinability and load-bearing capacity.',
-        fullDesc: 'Delivers reliable mechanical strength without requiring pre-heating for welding. Optimized for general machinery construction and structural sleeves.',
-        specs: { size: '30mm to 200mm OD', schedule: 'Wall: 4mm to 25mm', ends: 'Square Cut' },
-        applications: ['Machined flanged bushings', 'Gearbox bearing retainer sleeves', 'Pneumatic cylinder barrels']
-      },
-      {
-        id: 'en-10294-1-grade-e315',
-        slug: 'en-10294-1-grade-e315',
-        name: 'EN 10294-1 Grade E315',
-        code: 'EN 10294-1 E315 Hollow Bar',
-        standard: 'EN 10294-1',
-        uns: 'EN 10294-1 E315',
-        din: '1.0505',
-        shortDesc: 'Minimum yield 315 MPa engineering hollow bar providing enhanced tensile resistance for mechanical components.',
-        fullDesc: 'Engineered for mechanical components operating under moderate dynamic loads. Provides reliable chip formation during automated CNC lathing.',
-        specs: { size: '30mm to 220mm OD', schedule: 'Wall: 5mm to 30mm', ends: 'Square Cut' },
-        applications: ['Industrial roll bodies and guide wheels', 'Heavy-duty pin sleeves', 'Earthmoving equipment pivot bushes']
+        applications: ['Manufacture of EN buttweld elbows and tees', 'Pressure equipment interconnecting spools', 'Process piping reducers and caps']
       },
       {
         id: 'en-10294-1-grade-e355',
@@ -1497,32 +1225,6 @@ export const PIPE_CATEGORIES = [
         fullDesc: 'E355 is the most frequently specified hollow bar across global mechanical engineering. Replaces solid round bars to achieve up to 60% weight reduction and faster drilling cycles.',
         specs: { size: '30mm to 250mm OD', schedule: 'Wall: 5mm to 50mm', ends: 'Square Cut / Centered' },
         applications: ['Hydraulic cylinder barrels and cylinder heads', 'Industrial gear blanks and couplings', 'Cranes and earthmover mechanical bushings', 'Automotive front axle sleeves']
-      },
-      {
-        id: 'en-10294-1-grade-e275k2',
-        slug: 'en-10294-1-grade-e275k2',
-        name: 'EN 10294-1 Grade E275K2',
-        code: 'EN 10294-1 E275K2 (Low Temp Impact)',
-        standard: 'EN 10294-1',
-        uns: 'EN 10294-1 E275K2',
-        din: '1.0456 (Low Temp)',
-        shortDesc: 'Low-temperature impact tested (40J at -20°C) engineering hollow bar for cold-climate mechanical operations.',
-        fullDesc: 'Features fine grain aluminum treatment with guaranteed Charpy V-notch impact energy at -20°C. Prevents brittle fracture in outdoor Arctic and high-altitude machinery.',
-        specs: { size: '35mm to 200mm OD', schedule: 'Wall: 5mm to 30mm', ends: 'Square Cut' },
-        applications: ['Sub-zero operating crane sleeves', 'Cold climate oilfield machinery components', 'Railway rolling stock pivot bushings']
-      },
-      {
-        id: 'en-10294-1-grade-e355k2',
-        slug: 'en-10294-1-grade-e355k2',
-        name: 'EN 10294-1 Grade E355K2',
-        code: 'EN 10294-1 E355K2 (Low Temp Impact)',
-        standard: 'EN 10294-1',
-        uns: 'EN 10294-1 E355K2',
-        din: '1.0577 (S355J2 Equivalent)',
-        shortDesc: 'High-strength (355 MPa) hollow bar with guaranteed 40J Charpy V-notch impact toughness at -20°C.',
-        fullDesc: 'Combines 355 MPa yield strength with proven sub-zero impact endurance. Widely utilized in offshore drilling winch sleeves, mining machinery, and polar exploration vehicles.',
-        specs: { size: '35mm to 250mm OD', schedule: 'Wall: 5mm to 40mm', ends: 'Square Cut' },
-        applications: ['Offshore drilling winch and crane components', 'Arctic earthmoving machine bushings', 'Wind turbine pitch control mechanical sleeves']
       },
       {
         id: 'en-10219-s235jrh-pipe',
@@ -1562,19 +1264,6 @@ export const PIPE_CATEGORIES = [
         fullDesc: 'S355J0H is the preferred high-strength Euronorm structural grade for reducing member weight in high-rise building columns, sports stadium trusses, and bridges.',
         specs: { size: '42.4mm to 812mm OD', schedule: '3.0mm to 25.0mm Wall', ends: 'Beveled / Square Cut' },
         applications: ['Stadium roof trusses and arch supports', 'High-rise composite building columns', 'Bridge arch tubulars and bracing members', 'Offshore platform living quarters framing']
-      },
-      {
-        id: 'en-10219-structure-pipe',
-        slug: 'en-10219-structure-pipe',
-        name: 'EN 10219 Structure Pipe',
-        code: 'EN 10219 CHS / SHS / RHS Structural Pipe',
-        standard: 'EN 10219 / CE EN 1090',
-        uns: 'EN 10219 General Structural',
-        din: 'Euronorm Hollow Section Series',
-        shortDesc: 'Circular, square, and rectangular cold-formed welded structural steel hollow sections conforming to Euronorm civil standards.',
-        fullDesc: 'Certified for CE marking execution class EXC3/EXC4 under EN 1090. High strength-to-weight ratio, clean aesthetic profiles, and excellent torsional rigidity.',
-        specs: { size: '21.3mm to 1219mm OD', schedule: '2.0mm to 40.0mm Wall', ends: 'Square Cut / Beveled' },
-        applications: ['Architectural exposed steel structures (AESS)', 'Airport terminal space frames', 'Industrial plant pipe rack superstructures', 'Tower crane structural tubular masts']
       }
     ]
   },
@@ -1718,6 +1407,9 @@ PIPE_CATEGORIES.forEach(cat => {
   _gradesByCatMap.set(cat.slug, gradesList);
 
   gradesList.forEach(g => {
+    if (!g.image) {
+      g.image = getPipeGradeImage(g.slug) || getPipeGradeImage(g.id);
+    }
     _gradeBySlugMap.set(`${cat.slug}/${g.slug}`, g);
     _gradeBySlugMap.set(g.slug, { ...g, parentCategory: cat });
     _gradeBySlugMap.set(g.id, { ...g, parentCategory: cat });
@@ -1748,6 +1440,7 @@ export function getPipeGradeBySlug(categorySlug, gradeSlug) {
   return _gradeBySlugMap.get(cleanGrade) || null;
 }
 
+export { getPipeGradeImage, PIPE_GRADE_IMAGES };
 
 export function getPipeMaterialList() {
   return [
@@ -1760,3 +1453,4 @@ export function getPipeMaterialList() {
     }))
   ];
 }
+

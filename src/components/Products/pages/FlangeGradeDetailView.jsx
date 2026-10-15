@@ -2,7 +2,8 @@ import React, { useState, useMemo } from 'react';
 import { 
   FLANGES_CATEGORIES, 
   getFlangesCategoryBySlug, 
-  getFlangesGradeBySlug 
+  getFlangesGradeBySlug,
+  getFlangeGradeImage 
 } from '../../../data/flangesData';
 import { 
   getFlangeTypesForGrade, 
@@ -179,7 +180,7 @@ export default function FlangeGradeDetailView({
               {/* Large Product Image Banner */}
               <div className="hero-media-wrapper">
                 <img
-                  src={category.image}
+                  src={grade.image || getFlangeGradeImage(grade.slug) || category.image}
                   alt={`${grade.name} - ${category.name}`}
                   className="hero-product-img"
                 />

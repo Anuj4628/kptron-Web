@@ -2,7 +2,8 @@ import React, { useState, useMemo } from 'react';
 import { 
   FASTENERS_CATEGORIES, 
   getFastenersCategoryBySlug, 
-  getFastenersGradeBySlug 
+  getFastenersGradeBySlug,
+  getFastenerGradeImage 
 } from '../../../data/fastenersData';
 import { 
   getFastenerTypesForGrade, 
@@ -182,7 +183,7 @@ export default function FastenerGradeDetailView({
                 {/* Large Product Image Banner */}
                 <div className="hero-media-wrapper">
                   <img
-                    src={category.image}
+                    src={grade?.image || getFastenerGradeImage(grade?.slug) || category.image}
                     alt={`${grade?.name} - ${category.name}`}
                     className="hero-product-img"
                   />

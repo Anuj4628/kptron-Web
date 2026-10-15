@@ -259,6 +259,43 @@
   transform: scale(1.04);
 }
 
+/* Scoped Pipes Page Material Cards - Prominent, Large & Perfectly Proportional */
+.cat-materials-page-pipes .cat-material-card .card-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.cat-materials-page-pipes .cat-material-card .card-material-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.35s ease;
+  display: block;
+}
+
+.cat-materials-page-pipes .cat-material-card:hover .card-material-img {
+  transform: scale(1.035);
+}
+
+.cat-materials-page-pipes .cat-material-card .card-img-badge {
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .cat-materials-page-pipes .cat-material-card .card-media-wrapper {
+    height: 230px;
+  }
+}
+
 .cat-material-card .card-img-badge {
   position: absolute;
   top: 10px;

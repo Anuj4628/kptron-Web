@@ -4,6 +4,7 @@
  */
 
 import { FASTENER_MATERIALS } from './fastenerTypesData';
+import { getFastenerGradeImage, FASTENER_GRADE_IMAGES } from './fastenerGradeImages';
 
 export const FASTENERS_CATEGORIES = FASTENER_MATERIALS.map(mat => ({
   id: `${mat.slug}-fasteners`,
@@ -33,6 +34,7 @@ export const FASTENERS_CATEGORIES = FASTENER_MATERIALS.map(mat => ({
     id: g.id,
     slug: g.slug,
     name: g.name,
+    image: getFastenerGradeImage(g.slug) || getFastenerGradeImage(g.id),
     code: g.code,
     standard: g.standard,
     uns: g.uns,
@@ -81,3 +83,6 @@ export function getFastenersMaterialList() {
     }))
   ];
 }
+
+export { getFastenerGradeImage, FASTENER_GRADE_IMAGES };
+

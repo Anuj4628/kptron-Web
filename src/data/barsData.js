@@ -14,6 +14,7 @@ import img_nickel_bars from '../assets/New Product img/Bars/nickel-bars.jpg';
 import img_cu_ni_bars from '../assets/New Product img/Bars/copper-nickel-bars.jpg';
 import img_titanium_bars from '../assets/New Product img/Bars/titanium-bars.jpg';
 import img_maraging_bars from '../assets/New Product img/Bars/maraging-350.jpg';
+import { getBarGradeImage, BAR_GRADE_IMAGES } from './barGradeImages';
 
 export const BARS_CATEGORIES = [
   {
@@ -940,3 +941,14 @@ export const getBarsGradeBySlug = (categorySlug, gradeSlug) => {
     g.name.toLowerCase().replace(/[^a-z0-9]/g, '') === gs.replace(/[^a-z0-9]/g, '')
   ) || cat.grades[0] || null;
 };
+
+BARS_CATEGORIES.forEach(cat => {
+  (cat.grades || []).forEach(g => {
+    if (!g.image) {
+      g.image = getBarGradeImage(g.slug) || getBarGradeImage(g.id);
+    }
+  });
+});
+
+export { getBarGradeImage, BAR_GRADE_IMAGES };
+

@@ -6,7 +6,7 @@ import './ProductMegaMenu.css';
  * 1. PIPES
  * 2. SHEETS, PLATES, COILS
  * 3. BARS
- * 4. PIPE FITTINGS
+ * 4. BUTTWELD FITTINGS
  * 5. FLANGES
  * 6. FASTENERS
  * 
@@ -29,9 +29,9 @@ export const NAVBAR_PRODUCTS_OPTIONS = [
     url: '/products/bars-manufactured-in-mumbai'
   },
   {
-    id: 'pipe-fittings',
-    name: 'PIPE FITTINGS',
-    url: '/products/pipe-fittings-manufactured-in-mumbai'
+    id: 'buttweld-fittings',
+    name: 'BUTTWELD FITTINGS',
+    url: '/products/buttweld-fittings-manufactured-in-mumbai'
   },
   {
     id: 'flanges',

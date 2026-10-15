@@ -102,7 +102,7 @@ export default function ContactHero() {
 
             {/* Subtitle */}
             <p className="floating-card-description">
-              Premier Indian manufacturer, stockist, and global exporter of Ferrous & Non-Ferrous Metals — Stainless Steel, Carbon Steel, Duplex, Super Duplex, Inconel, Rods, Sheets, Pipes & Pipe Fittings.
+              Premier Indian manufacturer, stockist, and global exporter of Ferrous & Non-Ferrous Metals — Stainless Steel, Carbon Steel, Duplex, Super Duplex, Inconel, Rods, Sheets, Pipes & Buttweld Fittings.
             </p>
 
             {/* Action Buttons */}

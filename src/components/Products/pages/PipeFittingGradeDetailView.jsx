@@ -20,7 +20,7 @@ import {
 import './PipeFittingGradeDetailView.css';
 
 /**
- * Dedicated Pipe Fitting Grade Detail View
+ * Dedicated Buttweld Fitting Grade Detail View
  * Complete technical description page with verified metallurgical characteristics,
  * dimensional matrices, ASTM/ASME standards, and the user's exact 3-box right sidebar:
  * 1. Dark Navy "Fast Dispatch Quotation" Card
@@ -57,7 +57,7 @@ export default function PipeFittingGradeDetailView({ categorySlug, gradeSlug, on
         fullName: formData.name,
         email: formData.email,
         phone: formData.phone,
-        product: `${grade?.name || 'Fitting Specification'} (${category?.name || 'Pipe Fittings'})`,
+        product: `${grade?.name || 'Fitting Specification'} (${category?.name || 'Buttweld Fittings'})`,
         specsAndQuantity: `Quantity: ${formData.quantity || 'Per project schedule'} | Notes: ${formData.notes || 'None'}`
       });
       setIsSubmitting(false);
@@ -91,9 +91,9 @@ export default function PipeFittingGradeDetailView({ categorySlug, gradeSlug, on
             <span className="crumb-sep">/</span>
             <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products')}>Products</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products/pipe-fittings')}>Pipe Fittings</span>
+            <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products/buttweld-fittings')}>Buttweld Fittings</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-link" onClick={() => onNavigate && onNavigate(`/products/pipe-fittings/${category.materialSlug || category.slug}`)}>
+            <span className="crumb-link" onClick={() => onNavigate && onNavigate(`/products/buttweld-fittings/${category.materialSlug || category.slug}`)}>
               {category.materialName || category.name}
             </span>
             <span className="crumb-sep">/</span>
@@ -103,7 +103,7 @@ export default function PipeFittingGradeDetailView({ categorySlug, gradeSlug, on
           <button
             type="button"
             className="btn-back-to-fittings"
-            onClick={() => onNavigate && onNavigate(`/products/pipe-fittings/${category.materialSlug || category.slug}`)}
+            onClick={() => onNavigate && onNavigate(`/products/buttweld-fittings/${category.materialSlug || category.slug}`)}
           >
             <ArrowLeft size={15} />
             <span>Back to {category.materialName || category.name}</span>
@@ -401,7 +401,7 @@ export default function PipeFittingGradeDetailView({ categorySlug, gradeSlug, on
                       key={og.id}
                       type="button"
                       className="other-grade-btn"
-                      onClick={() => onNavigate && onNavigate(`/products/pipe-fittings/${category.slug}/${og.slug}`)}
+                      onClick={() => onNavigate && onNavigate(`/products/buttweld-fittings/${category.slug}/${og.slug}`)}
                     >
                       <span className="og-dot" aria-hidden="true">▪</span>
                       <span className="og-name">{og.name}</span>

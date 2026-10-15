@@ -12,6 +12,7 @@ import img_hastelloy_flanges from '../assets/New Product img/flanges/hastelloy-f
 import img_nickel_flanges from '../assets/Product Section/Manufacturer division/Flanges/nikle.jpg';
 import img_cu_ni_flanges from '../assets/New Product img/flanges/copper-nickel-flanges.jpg';
 import img_titanium_flanges from '../assets/New Product img/flanges/titanium-flanges.jpg';
+import { getFlangeGradeImage, FLANGE_GRADE_IMAGES } from './flangeGradeImages';
 
 export const FLANGES_CATEGORIES = [
   {
@@ -728,4 +729,14 @@ export function getFlangesGradeBySlug(catSlug, gradeSlug) {
 
   return matched || cat.grades[0] || null;
 }
+
+FLANGES_CATEGORIES.forEach(cat => {
+  (cat.grades || []).forEach(g => {
+    if (!g.image) {
+      g.image = getFlangeGradeImage(g.slug) || getFlangeGradeImage(g.id);
+    }
+  });
+});
+
+export { getFlangeGradeImage, FLANGE_GRADE_IMAGES };
 

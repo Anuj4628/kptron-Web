@@ -7,9 +7,9 @@ import CategoryMaterialListingView from '../CategoryMaterialListingView';
 import CategoryMaterialDetailView from '../CategoryMaterialDetailView';
 
 /**
- * Dedicated Pipe Fittings Product Page
+ * Dedicated Buttweld Fittings Product Page
  * 
- * - When materialSlug is null or 'all': Renders "Materials in Pipe Fittings" listing page.
+ * - When materialSlug is null or 'all': Renders "Materials in Buttweld Fittings" listing page.
  * - When materialSlug is provided: Renders dedicated Material Description Page with
  *   compact materials sidebar, horizontal hero, and clickable available grades.
  */
@@ -19,14 +19,14 @@ export default function PipeFittingsProductPage({
   onNavigate, 
   onOpenQuoteModal 
 }) {
-  // If no material requested or 'all', display "Materials in Pipe Fittings" listing page
+  // If no material requested or 'all', display "Materials in Buttweld Fittings" listing page
   if (!materialSlug || materialSlug.toLowerCase().trim() === 'all') {
     return (
       <CategoryMaterialListingView
-        categorySlug="pipe-fittings"
-        categoryName="Pipe Fittings"
-        mainHeading="Materials in Pipe Fittings"
-        leadText="Seamless and welded buttweld pipe fittings and high-pressure forged fittings including 45°/90° elbows, equal tees, reducers, and stub ends conforming to ASME B16.9 and B16.11."
+        categorySlug="buttweld-fittings"
+        categoryName="Buttweld Fittings"
+        mainHeading="Materials in Buttweld Fittings"
+        leadText="Seamless and welded buttweld fittings including 45°/90° elbows, equal tees, concentric & eccentric reducers, caps, and stub ends conforming to ASME B16.9 and MSS SP-43."
         materials={PIPE_FITTINGS_CATEGORIES}
         isManufacturedInMumbai={isManufacturedInMumbai}
         onNavigate={onNavigate}
@@ -41,16 +41,16 @@ export default function PipeFittingsProductPage({
   }, [materialSlug]);
 
   useEffect(() => {
-    const matName = activeCategory?.materialName || activeCategory?.name || 'Buttweld & Forged';
+    const matName = activeCategory?.materialName || activeCategory?.name || 'Buttweld';
     document.title = isManufacturedInMumbai
-      ? `${matName} Pipe Fittings Manufactured in Mumbai | Redcore Steels`
-      : `${matName} Pipe Fittings | ASME B16.9 & B16.11 | Redcore Steels`;
+      ? `${matName} Buttweld Fittings Manufactured in Mumbai | Redcore Steels`
+      : `${matName} Buttweld Fittings | ASME B16.9 & MSS SP-43 | Redcore Steels`;
   }, [isManufacturedInMumbai, activeCategory]);
 
   return (
     <CategoryMaterialDetailView
-      categorySlug="pipe-fittings"
-      categoryName="Pipe Fittings"
+      categorySlug="buttweld-fittings"
+      categoryName="Buttweld Fittings"
       materialSlug={materialSlug}
       materials={PIPE_FITTINGS_CATEGORIES}
       activeCategory={activeCategory}

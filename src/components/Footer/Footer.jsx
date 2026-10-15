@@ -250,9 +250,9 @@ export default function Footer({ onNavigate }) {
                   </a>
                 </li>
                 <li>
-                  <a href="/products/pipe-fittings" className="footer-nav-item" onClick={(e) => handleLinkClick(e, '/products/pipe-fittings')}>
+                  <a href="/products/buttweld-fittings" className="footer-nav-item" onClick={(e) => handleLinkClick(e, '/products/buttweld-fittings')}>
                     <ChevronRight size={14} className="nav-chevron" />
-                    <span>Pipe Fittings (BW &amp; Forged)</span>
+                    <span>Buttweld Fittings</span>
                   </a>
                 </li>
                 <li>

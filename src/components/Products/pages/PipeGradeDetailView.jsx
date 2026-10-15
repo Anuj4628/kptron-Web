@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { getPipeCategoryBySlug, getPipeGradeBySlug } from '../../../data/pipesData';
+import { getPipeCategoryBySlug, getPipeGradeBySlug, getPipeGradeImage } from '../../../data/pipesData';
 import { submitQuoteRequest } from '../../../services/quoteService';
 import QuoteModal from '../../UI/QuoteModal';
 import { 
@@ -145,7 +145,7 @@ export default function PipeGradeDetailView({ categorySlug, gradeSlug, onNavigat
             {/* Large Authentic Product Image Frame */}
             <div className="grade-media-card">
               <img
-                src={category.image}
+                src={grade.image || getPipeGradeImage(grade.slug) || category.image}
                 alt={grade.name}
                 className="grade-hero-image"
                 loading="eager"

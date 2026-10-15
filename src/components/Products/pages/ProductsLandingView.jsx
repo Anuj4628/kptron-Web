@@ -33,7 +33,7 @@ import './ProductsLandingView.css';
  * 1. PIPES & TUBES
  * 2. SHEETS, PLATES, COILS
  * 3. BARS & RODS
- * 4. PIPE FITTINGS
+ * 4. BUTTWELD FITTINGS
  * 5. FLANGES
  * 6. FASTENERS
  */
@@ -69,14 +69,14 @@ const PRODUCTS_DATA = [
     categoryUrlPrefix: '/products/bars/'
   },
   {
-    id: 'pipe-fittings',
-    name: 'Pipe Fittings',
-    url: '/products/pipe-fittings',
+    id: 'buttweld-fittings',
+    name: 'Buttweld Fittings',
+    url: '/products/buttweld-fittings',
     image: img_fittings,
-    standards: 'ASME B16.9, ASME B16.11, ASTM A403, MSS SP-43',
-    shortDesc: 'Seamless and welded buttweld pipe fittings and high-pressure forged fittings including 45°/90° elbows, equal tees, reducers, and stub ends conforming to ASME B16.9 and B16.11.',
+    standards: 'ASME B16.9, MSS SP-43, ASTM A403, ASTM A234',
+    shortDesc: 'Seamless and welded buttweld fittings including 45°/90° elbows, equal & reducing tees, concentric & eccentric reducers, caps, and stub ends conforming to ASME B16.9 and MSS SP-43.',
     categoriesList: PIPE_FITTINGS_CATEGORIES,
-    categoryUrlPrefix: '/products/pipe-fittings/'
+    categoryUrlPrefix: '/products/buttweld-fittings/'
   },
   {
     id: 'flanges',

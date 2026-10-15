@@ -571,10 +571,10 @@ export const PRODUCT_GROUPS = [
   {
     id: "manufacturer-butt-weld-fittings",
     slug: "butt-weld-fittings",
-    name: "Butt Weld Fittings",
+    name: "Buttweld Fittings",
     division: "Manufacturer Division",
     divisionSlug: "manufacturer",
-    tagline: "Seamless & Welded High-Integrity Pipe Fittings",
+    tagline: "Seamless & Welded High-Integrity Buttweld Fittings",
     shortDesc: "Combining outstanding quality and value, offering a comprehensive range of Butt Weld fittings, Socket Weld fittings, and branch connection fittings. Our reputed engineering process precisely engineers these fittings in complete compliance with international quality standards (ANSI B16.9 / B16.28 / MSS SP-43).",
     heroImage: img_manufacturer_butt_weld_fittings_hero,
     specs: {

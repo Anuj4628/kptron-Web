@@ -5,7 +5,7 @@ import './ProductMaterialFilterBar.css';
 /**
  * Reusable Product Material Filter Bar
  * Displays an industrial tab/pill bar allowing instantaneous material filtering
- * across all product categories (Fasteners, Pipes, Sheets & Plates, Bars, Pipe Fittings).
+ * across all product categories (Fasteners, Pipes, Sheets & Plates, Bars, Buttweld Fittings).
  */
 export default function ProductMaterialFilterBar({
   materials = [],

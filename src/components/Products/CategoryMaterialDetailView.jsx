@@ -60,7 +60,7 @@ function getMaterialSortRank(mat) {
  * - /products/pipes/stainless-steel
  * - /products/sheets-plates-coils/carbon-steel
  * - /products/bars/alloy-steel
- * - /products/pipe-fittings/stainless-steel
+ * - /products/buttweld-fittings/stainless-steel
  * - /products/fasteners/carbon-steel
  * 
  * Features:
@@ -367,6 +367,18 @@ export default function CategoryMaterialDetailView({
                         onClick={() => handleGradeClick(grade)}
                         title={`View technical specifications for ${gradeName}`}
                       >
+                        {grade.image && (
+                          <div className="grade-card-media-box">
+                            <img
+                              src={grade.image}
+                              alt={gradeName}
+                              className="grade-card-thumb-img"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </div>
+                        )}
+
                         <div className="grade-card-top">
                           <div className="grade-title-group">
                             <h3 className="grade-card-name">{gradeName}</h3>

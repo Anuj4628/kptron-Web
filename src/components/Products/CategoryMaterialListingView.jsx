@@ -48,7 +48,7 @@ function getMaterialSortRank(mat) {
  * - /products/pipes -> "Materials in Pipes & Tubes"
  * - /products/sheets-plates-coils -> "Materials in Sheets & Plates"
  * - /products/bars -> "Materials in Bars & Rods"
- * - /products/pipe-fittings -> "Materials in Pipe Fittings"
+ * - /products/buttweld-fittings -> "Materials in Buttweld Fittings"
  * - /products/fasteners -> "Materials in Fasteners"
  */
 export default function CategoryMaterialListingView({
@@ -109,7 +109,7 @@ export default function CategoryMaterialListingView({
 
   // Click handler for parent material card -> Opens material detail page
   const handleCardClick = (mat) => {
-    const matSlug = mat.materialSlug || mat.slug.replace(/-(flanges|pipe|pipes|bars|bar|pipe-fittings|fasteners|sheets-plates-coils)$/, '');
+    const matSlug = mat.materialSlug || mat.slug.replace(/-(flanges|pipe|pipes|bars|bar|buttweld-fittings|pipe-fittings|fasteners|sheets-plates-coils)$/, '');
     const targetUrl = formatProductUrl(`/products/${categorySlug}/${matSlug}`);
     if (onNavigate) {
       onNavigate(targetUrl);
@@ -119,7 +119,7 @@ export default function CategoryMaterialListingView({
   // Click handler for grade chip -> Opens specific grade detail page
   const handleGradeClick = (e, mat, grade) => {
     e.stopPropagation();
-    const matSlug = mat.materialSlug || mat.slug.replace(/-(flanges|pipe|pipes|bars|bar|pipe-fittings|fasteners|sheets-plates-coils)$/, '');
+    const matSlug = mat.materialSlug || mat.slug.replace(/-(flanges|pipe|pipes|bars|bar|buttweld-fittings|pipe-fittings|fasteners|sheets-plates-coils)$/, '');
     const gradeSlug = typeof grade === 'string'
       ? grade.toLowerCase().replace(/[^a-z0-9]+/g, '-')
       : (grade.slug || grade.id || (grade.name ? grade.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') : ''));
@@ -131,7 +131,7 @@ export default function CategoryMaterialListingView({
   };
 
   return (
-    <div className="cat-materials-page">
+    <div className={`cat-materials-page ${categorySlug ? `cat-materials-page-${categorySlug}` : ''}`}>
       {/* 1. Header Section */}
       <section className="cat-materials-header">
         <div className="cat-materials-header-inner">

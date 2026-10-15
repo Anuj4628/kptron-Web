@@ -5,7 +5,7 @@
 // 1. Pipes (pipesData.js)
 // 2. Sheets, Plates & Coils (sheetsPlatesCoilsData.js)
 // 3. Bars (barsData.js)
-// 4. Pipe Fittings (pipeFittingsData.js)
+// 4. Buttweld Fittings (pipeFittingsData.js)
 // 5. Flanges (flangesData.js)
 // 6. Fasteners (fastenersData.js)
 // ======================================================================
@@ -429,22 +429,22 @@ function buildDynamicCatalog() {
     }
   });
 
-  // 4. PIPE FITTINGS
+  // 4. BUTTWELD FITTINGS
   (PIPE_FITTINGS_CATEGORIES || []).forEach(cat => {
     const slug = cat.slug;
     let matKeys = [];
-    if (slug === 'stainless-steel-pipe-fittings') matKeys = ['stainless-steel'];
-    else if (slug === 'carbon-steel-pipe-fittings') matKeys = ['carbon-steel'];
-    else if (slug === 'alloy-steel-pipe-fittings') matKeys = ['alloy-steel'];
-    else if (slug === 'inconel-pipe-fittings') matKeys = ['inconel'];
-    else if (slug === 'monel-pipe-fittings') matKeys = ['monel'];
-    else if (slug === 'hastelloy-pipe-fittings') matKeys = ['hastelloy'];
-    else if (slug === 'nickel-pipe-fittings') matKeys = ['nickel-alloys'];
-    else if (slug === 'copper-nickel-pipe-fittings') matKeys = ['copper-nickel'];
-    else if (slug === 'titanium-pipe-fittings') matKeys = ['titanium'];
+    if (slug === 'stainless-steel-pipe-fittings' || slug === 'stainless-steel-buttweld-fittings' || slug === 'stainless-steel') matKeys = ['stainless-steel'];
+    else if (slug === 'carbon-steel-pipe-fittings' || slug === 'carbon-steel-buttweld-fittings' || slug === 'carbon-steel') matKeys = ['carbon-steel'];
+    else if (slug === 'alloy-steel-pipe-fittings' || slug === 'alloy-steel-buttweld-fittings' || slug === 'alloy-steel') matKeys = ['alloy-steel'];
+    else if (slug === 'inconel-pipe-fittings' || slug === 'inconel-buttweld-fittings' || slug === 'inconel') matKeys = ['inconel'];
+    else if (slug === 'monel-pipe-fittings' || slug === 'monel-buttweld-fittings' || slug === 'monel') matKeys = ['monel'];
+    else if (slug === 'hastelloy-pipe-fittings' || slug === 'hastelloy-buttweld-fittings' || slug === 'hastelloy') matKeys = ['hastelloy'];
+    else if (slug === 'nickel-pipe-fittings' || slug === 'nickel-buttweld-fittings' || slug === 'nickel-alloys') matKeys = ['nickel-alloys'];
+    else if (slug === 'copper-nickel-pipe-fittings' || slug === 'copper-nickel-buttweld-fittings' || slug === 'copper-nickel') matKeys = ['copper-nickel'];
+    else if (slug === 'titanium-pipe-fittings' || slug === 'titanium-buttweld-fittings' || slug === 'titanium') matKeys = ['titanium'];
 
     if (matKeys.length > 0) {
-      register(wrapProduct(cat, 'PIPE FITTINGS', 'pipe-fittings', matKeys));
+      register(wrapProduct(cat, 'BUTTWELD FITTINGS', 'buttweld-fittings', matKeys));
     }
   });
 
