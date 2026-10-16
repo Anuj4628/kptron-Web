@@ -21,7 +21,9 @@ export function getMaterialCardTitle(mat, categorySlug = '', categoryName = '') 
 
   // Normalize specific base materials
   const lowerBase = baseMat.toLowerCase();
-  if (lowerBase === 'ss' || lowerBase === 'stainless') {
+  if (lowerBase.includes('duplex and super duplex') || lowerBase.includes('duplex & super duplex') || lowerBase.includes('duplex/super duplex')) {
+    baseMat = 'Duplex and Super Duplex';
+  } else if (lowerBase === 'ss' || lowerBase === 'stainless') {
     baseMat = 'Stainless Steel';
   } else if (lowerBase === 'cs' || lowerBase === 'carbon') {
     baseMat = 'Carbon Steel';

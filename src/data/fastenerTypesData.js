@@ -488,12 +488,21 @@ export const FASTENER_MATERIALS = [
     id: 'duplex-steel',
     slug: 'duplex-steel',
     urlSlug: 'duplex-steel',
-    altSlugs: ['duplex', 'duplex-fasteners', 'duplex-steel-fasteners'],
-    name: 'Duplex Steel',
-    title: 'Duplex Steel Fasteners',
-    standard: 'ASTM A1082 / ASTM A479 / UNS S31803 / UNS S32205 / DIN 1.4462',
-    primaryGrades: 'UNS S31803 (F51), UNS S32205 (2205), DIN 1.4462, ASTM A1082',
-    materialDesc: 'Dual-phase austenitic-ferritic stainless steel stud bolts, heavy hex nuts, and precision cap screws offering twice the mechanical yield strength of standard austenitic stainless with exceptional pitting and crevice corrosion resistance (PREN ≥ 35).',
+    altSlugs: [
+      'duplex', 
+      'duplex-fasteners', 
+      'duplex-steel-fasteners',
+      'super-duplex-steel',
+      'super-duplex',
+      'super-duplex-fasteners',
+      'duplex-and-super-duplex',
+      'duplex-and-super-duplex-fasteners'
+    ],
+    name: 'Duplex and Super Duplex',
+    title: 'Duplex and Super Duplex Fasteners',
+    standard: 'ASTM A1082 / ASTM A479 / UNS S31803 / UNS S32205 / UNS S32750 / UNS S32760 / DIN 1.4462 / DIN 1.4410',
+    primaryGrades: 'UNS S31803 (F51), UNS S32205 (2205), UNS S32750 (2507), UNS S32760 (Zeron 100)',
+    materialDesc: 'Dual-phase austenitic-ferritic and ultra-high-alloy 25% Chromium super duplex stainless steel stud bolts, heavy hex nuts, and precision cap screws offering twice the mechanical yield strength of standard austenitic stainless with exceptional pitting and crevice corrosion resistance (PREN ≥ 35–42).',
     supportedTypeSlugs: ['hex-head-bolts', 'hex-nuts', 'stud-bolts', 'socket-head-cap-screws', 'washers'],
     typeImages: {
       'hex-head-bolts': img_duplex_fasteners,
@@ -573,31 +582,7 @@ export const FASTENER_MATERIALS = [
         fullDesc: 'Machined from certified duplex round bar stock. Precision thread tapped to ASME B1.1 Class 2B. Prevents galvanic mismatch when securing duplex piping and valves.',
         specs: { sizeRange: '1/2" to 3" Diameter (M12 to M80)', proofLoad: '≥ 800 MPa', hardness: '≤ 32 HRC' },
         applications: ['Flange make-up on duplex piping spools', 'Marine ballast tank valve bolting', 'Acid leaching autoclave reactor flanges']
-      }
-    ]
-  },
-
-  // 5. SUPER DUPLEX STAINLESS STEEL
-  {
-    id: 'super-duplex-steel',
-    slug: 'super-duplex-steel',
-    urlSlug: 'super-duplex-steel',
-    altSlugs: ['super-duplex', 'super-duplex-fasteners'],
-    name: 'Super Duplex Steel',
-    title: 'Super Duplex Steel Fasteners',
-    standard: 'ASTM A1082 / ASTM A479 / UNS S32750 / UNS S32760 / DIN 1.4410',
-    primaryGrades: 'UNS S32750 (2507), UNS S32760 (Zeron 100), DIN 1.4410, DIN 1.4501',
-    materialDesc: 'Ultra-high-alloy 25% Chromium super duplex fasteners engineered with PREN ≥ 42 for severe deepwater subsea trees, sour oilfield manifolds, and high-chloride aggressive acid processing.',
-    supportedTypeSlugs: ['hex-head-bolts', 'hex-nuts', 'stud-bolts', 'socket-head-cap-screws', 'washers'],
-    typeImages: {
-      'hex-head-bolts': img_duplex_fasteners,
-      'hex-nuts': img_duplex_fasteners,
-      'stud-bolts': img_duplex_fasteners,
-      'socket-head-cap-screws': img_socket_screws,
-      'washers': img_washers
-    },
-    displayImage: img_duplex_fasteners,
-    grades: [
+      },
       {
         id: 'uns-s32750',
         slug: 'uns-s32750',
@@ -1348,8 +1333,7 @@ export function normalizeFastenerMaterialSlug(raw) {
 
   // Common aliases & heuristics
   if (clean.includes('stainless') || clean.startsWith('ss')) return 'stainless-steel';
-  if (clean.includes('super-duplex')) return 'super-duplex-steel';
-  if (clean.includes('duplex')) return 'duplex-steel';
+  if (clean.includes('super-duplex') || clean.includes('duplex')) return 'duplex-steel';
   if (clean.includes('carbon') || clean.startsWith('cs')) return 'carbon-steel';
   if (clean.includes('alloy') && !clean.includes('nickel')) return 'alloy-steel';
   if (clean.includes('inconel')) return 'inconel';

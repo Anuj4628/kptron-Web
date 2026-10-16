@@ -5,11 +5,11 @@ import { ShieldCheck, Layers, ChevronDown, ChevronUp, ArrowRight } from 'lucide-
 
 // Authentic images for the 6 core product divisions
 import img_pipes from '../../assets/New Product img/Pipes/pipes-showcase.jpg';
-import img_sheets from '../../assets/New Product img/sheet plates coil/sheets-plates-showcase.png';
-import img_bars from '../../assets/New Product img/Bars/bars-showcase.png';
-import img_fittings from '../../assets/New Product img/pipe fittings/fittings-showcase.jpg';
-import img_flanges from '../../assets/New Product img/flanges/ss-flanges.jpg';
-import img_fasteners from '../../assets/New Product img/fasteners/ss-fasteners.jpg';
+import img_sheets from '../../assets/our product new images/sheet and plates.png';
+import img_bars from '../../assets/our product new images/bars.png';
+import img_fittings from '../../assets/our product new images/buttweld fittings.png';
+import img_flanges from '../../assets/our product new images/flanges.png';
+import img_fasteners from '../../assets/our product new images/fasteners.png';
 
 // Live category & verified grades databases
 import { PIPE_CATEGORIES } from '../../data/pipesData';
@@ -39,6 +39,7 @@ const PRODUCTS_SHOWCASE_DATA = [
     name: 'Pipes & Tubes',
     url: '/products/pipes-manufactured-in-mumbai',
     image: img_pipes,
+    imageFit: 'cover',
     standards: 'ASTM A335 / ASME SA335, ASTM A312, ASTM A106, API 5L',
     shortDesc: 'Ferritic chrome-moly alloy steel, stainless steel, and carbon steel seamless and welded pipes engineered for high creep-rupture strength, elevated temperatures, and severe process piping.',
     categoriesList: PIPE_CATEGORIES,
@@ -49,6 +50,7 @@ const PRODUCTS_SHOWCASE_DATA = [
     name: 'Sheets, Plates, Coils',
     url: '/products/sheets-plates-coils-manufactured-in-mumbai',
     image: img_sheets,
+    imageFit: 'cover',
     standards: 'ASTM A240 / SA240, ASTM A516, ASTM A387, EN 10028',
     shortDesc: 'Cold-rolled sheets, hot-rolled pickled plates, and precision strip coils in stainless steel, boiler-quality carbon steel, chrome-moly, and corrosion-resistant alloys conforming to ASTM A240.',
     categoriesList: SHEETS_PLATES_COILS_CATEGORIES,
@@ -59,6 +61,7 @@ const PRODUCTS_SHOWCASE_DATA = [
     name: 'Bars & Rods',
     url: '/products/bars-manufactured-in-mumbai',
     image: img_bars,
+    imageFit: 'cover',
     standards: 'ASTM A276 / SA276, ASTM A479, EN 10088-3, DIN 1013',
     shortDesc: 'Precision cold drawn, centerless ground, and hot rolled solid round bars, hex shafts, and square profiles with tight diameter tolerances (h8/h9) and superior surface finishes.',
     categoriesList: BARS_CATEGORIES,
@@ -69,6 +72,7 @@ const PRODUCTS_SHOWCASE_DATA = [
     name: 'Buttweld Fitting / Pipe Fitting',
     url: '/products/buttweld-fittings-manufactured-in-mumbai',
     image: img_fittings,
+    imageFit: 'cover',
     standards: 'ASME B16.9, MSS SP-43, ASTM A403, ASTM A234',
     shortDesc: 'Seamless and welded buttweld fittings including 45°/90° elbows, equal & reducing tees, concentric & eccentric reducers, caps, and stub ends conforming to ASME B16.9 and MSS SP-43.',
     categoriesList: PIPE_FITTINGS_CATEGORIES,
@@ -79,6 +83,7 @@ const PRODUCTS_SHOWCASE_DATA = [
     name: 'Flanges',
     url: '/products/flanges-manufactured-in-mumbai',
     image: img_flanges,
+    imageFit: 'cover',
     standards: 'ASME B16.5, ASME B16.47, ASTM A182, EN 1092-1',
     shortDesc: 'Drop-forged and precision CNC machined industrial pipe flanges in weld neck, slip-on, blind, socket weld, and RTJ configurations rated from Class 150# to 2500# and PN6 to PN400.',
     categoriesList: FLANGES_CATEGORIES,
@@ -89,6 +94,7 @@ const PRODUCTS_SHOWCASE_DATA = [
     name: 'Fasteners',
     url: '/products/fasteners-manufactured-in-mumbai',
     image: img_fasteners,
+    imageFit: 'cover',
     standards: 'ASTM A193 / A194, ASTM A320, DIN 933 / 934, ISO 3506',
     shortDesc: 'High-tensile, elevated-temperature, and corrosion-resistant threaded stud bolts, heavy hex nuts, socket cap screws, and washers certified to ASTM A193 B7/B8/B16 and A194 2H/Gr. 8.',
     categoriesList: FASTENERS_CATEGORIES,
@@ -253,16 +259,16 @@ export default function ProductsSection({ onNavigate }) {
                 <div className="card-top-accent" aria-hidden="true" />
 
                 {/* Product Image Frame */}
-                <div className="card-media-wrapper">
+                <div className={`card-media-wrapper media-wrapper-${prod.id}`}>
                   <img
                     src={prod.image}
                     alt={prod.name}
-                    className="card-product-img"
+                    className={`card-product-img img-fit-${prod.imageFit || 'contain'}`}
                     loading="lazy"
                     decoding="async"
                   />
                   <div className="card-img-badge">
-                    <ShieldCheck size={13} />
+                    <ShieldCheck size={12} />
                     <span>MILL CERTIFIED</span>
                   </div>
                 </div>

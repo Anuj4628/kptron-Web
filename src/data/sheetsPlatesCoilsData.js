@@ -11,6 +11,13 @@ import img_alloy_sheet from '../assets/New Product img/sheet plates coil/alloy-s
 import img_inconel_sheet from '../assets/New Product img/sheet plates coil/inconel-sheet.jpg';
 import img_hastelloy_sheet from '../assets/New Product img/sheet plates coil/hastelloy-coils.jpg';
 import img_titanium_sheet from '../assets/New Product img/sheet plates coil/titanium-coil.jpg';
+import { 
+  SHEET_PLATE_CATEGORY_IMAGES, 
+  SHEET_PLATE_GRADE_IMAGES, 
+  getSheetPlateGradeImage 
+} from './sheetPlateGradeImages';
+
+export { SHEET_PLATE_CATEGORY_IMAGES, SHEET_PLATE_GRADE_IMAGES, getSheetPlateGradeImage };
 
 export const SHEETS_PLATES_COILS_CATEGORIES = [
   {
@@ -22,7 +29,7 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     name: 'Stainless Steel Sheets & Plates',
     title: 'Stainless Steel Sheets & Plates',
     headline: 'Austenitic, Ferritic & Martensitic Cold Rolled Sheets, Heavy Plates & Precision Slit Coils',
-    image: img_ss_sheet,
+    image: SHEET_PLATE_CATEGORY_IMAGES['stainless-steel'] || img_ss_sheet,
     shortDesc: 'Cold-rolled sheets, hot-rolled pickled plates, and precision strip coils in commercial, food-grade, high-temperature, and super austenitic stainless steel alloys conforming strictly to ASTM A240 and EN 10088-2.',
     standards: 'ASTM A240 / ASME SA240, ASTM A480, EN 10088-2, JIS G4304 / G4305',
     sizeRange: '0.4 mm to 120 mm Thickness | Widths: 1000 mm to 2500 mm | Lengths up to 12000 mm',
@@ -183,7 +190,7 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     name: 'Super Duplex Steel Sheets & Plates',
     title: 'Super Duplex Steel Sheets & Plates',
     headline: 'High-Strength Dual-Phase Austenitic-Ferritic Marine & Chemical Process Plates',
-    image: img_duplex_sheet,
+    image: SHEET_PLATE_CATEGORY_IMAGES['duplex-steel'] || img_duplex_sheet,
     shortDesc: 'Dual-phase austenitic-ferritic stainless steel heavy plates and slit coils offering twice the mechanical yield strength of standard austenitic grades, paired with exceptional resistance to marine pitting (PREN ≥ 35–42) and chloride stress corrosion cracking.',
     standards: 'ASTM A240 / ASME SA240, NORSOK M-650 MDS D45/D55, EN 10028-7',
     sizeRange: '1.5 mm to 80 mm Thickness | Widths: 1500 mm to 3000 mm | Lengths up to 12000 mm',
@@ -253,7 +260,7 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     name: 'Carbon Steel Sheets & Plates',
     title: 'Carbon Steel Sheets & Plates',
     headline: 'Certified Boiler Quality (BQ), High-Tensile Structural & Pressure Vessel Heavy Steel Plates',
-    image: img_carbon_sheet,
+    image: SHEET_PLATE_CATEGORY_IMAGES['carbon-steel'] || img_carbon_sheet,
     shortDesc: 'Fully killed, vacuum degassed carbon steel pressure vessel plates, structural steel plates, and hot rolled coils conforming to ASTM A516, ASTM A36, ASTM A283, ASTM A572, and IS 2062 for boilers, tanks, bridges, and heavy industrial fabrication.',
     standards: 'ASTM A516 / ASME SA516, ASTM A36, ASTM A572, ASTM A283, ASTM A285, IS 2062, EN 10025',
     sizeRange: '1.6 mm to 150 mm Thickness | Widths: 1500 mm to 3500 mm | Lengths up to 12000 mm',
@@ -336,7 +343,7 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     name: 'Alloy Steel Sheets & Plates',
     title: 'Alloy Steel Sheets & Plates',
     headline: 'High-Temperature Chrome-Moly (Cr-Mo) Creep-Resistant Pressure Vessel Steel Plates',
-    image: img_alloy_sheet,
+    image: SHEET_PLATE_CATEGORY_IMAGES['alloy-steel'] || img_alloy_sheet,
     shortDesc: 'Normalized and tempered chromium-molybdenum alloy steel plates conforming to ASTM A387 and EN 10028-2, formulated to resist elevated-temperature creep rupture, hydrogen attack, and thermal fatigue in power generation boilers and refinery reactors up to 600°C.',
     standards: 'ASTM A387 / ASME SA387, EN 10028-2, DIN 17155',
     sizeRange: '6 mm to 150 mm Thickness | Widths: 1500 mm to 3500 mm | Lengths up to 12000 mm',
@@ -445,7 +452,7 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     name: 'Inconel Sheets & Plates',
     title: 'Inconel Sheets & Plates',
     headline: 'Nickel-Chromium High-Temperature Superalloy Sheets, Heavy Plates & Strip Coils',
-    image: img_inconel_sheet,
+    image: SHEET_PLATE_CATEGORY_IMAGES['inconel'] || img_inconel_sheet,
     shortDesc: 'Solid-solution and age-hardenable nickel-chromium superalloy sheets and plates engineered for extreme resistance to thermal oxidation up to 1200°C, carburization, and chloride stress corrosion cracking in aerospace, nuclear, and sour gas applications.',
     standards: 'ASTM B168 / ASME SB168, ASTM B443, ASTM B409, ASTM B670, AMS 5596, NACE MR0175',
     sizeRange: '0.5 mm to 60 mm Thickness | Widths: 1000 mm to 2000 mm | Lengths up to 6000 mm',
@@ -528,7 +535,7 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     name: 'Hastelloy Sheets & Plates',
     title: 'Hastelloy Sheets & Plates',
     headline: 'Corrosion-Resistant Nickel-Molybdenum-Chromium Alloy Heavy Plates & Slit Strip Coils',
-    image: img_hastelloy_sheet,
+    image: SHEET_PLATE_CATEGORY_IMAGES['hastelloy'] || img_hastelloy_sheet,
     shortDesc: 'Nickel-molybdenum-chromium superalloy plates and strip coils delivering exceptional resistance to severe oxidizing, reducing, and mixed acid chemical environments, wet chlorine gas, and localized pitting.',
     standards: 'ASTM B575 / ASME SB575, DIN 17750, NACE MR0175',
     sizeRange: '0.8 mm to 50 mm Thickness | Widths: 1000 mm to 2000 mm | Lengths up to 6000 mm',
@@ -585,7 +592,7 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     name: 'Titanium Sheets & Plates',
     title: 'Titanium Sheets & Plates',
     headline: 'High-Strength Lightweight & Seawater-Immune Titanium Sheets, Heavy Plates & Strip Coils',
-    image: img_titanium_sheet,
+    image: SHEET_PLATE_CATEGORY_IMAGES['titanium'] || img_titanium_sheet,
     shortDesc: 'Commercially pure and high-strength alpha-beta titanium sheets, heavy plates, and strip coils conforming to ASTM B265 and ASME SB265 for plate heat exchangers, chlor-alkali cells, aerospace structures, and marine offshore installations.',
     standards: 'ASTM B265 / ASME SB265, AMS 4911, ISO 5832-2',
     sizeRange: '0.5 mm to 50 mm Thickness | Widths: 1000 mm to 2000 mm | Lengths up to 6000 mm',
@@ -634,6 +641,17 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     ]
   }
 ];
+
+// Hydrate every grade and category with its authentic image
+SHEETS_PLATES_COILS_CATEGORIES.forEach(cat => {
+  if (SHEET_PLATE_CATEGORY_IMAGES[cat.slug] || SHEET_PLATE_CATEGORY_IMAGES[cat.materialSlug]) {
+    cat.image = SHEET_PLATE_CATEGORY_IMAGES[cat.slug] || SHEET_PLATE_CATEGORY_IMAGES[cat.materialSlug] || cat.image;
+  }
+  const grades = cat.grades || [];
+  grades.forEach(g => {
+    g.image = SHEET_PLATE_GRADE_IMAGES[g.slug] || SHEET_PLATE_GRADE_IMAGES[g.id] || getSheetPlateGradeImage(g.slug, cat.slug) || cat.image;
+  });
+});
 
 // Helper Lookups
 const _catMap = new Map();

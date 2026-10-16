@@ -1,6 +1,6 @@
 import React from 'react';
 import { NAVBAR_MATERIALS_OPTIONS } from '../../data/materialsData';
-import { ChevronRight, ArrowRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import './MaterialsMegaMenu.css';
 
 /**
@@ -86,19 +86,6 @@ export default function MaterialsMegaMenu({ isOpen, onSelect, onClose }) {
             </ul>
           </div>
         </div>
-      </div>
-
-      {/* BOTTOM FOOTER BAR */}
-      <div className="materials-dropdown-footer">
-        <a
-          href="/materials"
-          className="materials-footer-link"
-          onClick={(e) => handleItemClick(e, '/materials')}
-        >
-          <span className="materials-footer-text">EXPLORE ALL CERTIFIED METALLURGICAL ALLOYS</span>
-          <ArrowRight size={13} className="materials-footer-arrow" />
-        </a>
-        <span className="materials-footer-note">Complete test certificates EN 10204 3.1 &amp; 3.2 available</span>
       </div>
     </div>
   );

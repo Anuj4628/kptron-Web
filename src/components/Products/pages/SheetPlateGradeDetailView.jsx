@@ -147,12 +147,14 @@ export default function SheetPlateGradeDetailView({ categorySlug, gradeSlug, onN
                 </div>
               )}
 
-              {/* Media Visual Frame with Parent Category's New Image */}
+              {/* Media Visual Frame with Specific Grade Authentic Image */}
               <div className="hero-media-wrapper">
                 <img
-                  src={category.image}
+                  src={grade.image || category.image}
                   alt={`${grade.name} - ${category.name}`}
                   className="hero-product-img"
+                  loading="eager"
+                  decoding="async"
                 />
                 <div className="hero-media-overlay-badge">
                   <ShieldCheck size={14} />
