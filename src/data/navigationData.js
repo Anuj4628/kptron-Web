@@ -13,7 +13,7 @@ export const navLinks = [
 export const brandDetails = {
   name: "KPTRON PIPING SOLUTIONS INC.",
   tagline: "AN ISO 9001:2015 CERTIFIED COMPANY",
-  logoUrl: kptronLogo,
+  logoUrl: kptronLogo2x,
   logoUrl2x: kptronLogo2x,
   website: "www.kptronpipingsolutions.com",
   quoteCta: {

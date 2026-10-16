@@ -392,6 +392,8 @@
   color: #1F3862;
   margin: 0 0 0.6rem 0;
   line-height: 1.3;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .product-catalog-card .card-standards-line {
@@ -768,4 +770,30 @@
   background: #E04D1D;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(255, 91, 38, 0.45);
+}
+
+@media (max-width: 640px) {
+  .catalog-content-container {
+    padding: 0 16px;
+  }
+
+  .catalog-header-container {
+    padding: 0 16px;
+  }
+
+  .rfq-banner-box {
+    padding: 1.25rem 1rem;
+  }
+
+  .btn-catalog-rfq {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .catalog-content-container,
+  .catalog-header-container {
+    padding: 0 10px;
+  }
 }

@@ -524,11 +524,33 @@
     gap: 8px;
   }
 
+  .materials-qa-strip {
+    padding: 0 16px 48px;
+  }
+
   .materials-qa-card {
     padding: 24px 20px;
   }
 
   .materials-qa-actions {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 360px) {
+  .materials-hero-section {
+    padding: 95px 12px 32px;
+  }
+
+  .materials-grid-section {
+    padding: 28px 12px 36px;
+  }
+
+  .materials-qa-strip {
+    padding: 0 12px 36px;
+  }
+
+  .mat-card-header {
+    padding: 16px 14px 12px;
   }
 }

@@ -1215,6 +1215,62 @@
   }
 }
 
+@media (max-width: 480px) {
+  .detail-container {
+    padding: 0 14px;
+  }
+
+  .main-product-title {
+    font-size: 1.45rem;
+  }
+
+  .quick-specs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spec-stat-card {
+    border-right: none !important;
+    border-bottom: 1px solid #E2E8F0;
+    padding: 8px 0;
+  }
+
+  .spec-stat-card:last-child {
+    border-bottom: none;
+  }
+
+  .mechanical-matrix-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chemical-table-wrap {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  .grade-row-button {
+    min-width: 0;
+  }
+
+  .grade-name-text {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 360px) {
+  .detail-container {
+    padding: 0 10px;
+  }
+
+  .product-header-block {
+    padding: 14px 10px;
+  }
+
+  .main-product-title {
+    font-size: 1.3rem;
+  }
+}
+
 /* Compact Vertical Viewports (Laptops 768p/800p): Fit all 16 grades seamlessly */
 @media (max-height: 820px) and (min-width: 1025px) {
   .grades-sticky-sidebar {

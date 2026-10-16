@@ -510,3 +510,17 @@
     max-width: 440px;
   }
 }
+
+@media (max-width: 360px) {
+  .products-section .section-container {
+    padding: 0 12px;
+  }
+
+  .card-content-area {
+    padding: 18px 14px;
+  }
+
+  .card-title {
+    font-size: 1.15rem;
+  }
+}

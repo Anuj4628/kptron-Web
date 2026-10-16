@@ -911,17 +911,43 @@
   }
 
   .specs-table th {
-    width: 45%;
+    width: 38%;
+    min-width: 100px;
     font-size: 0.78rem;
+    padding: 0.65rem 0.75rem;
   }
 
   .specs-table td {
     font-size: 0.78rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .other-grade-btn {
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .sidebar-action-card,
   .sidebar-form-card,
   .sidebar-grades-nav-card {
     padding: 1.25rem 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .detail-layout-section {
+    padding: 0 10px;
+  }
+
+  .fastener-grade-hero-card,
+  .fastener-grade-specs-card,
+  .fastener-grade-forms-card,
+  .fastener-grade-apps-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .hero-grade-title {
+    font-size: 1.35rem;
   }
 }

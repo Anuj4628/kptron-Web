@@ -816,3 +816,21 @@
     width: 100%;
   }
 }
+
+@media (max-width: 360px) {
+  .material-header-section {
+    padding: 1.25rem 0.75rem 1.5rem;
+  }
+
+  .material-grid-section {
+    padding: 0 0.75rem;
+  }
+
+  .material-main-heading {
+    font-size: 1.35rem;
+  }
+
+  .card-content-wrap {
+    padding: 1.25rem 0.85rem;
+  }
+}

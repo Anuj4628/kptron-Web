@@ -12,6 +12,11 @@ import img_hastelloy_fittings from '../assets/New Product img/pipe fittings/hast
 import img_nickel_fittings from '../assets/New Product img/pipe fittings/nickel-pipe-fittings.jpg';
 import img_cu_ni_fittings from '../assets/New Product img/pipe fittings/copper-nickel-pipe-fittings.jpg';
 import img_titanium_fittings from '../assets/New Product img/pipe fittings/titanium-pipe-fittings.jpg';
+import { 
+  getButtWeldFittingGradeImage, 
+  getPipeFittingGradeImage, 
+  BUTT_WELD_FITTING_GRADE_IMAGES 
+} from './buttWeldFittingGradeImages';
 
 export const PIPE_FITTINGS_CATEGORIES = [
   {
@@ -20,8 +25,8 @@ export const PIPE_FITTINGS_CATEGORIES = [
     materialSlug: 'stainless-steel',
     materialName: 'Stainless Steel',
     aliases: ["stainless-steel","stainless","ss-fittings","ss-pipe-fittings"],
-    name: 'Stainless Steel Buttweld Fittings',
-    title: 'Stainless Steel Buttweld Fittings',
+    name: 'Stainless Steel Fittings',
+    title: 'Stainless Steel Fittings',
     image: img_ss_fittings,
     standards: 'ASTM A403 / ASME SA403, ASTM A182, ASME B16.9, ASME B16.11, MSS SP-43',
     sizeRange: '1/2" NB to 48" NB (Seamless & Welded) | Forged: 1/8" to 4" (2000# to 9000#)',
@@ -162,8 +167,8 @@ export const PIPE_FITTINGS_CATEGORIES = [
     materialSlug: 'carbon-steel',
     materialName: 'Carbon Steel',
     aliases: ["carbon-steel","carbon","cs-fittings","cs-pipe-fittings"],
-    name: 'Carbon Steel Buttweld Fittings',
-    title: 'Carbon Steel Buttweld Fittings',
+    name: 'Carbon Steel Fittings',
+    title: 'Carbon Steel Fittings',
     image: img_cs_fittings,
     standards: 'ASTM A234 / ASME SA234 WPB, ASTM A420 WPL6, ASTM A105, ASME B16.9, ASME B16.11, MSS SP-75',
     sizeRange: '1/2" NB to 60" NB (Seamless & LSAW/ERW Welded) | Forged: 1/8" to 4" NB (Class 3000#–9000#)',
@@ -238,8 +243,8 @@ export const PIPE_FITTINGS_CATEGORIES = [
     materialSlug: 'alloy-steel',
     materialName: 'Alloy Steel',
     aliases: ["alloy-steel","alloy-fittings","alloy-steel-pipe-fittings"],
-    name: 'Alloy Steel Buttweld Fittings',
-    title: 'Alloy Steel Buttweld Fittings',
+    name: 'Alloy Steel Fittings',
+    title: 'Alloy Steel Fittings',
     image: img_alloy_fittings,
     standards: 'ASTM A234 / ASME SA234 WP1, WP5, WP9, WP11, WP12, WP22, WP91, ASTM A182 F11/F22/F91, ASME B16.9, ASME B16.11',
     sizeRange: '1/2" NB to 36" NB (Seamless & Welded) | Forged: 1/8" to 4" NB (Class 3000#–9000#)',
@@ -353,8 +358,8 @@ export const PIPE_FITTINGS_CATEGORIES = [
     materialSlug: 'inconel',
     materialName: 'Inconel',
     aliases: ["inconel","inconel-pipe-fittings"],
-    name: 'Inconel Buttweld Fittings',
-    title: 'Inconel Buttweld Fittings',
+    name: 'Inconel Fittings',
+    title: 'Inconel Fittings',
     image: img_inconel_fittings,
     standards: 'ASTM B366 / ASME SB366, ASME B16.9, ASME B16.11, MSS SP-43',
     sizeRange: '1/2" NB to 24" NB (Seamless & Welded) | Forged: 1/8" to 4" NB (Class 3000#–9000#)',
@@ -460,8 +465,8 @@ export const PIPE_FITTINGS_CATEGORIES = [
     materialSlug: 'monel',
     materialName: 'Monel',
     aliases: ["monel","monel-pipe-fittings"],
-    name: 'Monel Buttweld Fittings',
-    title: 'Monel Buttweld Fittings',
+    name: 'Monel Fittings',
+    title: 'Monel Fittings',
     image: img_monel_fittings,
     standards: 'ASTM B366 / ASME SB366, ASME B16.9, ASME B16.11, MSS SP-43',
     sizeRange: '1/2" NB to 20" NB (Seamless & Welded) | Forged: 1/8" to 4" NB (Class 3000#–6000#)',
@@ -511,8 +516,8 @@ export const PIPE_FITTINGS_CATEGORIES = [
     materialSlug: 'hastelloy',
     materialName: 'Hastelloy',
     aliases: ["hastelloy","hastelloy-pipe-fittings"],
-    name: 'Hastelloy Buttweld Fittings',
-    title: 'Hastelloy Buttweld Fittings',
+    name: 'Hastelloy Fittings',
+    title: 'Hastelloy Fittings',
     image: img_hastelloy_fittings,
     standards: 'ASTM B366 / ASME SB366, ASME B16.9, ASME B16.11, DIN EN 10253',
     sizeRange: '1/2" NB to 20" NB (Seamless & Welded) | Forged: 1/8" to 3" NB (Class 3000#–6000#)',
@@ -576,8 +581,8 @@ export const PIPE_FITTINGS_CATEGORIES = [
     materialSlug: 'nickel',
     materialName: 'Nickel Alloy',
     aliases: ["nickel","nickel-alloy","nickel-pipe-fittings"],
-    name: 'Nickel Buttweld Fittings',
-    title: 'Nickel Buttweld Fittings',
+    name: 'Nickel Alloy Fittings',
+    title: 'Nickel Alloy Fittings',
     image: img_nickel_fittings,
     standards: 'ASTM B366 / ASME SB366, ASME B16.9, ASME B16.11',
     sizeRange: '1/2" NB to 18" NB (Seamless & Welded) | Forged: 1/4" to 3" NB',
@@ -627,8 +632,8 @@ export const PIPE_FITTINGS_CATEGORIES = [
     materialSlug: 'copper-nickel',
     materialName: 'Copper Nickel',
     aliases: ["copper-nickel","cu-ni","copper-nickel-pipe-fittings"],
-    name: 'Copper Nickel Buttweld Fittings',
-    title: 'Copper Nickel Buttweld Fittings',
+    name: 'Copper Nickel Fittings',
+    title: 'Copper Nickel Fittings',
     image: img_cu_ni_fittings,
     standards: 'ASME B16.9, DIN 86019, EEMUA 146, BS 2871, ASTM B466 / B366',
     sizeRange: '1/2" NB to 24" NB (16 mm to 508 mm OD)',
@@ -678,8 +683,8 @@ export const PIPE_FITTINGS_CATEGORIES = [
     materialSlug: 'titanium',
     materialName: 'Titanium',
     aliases: ["titanium","titanium-pipe-fittings"],
-    name: 'Titanium Buttweld Fittings',
-    title: 'Titanium Buttweld Fittings',
+    name: 'Titanium Fittings',
+    title: 'Titanium Fittings',
     image: img_titanium_fittings,
     standards: 'ASTM B363 / ASME SB363, ASME B16.9, MSS SP-43',
     sizeRange: '1/2" NB to 24" NB (Seamless & Welded)',
@@ -739,14 +744,43 @@ export const PIPE_FITTINGS_CATEGORIES = [
   }
 ];
 
+// Automatically enrich all buttweld fitting grades with authentic grade images
+PIPE_FITTINGS_CATEGORIES.forEach(cat => {
+  (cat.grades || []).forEach(g => {
+    if (!g.image) {
+      g.image = getButtWeldFittingGradeImage(g.slug) || getButtWeldFittingGradeImage(g.id);
+      if (!g.image && g.aliases) {
+        for (const alias of g.aliases) {
+          const found = getButtWeldFittingGradeImage(alias);
+          if (found) {
+            g.image = found;
+            break;
+          }
+        }
+      }
+    }
+  });
+});
+
+export { 
+  getButtWeldFittingGradeImage, 
+  getPipeFittingGradeImage, 
+  BUTT_WELD_FITTING_GRADE_IMAGES 
+};
+
 export function getPipeFittingsCategoryBySlug(slug) {
   if (!slug) return null;
-  const clean = slug.toLowerCase().trim();
+  const clean = String(slug).toLowerCase().trim()
+    .replace(/-manufactured-in-mumbai$/, '')
+    .replace(/-stockist-in-mumbai$/, '');
+  const cleanStripped = clean.replace(/-(buttweld-fittings|pipe-fittings|fittings)$/, '');
   return PIPE_FITTINGS_CATEGORIES.find(cat => 
     cat.slug === clean || 
     cat.id === clean || 
     cat.materialSlug === clean ||
-    (cat.aliases && cat.aliases.includes(clean))
+    cat.materialSlug === cleanStripped ||
+    cat.slug.replace(/-(buttweld-fittings|pipe-fittings|fittings)$/, '') === cleanStripped ||
+    (cat.aliases && (cat.aliases.includes(clean) || cat.aliases.includes(cleanStripped)))
   ) || null;
 }
 

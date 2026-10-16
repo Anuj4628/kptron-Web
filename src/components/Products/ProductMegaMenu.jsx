@@ -30,7 +30,7 @@ export const NAVBAR_PRODUCTS_OPTIONS = [
   },
   {
     id: 'buttweld-fittings',
-    name: 'BUTTWELD FITTINGS',
+    name: 'BUTTWELD FITTINGS / PIPE FITTINGS',
     url: '/products/buttweld-fittings-manufactured-in-mumbai'
   },
   {

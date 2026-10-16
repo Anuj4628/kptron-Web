@@ -64,3 +64,20 @@
     letter-spacing: 0.12em;
   }
 }
+
+@media (max-width: 360px) {
+  .top-experience-container {
+    padding: 4px 8px;
+    gap: 6px;
+  }
+
+  .experience-arch-line {
+    display: none;
+  }
+
+  .experience-text {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+  }
+}
+

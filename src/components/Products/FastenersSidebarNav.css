@@ -152,6 +152,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
+  flex-wrap: wrap;
   margin-bottom: 0.65rem;
   cursor: default;
 }
@@ -161,7 +162,7 @@
   align-items: center;
   gap: 0.45rem;
   min-width: 0;
-  flex: 1;
+  flex: 1 1 auto;
 }
 
 .section-step-num {
@@ -182,7 +183,8 @@
   font-weight: 800;
   letter-spacing: 0.03em;
   color: #1E293B;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .section-active-val {
@@ -195,10 +197,11 @@
   border: 1px solid #E2E8F0;
   white-space: nowrap;
   flex-shrink: 0;
-  max-width: 95px;
+  max-width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: right;
+  margin-left: auto;
 }
 
 /* Options Lists */

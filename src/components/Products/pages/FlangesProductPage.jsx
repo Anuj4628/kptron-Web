@@ -10,6 +10,7 @@ import {
 } from '../../../data/flangeTypesData';
 import FlangesSidebarNav from '../FlangesSidebarNav';
 import CategoryMaterialListingView from '../CategoryMaterialListingView';
+import { getMaterialCardTitle } from '../../../utils/productNaming';
 import { 
   Search, 
   X, 
@@ -613,19 +614,21 @@ export default function FlangesProductPage({
 
                       const remainingCount = cat.grades.length - 5;
                       const normSlug = normalizeMaterialSlug(cat.slug);
+                      const displayName = getMaterialCardTitle(cat, 'flanges', 'Flanges');
 
                       return (
                         <article
                           key={cat.id}
                           className="flange-product-card"
                           onClick={() => handleMaterialCardClick(cat.slug)}
+                          title={`View ${displayName} Details`}
                         >
                           <div className="card-top-accent" aria-hidden="true" />
 
                           <div className="card-media-wrapper">
                             <img
                               src={cat.image}
-                              alt={cat.title}
+                              alt={displayName}
                               className="card-product-img"
                               loading="lazy"
                               decoding="async"
@@ -638,7 +641,7 @@ export default function FlangesProductPage({
 
                           <div className="card-body">
                             <div className="card-top-info">
-                              <h3 className="card-title">{cat.title}</h3>
+                              <h3 className="card-title">{displayName}</h3>
 
                               <div className="card-standards-line">
                                 <span className="standards-label">STANDARDS:</span>

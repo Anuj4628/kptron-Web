@@ -25,6 +25,7 @@ import { BARS_CATEGORIES } from '../../../data/barsData';
 import { PIPE_FITTINGS_CATEGORIES } from '../../../data/pipeFittingsData';
 import { FLANGES_CATEGORIES } from '../../../data/flangesData';
 import { FASTENERS_CATEGORIES } from '../../../data/fastenersData';
+import { getMaterialCardTitle } from '../../../utils/productNaming';
 
 import './ProductsLandingView.css';
 
@@ -70,7 +71,7 @@ const PRODUCTS_DATA = [
   },
   {
     id: 'buttweld-fittings',
-    name: 'Buttweld Fittings',
+    name: 'Buttweld Fitting / Pipe Fitting',
     url: '/products/buttweld-fittings',
     image: img_fittings,
     standards: 'ASME B16.9, MSS SP-43, ASTM A403, ASTM A234',
@@ -453,12 +454,14 @@ export default function ProductsLandingView({ onNavigate, onOpenQuoteModal }) {
                   const displayGrades = isExpanded ? grades : grades.slice(0, 5);
                   const remainingGrades = grades.length - 5;
                   const catUrl = `${activeProduct.categoryUrlPrefix}${cat.slug}`;
+                  const displayName = getMaterialCardTitle(cat, activeProduct.id, activeProduct.name);
 
                   return (
                     <article
                       key={cat.id}
                       className="product-catalog-card category-level-card"
                       onClick={() => handleProductCardClick(catUrl)}
+                      title={`View ${displayName} Details`}
                     >
                       {/* Top Red-Orange Accent Bar */}
                       <div className="card-top-accent" aria-hidden="true" />
@@ -467,7 +470,7 @@ export default function ProductsLandingView({ onNavigate, onOpenQuoteModal }) {
                       <div className="card-media-wrapper">
                         <img
                           src={cat.image || activeProduct.image}
-                          alt={cat.name}
+                          alt={displayName}
                           className="card-product-img"
                           loading="lazy"
                           decoding="async"
@@ -482,7 +485,7 @@ export default function ProductsLandingView({ onNavigate, onOpenQuoteModal }) {
                       <div className="card-body">
                         <div className="card-top-info">
                           <span className="card-parent-pill">{activeProduct.name}</span>
-                          <h2 className="card-title">{cat.name}</h2>
+                          <h2 className="card-title">{displayName}</h2>
 
                           {cat.standards && (
                             <div className="card-standards-line">

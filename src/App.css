@@ -13,6 +13,33 @@
   position: relative;
 }
 
+/* Offset for fixed navbar on content pages */
+.products-page-main,
+.materials-page-main,
+.contact-page-main,
+.not-found-page-main {
+  padding-top: 134px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 960px) {
+  .products-page-main,
+  .materials-page-main,
+  .contact-page-main,
+  .not-found-page-main {
+    padding-top: 84px;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-page-main,
+  .materials-page-main,
+  .contact-page-main,
+  .not-found-page-main {
+    padding-top: 78px;
+  }
+}
+
 /* Subtle scroll extension to test navbar scroll compression */
 .future-sections-anchor-container {
   width: 100%;

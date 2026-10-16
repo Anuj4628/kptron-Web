@@ -524,9 +524,9 @@ export const FLANGES_CATEGORIES = [
     id: 'nickel-flanges',
     slug: 'nickel-flanges',
     materialSlug: 'nickel-alloys',
-    materialName: 'Nickel',
-    name: 'Nickel Flanges',
-    title: 'Nickel Flanges',
+    materialName: 'Nickel Alloy',
+    name: 'Nickel Alloy Flanges',
+    title: 'Nickel Alloy Flanges',
     image: img_nickel_flanges,
     standards: 'ASTM B564 / ASME SB564, ASME B16.5',
     sizeRange: '1/2" NB to 18" NB (Class 150# to 900#)',
@@ -684,15 +684,22 @@ export const FLANGES_CATEGORIES = [
 
 export function getFlangesCategoryBySlug(slug) {
   if (!slug) return null;
-  const clean = slug.toLowerCase().trim();
+  const clean = String(slug).toLowerCase().trim()
+    .replace(/-manufactured-in-mumbai$/, '')
+    .replace(/-stockist-in-mumbai$/, '');
+  const cleanStripped = clean.replace(/-(flanges|flange)$/, '');
+
   return (
     FLANGES_CATEGORIES.find(
       cat =>
         cat.slug === clean ||
         cat.id === clean ||
-        cat.slug.replace(/-flanges$/, '') === clean ||
-        cat.id.replace(/-flanges$/, '') === clean ||
-        clean.replace(/-flanges$/, '') === cat.slug.replace(/-flanges$/, '')
+        cat.materialSlug === clean ||
+        cat.materialSlug === cleanStripped ||
+        cat.slug.replace(/-flanges$/, '') === cleanStripped ||
+        cat.id.replace(/-flanges$/, '') === cleanStripped ||
+        cleanStripped === cat.slug.replace(/-flanges$/, '') ||
+        (cat.aliases && (cat.aliases.includes(clean) || cat.aliases.includes(cleanStripped)))
     ) || null
   );
 }

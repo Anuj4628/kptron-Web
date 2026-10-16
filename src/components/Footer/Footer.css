@@ -623,6 +623,8 @@
   text-decoration: none;
   line-height: 1.35;
   transition: color 0.2s ease;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .entry-primary-link {
@@ -885,7 +887,7 @@
   }
 
   .footer-container {
-    padding: 0 20px;
+    padding: 0 16px;
   }
 
   .footer-cta-marquee {
@@ -945,5 +947,20 @@
   .footer-back-to-top-btn {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer-container {
+    padding: 0 12px;
+  }
+
+  .footer-cta-headline {
+    font-size: 1.55rem;
+  }
+
+  .footer-telemetry-bar {
+    padding: 10px 12px;
+    font-size: 0.62rem;
   }
 }

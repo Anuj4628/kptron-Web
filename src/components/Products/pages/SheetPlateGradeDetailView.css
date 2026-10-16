@@ -800,3 +800,56 @@
     height: 210px;
   }
 }
+
+@media (max-width: 640px) {
+  .sheet-grade-container {
+    padding: 0 16px;
+  }
+
+  .sheet-grade-hero-card,
+  .sheet-grade-specs-card,
+  .sheet-grade-apps-card,
+  .sheet-grade-qa-card,
+  .sheet-sidebar-quote-card,
+  .sheet-sidebar-other-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .hero-grade-title {
+    font-size: 1.45rem;
+  }
+
+  .specs-table th {
+    width: 38%;
+    min-width: 100px;
+    font-size: 0.78rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .specs-table td {
+    font-size: 0.78rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .other-grade-btn {
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 360px) {
+  .sheet-grade-container {
+    padding: 0 10px;
+  }
+
+  .sheet-grade-hero-card,
+  .sheet-grade-specs-card,
+  .sheet-grade-apps-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .hero-grade-title {
+    font-size: 1.3rem;
+  }
+}

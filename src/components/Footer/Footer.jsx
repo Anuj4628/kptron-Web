@@ -252,7 +252,7 @@ export default function Footer({ onNavigate }) {
                 <li>
                   <a href="/products/buttweld-fittings" className="footer-nav-item" onClick={(e) => handleLinkClick(e, '/products/buttweld-fittings')}>
                     <ChevronRight size={14} className="nav-chevron" />
-                    <span>Buttweld Fittings</span>
+                    <span>Buttweld Fitting / Pipe Fitting</span>
                   </a>
                 </li>
                 <li>

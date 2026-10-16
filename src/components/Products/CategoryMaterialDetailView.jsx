@@ -14,6 +14,7 @@ import {
   Send
 } from 'lucide-react';
 import { formatProductUrl } from '../../utils/urlUtils';
+import { getMaterialCardTitle } from '../../utils/productNaming';
 import './CategoryMaterialDetailView.css';
 
 /**
@@ -92,6 +93,7 @@ export default function CategoryMaterialDetailView({
 
   // Current active category data
   const currentCategory = activeCategory || sortedMaterials[0] || {};
+  const heroTitle = getMaterialCardTitle(currentCategory, categorySlug, categoryName);
   const currentMatName = currentCategory.materialName || currentCategory.name || 'Selected Material';
   const currentMatSlug = currentCategory.materialSlug || currentCategory.slug || materialSlug;
 
@@ -226,7 +228,7 @@ export default function CategoryMaterialDetailView({
                   <div className="cat-mat-img-wrapper">
                     <img
                       src={currentCategory.image}
-                      alt={`${currentMatName} ${categoryName}`}
+                      alt={heroTitle}
                       className="cat-mat-hero-img"
                       loading="eager"
                       decoding="async"
@@ -253,7 +255,7 @@ export default function CategoryMaterialDetailView({
                   </div>
 
                   <h1 className="cat-mat-hero-title">
-                    {currentMatName} {categoryName}
+                    {heroTitle}
                   </h1>
 
                   {/* Standards Line */}

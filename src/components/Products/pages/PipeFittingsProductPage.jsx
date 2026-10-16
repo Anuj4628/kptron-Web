@@ -24,8 +24,8 @@ export default function PipeFittingsProductPage({
     return (
       <CategoryMaterialListingView
         categorySlug="buttweld-fittings"
-        categoryName="Buttweld Fittings"
-        mainHeading="Materials in Buttweld Fittings"
+        categoryName="Buttweld Fitting / Pipe Fitting"
+        mainHeading="Materials in Buttweld Fitting / Pipe Fitting"
         leadText="Seamless and welded buttweld fittings including 45°/90° elbows, equal tees, concentric & eccentric reducers, caps, and stub ends conforming to ASME B16.9 and MSS SP-43."
         materials={PIPE_FITTINGS_CATEGORIES}
         isManufacturedInMumbai={isManufacturedInMumbai}
@@ -43,14 +43,14 @@ export default function PipeFittingsProductPage({
   useEffect(() => {
     const matName = activeCategory?.materialName || activeCategory?.name || 'Buttweld';
     document.title = isManufacturedInMumbai
-      ? `${matName} Buttweld Fittings Manufactured in Mumbai | Redcore Steels`
-      : `${matName} Buttweld Fittings | ASME B16.9 & MSS SP-43 | Redcore Steels`;
+      ? `${matName} Buttweld Fitting / Pipe Fitting Manufactured in Mumbai | Redcore Steels`
+      : `${matName} Buttweld Fitting / Pipe Fitting | ASME B16.9 & MSS SP-43 | Redcore Steels`;
   }, [isManufacturedInMumbai, activeCategory]);
 
   return (
     <CategoryMaterialDetailView
       categorySlug="buttweld-fittings"
-      categoryName="Buttweld Fittings"
+      categoryName="Buttweld Fitting / Pipe Fitting"
       materialSlug={materialSlug}
       materials={PIPE_FITTINGS_CATEGORIES}
       activeCategory={activeCategory}

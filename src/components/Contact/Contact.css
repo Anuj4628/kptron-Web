@@ -160,11 +160,13 @@
   padding: 4px 10px;
   margin-bottom: 16px;
   align-self: flex-start;
+  max-width: 100%;
 }
 
 .pill-diamond {
   color: #5C93E8;
   font-size: 0.65rem;
+  flex-shrink: 0;
 }
 
 .pill-text {
@@ -174,6 +176,8 @@
   letter-spacing: 0.08em;
   color: #64A2FF;
   text-transform: uppercase;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .floating-card-title {
@@ -723,6 +727,14 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+
+.email-link {
+  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 
 .item-link:hover {
@@ -741,12 +753,14 @@
   font-size: 0.86rem;
   line-height: 1.5;
   color: #1E293B;
+  overflow-wrap: break-word;
 }
 
 .timing-note {
   font-size: 0.78rem;
   color: #64748B;
   font-style: italic;
+  display: block;
 }
 
 .info-card-trust-strip {
@@ -759,6 +773,8 @@
   font-size: 0.78rem;
   font-weight: 600;
   color: #64748B;
+  flex-wrap: wrap;
+  line-height: 1.45;
 }
 
 .trust-icon {
@@ -915,6 +931,9 @@
   font-size: 0.74rem;
   color: #64748B;
   text-align: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  line-height: 1.45;
 }
 
 /* ======================================================================
@@ -1825,25 +1844,55 @@
   }
 
   .contact-info-card {
-    padding: 24px 18px;
+    padding: 20px 14px;
+    box-sizing: border-box;
+    max-width: 100%;
   }
 
   .contact-info-heading {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
   }
 
   .info-item-block {
-    padding: 12px;
+    padding: 10px 12px;
+    gap: 12px;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .item-icon-box {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .address-text {
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .item-link {
+    font-size: 0.86rem;
+  }
+
+  .email-link {
+    font-size: 0.82rem;
   }
 
   .map-viewport {
     height: 300px;
+    max-width: 100%;
   }
 
   .map-actions-bar {
     grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 12px 16px;
+    gap: 8px;
+    padding: 12px 14px;
+  }
+
+  .map-footer-note {
+    padding: 8px 14px;
+    font-size: 0.7rem;
   }
 
   .contact-rfq-section {
@@ -1921,24 +1970,79 @@
 }
 
 @media (max-width: 390px) {
+  .contact-hero {
+    padding: 100px 12px 50px;
+  }
+
+  .contact-hero-floating-card {
+    padding: 20px 14px;
+  }
+
   .floating-card-title {
-    font-size: 1.9rem;
+    font-size: 1.75rem;
   }
 
   .floating-card-pill {
-    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  .pill-text {
+    font-size: 0.62rem;
+  }
+
+  .floating-card-description {
+    font-size: 0.84rem;
+  }
+
+  .hero-cert-badge {
+    font-size: 0.64rem;
+    padding: 4px 8px;
   }
 
   .section-main-heading {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+  }
+
+  .contact-info-map-section {
+    padding: 24px 10px 40px;
+  }
+
+  .contact-info-card {
+    padding: 16px 10px;
+  }
+
+  .info-item-block {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .item-icon-box {
+    width: 32px;
+    height: 32px;
+  }
+
+  .address-text {
+    font-size: 0.8rem;
+  }
+
+  .item-link {
+    font-size: 0.78rem;
+  }
+
+  .email-link {
+    font-size: 0.74rem;
+  }
+
+  .rfq-master-card {
+    padding: 22px 12px;
   }
 
   .rfq-title {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
   }
 
   .map-viewport {
-    height: 260px;
+    height: 250px;
   }
 }
 

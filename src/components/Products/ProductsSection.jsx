@@ -66,7 +66,7 @@ const PRODUCTS_SHOWCASE_DATA = [
   },
   {
     id: 'buttweld-fittings',
-    name: 'Buttweld Fittings',
+    name: 'Buttweld Fitting / Pipe Fitting',
     url: '/products/buttweld-fittings-manufactured-in-mumbai',
     image: img_fittings,
     standards: 'ASME B16.9, MSS SP-43, ASTM A403, ASTM A234',

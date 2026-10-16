@@ -201,9 +201,49 @@
 }
 
 @media (max-width: 640px) {
+  .cat-materials-header {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .cat-materials-grid-section {
+    margin: 1.5rem auto 0;
+    padding: 0 1rem;
+  }
+
   .cat-materials-cards-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .cat-materials-main-heading {
+    font-size: 1.55rem;
+  }
+
+  .cat-materials-lead-text {
+    font-size: 0.92rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .cat-material-card .card-body {
+    padding: 1.25rem 1rem;
+  }
+
+  .cat-material-card .card-footer-bar {
+    padding: 0.8rem 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .cat-materials-header {
+    padding: 1.5rem 0.75rem 1.25rem;
+  }
+
+  .cat-materials-grid-section {
+    padding: 0 0.75rem;
+  }
+
+  .cat-materials-main-heading {
+    font-size: 1.35rem;
   }
 }
 
@@ -334,6 +374,8 @@
   line-height: 1.3;
   letter-spacing: -0.01em;
   transition: color 0.2s ease;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .cat-material-card:hover .card-title {

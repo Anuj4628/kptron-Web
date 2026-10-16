@@ -219,8 +219,11 @@ export const BARS_CATEGORIES = [
   {
     id: 'super-and-duplex-steel-bars',
     slug: 'super-and-duplex-steel-bars',
-    name: 'Super and Duplex Steel Bars',
-    title: 'Super and Duplex Steel Bars',
+    materialSlug: 'super-and-duplex-steel',
+    materialName: 'Super & Duplex Steel',
+    aliases: ['super-duplex', 'duplex-steel', 'super-duplex-steel', 'super-and-duplex-steel', 'duplex-bars', 'super-duplex-bars', 'super-and-duplex-steel-bars'],
+    name: 'Super Duplex Steel Bars',
+    title: 'Super Duplex Steel Bars',
     image: img_duplex_bars,
     standards: 'ASTM A276 / ASME SA276, ASTM A479, EN 10088-3, NACE MR0175',
     sizeRange: '6 mm to 300 mm Diameter | Lengths: 3m to 6.5m',
@@ -285,8 +288,11 @@ export const BARS_CATEGORIES = [
   {
     id: 'carbon-steel-bar',
     slug: 'carbon-steel-bar',
-    name: 'Carbon Steel Bar',
-    title: 'Carbon Steel Bar',
+    materialSlug: 'carbon-steel',
+    materialName: 'Carbon Steel',
+    aliases: ['carbon-steel', 'carbon', 'cs-bar', 'cs-bars', 'carbon-steel-bar', 'carbon-steel-bars'],
+    name: 'Carbon Steel Bars',
+    title: 'Carbon Steel Bars',
     image: img_cs_bars,
     standards: 'ASTM A105, ASTM A350 LF2, EN 10025, DIN 17100',
     sizeRange: '10 mm to 400 mm Diameter | Forged Shafts up to 600 mm',
@@ -338,8 +344,11 @@ export const BARS_CATEGORIES = [
   {
     id: 'alloy-steel-bar',
     slug: 'alloy-steel-bar',
-    name: 'Alloy Steel Bar',
-    title: 'Alloy Steel Bar',
+    materialSlug: 'alloy-steel',
+    materialName: 'Alloy Steel',
+    aliases: ['alloy-steel', 'alloy', 'alloy-steel-bar', 'alloy-steel-bars'],
+    name: 'Alloy Steel Bars',
+    title: 'Alloy Steel Bars',
     image: img_alloy_bars,
     standards: 'ASTM A182 / ASME SA182, AISI 4130, AISI 4140, DIN 17200',
     sizeRange: '10 mm to 350 mm Diameter | Lengths: 3m to 6m',
@@ -456,8 +465,11 @@ export const BARS_CATEGORIES = [
   {
     id: 'inconel-bar',
     slug: 'inconel-bar',
-    name: 'Inconel Bar',
-    title: 'Inconel Bar',
+    materialSlug: 'inconel',
+    materialName: 'Inconel',
+    aliases: ['inconel', 'incoloy', 'inconel-bar', 'inconel-bars', 'inconel-products'],
+    name: 'Inconel Bars',
+    title: 'Inconel Bars',
     image: img_inconel_bars,
     standards: 'ASTM B166 / ASME SB166, ASTM B637, ASTM B408, AMS 5666',
     sizeRange: '4 mm to 250 mm Diameter | Lengths: 2m to 6m',
@@ -574,8 +586,11 @@ export const BARS_CATEGORIES = [
   {
     id: 'monel-bar',
     slug: 'monel-bar',
-    name: 'Monel Bar',
-    title: 'Monel Bar',
+    materialSlug: 'monel',
+    materialName: 'Monel',
+    aliases: ['monel', 'monel-bar', 'monel-bars', 'monel-products'],
+    name: 'Monel Bars',
+    title: 'Monel Bars',
     image: img_monel_bars,
     standards: 'ASTM B164 / ASME SB164, QQ-N-281, DIN 17752, NACE MR0175',
     sizeRange: '4 mm to 250 mm Diameter | Lengths: 2m to 6m',
@@ -627,8 +642,11 @@ export const BARS_CATEGORIES = [
   {
     id: 'hastelloy-bar',
     slug: 'hastelloy-bar',
-    name: 'Hastelloy Bar',
-    title: 'Hastelloy Bar',
+    materialSlug: 'hastelloy',
+    materialName: 'Hastelloy',
+    aliases: ['hastelloy', 'hastelloy-bar', 'hastelloy-bars', 'hastelloy-products'],
+    name: 'Hastelloy Bars',
+    title: 'Hastelloy Bars',
     image: img_hastelloy_bars,
     standards: 'ASTM B574 / ASME SB574, DIN 17752, NACE MR0175, ISO 15156',
     sizeRange: '4 mm to 220 mm Diameter | Lengths: 2m to 6m',
@@ -693,8 +711,11 @@ export const BARS_CATEGORIES = [
   {
     id: 'nickel-bar',
     slug: 'nickel-bar',
-    name: 'Nickel Bar',
-    title: 'Nickel Bar',
+    materialSlug: 'nickel',
+    materialName: 'Nickel Alloy',
+    aliases: ['nickel', 'nickel-alloy', 'nickel-bar', 'nickel-bars', 'nickel-alloys'],
+    name: 'Nickel Alloy Bars',
+    title: 'Nickel Alloy Bars',
     image: img_nickel_bars,
     standards: 'ASTM B160 / ASME SB160, DIN 17752, Werkstoff 2.4066 / 2.4068',
     sizeRange: '4 mm to 200 mm Diameter | Lengths: 2m to 6m',
@@ -746,8 +767,11 @@ export const BARS_CATEGORIES = [
   {
     id: 'copper-nickel-bar',
     slug: 'copper-nickel-bar',
-    name: 'Copper Nickel Bar',
-    title: 'Copper Nickel Bar',
+    materialSlug: 'copper-nickel',
+    materialName: 'Copper Nickel',
+    aliases: ['copper-nickel', 'cu-ni', 'cupro-nickel', 'copper-nickel-bar', 'copper-nickel-bars'],
+    name: 'Copper Nickel Bars',
+    title: 'Copper Nickel Bars',
     image: img_cu_ni_bars,
     standards: 'ASTM B151 / ASME SB151, DIN 86019, EEMUA 144, BS 2874',
     sizeRange: '6 mm to 200 mm Diameter | Lengths: 3m to 6m',
@@ -799,8 +823,11 @@ export const BARS_CATEGORIES = [
   {
     id: 'titanium-bar',
     slug: 'titanium-bar',
-    name: 'Titanium Bar',
-    title: 'Titanium Bar',
+    materialSlug: 'titanium',
+    materialName: 'Titanium',
+    aliases: ['titanium', 'titanium-bar', 'titanium-bars'],
+    name: 'Titanium Bars',
+    title: 'Titanium Bars',
     image: img_titanium_bars,
     standards: 'ASTM B348 / ASME SB348, AMS 4928, DIN 17862, ISO 5832-3',
     sizeRange: '3 mm to 200 mm Diameter | Lengths: 1m to 4m',
@@ -852,8 +879,11 @@ export const BARS_CATEGORIES = [
   {
     id: 'maraging-bars',
     slug: 'maraging-bars',
-    name: 'Maraging Bars',
-    title: 'Maraging Bars',
+    materialSlug: 'maraging-steel',
+    materialName: 'Maraging Steel',
+    aliases: ['maraging', 'maraging-steel', 'maraging-bars', 'maraging-steel-bars', 'vascomax'],
+    name: 'Maraging Steel Bars',
+    title: 'Maraging Steel Bars',
     image: img_maraging_bars,
     standards: 'AMS 6512, AMS 6514, MIL-S-46850, Werkstoff 1.6358',
     sizeRange: '8 mm to 200 mm Diameter | Lengths: 1m to 4m',
@@ -907,13 +937,20 @@ export const BARS_CATEGORIES = [
 // Helper functions for lookup
 export const getBarsCategoryBySlug = (slug) => {
   if (!slug) return null;
-  const s = slug.toLowerCase().trim();
+  const s = String(slug).toLowerCase().trim()
+    .replace(/-manufactured-in-mumbai$/, '')
+    .replace(/-stockist-in-mumbai$/, '');
+  const sStripped = s.replace(/-(bars|bar)$/, '');
+
   return BARS_CATEGORIES.find(c => 
     c.slug === s || 
     c.id === s || 
     c.materialSlug === s ||
-    (c.aliases && c.aliases.includes(s)) ||
-    c.slug.replace(/-/g, '') === s.replace(/-/g, '')
+    c.slug === sStripped ||
+    c.materialSlug === sStripped ||
+    (c.aliases && (c.aliases.includes(s) || c.aliases.includes(sStripped))) ||
+    c.slug.replace(/-/g, '') === s.replace(/-/g, '') ||
+    (c.materialSlug && c.materialSlug.replace(/-/g, '') === sStripped.replace(/-/g, ''))
   ) || null;
 };
 

@@ -571,7 +571,7 @@ export const PRODUCT_GROUPS = [
   {
     id: "manufacturer-butt-weld-fittings",
     slug: "butt-weld-fittings",
-    name: "Buttweld Fittings",
+    name: "Buttweld Fitting / Pipe Fitting",
     division: "Manufacturer Division",
     divisionSlug: "manufacturer",
     tagline: "Seamless & Welded High-Integrity Buttweld Fittings",

@@ -2,7 +2,8 @@ import React, { useState, useMemo } from 'react';
 import { 
   PIPE_FITTINGS_CATEGORIES, 
   getPipeFittingsCategoryBySlug, 
-  getPipeFittingsGradeBySlug 
+  getPipeFittingsGradeBySlug,
+  getPipeFittingGradeImage
 } from '../../../data/pipeFittingsData';
 import { submitQuoteRequest } from '../../../services/quoteService';
 import { 
@@ -81,6 +82,8 @@ export default function PipeFittingGradeDetailView({ categorySlug, gradeSlug, on
     `Hello Redcore Steels, I am inquiring about *${grade.name}* (${category.name}). Please share current pricing, lead times, and MTC documentation.`
   );
 
+  const heroImageSrc = grade.image || getPipeFittingGradeImage(grade.slug) || getPipeFittingGradeImage(grade.id) || category.image;
+
   return (
     <div className="clean-fitting-detail-page">
       {/* 1. Breadcrumbs Header */}
@@ -91,7 +94,7 @@ export default function PipeFittingGradeDetailView({ categorySlug, gradeSlug, on
             <span className="crumb-sep">/</span>
             <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products')}>Products</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products/buttweld-fittings')}>Buttweld Fittings</span>
+            <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products/buttweld-fittings')}>Buttweld Fitting / Pipe Fitting</span>
             <span className="crumb-sep">/</span>
             <span className="crumb-link" onClick={() => onNavigate && onNavigate(`/products/buttweld-fittings/${category.materialSlug || category.slug}`)}>
               {category.materialName || category.name}
@@ -130,9 +133,11 @@ export default function PipeFittingGradeDetailView({ categorySlug, gradeSlug, on
               {/* Large Product Image Banner */}
               <div className="hero-media-wrapper">
                 <img
-                  src={category.image}
+                  src={heroImageSrc}
                   alt={`${grade.name} - ${category.name}`}
                   className="hero-product-img"
+                  loading="eager"
+                  decoding="async"
                 />
                 <div className="hero-tested-tag">
                   <ShieldCheck size={14} />

@@ -751,13 +751,48 @@
 }
 
 @media (max-width: 640px) {
+  .grade-detail-container {
+    padding: 0 16px;
+  }
+
+  .grade-hero-card,
+  .grade-specs-card,
+  .grade-forms-card,
+  .grade-applications-card,
+  .sidebar-quote-card,
+  .sidebar-other-grades-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .grade-main-title {
+    font-size: 1.45rem;
+  }
+
+  .grade-specs-table th {
+    width: 38%;
+    min-width: 100px;
+    font-size: 0.78rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .grade-specs-table td {
+    font-size: 0.78rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .other-grade-btn {
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
   .grade-media-card {
     width: 100%;
     max-width: 100%;
   }
 
   .grade-hero-image {
-    max-height: 320px;
+    max-height: 260px;
     width: 100%;
     height: auto;
   }
@@ -765,5 +800,22 @@
   .img-badge {
     font-size: 0.62rem;
     padding: 0.25rem 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .grade-detail-container {
+    padding: 0 10px;
+  }
+
+  .grade-hero-card,
+  .grade-specs-card,
+  .grade-forms-card,
+  .grade-applications-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .grade-main-title {
+    font-size: 1.3rem;
   }
 }

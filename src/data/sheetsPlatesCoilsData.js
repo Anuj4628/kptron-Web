@@ -19,7 +19,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     materialSlug: 'stainless-steel',
     materialName: 'Stainless Steel',
     aliases: ['stainless-steel-sheets', 'ss-sheets', 'stainless-steel-plates-coils', 'ss-sheet-plate-coil'],
-    name: 'SS Sheets, Plates, Coils',
+    name: 'Stainless Steel Sheets & Plates',
+    title: 'Stainless Steel Sheets & Plates',
     headline: 'Austenitic, Ferritic & Martensitic Cold Rolled Sheets, Heavy Plates & Precision Slit Coils',
     image: img_ss_sheet,
     shortDesc: 'Cold-rolled sheets, hot-rolled pickled plates, and precision strip coils in commercial, food-grade, high-temperature, and super austenitic stainless steel alloys conforming strictly to ASTM A240 and EN 10088-2.',
@@ -179,7 +180,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     materialSlug: 'duplex-steel',
     materialName: 'Duplex & Super Duplex',
     aliases: ['duplex-sheets', 'super-duplex-plates', 'duplex-steel-sheet-plate-coil'],
-    name: 'Super & Duplex Sheets, Plates, Coils',
+    name: 'Super Duplex Steel Sheets & Plates',
+    title: 'Super Duplex Steel Sheets & Plates',
     headline: 'High-Strength Dual-Phase Austenitic-Ferritic Marine & Chemical Process Plates',
     image: img_duplex_sheet,
     shortDesc: 'Dual-phase austenitic-ferritic stainless steel heavy plates and slit coils offering twice the mechanical yield strength of standard austenitic grades, paired with exceptional resistance to marine pitting (PREN ≥ 35–42) and chloride stress corrosion cracking.',
@@ -248,7 +250,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     materialSlug: 'carbon-steel',
     materialName: 'Carbon Steel',
     aliases: ['carbon-steel-plates', 'cs-plates', 'carbon-steel-sheet-plate-coil'],
-    name: 'Carbon Steel Sheets, Plates, Coils',
+    name: 'Carbon Steel Sheets & Plates',
+    title: 'Carbon Steel Sheets & Plates',
     headline: 'Certified Boiler Quality (BQ), High-Tensile Structural & Pressure Vessel Heavy Steel Plates',
     image: img_carbon_sheet,
     shortDesc: 'Fully killed, vacuum degassed carbon steel pressure vessel plates, structural steel plates, and hot rolled coils conforming to ASTM A516, ASTM A36, ASTM A283, ASTM A572, and IS 2062 for boilers, tanks, bridges, and heavy industrial fabrication.',
@@ -271,110 +274,6 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
         applications: ['Industrial machinery beds and bases', 'Storage tanks and silos', 'Building columns and heavy civil fabrication']
       },
       {
-        id: 'astm-a36-sheet-plate-coil',
-        slug: 'astm-a36-sheet-plate-coil',
-        name: 'ASTM A36 Sheet, Plate, Coil',
-        code: 'ASTM A36 / ASME SA36 Structural Steel',
-        standard: 'ASTM A36 / ASME SA36',
-        uns: 'UNS K02600',
-        din: '1.0038 (S235JR Equivalent)',
-        shortDesc: 'Universal structural carbon steel plate with minimum yield strength of 250 MPa (36 ksi) and excellent weldability.',
-        fullDesc: 'ASTM A36 is the most widely specified structural carbon steel plate in North America. Features low carbon content for easy cutting, drilling, and welding without preheating for standard thicknesses.',
-        specs: { thickness: '3 mm to 100 mm', dimensions: '1500x6000, 2000x8000 mm', testing: 'Tensile, Elongation, 180° Bend' },
-        applications: ['Bridges, buildings, and industrial warehouse structures', 'Truck chassis and material handling frames', 'Gusset plates, base plates, and structural brackets']
-      },
-      {
-        id: 'astm-a283-grade-c-sheet-plate-coil',
-        slug: 'astm-a283-grade-c-sheet-plate-coil',
-        name: 'ASTM A283 Grade C Sheet, Plate, Coil',
-        code: 'ASTM A283 Gr. C Intermediate Strength',
-        standard: 'ASTM A283 / ASME SA283',
-        uns: 'UNS K02401',
-        din: '1.0037 (St 37-2)',
-        shortDesc: 'Low and intermediate tensile strength (380-515 MPa) structural plate ideal for cold forming and welding.',
-        fullDesc: 'Four-grade structural steel specification where Grade C is the most common. Offers high ductility and ease of fabrication for atmospheric storage tanks and non-critical civil structures.',
-        specs: { thickness: '4 mm to 80 mm', dimensions: '1500x6000, 2000x6000 mm', testing: 'Tensile, Bend' },
-        applications: ['Water storage tanks and non-pressure vessels', 'Transmission tower foundation plates', 'General automotive and railway car frames']
-      },
-      {
-        id: 'astm-a285-grade-c-sheet-plate-coil',
-        slug: 'astm-a285-grade-c-sheet-plate-coil',
-        name: 'ASTM A285 Grade C Sheet, Plate, Coil',
-        code: 'ASTM A285 Gr. C Low/Intermediate Pressure Vessel',
-        standard: 'ASTM A285 / ASME SA285',
-        uns: 'UNS K02801',
-        din: '1.0425 (P265GH Equivalent)',
-        shortDesc: 'Pressure vessel plate for low and intermediate pressure tanks, boilers, and stationary equipment.',
-        fullDesc: 'Low-to-intermediate tensile strength carbon steel plate intended for fusion-welded pressure vessels. Readily cold-formed and roll-curved into vessel shells.',
-        specs: { thickness: '5 mm to 50 mm', dimensions: '1500x6000 mm', testing: 'ASME Section II Tensile, Bend' },
-        applications: ['Low-pressure steam boilers and water heaters', 'Stationary storage vessels and air receivers']
-      },
-      {
-        id: 'astm-a515-gr-60-sheet-plate-coil',
-        slug: 'astm-a515-gr-60-sheet-plate-coil',
-        name: 'ASTM A515 Gr 60 Sheet, Plate, Coil',
-        code: 'ASTM A515 Grade 60 (High-Temp Service)',
-        standard: 'ASTM A515 / ASME SA515',
-        uns: 'UNS K02400',
-        din: '1.0486 (P275GH)',
-        shortDesc: 'Coarse-grain carbon-silicon steel plate engineered for intermediate and higher-temperature service in boilers.',
-        fullDesc: 'Coarse-grain practice carbon steel plate intended primarily for intermediate- and higher-temperature service in boilers and other pressure vessels.',
-        specs: { thickness: '6 mm to 100 mm', dimensions: '1500x6000, 2000x6000 mm', testing: 'High-Temp Tensile, UT ASTM A578' },
-        applications: ['Stationary boiler shells and steam drums', 'High-temperature heat exchanger shells']
-      },
-      {
-        id: 'astm-a515-gr-70-sheet-plate-coil',
-        slug: 'astm-a515-gr-70-sheet-plate-coil',
-        name: 'ASTM A515 Gr 70 Sheet, Plate, Coil',
-        code: 'ASTM A515 Grade 70 (High-Temp Pressure Vessel)',
-        standard: 'ASTM A515 / ASME SA515',
-        uns: 'UNS K03100',
-        din: '1.0487 (P295GH)',
-        shortDesc: 'High-tensile (485-620 MPa) coarse-grained boiler plate engineered for elevated temperature pressure service.',
-        fullDesc: 'Delivers higher tensile strength than Grade 60 for pressure vessels operating at elevated temperatures in power plants and oil refineries.',
-        specs: { thickness: '6 mm to 120 mm', dimensions: '2000x6000, 2500x8000 mm', testing: 'ASME SA515 Tensile, UT' },
-        applications: ['High-temperature steam drum shells', 'Refinery cracking vessel heads and shells']
-      },
-      {
-        id: 'astm-a572-grade-50-sheet-plate-coil',
-        slug: 'astm-a572-grade-50-sheet-plate-coil',
-        name: 'ASTM A572 Grade 50 Sheet, Plate, Coil',
-        code: 'ASTM A572 Grade 50 (HSLA Steel)',
-        standard: 'ASTM A572 / ASME SA572',
-        uns: 'UNS K02303',
-        din: '1.0577 (S355J2 Equivalent)',
-        shortDesc: 'High-strength low-alloy (HSLA) columbium-vanadium structural steel plate with minimum yield strength of 345 MPa (50 ksi).',
-        fullDesc: 'Micro-alloyed HSLA steel plate providing high strength-to-weight ratio for bridge construction, crane booms, and heavy civil projects without excessive weight penalties.',
-        specs: { thickness: '6 mm to 100 mm', dimensions: '1500x6000, 2000x8000 mm', testing: 'Charpy Impact, Tensile, Elongation' },
-        applications: ['Highway bridges and overhead sign structures', 'Heavy mobile crane booms and outriggers', 'Mining truck dump bodies and excavator arms']
-      },
-      {
-        id: 'astm-a516-grade-60-sheet-plate-coil',
-        slug: 'astm-a516-grade-60-sheet-plate-coil',
-        name: 'ASTM A516 Grade 60 Sheet, Plate, Coil',
-        code: 'ASTM A516 Grade 60 (Fine Grain BQ)',
-        standard: 'ASTM A516 / ASME SA516',
-        uns: 'UNS K02100',
-        din: '1.0486 (P275NH)',
-        shortDesc: 'Lower-carbon (C ≤ 0.21%) boiler plate providing superior cold-head forming ductility and low-temperature impact toughness.',
-        fullDesc: 'Fully killed, fine-grained carbon steel pressure vessel plate. Excellent weldability and notch toughness down to -50°C, ideal for vessels requiring dished and torispherical head forming.',
-        specs: { thickness: '6 mm to 120 mm', dimensions: '1500x6000, 2000x8000 mm', testing: 'Charpy at -50°C, 100% Ultrasonic' },
-        applications: ['Dished ends and ellipsoidal heads for vessels', 'Refrigerated gas low-temperature storage tanks', 'Hydrocarbon distillation column shell plates']
-      },
-      {
-        id: 'astm-a516-grade-65-sheet-plate-coil',
-        slug: 'astm-a516-grade-65-sheet-plate-coil',
-        name: 'ASTM A516 Grade 65 Sheet, Plate, Coil',
-        code: 'ASTM A516 Grade 65 (Balanced Pressure Plate)',
-        standard: 'ASTM A516 / ASME SA516',
-        uns: 'UNS K02403',
-        din: '1.0488',
-        shortDesc: 'Balanced tensile strength (450-585 MPa) fine-grained boiler plate for moderate and lower temperature vessels.',
-        fullDesc: 'Provides balanced properties between Grade 60 and Grade 70, frequently specified in chemical processing vessels requiring both good forming behavior and robust design stress allowances.',
-        specs: { thickness: '6 mm to 120 mm', dimensions: '2000x6000 mm', testing: 'Charpy V-Notch, Tensile, UT' },
-        applications: ['Chemical reactor shell plates', 'Refinery accumulator drums', 'LPG storage tanks']
-      },
-      {
         id: 'astm-a516-grade-70-sheet-plate-coil',
         slug: 'astm-a516-grade-70-sheet-plate-coil',
         name: 'ASTM A516 Grade 70 Sheet, Plate, Coil',
@@ -388,43 +287,17 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
         applications: ['Boiler steam drums and deaerator vessels', 'Petrochemical fractionating towers and reactors', 'High-pressure bullet tanks and LPG spheres', 'Heat exchanger heavy tubesheet backing plates']
       },
       {
-        id: 'astm-a537-class-2-sheet-plate-coil',
-        slug: 'astm-a537-class-2-sheet-plate-coil',
-        name: 'ASTM A537 Class 2 Sheet, Plate, Coil',
-        code: 'ASTM A537 Class 2 (Quenched & Tempered BQ)',
-        standard: 'ASTM A537 / ASME SA537',
-        uns: 'UNS K12437',
-        din: '1.8902 (P460NH / P460QH)',
-        shortDesc: 'Heat-treated carbon-manganese-silicon steel plate quenched and tempered to high yield strength (minimum 415 MPa / 60 ksi).',
-        fullDesc: 'Quenched and tempered high-yield pressure vessel steel plate. Provides substantially higher allowable design stresses than standard A516-70 while maintaining good notch toughness.',
-        specs: { thickness: '8 mm to 100 mm', dimensions: '2000x6000 mm', testing: 'Quenched & Tempered Tensile, Charpy at -46°C' },
-        applications: ['High-pressure gas storage spheres', 'Offshore production separator vessels', 'Heavy-wall hydrotreating reactors']
-      },
-      {
-        id: 'astm-a709-grade-36-sheet-plate-coil',
-        slug: 'astm-a709-grade-36-sheet-plate-coil',
-        name: 'ASTM A709 Grade 36 Sheet, Plate, Coil',
-        code: 'ASTM A709 Grade 36 (Structural Steel for Bridges)',
-        standard: 'ASTM A709 / AASHTO M270',
+        id: 'astm-a36-sheet-plate-coil',
+        slug: 'astm-a36-sheet-plate-coil',
+        name: 'ASTM A36 Sheet, Plate, Coil',
+        code: 'ASTM A36 / ASME SA36 Structural Steel',
+        standard: 'ASTM A36 / ASME SA36',
         uns: 'UNS K02600',
-        din: '1.0038 Bridge Spec',
-        shortDesc: 'Carbon steel plate specifically intended for structural use in highway and railroad bridges with mandatory impact toughness.',
-        fullDesc: 'Certified for bridge engineering conforming to AASHTO requirements. Tested for fracture-critical and non-fracture-critical bridge tension components.',
-        specs: { thickness: '6 mm to 80 mm', dimensions: '1500x6000, 2000x8000 mm', testing: 'Charpy V-Notch per AASHTO Zone 1/2/3' },
-        applications: ['Highway bridge girders and crossbeams', 'Railroad overpass structural steel plates', 'Pedestrian bridge truss joints']
-      },
-      {
-        id: 'c45-sheet-plate-coil',
-        slug: 'c45-sheet-plate-coil',
-        name: 'C45 Sheet, Plate, Coil',
-        code: 'EN 10083-2 C45 / 1.0503 (Medium Carbon)',
-        standard: 'EN 10083-2 / DIN 17200 / AISI 1045',
-        uns: 'UNS G10450',
-        din: '1.0503 (C45 / C45E)',
-        shortDesc: 'Medium carbon (0.45% C) machinery steel plate heat-treatable for high wear resistance, flame induction hardening, and shafts.',
-        fullDesc: 'Medium carbon engineering steel plate. Can be through-hardened or flame/induction hardened to achieve high surface hardness for gear blanks, machine plates, and die bases.',
-        specs: { thickness: '8 mm to 120 mm', dimensions: '1500x3000, 2000x6000 mm', testing: 'Tensile, Hardness (170-220 HBW as supplied)' },
-        applications: ['Machine tool baseplates and guide rails', 'Press brake dies and punch tooling blocks', 'Agricultural machinery blades and wear parts']
+        din: '1.0038 (S235JR Equivalent)',
+        shortDesc: 'Universal structural carbon steel plate with minimum yield strength of 250 MPa (36 ksi) and excellent weldability.',
+        fullDesc: 'ASTM A36 is the most widely specified structural carbon steel plate in North America. Features low carbon content for easy cutting, drilling, and welding without preheating for standard thicknesses.',
+        specs: { thickness: '3 mm to 100 mm', dimensions: '1500x6000, 2000x8000 mm', testing: 'Tensile, Elongation, 180° Bend' },
+        applications: ['Bridges, buildings, and industrial warehouse structures', 'Truck chassis and material handling frames', 'Gusset plates, base plates, and structural brackets']
       },
       {
         id: 'is-2062-e250-e350-sheet-plate-coil',
@@ -438,6 +311,19 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
         fullDesc: 'Hot rolled medium and high tensile structural steel plates manufactured to Bureau of Indian Standards (BIS) specifications. Available in Quality A, B, and C with mandatory impact testing at 0°C or -20°C.',
         specs: { thickness: '2 mm to 100 mm', dimensions: '1250x2500, 1500x6000, 2000x8000 mm', testing: 'Charpy Impact at 0°C/-20°C, Bend, UT' },
         applications: ['Power plant boiler structural columns and beams', 'Expressway flyover girder plates', 'Industrial sheds and PEB building frames', 'Heavy crane gantry girder plates']
+      },
+      {
+        id: 'astm-a516-grade-60-sheet-plate-coil',
+        slug: 'astm-a516-grade-60-sheet-plate-coil',
+        name: 'ASTM A516 Grade 60 Sheet, Plate, Coil',
+        code: 'ASTM A516 Grade 60 (Fine Grain BQ)',
+        standard: 'ASTM A516 / ASME SA516',
+        uns: 'UNS K02100',
+        din: '1.0486 (P275NH)',
+        shortDesc: 'Lower-carbon (C ≤ 0.21%) boiler plate providing superior cold-head forming ductility and low-temperature impact toughness.',
+        fullDesc: 'Fully killed, fine-grained carbon steel pressure vessel plate. Excellent weldability and notch toughness down to -50°C, ideal for vessels requiring dished and torispherical head forming.',
+        specs: { thickness: '6 mm to 120 mm', dimensions: '1500x6000, 2000x8000 mm', testing: 'Charpy at -50°C, 100% Ultrasonic' },
+        applications: ['Dished ends and ellipsoidal heads for vessels', 'Refrigerated gas low-temperature storage tanks', 'Hydrocarbon distillation column shell plates']
       }
     ]
   },
@@ -447,7 +333,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     materialSlug: 'alloy-steel',
     materialName: 'Alloy Steel',
     aliases: ['alloy-steel-plates', 'chrome-moly-plates', 'alloy-steel-sheet-plate-coil'],
-    name: 'Alloy Steel Sheets, Plates, Coils',
+    name: 'Alloy Steel Sheets & Plates',
+    title: 'Alloy Steel Sheets & Plates',
     headline: 'High-Temperature Chrome-Moly (Cr-Mo) Creep-Resistant Pressure Vessel Steel Plates',
     image: img_alloy_sheet,
     shortDesc: 'Normalized and tempered chromium-molybdenum alloy steel plates conforming to ASTM A387 and EN 10028-2, formulated to resist elevated-temperature creep rupture, hydrogen attack, and thermal fatigue in power generation boilers and refinery reactors up to 600°C.',
@@ -555,7 +442,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     materialSlug: 'inconel',
     materialName: 'Inconel',
     aliases: ['inconel-plates', 'inconel-sheet-plate-coil', 'nickel-alloy-plates'],
-    name: 'Inconel Sheets, Plates, Coils',
+    name: 'Inconel Sheets & Plates',
+    title: 'Inconel Sheets & Plates',
     headline: 'Nickel-Chromium High-Temperature Superalloy Sheets, Heavy Plates & Strip Coils',
     image: img_inconel_sheet,
     shortDesc: 'Solid-solution and age-hardenable nickel-chromium superalloy sheets and plates engineered for extreme resistance to thermal oxidation up to 1200°C, carburization, and chloride stress corrosion cracking in aerospace, nuclear, and sour gas applications.',
@@ -628,32 +516,6 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
         fullDesc: 'Combines high yield strength and creep-rupture properties with excellent weldability and post-weld crack resistance. Primary material for aerospace turbines and downhole sour oil tools.',
         specs: { thickness: '0.5 mm to 40 mm', dimensions: '1000x2000, 1250x2500 mm', testing: 'Stress Rupture, Tensile, Hardness (up to 44 HRC)' },
         applications: ['Aerospace gas turbine casing rings and exhaust ducts', 'Rocket engine thrust chamber shells', 'High-pressure oil & gas downhole tool components']
-      },
-      {
-        id: 'incoloy-800-800h-800ht-sheets-plates-coils',
-        slug: 'incoloy-800-800h-800ht-sheets-plates-coils',
-        name: 'Incoloy 800 / 800H / 800HT Sheets, Plates, Coils',
-        code: 'ASTM B409 Incoloy 800 / 800H / 800HT',
-        standard: 'ASTM B409 / ASME SB409',
-        uns: 'UNS N08800 / N08810 / N08811',
-        din: '1.4876 (X10NiCrAlTi32-21)',
-        shortDesc: 'Iron-nickel-chromium alloy plate resisting carburization, oxidation, and rupture at sustained service above 600°C.',
-        fullDesc: 'Grade 800H/800HT features controlled carbon, aluminum, and titanium additions combined with high-temperature solution annealing for maximum creep and rupture strength above 600°C.',
-        specs: { thickness: '1.5 mm to 60 mm', dimensions: '1500x3000, 2000x6000 mm', testing: 'Grain Size (ASTM No. 5 or coarser), Hot Tensile' },
-        applications: ['Petrochemical ethylene furnace cracker pigtails and headers', 'Hydrocarbon steam methane reformer vessels', 'Industrial thermal processing heat shields']
-      },
-      {
-        id: 'incoloy-825-sheets-plates-coils',
-        slug: 'incoloy-825-sheets-plates-coils',
-        name: 'Incoloy 825 Sheets, Plates, Coils',
-        code: 'ASTM B424 Incoloy 825 (Ni-Fe-Cr-Mo-Cu)',
-        standard: 'ASTM B424 / ASME SB424',
-        uns: 'UNS N08825',
-        din: '2.4858 (NiCr21Mo)',
-        shortDesc: 'Titanium-stabilized Ni-Fe-Cr-Mo-Cu plate engineered for supreme resistance to sulfuric and phosphoric acids.',
-        fullDesc: 'Specifically formulated with molybdenum and copper to resist reducing acids like sulfuric and phosphoric acid, alongside resistance to pitting and stress corrosion in sour oilfield environments.',
-        specs: { thickness: '1.0 mm to 50 mm', dimensions: '1250x2500, 1500x3000 mm', testing: 'Sulfuric Acid Immersion, PMI, UT' },
-        applications: ['Sulfuric acid pickling tanks and heating coils', 'Phosphoric acid manufacturing evaporators', 'Nuclear fuel reprocessing dissolver vessels', 'Sour oil and gas production equipment']
       }
     ]
   },
@@ -663,7 +525,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     materialSlug: 'hastelloy',
     materialName: 'Hastelloy',
     aliases: ['hastelloy-plates', 'hastelloy-sheet-plate-coil'],
-    name: 'Hastelloy Sheets, Plates, Coils',
+    name: 'Hastelloy Sheets & Plates',
+    title: 'Hastelloy Sheets & Plates',
     headline: 'Corrosion-Resistant Nickel-Molybdenum-Chromium Alloy Heavy Plates & Slit Strip Coils',
     image: img_hastelloy_sheet,
     shortDesc: 'Nickel-molybdenum-chromium superalloy plates and strip coils delivering exceptional resistance to severe oxidizing, reducing, and mixed acid chemical environments, wet chlorine gas, and localized pitting.',
@@ -719,7 +582,8 @@ export const SHEETS_PLATES_COILS_CATEGORIES = [
     materialSlug: 'titanium',
     materialName: 'Titanium',
     aliases: ['titanium-plates', 'titanium-sheet-plate-coil', 'ti-plates'],
-    name: 'Titanium Sheets, Plates, Coils',
+    name: 'Titanium Sheets & Plates',
+    title: 'Titanium Sheets & Plates',
     headline: 'High-Strength Lightweight & Seawater-Immune Titanium Sheets, Heavy Plates & Strip Coils',
     image: img_titanium_sheet,
     shortDesc: 'Commercially pure and high-strength alpha-beta titanium sheets, heavy plates, and strip coils conforming to ASTM B265 and ASME SB265 for plate heat exchangers, chlor-alkali cells, aerospace structures, and marine offshore installations.',
@@ -799,8 +663,11 @@ export function getAllSheetsPlatesCoilsCategories() {
 
 export function getSheetsPlatesCategoryBySlug(slug) {
   if (!slug) return null;
-  const clean = String(slug).toLowerCase().trim();
-  return _catMap.get(clean) || null;
+  const clean = String(slug).toLowerCase().trim()
+    .replace(/-manufactured-in-mumbai$/, '')
+    .replace(/-stockist-in-mumbai$/, '');
+  const cleanStripped = clean.replace(/-(sheets-plates-coils|sheet-plate-coil|sheets-plates|sheets|plates|coils)$/, '');
+  return _catMap.get(clean) || _catMap.get(cleanStripped) || null;
 }
 
 export function getSheetsPlatesGradeBySlug(categorySlug, gradeSlug) {

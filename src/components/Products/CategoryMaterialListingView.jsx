@@ -41,6 +41,21 @@ function getMaterialSortRank(mat) {
 }
 
 /**
+ * Formats material card titles across the website to display:
+ * [Material Name] [Product Category]
+ * 
+ * Examples:
+ * - Pipes: Stainless Steel Pipes, Carbon Steel Pipes, Alloy Steel Pipes, Titanium Pipes, Duplex Steel Pipes, Super Duplex Steel Pipes
+ * - Bars: Stainless Steel Bars, Carbon Steel Bars, Alloy Steel Bars, Titanium Bars, and other available materials followed by 'Bars'
+ * - Flanges: Stainless Steel Flanges, Carbon Steel Flanges, Alloy Steel Flanges, Titanium Flanges, and other available materials followed by 'Flanges'
+ * - Fasteners: Stainless Steel Fasteners, Carbon Steel Fasteners, Alloy Steel Fasteners, Titanium Fasteners, and other available materials followed by 'Fasteners'
+ * - Buttweld Fittings: Stainless Steel Fittings, Carbon Steel Fittings, Alloy Steel Fittings, Titanium Fittings, and all other available materials followed by 'Fittings'
+ * - Sheets & Plates: Stainless Steel Sheets & Plates, Carbon Steel Sheets & Plates, Alloy Steel Sheets & Plates, Titanium Sheets & Plates (NEVER 'Coils')
+ */
+import { getMaterialCardTitle } from '../../utils/productNaming';
+export { getMaterialCardTitle };
+
+/**
  * Universal Category Material Listing View
  * 
  * Used across ALL 6 product categories when visiting their category root:
@@ -210,14 +225,14 @@ export default function CategoryMaterialListingView({
                   : (isExpanded ? allGrades : allGrades.slice(0, 5));
 
                 const remainingCount = allGrades.length - 5;
-                const displayName = mat.materialName || mat.name || mat.title;
+                const displayName = getMaterialCardTitle(mat, categorySlug, categoryName);
 
                 return (
                   <article
                     key={matId}
                     className="cat-material-card"
                     onClick={() => handleCardClick(mat)}
-                    title={`View ${displayName} ${categoryName} Details`}
+                    title={`View ${displayName} Details`}
                   >
                     {/* Top Red-Orange Accent Bar */}
                     <div className="card-top-accent" aria-hidden="true" />
@@ -226,7 +241,7 @@ export default function CategoryMaterialListingView({
                     <div className="card-media-wrapper">
                       <img
                         src={mat.image}
-                        alt={`${displayName} ${categoryName}`}
+                        alt={displayName}
                         className="card-material-img"
                         loading="lazy"
                         decoding="async"

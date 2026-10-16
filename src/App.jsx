@@ -70,6 +70,7 @@ import { getPipeCategoryBySlug } from './data/pipesData';
 import { getSheetsPlatesCategoryBySlug } from './data/sheetsPlatesCoilsData';
 import { getBarsCategoryBySlug } from './data/barsData';
 import { getPipeFittingsCategoryBySlug } from './data/pipeFittingsData';
+import NotFoundPage from './components/UI/NotFoundPage';
 
 import './App.css';
 
@@ -860,6 +861,10 @@ function parseRoute(pathname = (typeof window !== 'undefined' ? window.location.
     }
   }
 
+  if (clean !== '/' && clean !== '' && !clean.startsWith('/#')) {
+    return { page: '404' };
+  }
+
   return { page: 'home' };
 }
 
@@ -986,6 +991,13 @@ export default function App() {
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
+
+  // Guarantee scroll to top on any route navigation
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !window.location.hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+  }, [route]);
 
   // Handle canonical permanent client-side redirects and canonical link updates (Requirement 9 & 10)
   useEffect(() => {
@@ -1240,6 +1252,11 @@ export default function App() {
               <ProductsLandingView onNavigate={navigateTo} onOpenQuoteModal={openQuoteModal} />
             )}
           </Suspense>
+        </main>
+      ) : route.page === '404' ? (
+        /* Genuine 404 Not Found Page */
+        <main id="main-content" className="not-found-page-main">
+          <NotFoundPage onNavigate={navigateTo} />
         </main>
       ) : (
         /* Full Commercial Home Page (About and Products catalog views are isolated) */

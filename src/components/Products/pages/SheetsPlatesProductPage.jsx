@@ -24,7 +24,7 @@ export default function SheetsPlatesProductPage({
     return (
       <CategoryMaterialListingView
         categorySlug="sheets-plates-coils"
-        categoryName="Sheets, Plates & Coils"
+        categoryName="Sheets & Plates"
         mainHeading="Materials in Sheets & Plates"
         leadText="Cold-rolled sheets, hot-rolled pickled plates, and precision strip coils in stainless steel, boiler-quality carbon steel, chrome-moly, and corrosion-resistant alloys conforming to ASTM A240 and ASME SA240."
         materials={SHEETS_PLATES_COILS_CATEGORIES}

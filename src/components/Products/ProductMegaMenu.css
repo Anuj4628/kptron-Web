@@ -10,7 +10,7 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(4px);
-  min-width: 260px;
+  min-width: 320px;
   max-width: calc(100vw - 32px);
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
@@ -91,6 +91,7 @@
   color: #1F2937;
   text-transform: uppercase;
   line-height: 1.25;
+  white-space: nowrap;
   transition: color 0.12s ease;
 }
 

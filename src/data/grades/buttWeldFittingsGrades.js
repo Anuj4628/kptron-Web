@@ -6,6 +6,8 @@
  * Wall Schedules: SCH 5S, 10S, 40S, STD, 80S, XS, 160, XXS
  */
 
+import { getButtWeldFittingGradeImage } from '../buttWeldFittingGradeImages';
+
 export const BUTT_WELD_FITTINGS_CARBON_STEEL_GRADES = [
   {
     id: 'astm-a234-wpb',
@@ -685,3 +687,20 @@ export const BUTT_WELD_FITTINGS_GRADES = [
   ...BUTT_WELD_FITTINGS_NICKEL_GRADES,
   ...BUTT_WELD_FITTINGS_TITANIUM_GRADES
 ];
+
+// Enrich all grades with authentic images
+BUTT_WELD_FITTINGS_GRADES.forEach(g => {
+  if (!g.image) {
+    g.image = getButtWeldFittingGradeImage(g.slug) || getButtWeldFittingGradeImage(g.id);
+    if (!g.image && g.aliases) {
+      for (const alias of g.aliases) {
+        const found = getButtWeldFittingGradeImage(alias);
+        if (found) {
+          g.image = found;
+          break;
+        }
+      }
+    }
+  }
+});
+
