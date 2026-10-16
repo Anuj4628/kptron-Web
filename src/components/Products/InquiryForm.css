@@ -359,29 +359,219 @@
   color: #166534 !important;
 }
 
-.bright-rfq-section .btn-rfq-again {
+.bright-rfq-section .rfq-success-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
   margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
+  flex-wrap: wrap;
+}
+
+.bright-rfq-section .btn-success-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.4rem;
+  background: #25D366;
+  color: #FFFFFF;
+  border-radius: 6px;
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.25);
+}
+
+.bright-rfq-section .btn-success-wa:hover {
+  background: #1EB855;
+  transform: translateY(-1px);
+}
+
+.bright-rfq-section .btn-success-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.4rem;
   background: #1F3862;
   color: #FFFFFF;
-  border: none;
+  border-radius: 6px;
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(31, 56, 98, 0.25);
+}
+
+.bright-rfq-section .btn-success-email:hover {
+  background: #FF5B26;
+  transform: translateY(-1px);
+}
+
+.bright-rfq-section .btn-rfq-again {
+  padding: 0.75rem 1.4rem;
+  background: #F1F5F9;
+  color: #334155;
+  border: 1px solid #CBD5E1;
   border-radius: 6px;
   font-family: var(--font-heading, 'Montserrat', sans-serif);
   font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .bright-rfq-section .btn-rfq-again:hover {
-  background: #2563EB;
+  background: #E2E8F0;
+}
+
+/* Submission Channel Block in InquiryForm */
+.bright-rfq-section .submission-channel-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.bright-rfq-section .submission-channel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bright-rfq-section .submission-channel-title {
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #1F3862;
+}
+
+.bright-rfq-section .submission-channel-hint {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #FF5B26;
+  background: #FFF5F1;
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid #FFE2D8;
+}
+
+.bright-rfq-section .submission-buttons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.bright-rfq-section .btn-channel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 8px;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.bright-rfq-section .btn-channel-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF;
+  border: 1.5px solid #25D366;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28);
+}
+
+.bright-rfq-section .btn-channel-whatsapp:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1EB855 0%, #0F7569 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.38);
+}
+
+.bright-rfq-section .btn-channel-email {
+  background: linear-gradient(135deg, #1F3862 0%, #162C4E 100%);
+  color: #FFFFFF;
+  border: 1.5px solid #1F3862;
+  box-shadow: 0 4px 14px rgba(31, 56, 98, 0.25);
+}
+
+.bright-rfq-section .btn-channel-email:hover:not(:disabled) {
+  background: linear-gradient(135deg, #FF5B26 0%, #E04818 100%);
+  border-color: #FF5B26;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(255, 91, 38, 0.35);
+}
+
+.bright-rfq-section .btn-channel:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.bright-rfq-section .btn-channel.is-disabled {
+  opacity: 0.62;
+  filter: grayscale(20%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.bright-rfq-section .btn-channel.is-disabled:hover {
+  transform: none;
+}
+
+.bright-rfq-section .btn-channel-icon-wrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #FFFFFF;
+}
+
+.bright-rfq-section .btn-channel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bright-rfq-section .btn-channel-main {
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.bright-rfq-section .btn-channel-sub {
+  font-size: 0.72rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.bright-rfq-section .inquiry-guarantees {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  padding-top: 0.4rem;
+}
+
+.bright-rfq-section .inquiry-guarantee-pill {
+  font-size: 0.75rem;
+  color: #64748B;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
   .bright-rfq-section .rfq-card-white {
-    padding: 1.6rem 1.25rem;
+    padding: 1.6rem 1.15rem;
   }
   .bright-rfq-section .rfq-fields-grid {
     grid-template-columns: 1fr;
@@ -391,17 +581,28 @@
     flex-direction: column;
     align-items: stretch;
   }
-  .bright-rfq-section .btn-transmit-rfq {
-    width: 100%;
-    justify-content: center;
+  .bright-rfq-section .submission-channel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
   }
-  .bright-rfq-section .direct-btns-wrap {
+  .bright-rfq-section .submission-buttons-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+  .bright-rfq-section .btn-channel {
+    padding: 0.85rem 1rem;
+    min-height: 48px;
+  }
+  .bright-rfq-section .rfq-success-actions {
     flex-direction: column;
     width: 100%;
   }
-  .bright-rfq-section .btn-wa-direct,
-  .bright-rfq-section .btn-call-direct {
+  .bright-rfq-section .btn-success-wa,
+  .bright-rfq-section .btn-success-email,
+  .bright-rfq-section .btn-rfq-again {
     width: 100%;
     justify-content: center;
+    box-sizing: border-box;
   }
 }

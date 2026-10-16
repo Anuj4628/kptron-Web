@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { submitQuoteRequest, generateTicketNumber } from '../../services/quoteService';
+import { 
+  submitQuoteRequest, 
+  generateTicketNumber, 
+  getWhatsAppInquiryUrl, 
+  getGmailQuoteUrl, 
+  getMailtoQuoteUrl 
+} from '../../services/quoteService';
+import { brandDetails } from '../../data/navigationData';
 import './InquiryForm.css';
 
 /**
@@ -45,6 +52,15 @@ export default function InquiryForm({
     return errs;
   };
 
+  const isFormFilled = Boolean(
+    formData.fullName.trim().length >= 2 &&
+    formData.company.trim().length >= 1 &&
+    formData.email.trim() &&
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim()) &&
+    formData.phone.trim().length >= 7 &&
+    formData.quantity.trim()
+  );
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -53,35 +69,92 @@ export default function InquiryForm({
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSendViaWhatsApp = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    if (isSubmitting) return;
+
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      const firstInvalid = Object.keys(validationErrors)[0];
+      const el = document.getElementById(firstInvalid);
+      if (el) el.focus();
       return;
     }
 
     setIsSubmitting(true);
     setSubmitError('');
-    const newTicket = generateTicketNumber();
+    const newTicket = ticketId || generateTicketNumber();
+    setTicketId(newTicket);
 
-    try {
-      await submitQuoteRequest({
-        fullName: formData.fullName,
-        companyName: formData.company,
-        email: formData.email,
-        phone: formData.phone,
-        product: `${productName} (${materialGrade})`,
-        specsAndQuantity: `Quantity: ${formData.quantity} ${formData.unit} | Location: ${formData.deliveryLocation || 'Not specified'} | Notes: ${formData.notes || 'None'}`,
-        ticketNumber: newTicket
-      });
-      setIsSubmitting(false);
-      setTicketId(newTicket);
-      setSubmitted(true);
-    } catch (err) {
-      setIsSubmitting(false);
-      setSubmitError(err.message || 'Submission error. Please try again or use direct WhatsApp.');
+    const payload = {
+      fullName: formData.fullName,
+      companyName: formData.company,
+      email: formData.email,
+      phone: formData.phone,
+      product: `${productName} (${materialGrade})`,
+      specsAndQuantity: `Quantity: ${formData.quantity} ${formData.unit} | Location: ${formData.deliveryLocation || 'Not specified'} | Notes: ${formData.notes || 'None'}`,
+      ticketNumber: newTicket,
+      submissionChannel: 'WhatsApp Direct'
+    };
+
+    const wa = getWhatsAppInquiryUrl(payload);
+    window.open(wa, '_blank', 'noopener,noreferrer');
+
+    submitQuoteRequest(payload).catch(err => {
+      console.warn('Background quote notice:', err);
+    });
+
+    setIsSubmitting(false);
+    setSubmitted(true);
+  };
+
+  const handleSendViaEmail = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    if (isSubmitting) return;
+
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      const firstInvalid = Object.keys(validationErrors)[0];
+      const el = document.getElementById(firstInvalid);
+      if (el) el.focus();
+      return;
     }
+
+    setIsSubmitting(true);
+    setSubmitError('');
+    const newTicket = ticketId || generateTicketNumber();
+    setTicketId(newTicket);
+
+    const payload = {
+      fullName: formData.fullName,
+      companyName: formData.company,
+      email: formData.email,
+      phone: formData.phone,
+      product: `${productName} (${materialGrade})`,
+      specsAndQuantity: `Quantity: ${formData.quantity} ${formData.unit} | Location: ${formData.deliveryLocation || 'Not specified'} | Notes: ${formData.notes || 'None'}`,
+      ticketNumber: newTicket,
+      submissionChannel: 'Gmail Compose'
+    };
+
+    const gmail = getGmailQuoteUrl(payload);
+    const win = window.open(gmail, '_blank', 'noopener,noreferrer');
+    if (!win || win.closed || typeof win.closed === 'undefined') {
+      window.location.href = getMailtoQuoteUrl(payload);
+    }
+
+    submitQuoteRequest(payload).catch(err => {
+      console.warn('Background quote notice:', err);
+    });
+
+    setIsSubmitting(false);
+    setSubmitted(true);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSendViaWhatsApp(e);
   };
 
   const handleReset = () => {
@@ -146,9 +219,45 @@ export default function InquiryForm({
             <p className="success-hint">
               Our metallurgical export desk will transmit your technical pricing and MTC report to <strong>{formData.email}</strong> shortly.
             </p>
-            <button type="button" className="btn-rfq-again" onClick={handleReset}>
-              Submit Another Specification
-            </button>
+            <div className="rfq-success-actions">
+              <a
+                href={getWhatsAppInquiryUrl({
+                  fullName: formData.fullName,
+                  companyName: formData.company,
+                  email: formData.email,
+                  phone: formData.phone,
+                  product: `${productName} (${materialGrade})`,
+                  specsAndQuantity: `Quantity: ${formData.quantity} ${formData.unit} | Location: ${formData.deliveryLocation || 'Not specified'} | Notes: ${formData.notes || 'None'}`,
+                  ticketNumber: ticketId
+                })}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-success-wa"
+              >
+                <span>Open in WhatsApp</span>
+              </a>
+
+              <a
+                href={getGmailQuoteUrl({
+                  fullName: formData.fullName,
+                  companyName: formData.company,
+                  email: formData.email,
+                  phone: formData.phone,
+                  product: `${productName} (${materialGrade})`,
+                  specsAndQuantity: `Quantity: ${formData.quantity} ${formData.unit} | Location: ${formData.deliveryLocation || 'Not specified'} | Notes: ${formData.notes || 'None'}`,
+                  ticketNumber: ticketId
+                })}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-success-email"
+              >
+                <span>Open in Gmail</span>
+              </a>
+
+              <button type="button" className="btn-rfq-again" onClick={handleReset}>
+                Submit Another Specification
+              </button>
+            </div>
           </div>
         ) : (
           <form className="bright-rfq-form" onSubmit={handleSubmit} noValidate>
@@ -272,47 +381,69 @@ export default function InquiryForm({
               ></textarea>
             </div>
 
-            {/* Bottom Actions */}
+            {/* Dual Submission Channel Options */}
             <div className="rfq-submit-row">
-              <button
-                type="submit"
-                className="btn-transmit-rfq"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  <span>Transmitting RFQ...</span>
-                ) : (
-                  <>
-                    <span>Transmit Official RFQ</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <line x1="22" y1="2" x2="11" y2="13"></line>
-                      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                    </svg>
-                  </>
-                )}
-              </button>
-
-              <div className="rfq-instant-links">
-                <span className="direct-hint">Or speak directly to sales:</span>
-                <div className="direct-btns-wrap">
-                  <a
-                    href="https://wa.me/919967616124?text=Hello%20KPTRON,%20I%20need%20a%20quotation%20for%20"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-wa-direct"
-                  >
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086.159.058 1.011.477 1.184.564.173.086.289.13.332.202.043.073.043.419-.101.824z"/>
-                    </svg>
-                    <span>WhatsApp Desk</span>
-                  </a>
-                  <a href="tel:+919967616124" className="btn-call-direct">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                    <span>Direct Call</span>
-                  </a>
+              <div className="submission-channel-block">
+                <div className="submission-channel-header">
+                  <span className="submission-channel-title">Choose Submission Option:</span>
+                  {!isFormFilled && (
+                    <span className="submission-channel-hint">
+                      Complete required fields (*) to enable submission
+                    </span>
+                  )}
                 </div>
+
+                <div className="submission-buttons-grid">
+                  {/* Option 1: WhatsApp */}
+                  <button
+                    type="button"
+                    id="btn-inquiry-submit-whatsapp"
+                    className={`btn-channel btn-channel-whatsapp ${!isFormFilled ? 'is-disabled' : ''}`}
+                    onClick={handleSendViaWhatsApp}
+                    disabled={isSubmitting}
+                    aria-label="Send Quote Request via WhatsApp"
+                  >
+                    <div className="btn-channel-icon-wrap wa-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086.159.058 1.011.477 1.184.564.173.086.289.13.332.202.043.073.043.419-.101.824z"/>
+                      </svg>
+                    </div>
+                    <div className="btn-channel-content">
+                      <span className="btn-channel-main">Send via WhatsApp</span>
+                      <span className="btn-channel-sub">Instant chat with sales desk</span>
+                    </div>
+                  </button>
+
+                  {/* Option 2: Email / Gmail */}
+                  <button
+                    type="button"
+                    id="btn-inquiry-submit-email"
+                    className={`btn-channel btn-channel-email ${!isFormFilled ? 'is-disabled' : ''}`}
+                    onClick={handleSendViaEmail}
+                    disabled={isSubmitting}
+                    aria-label="Send Quote Request via Email / Gmail"
+                  >
+                    <div className="btn-channel-icon-wrap email-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                      </svg>
+                    </div>
+                    <div className="btn-channel-content">
+                      <span className="btn-channel-main">Send via Email / Gmail</span>
+                      <span className="btn-channel-sub">Pre-filled Gmail compose</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <div className="inquiry-guarantees">
+                <span className="inquiry-guarantee-pill">
+                  Target Desk: {brandDetails.contact.email}
+                </span>
+                <span className="inquiry-guarantee-pill">
+                  Response within 4 Hours
+                </span>
               </div>
             </div>
           </form>

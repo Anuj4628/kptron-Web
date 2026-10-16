@@ -24,10 +24,9 @@ const MATERIAL_PRIORITY = {
   'titanium': 11,
   'aluminum': 12,
   'maraging-steel': 13,
-  'refractory-anchor': 14,
-  'is-grades': 15,
-  'api-5l': 16,
-  'en-standards': 17
+  'is-grades': 14,
+  'api-5l': 15,
+  'en-standards': 16
 };
 
 function getMaterialSortRank(mat) {
@@ -79,9 +78,31 @@ export default function CategoryMaterialListingView({
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedCards, setExpandedCards] = useState({});
 
+const PRODUCT_FAMILY_PRIORITY = {
+  'pipes': 1,
+  'sheets-plates-coils': 2,
+  'bars': 3,
+  'buttweld-fittings': 4,
+  'flanges': 5,
+  'fasteners': 6
+};
+
+function getProductFamilySortRank(mat) {
+  if (mat.productTypeSlug && PRODUCT_FAMILY_PRIORITY[mat.productTypeSlug]) {
+    return PRODUCT_FAMILY_PRIORITY[mat.productTypeSlug];
+  }
+  return 99;
+}
+
   // 1. Sort materials in strict priority order (SS #1, CS #2, AS #3, etc.)
+  // When displaying products within a material, sort by standard division order (Pipes -> Sheets -> Bars -> Fittings -> Flanges -> Fasteners)
   const sortedMaterials = useMemo(() => {
     return [...materials].sort((a, b) => {
+      if (a.productTypeSlug || b.productTypeSlug) {
+        const pRankA = getProductFamilySortRank(a);
+        const pRankB = getProductFamilySortRank(b);
+        if (pRankA !== pRankB) return pRankA - pRankB;
+      }
       const rankA = getMaterialSortRank(a);
       const rankB = getMaterialSortRank(b);
       if (rankA !== rankB) return rankA - rankB;
@@ -96,6 +117,7 @@ export default function CategoryMaterialListingView({
 
     return sortedMaterials.map(mat => {
       const name = (mat.materialName || mat.name || mat.title || '').toLowerCase();
+      const productType = (mat.productType || '').toLowerCase();
       const desc = (mat.shortDesc || mat.description || '').toLowerCase();
       const standards = (mat.standards || '').toLowerCase();
 
@@ -104,7 +126,7 @@ export default function CategoryMaterialListingView({
         return gName.toLowerCase().includes(q);
       });
 
-      if (name.includes(q) || desc.includes(q) || standards.includes(q) || matchingGrades.length > 0) {
+      if (name.includes(q) || productType.includes(q) || desc.includes(q) || standards.includes(q) || matchingGrades.length > 0) {
         return {
           ...mat,
           highlightGrades: matchingGrades.length > 0 ? matchingGrades : null
@@ -124,7 +146,19 @@ export default function CategoryMaterialListingView({
 
   // Click handler for parent material card -> Opens material detail page
   const handleCardClick = (mat) => {
+    if (mat.productUrl) {
+      if (onNavigate) {
+        onNavigate(mat.productUrl);
+      }
+      return;
+    }
     const matSlug = mat.materialSlug || mat.slug.replace(/-(flanges|pipe|pipes|bars|bar|buttweld-fittings|pipe-fittings|fasteners|sheets-plates-coils)$/, '');
+    if (categorySlug === 'materials' || !categorySlug) {
+      if (onNavigate) {
+        onNavigate(`/materials/${matSlug}`);
+      }
+      return;
+    }
     const targetUrl = formatProductUrl(`/products/${categorySlug}/${matSlug}`);
     if (onNavigate) {
       onNavigate(targetUrl);
@@ -134,10 +168,34 @@ export default function CategoryMaterialListingView({
   // Click handler for grade chip -> Opens specific grade detail page
   const handleGradeClick = (e, mat, grade) => {
     e.stopPropagation();
-    const matSlug = mat.materialSlug || mat.slug.replace(/-(flanges|pipe|pipes|bars|bar|buttweld-fittings|pipe-fittings|fasteners|sheets-plates-coils)$/, '');
     const gradeSlug = typeof grade === 'string'
       ? grade.toLowerCase().replace(/[^a-z0-9]+/g, '-')
       : (grade.slug || grade.id || (grade.name ? grade.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') : ''));
+
+    if (mat.productUrl && gradeSlug) {
+      if (onNavigate) {
+        onNavigate(`${mat.productUrl}/${gradeSlug}`);
+      }
+      return;
+    }
+
+    const matSlug = mat.materialSlug || mat.slug.replace(/-(flanges|pipe|pipes|bars|bar|buttweld-fittings|pipe-fittings|fasteners|sheets-plates-coils)$/, '');
+
+    if (categorySlug === 'materials' || !categorySlug) {
+      // Direct to grade detail or material catalog view
+      const isPipe = ['stainless-steel', 'carbon-steel', 'alloy-steel', 'super-duplex-steel', 'duplex-steel', 'inconel', 'monel', 'hastelloy', 'nickel-alloys', 'copper-nickel', 'titanium', 'aluminum', 'is-grades', 'api-5l', 'en-standards'].includes(matSlug);
+      if (isPipe && gradeSlug) {
+        const targetUrl = formatProductUrl(`/products/pipes/${matSlug}/${gradeSlug}`);
+        if (onNavigate) {
+          onNavigate(targetUrl);
+          return;
+        }
+      }
+      if (onNavigate) {
+        onNavigate(`/materials/${matSlug}`);
+      }
+      return;
+    }
 
     const targetUrl = formatProductUrl(`/products/${categorySlug}/${matSlug}/${gradeSlug}`);
     if (onNavigate) {
@@ -154,20 +212,38 @@ export default function CategoryMaterialListingView({
           <nav className="cat-materials-breadcrumb" aria-label="Breadcrumb">
             <span className="crumb-link" onClick={() => onNavigate && onNavigate('/')}>Home</span>
             <span className="crumb-sep">/</span>
-            <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products')}>Products</span>
-            <span className="crumb-sep">/</span>
-            <span className="crumb-current">{categoryName}</span>
+            {categorySlug === 'materials' ? (
+              categoryName && categoryName !== 'Materials' ? (
+                <>
+                  <span className="crumb-link" onClick={() => onNavigate && onNavigate('/materials')}>Materials</span>
+                  <span className="crumb-sep">/</span>
+                  <span className="crumb-current">{categoryName}</span>
+                </>
+              ) : (
+                <span className="crumb-current">Materials</span>
+              )
+            ) : (
+              <>
+                <span className="crumb-link" onClick={() => onNavigate && onNavigate('/products')}>Products</span>
+                <span className="crumb-sep">/</span>
+                <span className="crumb-current">{categoryName}</span>
+              </>
+            )}
           </nav>
 
           <div className="cat-materials-badge-row">
-            <span className="cat-materials-badge-tag">METALLURGICAL ALLOY CATALOG</span>
+            <span className="cat-materials-badge-tag">
+              {categorySlug === 'materials' && categoryName && categoryName !== 'Materials' ? 'VERIFIED PRODUCT CATALOG' : 'METALLURGICAL ALLOY CATALOG'}
+            </span>
             {isManufacturedInMumbai && (
               <span className="cat-materials-badge-mumbai">
                 <MapPin size={12} />
                 MANUFACTURED IN MUMBAI
               </span>
             )}
-            <span className="cat-materials-badge-count">{materials.length} Certified Alloys</span>
+            <span className="cat-materials-badge-count">
+              {materials.length} {categorySlug === 'materials' && categoryName && categoryName !== 'Materials' ? 'Verified Products' : 'Certified Alloys'}
+            </span>
           </div>
 
           <h1 className="cat-materials-main-heading">
@@ -185,11 +261,17 @@ export default function CategoryMaterialListingView({
               <Search size={18} className="search-icon" />
               <input
                 type="text"
-                placeholder={`Search materials or grades in ${categoryName} (e.g., Stainless Steel, Inconel 625, ASTM A105, 316L)...`}
+                placeholder={
+                  categorySlug === 'materials'
+                    ? (categoryName && categoryName !== 'Materials'
+                        ? `Search ${categoryName} products & grades (e.g., Pipes, Flanges, 304, 316L, ASTM)...`
+                        : "Search materials or grades (e.g., Stainless Steel, Inconel 625, ASTM A105, 316L)...")
+                    : `Search materials or grades in ${categoryName} (e.g., Stainless Steel, Inconel 625, ASTM A105, 316L)...`
+                }
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="cat-materials-search-input"
-                aria-label={`Search materials in ${categoryName}`}
+                aria-label={`Search ${categoryName || 'materials'}`}
               />
               {searchQuery && (
                 <button
@@ -204,7 +286,7 @@ export default function CategoryMaterialListingView({
             </div>
             {searchQuery && (
               <div className="search-results-indicator">
-                Found {filteredMaterials.length} matching materials for "{searchQuery}"
+                Found {filteredMaterials.length} matching {categorySlug === 'materials' && categoryName && categoryName !== 'Materials' ? 'products' : 'materials'} for "{searchQuery}"
               </div>
             )}
           </div>
@@ -225,7 +307,9 @@ export default function CategoryMaterialListingView({
                   : (isExpanded ? allGrades : allGrades.slice(0, 5));
 
                 const remainingCount = allGrades.length - 5;
-                const displayName = getMaterialCardTitle(mat, categorySlug, categoryName);
+                const displayName = (mat.productUrl && (mat.title || mat.name))
+                  ? (mat.title || mat.name)
+                  : getMaterialCardTitle(mat, categorySlug, categoryName);
 
                 return (
                   <article
@@ -248,7 +332,7 @@ export default function CategoryMaterialListingView({
                       />
                       <div className="card-img-badge">
                         <ShieldCheck size={13} />
-                        <span>MILL CERTIFIED</span>
+                        <span>{mat.productType ? mat.productType : 'MILL CERTIFIED'}</span>
                       </div>
                     </div>
 
@@ -316,7 +400,9 @@ export default function CategoryMaterialListingView({
 
                     {/* Card Footer Action Bar */}
                     <div className="card-footer-bar">
-                      <span className="card-action-text">EXPLORE MATERIAL</span>
+                      <span className="card-action-text">
+                        {mat.productUrl ? `EXPLORE ${mat.productType || 'PRODUCT'}` : 'EXPLORE MATERIAL'}
+                      </span>
                       <div className="card-arrow-circle" aria-hidden="true">
                         <ArrowRight size={15} />
                       </div>

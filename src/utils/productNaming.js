@@ -51,6 +51,10 @@ export function getMaterialCardTitle(mat, categorySlug = '', categoryName = '') 
 
   const cat = (categorySlug || '').toLowerCase();
 
+  if (cat === 'materials' || cat === 'material' || (categoryName && categoryName.toLowerCase() === 'materials')) {
+    return baseMat;
+  }
+
   if (cat.includes('pipe')) {
     return `${baseMat} Pipes`;
   }

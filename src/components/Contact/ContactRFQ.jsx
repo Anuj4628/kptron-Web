@@ -10,11 +10,18 @@ import {
   RotateCcw,
   Copy,
   Check,
-  MessageSquare
+  MessageSquare,
+  Mail
 } from 'lucide-react';
 import { getAllProductGroups } from '../../data/productCatalogData';
 import { brandDetails } from '../../data/navigationData';
-import { submitQuoteRequest, generateTicketNumber, getWhatsAppInquiryUrl } from '../../services/quoteService';
+import { 
+  submitQuoteRequest, 
+  generateTicketNumber, 
+  getWhatsAppInquiryUrl, 
+  getGmailQuoteUrl, 
+  getMailtoQuoteUrl 
+} from '../../services/quoteService';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -153,63 +160,91 @@ export default function ContactRFQ() {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const isFormFilled = Boolean(
+    formData.fullName.trim().length >= 2 &&
+    formData.companyName.trim().length >= 1 &&
+    formData.email.trim() &&
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim()) &&
+    formData.phone.trim().length >= 7 &&
+    formData.product.trim()
+  );
 
-    // Prevent duplicate submissions
+  const handleSendViaWhatsApp = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
     if (isSubmitting) return;
 
     const validationErrors = validateAll();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-      // Focus the first invalid input
       const firstInvalidField = Object.keys(validationErrors)[0];
       const el = document.getElementById(firstInvalidField);
       if (el) el.focus();
       return;
     }
 
+    const currentTicket = ticketNumber || generateTicketNumber();
+    setTicketNumber(currentTicket);
     setIsSubmitting(true);
     setSubmitError('');
 
-    const submissionTime = new Date().toLocaleString('en-US', {
-      timeZone: 'Asia/Kolkata',
-      dateStyle: 'full',
-      timeStyle: 'medium'
+    const payload = {
+      ...formData,
+      ticketNumber: currentTicket,
+      submissionChannel: 'WhatsApp Direct'
+    };
+
+    const wa = getWhatsAppInquiryUrl(payload);
+    window.open(wa, '_blank', 'noopener,noreferrer');
+
+    submitQuoteRequest(payload).catch((err) => {
+      console.warn('Background quote transmission notice:', err);
     });
 
-    const generatedTicket = generateTicketNumber();
+    setIsSubmitting(false);
+    setSubmitSuccess(true);
+  };
 
-    const emailBodyText = [
-      `Full Name: ${formData.fullName.trim()}`,
-      `Company Name: ${formData.companyName.trim()}`,
-      `Email: ${formData.email.trim()}`,
-      `Mobile: ${formData.phone.trim()}`,
-      `Selected Product: ${formData.product}`,
-      `Specifications & Quantities: ${formData.specsAndQuantity.trim() || 'Not specified (Standard catalogue inquiry)'}`,
-      `Submission Date/Time: ${submissionTime} (IST)`
-    ].join('\n');
+  const handleSendViaEmail = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    if (isSubmitting) return;
 
-    try {
-      const result = await submitQuoteRequest({
-        ...formData,
-        ticketNumber: generatedTicket
-      });
-
-      setTicketNumber(result.ticket || generatedTicket);
-      setSubmitSuccess(true);
-      setIsSubmitting(false);
-
-      // Store formatted text for easy clipboard copy
-      setFormData((prev) => ({
-        ...prev,
-        _formattedEmail: emailBodyText
-      }));
-
-    } catch (err) {
-      setIsSubmitting(false);
-      setSubmitError(err.message || 'An unexpected transmission error occurred. Please retry or contact our desk directly.');
+    const validationErrors = validateAll();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      const firstInvalidField = Object.keys(validationErrors)[0];
+      const el = document.getElementById(firstInvalidField);
+      if (el) el.focus();
+      return;
     }
+
+    const currentTicket = ticketNumber || generateTicketNumber();
+    setTicketNumber(currentTicket);
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    const payload = {
+      ...formData,
+      ticketNumber: currentTicket,
+      submissionChannel: 'Gmail Compose'
+    };
+
+    const gmail = getGmailQuoteUrl(payload);
+    const win = window.open(gmail, '_blank', 'noopener,noreferrer');
+    if (!win || win.closed || typeof win.closed === 'undefined') {
+      window.location.href = getMailtoQuoteUrl(payload);
+    }
+
+    submitQuoteRequest(payload).catch((err) => {
+      console.warn('Background quote transmission notice:', err);
+    });
+
+    setIsSubmitting(false);
+    setSubmitSuccess(true);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSendViaWhatsApp(e);
   };
 
   const handleResetForm = () => {
@@ -304,6 +339,26 @@ export default function ContactRFQ() {
               </p>
 
               <div className="success-actions-row">
+                <a
+                  href={getWhatsAppInquiryUrl({ ...formData, ticketNumber })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-success-action btn-wa-followup"
+                >
+                  <MessageSquare size={15} aria-hidden="true" />
+                  <span>Open in WhatsApp</span>
+                </a>
+
+                <a
+                  href={getGmailQuoteUrl({ ...formData, ticketNumber })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-success-action btn-email-followup"
+                >
+                  <Mail size={15} aria-hidden="true" />
+                  <span>Open in Gmail</span>
+                </a>
+
                 <button
                   type="button"
                   className="btn-success-action btn-submit-another"
@@ -320,19 +375,9 @@ export default function ContactRFQ() {
                     onClick={handleCopyInquiry}
                   >
                     {copiedEmail ? <Check size={15} /> : <Copy size={15} />}
-                    <span>{copiedEmail ? 'Copied to Clipboard' : 'Copy Inquiry Summary'}</span>
+                    <span>{copiedEmail ? 'Copied' : 'Copy Summary'}</span>
                   </button>
                 )}
-
-                <a
-                  href={`https://wa.me/919967616124?text=${encodeURIComponent(`Hello KPTRON, I have submitted RFQ #${ticketNumber} for ${formData.product}. Please advise dispatch availability.`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-success-action btn-wa-followup"
-                >
-                  <MessageSquare size={15} aria-hidden="true" />
-                  <span>Follow up on WhatsApp</span>
-                </a>
               </div>
             </div>
           ) : (
@@ -564,33 +609,61 @@ export default function ContactRFQ() {
                 </div>
               </div>
 
-              {/* Submit Button Row */}
+              {/* Dual Channel Submit Options */}
               <div className="rfq-submit-row">
-                <button
-                  type="submit"
-                  className="btn-submit-rfq"
-                  disabled={isSubmitting}
-                >
-                  <span className="btn-submit-bg" aria-hidden="true" />
-                  <span className="btn-submit-content">
-                    {isSubmitting ? (
-                      <>
-                        <span className="rfq-spinner" aria-hidden="true" />
-                        <span>Transmitting RFQ to Commercial Desk...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Send size={16} className="btn-send-icon" aria-hidden="true" />
-                        <span>SUBMIT FORMAL RFQ INQUIRY</span>
-                      </>
+                <div className="rfq-submission-options-block">
+                  <div className="rfq-submission-header">
+                    <span className="rfq-submission-title">Choose Submission Option:</span>
+                    {!isFormFilled && (
+                      <span className="rfq-submission-hint">
+                        Complete required fields (*) to enable submission
+                      </span>
                     )}
-                  </span>
-                </button>
+                  </div>
+
+                  <div className="rfq-submission-buttons-grid">
+                    {/* Option 1: WhatsApp */}
+                    <button
+                      type="button"
+                      id="btn-rfq-submit-whatsapp"
+                      className={`btn-channel btn-channel-whatsapp ${!isFormFilled ? 'is-disabled' : ''}`}
+                      onClick={handleSendViaWhatsApp}
+                      disabled={isSubmitting}
+                      aria-label="Send Quote Request via WhatsApp"
+                    >
+                      <div className="btn-channel-icon-wrap wa-icon">
+                        <MessageSquare size={18} aria-hidden="true" />
+                      </div>
+                      <div className="btn-channel-content">
+                        <span className="btn-channel-main">Send via WhatsApp</span>
+                        <span className="btn-channel-sub">Instant chat with sales desk</span>
+                      </div>
+                    </button>
+
+                    {/* Option 2: Email / Gmail */}
+                    <button
+                      type="button"
+                      id="btn-rfq-submit-email"
+                      className={`btn-channel btn-channel-email ${!isFormFilled ? 'is-disabled' : ''}`}
+                      onClick={handleSendViaEmail}
+                      disabled={isSubmitting}
+                      aria-label="Send Quote Request via Email / Gmail"
+                    >
+                      <div className="btn-channel-icon-wrap email-icon">
+                        <Mail size={18} aria-hidden="true" />
+                      </div>
+                      <div className="btn-channel-content">
+                        <span className="btn-channel-main">Send via Email / Gmail</span>
+                        <span className="btn-channel-sub">Pre-filled Gmail compose</span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
 
                 <div className="rfq-assurance-row">
                   <div className="rfq-assurance-pill">
                     <ShieldCheck size={14} className="pill-icon" aria-hidden="true" />
-                    <span>Transmitted to: {brandDetails.contact.email}</span>
+                    <span>Target Desk: {brandDetails.contact.email}</span>
                   </div>
                   <div className="rfq-assurance-pill">
                     <Clock size={14} className="pill-icon" aria-hidden="true" />

@@ -325,9 +325,9 @@
 }
 
 .footer-logo-img {
-  height: 48px;
+  height: 54px;
   width: auto;
-  max-width: 220px;
+  max-width: 240px;
   object-fit: contain;
   display: block;
   image-rendering: auto;
@@ -346,17 +346,18 @@
 
 /* Industrial Certification Badges */
 .footer-cert-badges-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
   margin-top: 4px;
+  max-width: 320px;
 }
 
 .footer-cert-card {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
+  gap: 12px;
+  padding: 10px 14px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-left: 2px solid #64A2FF;

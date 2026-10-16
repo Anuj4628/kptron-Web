@@ -6,7 +6,6 @@ import {
   Mail,
   ArrowUp,
   ShieldCheck,
-  Award,
   ArrowUpRight,
   ChevronRight,
   Globe2,
@@ -103,7 +102,7 @@ export default function Footer({ onNavigate }) {
           <div className="telemetry-divider">+</div>
           <div className="telemetry-item">
             <span className="telemetry-label">CERT:</span>
-            <span className="telemetry-val">ISO 9001:2015 & IBR FORM III-C APPROVED</span>
+            <span className="telemetry-val">ISO 9001:2015 CERTIFIED QUALITY MANAGEMENT</span>
           </div>
           <div className="telemetry-divider">+</div>
           <div className="telemetry-item">
@@ -150,16 +149,6 @@ export default function Footer({ onNavigate }) {
                 <div className="cert-card-content">
                   <span className="cert-card-heading">ISO 9001:2015</span>
                   <span className="cert-card-sub">Certified Quality Management</span>
-                </div>
-              </div>
-
-              <div className="footer-cert-card">
-                <div className="cert-card-icon-box">
-                  <Award size={20} className="cert-card-icon" />
-                </div>
-                <div className="cert-card-content">
-                  <span className="cert-card-heading">IBR APPROVED</span>
-                  <span className="cert-card-sub">Indian Boiler Regulations Verified</span>
                 </div>
               </div>
             </div>
@@ -378,7 +367,7 @@ export default function Footer({ onNavigate }) {
             </p>
             <div className="bottom-cert-tag">
               <FileCheck2 size={13} className="bottom-tag-icon" />
-              <span>AN ISO 9001:2015 & IBR REGISTERED ENTERPRISE</span>
+              <span>AN ISO 9001:2015 REGISTERED ENTERPRISE</span>
             </div>
             <p className="footer-credit-line">
               Design and SEO by{' '}

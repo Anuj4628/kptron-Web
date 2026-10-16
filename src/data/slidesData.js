@@ -1,6 +1,6 @@
-import heroSlide1Img from '../assets/pipe/pipe.png';
+import heroSlide1Img from '../assets/pipe/pipe.webp';
 import heroSlide2Img from '../assets/Product BG/kptron-hero-slide2-partnership.jpg';
-import precisionPipesImg from '../assets/Serving Global Mission-Critical Sectors/precision industrial piping.png';
+import precisionPipesImg from '../assets/Serving Global Mission-Critical Sectors/precision industrial piping.webp';
 import superiorRoundsImg from '../assets/Product Images/Butt weld fit/alloy steel.jpg';
 
 export const heroSlides = [
@@ -75,8 +75,8 @@ export const heroSlides = [
     headline: "QUALITY [MATERIALS].\nCONSISTENT PERFORMANCE.",
     description: "A focused range of industrial materials and piping products selected to deliver reliability, durability and consistent performance.",
     primaryCta: {
-      label: "Explore Materials",
-      href: "/materials",
+      label: "Explore Products",
+      href: "/products",
       variant: "primary"
     },
     secondaryCta: {

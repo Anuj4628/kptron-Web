@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MATERIALS } from '../../data/materialsData';
+import { ArrowRight } from 'lucide-react';
 import './MaterialsSection.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -179,6 +180,24 @@ export default function MaterialsSection({ onNavigate }) {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Explore All Materials CTA Button */}
+      <div className="materials-action-row">
+        <a
+          href="/materials"
+          className="materials-explore-btn"
+          onClick={(e) => {
+            e.preventDefault();
+            if (typeof onNavigate === 'function') {
+              onNavigate('/materials');
+            }
+          }}
+          aria-label="Explore All Certified Metallurgical Materials"
+        >
+          <span>Explore All Materials</span>
+          <ArrowRight size={16} className="materials-btn-arrow" />
+        </a>
       </div>
 
       {/* Subtle Bottom Technical Divider */}

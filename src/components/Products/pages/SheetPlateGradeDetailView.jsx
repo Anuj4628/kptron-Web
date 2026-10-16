@@ -403,7 +403,7 @@ export default function SheetPlateGradeDetailView({ categorySlug, gradeSlug, onN
               {/* Direct WhatsApp CTA Button */}
               <div className="rfq-whatsapp-block">
                 <a
-                  href={`https://wa.me/919920199589?text=${whatsappMessage}`}
+                  href={`https://wa.me/919967616124?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp-quote"

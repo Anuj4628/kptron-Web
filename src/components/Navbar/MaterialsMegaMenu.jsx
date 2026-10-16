@@ -85,6 +85,19 @@ export default function MaterialsMegaMenu({ isOpen, onSelect, onClose }) {
               ))}
             </ul>
           </div>
+
+          {/* Footer: Explore All Materials */}
+          <div className="materials-dropdown-footer">
+            <a
+              href="/materials"
+              className="materials-footer-link"
+              onClick={(e) => handleItemClick(e, '/materials')}
+            >
+              <span>Explore All Materials</span>
+              <ChevronRight className="materials-footer-arrow" size={13} aria-hidden="true" />
+            </a>
+            <span className="materials-footer-note">All Certified Alloys</span>
+          </div>
         </div>
       </div>
     </div>

@@ -468,22 +468,23 @@
 }
 
 .material-grade-pill-btn:hover {
-  background-color: #0f172a;
-  color: #ffffff;
-  border-color: #0f172a;
+  background-color: #FFF7F4;
+  color: #0f172a;
+  border-color: #FF5B26;
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.15);
+  box-shadow: 0 2px 8px rgba(255, 91, 38, 0.12);
 }
 
 .material-grade-pill-btn .pill-dot {
   color: #FF5B26;
   font-size: 0.95rem;
   line-height: 0;
-  transition: color 0.18s ease;
+  transition: transform 0.18s ease, color 0.18s ease;
 }
 
 .material-grade-pill-btn:hover .pill-dot {
-  color: #FF8F6B;
+  color: #FF5B26;
+  transform: scale(1.15);
 }
 
 .material-grade-pill-btn .pill-text {

@@ -75,12 +75,12 @@ import img_al_6063 from '../assets/Pipes grades images/aluminium/6063 ALUMINUM P
 import img_al_7075 from '../assets/Pipes grades images/aluminium/7075 ALUMINUM PIPE.jpeg';
 
 // Direct imports for IS Grade Pipe Images (assets/Pipes grades images/is grade pipe/)
-import img_is_grades_pipe from '../assets/Pipes grades images/is grade pipe/is grade pipe.png';
-import img_is_1239 from '../assets/Pipes grades images/is grade pipe/1239 yst 210-240-310-355.png';
+import img_is_grades_pipe from '../assets/Pipes grades images/is grade pipe/is grade pipe.webp';
+import img_is_1239 from '../assets/Pipes grades images/is grade pipe/1239 yst 210-240-310-355.webp';
 import img_is_1161 from '../assets/Pipes grades images/is grade pipe/IS 1161 YST 210 - 240 --310 - 355 PIPE.jpeg';
 import img_is_3589 from '../assets/Pipes grades images/is grade pipe/IS 3589 YST 210 - 240 -310 PIPE.jpeg';
-import img_is_4923 from '../assets/Pipes grades images/is grade pipe/IS 4923 YST 210  240  310 PIPE.png';
-import img_is_2062 from '../assets/Pipes grades images/is grade pipe/IS 2062 STRUCTURAL STEEL PIPE.png';
+import img_is_4923 from '../assets/Pipes grades images/is grade pipe/IS 4923 YST 210  240  310 PIPE.webp';
+import img_is_2062 from '../assets/Pipes grades images/is grade pipe/IS 2062 STRUCTURAL STEEL PIPE.webp';
 
 // Direct imports for API 5L Pipe Grade Images (assets/Pipes grades images/Api/)
 import img_api_5l_grade_b from '../assets/Pipes grades images/Api/API 5L GRADE B PIPE.jpeg';

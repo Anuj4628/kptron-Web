@@ -16,7 +16,13 @@ import {
 } from 'lucide-react';
 import { getAllProductGroups } from '../../data/productCatalogData';
 import { brandDetails } from '../../data/navigationData';
-import { submitQuoteRequest, getWhatsAppInquiryUrl } from '../../services/quoteService';
+import { 
+  submitQuoteRequest, 
+  getWhatsAppInquiryUrl, 
+  getGmailQuoteUrl, 
+  getMailtoQuoteUrl, 
+  generateTicketNumber 
+} from '../../services/quoteService';
 import './QuoteModal.css';
 
 // Dynamic product groups from central catalog precomputed once
@@ -144,8 +150,17 @@ export default function QuoteModal({ isOpen, onClose, initialContext = {} }) {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const isFormFilled = Boolean(
+    formData.fullName.trim().length >= 2 &&
+    formData.companyName.trim().length >= 1 &&
+    formData.email.trim() &&
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim()) &&
+    formData.phone.trim().length >= 7 &&
+    formData.product.trim()
+  );
+
+  const handleSendViaWhatsApp = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
     if (isSubmitting) return;
 
     const validationErrors = validateAll();
@@ -157,18 +172,74 @@ export default function QuoteModal({ isOpen, onClose, initialContext = {} }) {
       return;
     }
 
+    const currentTicket = ticketNumber || generateTicketNumber();
+    setTicketNumber(currentTicket);
     setIsSubmitting(true);
     setSubmitError('');
 
-    try {
-      const res = await submitQuoteRequest(formData);
-      setTicketNumber(res.ticket);
-      setSubmitSuccess(true);
-      setIsSubmitting(false);
-    } catch (err) {
-      setIsSubmitting(false);
-      setSubmitError(err.message || 'An unexpected transmission error occurred. Please retry or contact our desk.');
+    const payload = {
+      ...formData,
+      ticketNumber: currentTicket,
+      submissionChannel: 'WhatsApp Direct'
+    };
+
+    // Open WhatsApp directly with configured business WhatsApp number and submitted form details
+    const wa = getWhatsAppInquiryUrl(payload);
+    window.open(wa, '_blank', 'noopener,noreferrer');
+
+    // Register quote in background engine (non-blocking)
+    submitQuoteRequest(payload).catch((err) => {
+      console.warn('Background quote transmission notice:', err);
+    });
+
+    setIsSubmitting(false);
+    setSubmitSuccess(true);
+  };
+
+  const handleSendViaEmail = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    if (isSubmitting) return;
+
+    const validationErrors = validateAll();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      const firstKey = Object.keys(validationErrors)[0];
+      const el = document.getElementById(`modal-${firstKey}`);
+      if (el) el.focus();
+      return;
     }
+
+    const currentTicket = ticketNumber || generateTicketNumber();
+    setTicketNumber(currentTicket);
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    const payload = {
+      ...formData,
+      ticketNumber: currentTicket,
+      submissionChannel: 'Gmail Compose'
+    };
+
+    // Open Gmail compose screen with configured business email, subject, and pre-filled details
+    const gmail = getGmailQuoteUrl(payload);
+    const win = window.open(gmail, '_blank', 'noopener,noreferrer');
+    if (!win || win.closed || typeof win.closed === 'undefined') {
+      window.location.href = getMailtoQuoteUrl(payload);
+    }
+
+    // Register quote in background engine (non-blocking)
+    submitQuoteRequest(payload).catch((err) => {
+      console.warn('Background quote transmission notice:', err);
+    });
+
+    setIsSubmitting(false);
+    setSubmitSuccess(true);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Default form submit directs to WhatsApp
+    handleSendViaWhatsApp(e);
   };
 
   const handleReset = () => {
@@ -190,6 +261,18 @@ export default function QuoteModal({ isOpen, onClose, initialContext = {} }) {
     ticketNumber,
     fullName: formData.fullName,
     companyName: formData.companyName,
+    email: formData.email,
+    phone: formData.phone,
+    product: formData.product,
+    specsAndQuantity: formData.specsAndQuantity
+  });
+
+  const gmailUrl = getGmailQuoteUrl({
+    ticketNumber,
+    fullName: formData.fullName,
+    companyName: formData.companyName,
+    email: formData.email,
+    phone: formData.phone,
     product: formData.product,
     specsAndQuantity: formData.specsAndQuantity
   });
@@ -285,7 +368,17 @@ export default function QuoteModal({ isOpen, onClose, initialContext = {} }) {
                 className="btn-modal-action btn-modal-wa"
               >
                 <MessageSquare size={16} aria-hidden="true" />
-                <span>Follow up on WhatsApp</span>
+                <span>Open in WhatsApp</span>
+              </a>
+
+              <a
+                href={gmailUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-modal-action btn-modal-email"
+              >
+                <Mail size={16} aria-hidden="true" />
+                <span>Open in Gmail</span>
               </a>
 
               <button
@@ -478,29 +571,59 @@ export default function QuoteModal({ isOpen, onClose, initialContext = {} }) {
 
             {/* Modal Submit Footer */}
             <div className="quote-modal-footer">
-              <button
-                type="submit"
-                id="quote-submit-btn"
-                className="btn-modal-submit"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  <>
-                    <span className="modal-spinner" aria-hidden="true" />
-                    <span>Transmitting RFQ to Commercial Desk...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send size={16} aria-hidden="true" />
-                    <span>SUBMIT FORMAL RFQ INQUIRY</span>
-                  </>
-                )}
-              </button>
+              <div className="submission-channel-block">
+                <div className="submission-channel-header">
+                  <span className="submission-channel-title">Choose Submission Option:</span>
+                  {!isFormFilled && (
+                    <span className="submission-channel-hint">
+                      Complete required fields (*) to enable submission
+                    </span>
+                  )}
+                </div>
+
+                <div className="submission-buttons-grid">
+                  {/* Option 1: WhatsApp */}
+                  <button
+                    type="button"
+                    id="btn-modal-submit-whatsapp"
+                    className={`btn-channel btn-channel-whatsapp ${!isFormFilled ? 'is-disabled' : ''}`}
+                    onClick={handleSendViaWhatsApp}
+                    disabled={isSubmitting}
+                    aria-label="Send Quote Request via WhatsApp"
+                  >
+                    <div className="btn-channel-icon-wrap wa-icon">
+                      <MessageSquare size={18} aria-hidden="true" />
+                    </div>
+                    <div className="btn-channel-content">
+                      <span className="btn-channel-main">Send via WhatsApp</span>
+                      <span className="btn-channel-sub">Instant chat with sales desk</span>
+                    </div>
+                  </button>
+
+                  {/* Option 2: Email / Gmail */}
+                  <button
+                    type="button"
+                    id="btn-modal-submit-email"
+                    className={`btn-channel btn-channel-email ${!isFormFilled ? 'is-disabled' : ''}`}
+                    onClick={handleSendViaEmail}
+                    disabled={isSubmitting}
+                    aria-label="Send Quote Request via Email / Gmail"
+                  >
+                    <div className="btn-channel-icon-wrap email-icon">
+                      <Mail size={18} aria-hidden="true" />
+                    </div>
+                    <div className="btn-channel-content">
+                      <span className="btn-channel-main">Send via Email / Gmail</span>
+                      <span className="btn-channel-sub">Pre-filled Gmail compose</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
 
               <div className="quote-modal-guarantees">
                 <div className="guarantee-pill">
                   <ShieldCheck size={13} aria-hidden="true" />
-                  <span>Transmitted to: {brandDetails.contact.email}</span>
+                  <span>Target Desk: {brandDetails.contact.email}</span>
                 </div>
                 <div className="guarantee-pill">
                   <Clock size={13} aria-hidden="true" />

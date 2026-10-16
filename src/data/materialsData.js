@@ -18,15 +18,24 @@ import { FLANGES_CATEGORIES } from './flangesData';
 import { FASTENERS_CATEGORIES } from './fastenersData';
 
 // Material category showcase images
-import imgAlloySteel from '../assets/Product Section/Material Imges/alloy steel.jpg';
+import imgAlloySteel from '../assets/Pipe Product new images/alloy steel.jpeg';
 import imgCarbon from '../assets/Product Section/Material Imges/carbon.png';
 import imgDuplex from '../assets/Product Section/Material Imges/duplex.jpg';
 import imgExoticAlloy from '../assets/Product Section/Material Imges/exotic.jpeg';
 import imgHighAlloy from '../assets/Product Section/Material Imges/high Alloy.webp';
-import imgNickelAlloy from '../assets/Product Section/Material Imges/nikle alloy.png';
+import imgNickelAlloy from '../assets/Product Images/Pipes and Tubes/nikle.png';
 import imgStainlessSteel from '../assets/Product Section/Material Imges/stainless steel.jpg';
 import imgSuperDuplex from '../assets/Product Section/Material Imges/super duplex.webp';
-import imgTitanium from '../assets/Product Section/Material Imges/titanium.png';
+import imgTitanium from '../assets/grades images/sheet&plates/titanium/TITANIUM SHEETS, PLATES.webp';
+import imgInconel from '../assets/Pipe Product new images/iconel.jpeg';
+import imgMonel from '../assets/Pipe Product new images/monel.jpeg';
+import imgHastelloy from '../assets/New Product img/sheet plates coil/hastelloy-coils.jpg';
+import imgCopperNickel from '../assets/Pipe Product new images/copper.jpeg';
+import imgAluminum from '../assets/Pipe Product new images/aluminium.jpeg';
+import imgIsGrades from '../assets/New Product img/Pipes/is-grades-pipes.jpg';
+import imgApi5l from '../assets/Pipe Product new images/api standard.jpeg';
+import imgEnStandards from '../assets/Pipe Product new images/En standard.jpeg';
+import imgMaragingSteel from '../assets/grades images/sheet&plates/alloy steel/ALLOY STEEL SHEET, PLATE.jpg';
 
 /**
  * Genuine Materials derived strictly from existing Products data
@@ -56,7 +65,7 @@ export const MATERIALS = [
     heroImage: imgCarbon,
     standards: ['ASTM A106', 'ASTM A516', 'ASTM A105', 'ASTM A234', 'ASTM A350', 'API 5L', 'IBR Approved'],
     keyAttributes: ['High Tensile Strength', 'Cost-Effective Reliability', 'Severe Pressure Tolerance', 'Low Temperature Impact Toughness'],
-    aliases: ['carbon-steel', 'carbon', 'cs', 'a106', 'a105', 'a234', 'a234-wpb', 'a350-lf2', 'api-5l', 'api5l', 'is-grades']
+    aliases: ['carbon-steel', 'carbon', 'cs', 'a106', 'a105', 'a234', 'a234-wpb', 'a350-lf2']
   },
   {
     id: 'alloy-steel',
@@ -104,8 +113,8 @@ export const MATERIALS = [
     badge: 'AEROSPACE & HIGH-HEAT SUPERALLOY',
     grade: 'Inconel 600 (N06600), Inconel 601, Inconel 625 (N06625), Inconel 718 (N07718)',
     shortDesc: 'Austenitic nickel-chromium-molybdenum superalloys designed to endure intense thermal cycling, severe oxidation, and corrosive gas streams up to 1000°C in jet engines, flare stacks, and chemical processing.',
-    image: imgNickelAlloy,
-    heroImage: imgNickelAlloy,
+    image: imgInconel,
+    heroImage: imgInconel,
     standards: ['ASTM B167', 'ASTM B444', 'ASTM B166', 'ASTM B446', 'ASTM B564', 'ASTM B366', 'AMS Specs'],
     keyAttributes: ['High Thermal Stability (1000°C+)', 'Non-Magnetic Matrix', 'Exceptional Pitting Immunity', 'Superior Fatigue Strength'],
     aliases: ['inconel', 'inconel-alloy', '600', '625', '718', 'inconel-600', 'inconel-625', 'inconel-718', 'n06625', 'n06600']
@@ -117,8 +126,8 @@ export const MATERIALS = [
     badge: 'NICKEL-COPPER MARINE SUPERALLOY',
     grade: 'Monel 400 (UNS N04400), Monel K500 (UNS N05500)',
     shortDesc: 'High-purity nickel-copper solid solution alloys offering exceptional resistance to rapidly flowing seawater, hydrofluoric acid, sulfuric acid, alkaline salts, and marine bio-fouling.',
-    image: imgHighAlloy,
-    heroImage: imgHighAlloy,
+    image: imgMonel,
+    heroImage: imgMonel,
     standards: ['ASTM B165', 'ASTM B127', 'ASTM B164', 'ASTM B564', 'ASTM B366', 'QQ-N-281', 'DIN 17752'],
     keyAttributes: ['Flowing Seawater Immunity', 'Hydrofluoric Acid Resistance', 'High Cavitation Endurance', 'Sub-Zero Impact Ductility'],
     aliases: ['monel', 'monel-alloy', '400', 'k500', 'monel-400', 'monel-k500', 'n04400', 'n05500']
@@ -130,8 +139,8 @@ export const MATERIALS = [
     badge: 'EXTREME ACID & CHLORIDE RESISTANT',
     grade: 'Hastelloy C276 (UNS N10276), C22 (UNS N06022), B2 (UNS N10665)',
     shortDesc: 'Nickel-molybdenum-chromium superalloys engineered with tungsten additions to withstand the most aggressive chemical environments including wet chlorine, ferric chloride, formic acid, and hot contaminated mineral acids.',
-    image: imgNickelAlloy,
-    heroImage: imgNickelAlloy,
+    image: imgHastelloy,
+    heroImage: imgHastelloy,
     standards: ['ASTM B622', 'ASTM B575', 'ASTM B574', 'ASTM B564', 'ASTM B366', 'ASME SB574', 'DIN 17744'],
     keyAttributes: ['Wet Chlorine Gas Immunity', 'Superior Intergranular Resistance', 'High Temperature Acid Tolerance', 'Extreme Crevice Resistance'],
     aliases: ['hastelloy', 'hastelloy-alloy', 'c276', 'c22', 'b2', 'hastelloy-c276', 'hastelloy-c22', 'n10276', 'n06022']
@@ -156,8 +165,8 @@ export const MATERIALS = [
     badge: 'MARINE CONDENSER & SEAWATER ALLOY',
     grade: 'Cu-Ni 90/10 (UNS C70600 / CW352H), Cu-Ni 70/30 (UNS C71500 / CW354H)',
     shortDesc: 'Marine-grade copper-nickel alloys characterized by high resistance to saltwater impingement, macro-fouling, marine biofouling, and stress corrosion in offshore cooling piping and desalination plants.',
-    image: imgHighAlloy,
-    heroImage: imgHighAlloy,
+    image: imgCopperNickel,
+    heroImage: imgCopperNickel,
     standards: ['ASTM B466', 'ASTM B171', 'ASTM B151', 'ASTM B564', 'ASTM B366', 'DIN 86019', 'EEMUA 144'],
     keyAttributes: ['Inherent Bio-Fouling Resistance', 'High Impingement Velocity Tolerance', 'Zero Pitting in Stagnant Seawater', 'Excellent Cold Formability'],
     aliases: ['copper-nickel', 'cu-ni', 'cuni', '90-10', '70-30', 'cu-ni-90-10', 'cu-ni-70-30', 'c70600', 'c71500', 'cupronickel']
@@ -182,24 +191,11 @@ export const MATERIALS = [
     badge: 'ULTRA-HIGH YIELD DEFENSE & AEROSPACE',
     grade: 'Maraging 250 (Vascomax 250), Maraging 300, Maraging 350 (Vascomax 350)',
     shortDesc: 'Ultra-high-strength, carbon-free iron-nickel martensitic alloys achieving extraordinary fracture toughness and dimensional stability through martensitic aging heat treatments.',
-    image: imgAlloySteel,
-    heroImage: imgAlloySteel,
+    image: imgMaragingSteel,
+    heroImage: imgMaragingSteel,
     standards: ['AMS 6512', 'AMS 6514', 'MIL-S-46850', 'ASTM A579'],
     keyAttributes: ['Yield Strength up to 2400 MPa', 'Exceptional Fracture Toughness', 'Negligible Distortion in Hardening', 'Aerospace & Centrifuge Certified'],
     aliases: ['maraging-steel', 'maraging', 'maraging-250', 'maraging-300', 'maraging-350', 'vascomax']
-  },
-  {
-    id: 'refractory-anchor',
-    name: 'Refractory Anchor',
-    slug: 'refractory-anchor',
-    badge: 'HIGH-HEAT FURNACE & KILN FASTENING',
-    grade: 'SS 304, SS 310, Inconel 601, Alloy 800, Carbon Steel High-Temp Anchors',
-    shortDesc: 'Specialized metallurgical high-temperature refractory anchoring fasteners engineered to support ceramic fiber and monolithic linings in petrochemical heaters, cement kilns, and thermal incinerators.',
-    image: imgExoticAlloy,
-    heroImage: imgExoticAlloy,
-    standards: ['ASTM A276', 'ASTM B166', 'DIN 1.4841', 'DIN 1.4845'],
-    keyAttributes: ['Thermal Creep Resistance up to 1200°C', 'Corrosion & Oxidation Resistance', 'Custom V, Y, Corrugated Forms', 'Engineered Weld Studs'],
-    aliases: ['refractory-anchor', 'refractory-anchors', 'refractory', 'anchor']
   },
   {
     id: 'aluminum',
@@ -208,8 +204,8 @@ export const MATERIALS = [
     badge: 'LIGHTWEIGHT ARCHITECTURAL & INDUSTRIAL',
     grade: '6061-T6, 6063-T6, 5083, 5086, 3003',
     shortDesc: 'Corrosion-resistant structural and process aluminum seamless and drawn pipes formulated for marine vessels, cryogenic transport, HVAC lines, and lightweight structural frameworks.',
-    image: imgAlloySteel,
-    heroImage: imgAlloySteel,
+    image: imgAluminum,
+    heroImage: imgAluminum,
     standards: ['ASTM B241', 'ASTM B221', 'ASTM B429', 'EN 573-3', 'DIN 1725'],
     keyAttributes: ['Lightweight Density (1/3 of Steel)', 'Cryogenic Ductility', 'Atmospheric Oxide Barrier', 'Superior Thermal Conductivity'],
     aliases: ['aluminum', 'aluminium', '6061', '6063', 'aluminum-pipes']
@@ -221,8 +217,8 @@ export const MATERIALS = [
     badge: 'INDIAN STANDARDS (BIS CERTIFIED)',
     grade: 'IS 2062 Gr. E250 / E350, IS 1239, IS 1161, IS 3589, IS 4923',
     shortDesc: 'Bureau of Indian Standards (BIS) certified carbon and structural steel specifications engineered for heavy civil constructions, industrial infrastructure, structural piping, and pressure service applications.',
-    image: imgCarbon,
-    heroImage: imgCarbon,
+    image: imgIsGrades,
+    heroImage: imgIsGrades,
     standards: ['IS 2062:2011', 'IS 1239', 'IS 1161', 'IS 3589', 'IS 4923', 'BIS Certified'],
     keyAttributes: ['Mandatory BIS Certification', 'High Structural Toughness', 'Superior Field Weldability', 'Guaranteed Impact Resistance at 0°C & -20°C'],
     aliases: ['is-grades', 'is-grade', 'is-2062', 'is2062', 'is2062-steel', 'is-1239', 'bis']
@@ -234,8 +230,8 @@ export const MATERIALS = [
     badge: 'PETROLEUM & GAS TRANSMISSION LINE PIPE',
     grade: 'API 5L Gr. B, X42, X46, X52, X56, X60, X65, X70 (PSL1 & PSL2)',
     shortDesc: 'American Petroleum Institute certified seamless and welded line pipes engineered specifically for cross-country petroleum pipelines, natural gas transmission, sour gas service (NACE MR0175), and offshore flowlines.',
-    image: imgCarbon,
-    heroImage: imgCarbon,
+    image: imgApi5l,
+    heroImage: imgApi5l,
     standards: ['API Spec 5L', 'ISO 3183', 'NACE MR0175 / ISO 15156', 'PSL1 & PSL2 Certified'],
     keyAttributes: ['High Yield Transmission Grades', 'NACE MR0175 Sour Service Compliance', 'Rigorous Ultrasonic & Hydrostatic Testing', 'Tight Dimensional Tolerances'],
     aliases: ['api-5l', 'api5l', 'api-5l-grades', 'api-line-pipe', 'x42', 'x52', 'x60', 'x65', 'x70']
@@ -247,8 +243,8 @@ export const MATERIALS = [
     badge: 'EUROPEAN PRESSURE VESSEL & ALLOY SPECIFICATIONS',
     grade: 'EN 10028-2 (16Mo3, 13CrMo4-5, 10CrMo9-10), EN 10216-2, EN 10025 S275/S355',
     shortDesc: 'Harmonized European Norms alloy steel and pressure vessel specifications engineered for elevated-temperature steam boilers, power generation piping, and chemical processing pressure vessels.',
-    image: imgAlloySteel,
-    heroImage: imgAlloySteel,
+    image: imgEnStandards,
+    heroImage: imgEnStandards,
     standards: ['EN 10028-2', 'EN 10216-2', 'EN 10025', 'PED 2014/68/EU', 'EN 10204 3.1 / 3.2'],
     keyAttributes: ['PED 2014/68/EU Pressure Compliant', 'Elevated Temperature Creep Strength', 'High Chromium-Molybdenum Purity', 'Full Mill Traceability EN 10204 3.1/3.2'],
     aliases: ['en-standards', 'en-standard', 'en10028', 'en-10028', 'en10216', 'en-10216', '16mo3']
@@ -318,7 +314,6 @@ export function normalizeMaterialSlug(raw) {
   if (s.includes('nickel')) return 'nickel-alloys';
   if (s.includes('titanium')) return 'titanium';
   if (s.includes('maraging')) return 'maraging-steel';
-  if (s.includes('refractory')) return 'refractory-anchor';
   if (s.includes('alumin')) return 'aluminum';
 
   return s;
@@ -373,10 +368,10 @@ function buildDynamicCatalog() {
     let matKeys = [];
     if (slug === 'stainless-steel-pipe') matKeys = ['stainless-steel'];
     else if (slug === 'carbon-steel-pipe') matKeys = ['carbon-steel'];
-    else if (slug === 'is-grades-pipe') matKeys = ['is-grades', 'carbon-steel'];
-    else if (slug === 'api-5l-pipe') matKeys = ['api-5l', 'carbon-steel'];
+    else if (slug === 'is-grades-pipe') matKeys = ['is-grades'];
+    else if (slug === 'api-5l-pipe') matKeys = ['api-5l'];
     else if (slug === 'alloy-steel-pipe') matKeys = ['alloy-steel'];
-    else if (slug === 'en-standards-pipe') matKeys = ['en-standards', 'alloy-steel'];
+    else if (slug === 'en-standards-pipe') matKeys = ['en-standards'];
     else if (slug === 'super-duplex-steel-pipe') matKeys = ['duplex-steel', 'super-duplex-steel'];
     else if (slug === 'inconel-pipe') matKeys = ['inconel'];
     else if (slug === 'monel-pipe') matKeys = ['monel'];
@@ -396,15 +391,15 @@ function buildDynamicCatalog() {
     const slug = cat.slug;
     let matKeys = [];
     if (slug === 'ss-sheets-plates-coils') matKeys = ['stainless-steel'];
-    else if (slug === 'carbon-steel-sheets-plates-coils') matKeys = ['carbon-steel', 'is-grades', 'api-5l'];
-    else if (slug === 'alloy-steel-sheets-plates-coils') matKeys = ['alloy-steel', 'en-standards'];
+    else if (slug === 'carbon-steel-sheets-plates-coils') matKeys = ['carbon-steel'];
+    else if (slug === 'alloy-steel-sheets-plates-coils') matKeys = ['alloy-steel'];
     else if (slug === 'super-duplex-sheets-plates-coils') matKeys = ['duplex-steel', 'super-duplex-steel'];
     else if (slug === 'inconel-sheets-plates-coils') matKeys = ['inconel'];
     else if (slug === 'hastelloy-sheets-plates-coils') matKeys = ['hastelloy'];
     else if (slug === 'titanium-sheets-plates-coils') matKeys = ['titanium'];
 
     if (matKeys.length > 0) {
-      register(wrapProduct(cat, 'SHEETS, PLATES, COILS', 'sheets-plates-coils', matKeys));
+      register(wrapProduct(cat, 'SHEETS & PLATES', 'sheets-plates-coils', matKeys));
     }
   });
 
@@ -479,11 +474,10 @@ function buildDynamicCatalog() {
     else if (slug === 'inconel-fasteners') matKeys = ['inconel'];
     else if (slug === 'monel-fasteners') matKeys = ['monel'];
     else if (slug === 'hastelloy-fasteners') matKeys = ['hastelloy'];
-    else if (slug === 'nickel-alloy-fasteners') matKeys = ['nickel-alloys'];
+    else if (slug === 'nickel-alloy-fasteners' || slug === 'nickel-alloys-fasteners') matKeys = ['nickel-alloys'];
     else if (slug === 'copper-nickel-fasteners') matKeys = ['copper-nickel'];
     else if (slug === 'titanium-fasteners') matKeys = ['titanium'];
     else if (slug === 'aluminum-fasteners') matKeys = ['aluminum'];
-    else if (slug === 'refractory-anchor') matKeys = ['refractory-anchor'];
 
     if (matKeys.length > 0) {
       register(wrapProduct(cat, 'FASTENERS', 'fasteners', matKeys));

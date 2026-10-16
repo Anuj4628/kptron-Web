@@ -937,7 +937,7 @@
 }
 
 /* ======================================================================
-   SECTION 3 — REQUEST A QUOTE (RFQ) — HIGH-CONTRAST DARK THEME
+   SECTION 3 — REQUEST A QUOTE (RFQ) — PREMIUM INDUSTRIAL LIGHT THEME
    ====================================================================== */
 .contact-rfq-section {
   padding: 40px 24px 80px;
@@ -946,15 +946,15 @@
 
 .rfq-master-card {
   position: relative;
-  background: #0B0F17;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
   border-radius: 16px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.04);
   max-width: 1100px;
   margin: 0 auto;
   overflow: hidden;
   padding: 50px 52px;
-  color: #F8FAFC;
+  color: #0F172A;
 }
 
 .rfq-top-glow {
@@ -963,7 +963,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #1F3862 0%, #5C93E8 50%, #94A3B8 100%);
+  background: linear-gradient(90deg, #1F3862 0%, #FF5B26 60%, #FF7748 100%);
 }
 
 .rfq-header-block {
@@ -982,9 +982,9 @@
 }
 
 .rfq-official-badge {
-  background: rgba(31, 56, 98, 0.25);
-  border: 1px solid rgba(92, 147, 232, 0.4);
-  color: #64A2FF;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: #1F3862;
   font-family: var(--font-mono, 'Space Grotesk', monospace);
   font-size: 0.74rem;
   font-weight: 700;
@@ -997,26 +997,34 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #94A3B8;
+  color: #15803D;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
   font-family: var(--font-mono, 'Space Grotesk', monospace);
   font-size: 0.76rem;
   font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 4px;
 }
 
 .rfq-title {
   font-family: var(--font-display, 'Montserrat', sans-serif);
   font-size: clamp(2rem, 3.4vw, 2.7rem);
   font-weight: 800;
-  color: #FFFFFF;
+  color: #0F172A;
   margin-bottom: 12px;
   letter-spacing: -0.01em;
   text-transform: uppercase;
 }
 
+.rfq-title .text-red {
+  color: #FF5B26;
+}
+
 .rfq-subtitle {
   font-size: 0.98rem;
   line-height: 1.65;
-  color: #94A3B8;
+  color: #475569;
 }
 
 /* RFQ Form Grid & Inputs */
@@ -1025,7 +1033,7 @@
   margin: 0 auto;
 }
 
-.rfq-grid {
+.rfq-fields-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 22px;
@@ -1036,31 +1044,45 @@
   flex-direction: column;
 }
 
-.form-group.full-width {
+.form-group.full-span {
   grid-column: 1 / -1;
 }
 
 .form-label {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-family: var(--font-mono, 'Space Grotesk', monospace);
   font-size: 0.8rem;
   font-weight: 700;
-  color: #E2E8F0;
+  color: #1E293B;
   margin-bottom: 8px;
   letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .req-star {
-  color: #5C93E8;
+  color: #FF5B26;
   font-weight: 800;
+}
+
+.form-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.optional-badge {
+  font-size: 0.72rem;
+  color: #94A3B8;
+  font-weight: 600;
 }
 
 .label-desc {
   font-size: 0.75rem;
   font-weight: 400;
-  color: #94A3B8;
+  color: #64748B;
 }
 
 .form-input,
@@ -1069,39 +1091,40 @@
   width: 100%;
   padding: 13px 16px;
   border-radius: 8px;
-  border: 1.5px solid #283548;
-  background-color: #121824;
-  color: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  background-color: #FFFFFF;
+  color: #0F172A;
   font-family: var(--font-primary, 'Inter', sans-serif);
   font-size: 0.95rem;
   line-height: 1.5;
   transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #5C93E8;
-  background-color: #161F30;
-  box-shadow: 0 0 0 3px rgba(92, 147, 232, 0.22);
+  border-color: #FF5B26;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(255, 91, 38, 0.16);
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: #64748B;
+  color: #94A3B8;
   font-size: 0.9rem;
 }
 
 .form-group.has-error .form-input,
 .form-group.has-error .form-select,
 .form-group.has-error .form-textarea {
-  border-color: #F43F5E;
-  background-color: rgba(244, 63, 94, 0.1);
+  border-color: #EF4444;
+  background-color: #FEF2F2;
 }
 
 .field-error-text {
-  color: #FB7185;
+  color: #DC2626;
   font-size: 0.8rem;
   font-weight: 600;
   margin-top: 6px;
@@ -1110,7 +1133,7 @@
 
 .field-hint {
   font-size: 0.78rem;
-  color: #94A3B8;
+  color: #64748B;
   margin-top: 7px;
   line-height: 1.5;
 }
@@ -1122,7 +1145,7 @@
 .form-select {
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 16px center;
   background-size: 16px;
@@ -1131,8 +1154,8 @@
 
 .form-select option,
 .form-select optgroup {
-  background-color: #0F172A;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: #0F172A;
   padding: 8px 12px;
 }
 
@@ -1141,86 +1164,162 @@
   min-height: 105px;
 }
 
+/* Submission Channel Options */
 .rfq-submit-row {
   margin-top: 34px;
   padding-top: 26px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.rfq-submission-options-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rfq-submission-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 0.5rem;
 }
 
-.btn-submit-rfq {
+.rfq-submission-title {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #1F3862;
+  font-family: var(--font-mono, 'Space Grotesk', monospace);
+}
+
+.rfq-submission-hint {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #FF5B26;
+  background: #FFF5F1;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #FFE2D8;
+}
+
+.rfq-submission-buttons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.rfq-submission-buttons-grid .btn-channel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 320px;
-  padding: 16px 36px;
-  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.rfq-submission-buttons-grid .btn-channel-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF;
+  border: 1.5px solid #25D366;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28);
+}
+
+.rfq-submission-buttons-grid .btn-channel-whatsapp:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1EB855 0%, #0F7569 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.38);
+}
+
+.rfq-submission-buttons-grid .btn-channel-email {
   background: linear-gradient(135deg, #1F3862 0%, #162C4E 100%);
   color: #FFFFFF;
-  border: 1px solid rgba(92, 147, 232, 0.35);
-  font-family: var(--font-display, 'Montserrat', sans-serif);
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-shadow: 0 6px 20px rgba(31, 56, 98, 0.35);
-  transition: all 0.25s ease;
+  border: 1.5px solid #1F3862;
+  box-shadow: 0 4px 14px rgba(31, 56, 98, 0.25);
 }
 
-.btn-submit-rfq:hover:not(:disabled) {
+.rfq-submission-buttons-grid .btn-channel-email:hover:not(:disabled) {
+  background: linear-gradient(135deg, #FF5B26 0%, #E04818 100%);
+  border-color: #FF5B26;
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(31, 56, 98, 0.5);
+  box-shadow: 0 8px 22px rgba(255, 91, 38, 0.35);
 }
 
-.btn-submit-rfq:active:not(:disabled) {
+.rfq-submission-buttons-grid .btn-channel:active:not(:disabled) {
   transform: translateY(0);
 }
 
-.btn-submit-rfq:disabled {
-  opacity: 0.85;
+.rfq-submission-buttons-grid .btn-channel.is-disabled {
+  opacity: 0.62;
+  filter: grayscale(20%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.rfq-submission-buttons-grid .btn-channel.is-disabled:hover {
+  transform: none;
+}
+
+.rfq-submission-buttons-grid .btn-channel:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
-.btn-submit-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #1F3862 0%, #162C4E 100%);
-  z-index: 1;
-}
-
-.btn-submit-content {
-  position: relative;
-  z-index: 2;
-  display: inline-flex;
+.rfq-submission-buttons-grid .btn-channel-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #FFFFFF;
 }
 
-.rfq-spinner {
-  width: 18px;
-  height: 18px;
-  border: 2px solid rgba(255, 255, 255, 0.35);
-  border-top-color: #FFFFFF;
-  border-radius: 50%;
-  animation: spinRfq 0.7s linear infinite;
+.rfq-submission-buttons-grid .btn-channel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
 }
 
-@keyframes spinRfq {
-  to { transform: rotate(360deg); }
+.rfq-submission-buttons-grid .btn-channel-main {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rfq-submission-buttons-grid .btn-channel-sub {
+  font-size: 0.74rem;
+  font-weight: 500;
+  opacity: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .rfq-assurance-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 18px;
   flex-wrap: wrap;
+  padding-top: 0.5rem;
 }
 
 .rfq-assurance-pill {
@@ -1229,20 +1328,21 @@
   gap: 6px;
   font-size: 0.82rem;
   font-weight: 600;
-  color: #CBD5E1;
+  color: #64748B;
 }
 
 .pill-icon {
-  color: #5C93E8;
+  color: #1F3862;
 }
 
 .rfq-global-error {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(244, 63, 94, 0.12);
-  border: 1px solid rgba(244, 63, 94, 0.3);
-  color: #FB7185;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-left: 4px solid #EF4444;
+  color: #991B1B;
   padding: 14px 18px;
   border-radius: 8px;
   margin-bottom: 24px;
@@ -1250,6 +1350,7 @@
   font-weight: 600;
 }
 
+/* Success Confirmation Screen */
 .rfq-success-container {
   text-align: center;
   padding: 24px 10px;
@@ -1261,33 +1362,34 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: rgba(16, 185, 129, 0.15);
-  border: 2px solid #10B981;
-  color: #10B981;
+  background: #F0FDF4;
+  border: 2px solid #BBF7D0;
+  color: #16A34A;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px auto;
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.15);
 }
 
 .success-heading {
   font-family: var(--font-display, 'Montserrat', sans-serif);
-  font-size: 1.9rem;
+  font-size: 1.85rem;
   font-weight: 800;
-  color: #FFFFFF;
+  color: #0F172A;
   margin-bottom: 12px;
 }
 
 .success-primary-msg {
   font-size: 1.05rem;
   line-height: 1.6;
-  color: #CBD5E1;
+  color: #475569;
   margin-bottom: 24px;
 }
 
 .success-summary-box {
-  background: #121824;
-  border: 1px solid #243044;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
   border-radius: 10px;
   padding: 20px 26px;
   margin-bottom: 24px;
@@ -1303,7 +1405,7 @@
   justify-content: space-between;
   gap: 12px;
   font-size: 0.9rem;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  border-bottom: 1px dashed #CBD5E1;
   padding-bottom: 8px;
 }
 
@@ -1313,19 +1415,20 @@
 }
 
 .data-lbl {
-  color: #94A3B8;
+  color: #64748B;
   font-weight: 600;
   font-size: 0.84rem;
 }
 
 .data-val {
-  color: #FFFFFF;
+  color: #0F172A;
+  font-weight: 600;
   text-align: right;
 }
 
 .success-reassurance {
   font-size: 0.92rem;
-  color: #94A3B8;
+  color: #64748B;
   margin-bottom: 30px;
 }
 
@@ -1352,34 +1455,49 @@
 }
 
 .btn-submit-another {
-  background: #1E293B;
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #F1F5F9;
+  color: #334155;
+  border: 1px solid #CBD5E1;
 }
 
 .btn-submit-another:hover {
-  background: #1F3862;
-  border-color: #1F3862;
+  background: #E2E8F0;
 }
 
 .btn-copy-inquiry {
-  background: rgba(255, 255, 255, 0.06);
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #F8FAFC;
+  color: #1F3862;
+  border: 1px solid #CBD5E1;
 }
 
 .btn-copy-inquiry:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: #EFF6FF;
+  border-color: #93C5FD;
 }
 
 .btn-wa-followup {
   background: #25D366;
   color: #FFFFFF;
-  border: none;
+  border: 1px solid #22C55E;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.25);
 }
 
 .btn-wa-followup:hover {
-  background: #1EBE5D;
+  background: #1EB855;
+  transform: translateY(-1px);
+}
+
+.btn-email-followup {
+  background: #1F3862;
+  color: #FFFFFF;
+  border: 1px solid #1F3862;
+  box-shadow: 0 2px 8px rgba(31, 56, 98, 0.25);
+}
+
+.btn-email-followup:hover {
+  background: #FF5B26;
+  border-color: #FF5B26;
+  transform: translateY(-1px);
 }
 
 /* ======================================================================
@@ -1760,14 +1878,13 @@
 
 @media (max-width: 960px) {
   .contact-hero {
-    min-height: 100vh;
-    min-height: 100dvh;
-    padding: 120px 20px 70px;
+    min-height: auto;
+    padding: 105px 20px 50px;
   }
 
   .contact-hero-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px;
   }
 
   .contact-hero-spacer {
@@ -1775,8 +1892,9 @@
   }
 
   .contact-hero-floating-card {
-    margin-left: 0;
-    max-width: 100%;
+    margin: 0 auto;
+    max-width: 540px;
+    width: 100%;
   }
 
   .info-map-grid {
@@ -1804,26 +1922,76 @@
 
 @media (max-width: 767px) {
   .contact-hero {
-    min-height: 100vh;
-    min-height: 100dvh;
-    padding: 110px 16px 60px;
+    min-height: auto;
+    padding: 95px 16px 45px;
+  }
+
+  .contact-hero-clear-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(8, 11, 17, 0.45) 0%,
+      rgba(8, 11, 17, 0.78) 45%,
+      rgba(8, 11, 17, 0.95) 100%
+    );
+  }
+
+  .contact-hero-bg-img {
+    object-position: center 20%;
   }
 
   .contact-hero-floating-card {
-    padding: 26px 20px;
+    padding: 24px 20px;
+    border-radius: 12px;
+  }
+
+  .floating-card-pill {
+    padding: 4px 8px;
+    margin-bottom: 12px;
+  }
+
+  .pill-text {
+    font-size: 0.64rem;
+    letter-spacing: 0.04em;
   }
 
   .floating-card-title {
-    font-size: 2.1rem;
+    font-size: 1.9rem;
+    line-height: 1.18;
+    margin-bottom: 10px;
+  }
+
+  .floating-card-description {
+    font-size: 0.86rem;
+    line-height: 1.5;
+    margin-bottom: 18px;
   }
 
   .floating-card-actions {
-    flex-direction: column;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 18px;
   }
 
   .btn-hero-action {
     width: 100%;
+    padding: 11px 16px;
+    font-size: 0.78rem;
+    justify-content: center;
+  }
+
+  .floating-card-badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 14px;
+    justify-content: flex-start;
+  }
+
+  .hero-cert-badge {
+    font-size: 0.65rem;
+    padding: 4px 8px;
   }
 
   .contact-intro-section {
@@ -1896,15 +2064,16 @@
   }
 
   .contact-rfq-section {
-    padding: 20px 16px 50px;
+    padding: 24px 16px 50px;
   }
 
   .rfq-master-card {
-    padding: 30px 18px;
+    padding: 26px 18px;
+    border-radius: 12px;
   }
 
   .rfq-title {
-    font-size: 1.6rem;
+    font-size: 1.55rem;
   }
 
   .rfq-fields-grid {
@@ -1915,15 +2084,36 @@
   .rfq-submit-row {
     flex-direction: column;
     align-items: stretch;
+    margin-top: 24px;
+    padding-top: 20px;
   }
 
-  .btn-submit-rfq {
-    min-width: 100%;
-    width: 100%;
+  .rfq-submission-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .rfq-submission-buttons-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .rfq-submission-buttons-grid .btn-channel {
+    padding: 12px 14px;
+    min-height: 48px;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 16px;
   }
 
   .rfq-assurance-row {
     justify-content: center;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .contact-faq-section {
@@ -2034,11 +2224,16 @@
   }
 
   .rfq-master-card {
-    padding: 22px 12px;
+    padding: 20px 14px;
+    border-radius: 10px;
   }
 
   .rfq-title {
     font-size: 1.35rem;
+  }
+
+  .rfq-submission-buttons-grid .btn-channel {
+    padding: 10px 12px;
   }
 
   .map-viewport {

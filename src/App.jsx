@@ -1093,9 +1093,13 @@ export default function App() {
               <MaterialDetailView
                 materialSlug={route.materialSlug}
                 onNavigate={navigateTo}
+                onOpenQuoteModal={openQuoteModal}
               />
             ) : (
-              <MaterialsLandingView onNavigate={navigateTo} />
+              <MaterialsLandingView 
+                onNavigate={navigateTo} 
+                onOpenQuoteModal={openQuoteModal} 
+              />
             )}
           </Suspense>
         </main>

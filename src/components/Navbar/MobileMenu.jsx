@@ -272,6 +272,14 @@ export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, o
                 {/* Expandable Materials Sub-menu */}
                 {isMaterials && materialsExpanded && (
                   <div className="mobile-subnav-container">
+                    <a
+                      href="/materials"
+                      className="mobile-subnav-item mobile-subnav-overview"
+                      onClick={(e) => handleSubProductClick(e, '/materials')}
+                    >
+                      <span className="subnav-mat-name">Explore All Materials</span>
+                      <span className="mobile-subnav-badge">View All</span>
+                    </a>
                     <div className="mobile-subnav-grid">
                       {NAVBAR_MATERIALS_OPTIONS.map((mat) => (
                         <a
@@ -284,14 +292,6 @@ export default function MobileMenu({ isOpen, onClose, activeLink, currentPage, o
                         </a>
                       ))}
                     </div>
-                    <a
-                      href="/materials"
-                      className="mobile-subnav-item mobile-subnav-overview"
-                      onClick={(e) => handleSubMaterialClick(e, 'all')}
-                    >
-                      <span>Explore All Materials Overview</span>
-                      <span className="mobile-subnav-badge">View All</span>
-                    </a>
                   </div>
                 )}
 

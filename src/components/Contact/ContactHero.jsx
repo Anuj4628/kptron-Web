@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import heroBg from '../../assets/images/contact-hero.png';
+import heroBg from '../../assets/images/contact-hero.webp';
 import {
   Send,
   Phone,
@@ -92,7 +92,7 @@ export default function ContactHero() {
             {/* Top Specification Pill */}
             <div className="floating-card-pill">
               <span className="pill-diamond" aria-hidden="true">◆</span>
-              <span className="pill-text">[OFFICIAL CATALOGUE CONTACT SPECIFICATION]</span>
+              <span className="pill-text">OFFICIAL CONTACT SPECIFICATION</span>
             </div>
 
             {/* Main Heading */}

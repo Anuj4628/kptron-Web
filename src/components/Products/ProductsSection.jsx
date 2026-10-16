@@ -5,11 +5,11 @@ import { ShieldCheck, Layers, ChevronDown, ChevronUp, ArrowRight } from 'lucide-
 
 // Authentic images for the 6 core product divisions
 import img_pipes from '../../assets/New Product img/Pipes/pipes-showcase.jpg';
-import img_sheets from '../../assets/our product new images/sheet and plates.png';
-import img_bars from '../../assets/our product new images/bars.png';
-import img_fittings from '../../assets/our product new images/buttweld fittings.png';
-import img_flanges from '../../assets/our product new images/flanges.png';
-import img_fasteners from '../../assets/our product new images/fasteners.png';
+import img_sheets from '../../assets/our product new images/sheet and plates.webp';
+import img_bars from '../../assets/our product new images/bars.webp';
+import img_fittings from '../../assets/our product new images/buttweld fittings.webp';
+import img_flanges from '../../assets/our product new images/flanges.webp';
+import img_fasteners from '../../assets/our product new images/fasteners.webp';
 
 // Live category & verified grades databases
 import { PIPE_CATEGORIES } from '../../data/pipesData';

@@ -1,5 +1,4 @@
-import kptronLogo from '../assets/images/kptron-logo-transparent.png';
-import kptronLogo2x from '../assets/images/kptron-logo-2x.png';
+import newKptronLogo from '../assets/logo 5/KPTRON Piping Solutions Logo.png';
 
 export const navLinks = [
   { id: "home", label: "Home", href: "#home" },
@@ -13,8 +12,8 @@ export const navLinks = [
 export const brandDetails = {
   name: "KPTRON PIPING SOLUTIONS INC.",
   tagline: "AN ISO 9001:2015 CERTIFIED COMPANY",
-  logoUrl: kptronLogo2x,
-  logoUrl2x: kptronLogo2x,
+  logoUrl: newKptronLogo,
+  logoUrl2x: newKptronLogo,
   website: "www.kptronpipingsolutions.com",
   quoteCta: {
     label: "GET A QUOTE",

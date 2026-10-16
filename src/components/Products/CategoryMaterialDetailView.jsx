@@ -38,10 +38,9 @@ const MATERIAL_PRIORITY = {
   'titanium': 11,
   'aluminum': 12,
   'maraging-steel': 13,
-  'refractory-anchor': 14,
-  'is-grades': 15,
-  'api-5l': 16,
-  'en-standards': 17
+  'is-grades': 14,
+  'api-5l': 15,
+  'en-standards': 16
 };
 
 function getMaterialSortRank(mat) {

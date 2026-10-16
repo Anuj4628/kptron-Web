@@ -422,17 +422,20 @@
 }
 
 .grade-pill-btn:hover {
-  background: #0B192C;
-  border-color: #0B192C;
-  color: #FFFFFF;
+  background: #FFF7F4;
+  border-color: #FF5B26;
+  color: #0B192C;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 91, 38, 0.12);
 }
 
 .grade-pill-btn:hover .pill-text {
-  color: #FFFFFF;
+  color: #0B192C;
 }
 
 .grade-pill-btn:hover .pill-dot {
   color: #FF5B26;
+  transform: scale(1.15);
 }
 
 /* Expander Button */

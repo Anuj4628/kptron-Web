@@ -350,7 +350,7 @@ export default function FastenerTypeDetailView({
                   <span>Request Instant Quotation</span>
                 </button>
                 <a
-                  href={`https://wa.me/919867140939?text=${whatsappMessage}`}
+                  href={`https://wa.me/919967616124?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="type-btn-whatsapp"

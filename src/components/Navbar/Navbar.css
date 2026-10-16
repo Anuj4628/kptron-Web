@@ -119,9 +119,9 @@
 }
 
 .navbar-brand-logo {
-  height: 64px;
+  height: 75px;
   width: auto;
-  max-width: 290px;
+  max-width: 305px;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
@@ -131,7 +131,7 @@
 }
 
 .navbar-wrapper.is-scrolled .navbar-brand-logo {
-  height: 56px;
+  height: 60px;
 }
 
 /* ===================================================
@@ -366,8 +366,8 @@
   }
 
   .navbar-brand-logo {
-    height: 58px;
-    max-width: 250px;
+    height: 62px;
+    max-width: 275px;
   }
 }
 
@@ -388,6 +388,7 @@
 }
 
 @media (max-width: 960px) {
+
   .navbar-nav-desktop,
   .navbar-actions-desktop {
     display: none;
@@ -398,7 +399,7 @@
   }
 
   .navbar-container {
-    height: 84px;
+    height: 86px;
     padding: 0 20px;
     gap: 16px;
   }
@@ -408,18 +409,18 @@
   }
 
   .navbar-brand-logo {
-    height: 56px;
-    max-width: 245px;
+    height: 58px;
+    max-width: 255px;
   }
 
   .navbar-wrapper.is-scrolled .navbar-brand-logo {
-    height: 48px;
+    height: 50px;
   }
 }
 
 @media (max-width: 480px) {
   .navbar-container {
-    height: 78px;
+    height: 80px;
     padding: 0 16px;
     gap: 12px;
   }
@@ -429,12 +430,12 @@
   }
 
   .navbar-brand-logo {
-    height: 52px;
-    max-width: 220px;
+    height: 54px;
+    max-width: 235px;
   }
 
   .navbar-wrapper.is-scrolled .navbar-brand-logo {
-    height: 46px;
+    height: 48px;
   }
 }
 
@@ -450,11 +451,11 @@
   }
 
   .navbar-brand-logo {
-    height: 46px;
-    max-width: 195px;
+    height: 48px;
+    max-width: 205px;
   }
 
   .navbar-wrapper.is-scrolled .navbar-brand-logo {
-    height: 42px;
+    height: 44px;
   }
 }
